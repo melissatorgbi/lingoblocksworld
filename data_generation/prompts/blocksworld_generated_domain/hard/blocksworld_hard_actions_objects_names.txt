@@ -1,0 +1,31 @@
+(define (domain blocksworld-4ops)
+  (:requirements :strips)
+(:predicates (clear ?x)
+             (ontable ?x)
+             (handempty)
+             (holding ?x)
+             (on ?x ?y))
+
+(:action [verb_1][abbr]
+  :parameters (?[noun_3])
+  :precondition (and (clear ?[noun_3]) (ontable ?[noun_3]) (handempty))
+  :effect (and (holding ?[noun_3]) (not (clear ?[noun_3])) (not (ontable ?[noun_3]))
+               (not (handempty))))
+
+(:action [verb_2][abbr]
+  :parameters  (?[noun_3])
+  :precondition (holding ?[noun_3])
+  :effect (and (clear ?[noun_3]) (handempty) (ontable ?[noun_3])
+               (not (holding ?[noun_3]))))
+
+(:action [verb_3][abbr]
+  :parameters  (?[noun_3] ?under[noun_3])
+  :precondition (and (clear ?under[noun_3]) (holding ?[noun_3]))
+  :effect (and (handempty) (clear ?[noun_3]) (on ?[noun_3] ?under[noun_3])
+               (not (clear ?under[noun_3])) (not (holding ?[noun_3]))))
+
+(:action [negate][verb_3][abbr]
+  :parameters  (?[noun_3] ?under[noun_3])
+  :precondition (and (on ?[noun_3] ?under[noun_3]) (clear ?[noun_3]) (handempty))
+  :effect (and (holding ?[noun_3]) (clear ?under[noun_3])
+               (not (on ?[noun_3] ?under[noun_3])) (not (clear ?[noun_3])) (not (handempty)))))

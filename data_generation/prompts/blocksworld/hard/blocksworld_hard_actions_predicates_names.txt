@@ -1,0 +1,91 @@
+instance_dir: blocksworld/generated_basic
+generalized_instance_dir: blocksworld/generated
+domain_file: blocksworld/generated_domain.pddl
+domain_name: blocksworld
+n_instances: 501
+start: 1
+end: 500
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into [verb_3][plural]. Here are the actions I can do
+
+   [verb_1][capitalize] a block
+   [negate][verb_3][capitalize] a block from [rel_1] another block
+   [verb_2][capitalize] a block
+   [verb_3][capitalize] a block [rel_1] another block
+
+   I have the following restrictions on my actions:
+   I can only [verb_1] or [negate][verb_3] one block at a time.
+   I can only [verb_1] or [negate][verb_3] a block if my [noun_2] is [adj_2].
+   I can only [verb_1] a block if the block is [rel_1] the [noun_1] and the block is [adj_1]. A block is [adj_1] if the block has no other blocks [rel_1] it and if the block is not [verb_1][past].
+   I can only [negate][verb_3] a block from [rel_1] another block if the block I am [negate][verb_3][progressive] was really [rel_1] the other block.
+   I can only [negate][verb_3] a block from [rel_1] another block if the block I am [negate][verb_3][progressive] is [adj_1].
+   Once I [verb_1] or [negate][verb_3] a block, I am [verb_4][progressive] the block.
+   I can only [verb_2] a block that I am [verb_4][progressive].
+   I can only [verb_3] a block [rel_1] another block if I am [verb_4][progressive] the block being [verb_3][past].
+   I can only [verb_3] a block [rel_1] another block if the block onto which I am [verb_3][progressive] the block is [adj_1].
+   Once I [verb_2] or [verb_3] a block, my [noun_2] becomes [adj_2].
+   Once you [verb_3] a block [rel_1] a second block, the second block is no longer [adj_1].
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into [verb_3][plural]. Here are the actions I can do
+
+   [verb_1][capitalize] a block
+   [negate][verb_3][capitalize] a block from [rel_1] another block
+   [verb_2][capitalize] a block
+   [verb_3][capitalize] a block [rel_1] another block
+
+   I have the following restrictions on my actions:
+   I can only [verb_1] or [negate][verb_3] one block at a time.
+   I can only [verb_1] or [negate][verb_3] a block if my [noun_2] is [adj_2].
+   I can only [verb_1] a block if the block is [rel_1] the [noun_1] and the block is [adj_1]. A block is [adj_1] if the block has no other blocks [rel_1] it and if the block is not [verb_1][past].
+   I can only [negate][verb_3] a block from [rel_1] another block if the block I am [negate][verb_3][progressive] was really [rel_1] the other block.
+   I can only [negate][verb_3] a block from [rel_1] another block if the block I am [negate][verb_3][progressive] is [adj_1].
+   Once I [verb_1] or [negate][verb_3] a block, I am [verb_4][progressive] the block.
+   I can only [verb_2] a block that I am [verb_4][progressive].
+   I can only [verb_3] a block [rel_1] another block if I am [verb_4][progressive] the block being [verb_3][past].
+   I can only [verb_3] a block [rel_1] another block if the block onto which I am [verb_3][progressive] the block is [adj_1].
+   Once I [verb_2] or [verb_3] a block, my [noun_2] becomes [adj_2].
+   Once you [verb_3] a block [rel_1] a second block, the second block is no longer [adj_1].
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {[verb_1][abbr]: "[verb_1] the {}",
+   [verb_2][abbr]: "[verb_2] the {}",
+   [verb_3][abbr]: "[verb_3] the {} [rel_1] the {}",
+   [negate][verb_3][abbr]: "[negate][verb_3] the {} from [rel_1] the {}"}
+
+
+
+predicates:
+  {[rel_1][noun_1][abbr]: "the {} is [rel_1] the [noun_1]",
+   [adj_1][abbr]: "the {} is [adj_1]",
+   [noun_2][adj_2][abbr]: "the [noun_2] is [adj_2]",
+   [verb_4][progressive][abbr]: "the [noun_2] is currently [verb_4][progressive] {}",
+   "[rel_1][abbr]": "the {} is [rel_1] the {}"}
+
+predicate_mapping:
+   {
+   "[rel_1][noun_1][abbr]": "[rel_1] the [noun_1]",
+   "[adj_1][abbr]": "[adj_1]",
+   "[noun_2][adj_2][abbr]": "[noun_2] is [adj_2]",
+   "[verb_4][progressive][abbr]": "[verb_4][progressive]",
+   "[rel_1][abbr]": "[rel_1]"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"a": "[noun_4] block", "b": "[noun_5] block", "c": "[noun_6] block", "d": "[noun_7] block",
+   "e": "[noun_8] block", "f": "[noun_9] block", "g": "[noun_10] block", "h": "[noun_11] block",
+   "i": "[noun_12] block", "j": "[noun_13] block", "k": "[noun_14] block", "l": "[noun_15] block" }
+encoded_objects_compact:
+  {"a": "[noun_4]", "b": "[noun_5]", "c": "[noun_6]", "d": "[noun_7]",
+   "e": "[noun_8]", "f": "[noun_9]", "g": "[noun_10]", "h": "[noun_11]",
+   "i": "[noun_12]", "j": "[noun_13]", "k": "[noun_14]", "l": "[noun_15]" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

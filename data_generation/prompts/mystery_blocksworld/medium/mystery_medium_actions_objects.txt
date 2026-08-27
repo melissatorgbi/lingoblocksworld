@@ -1,0 +1,74 @@
+instance_dir: blocksworld/mystery/generated_basic
+generalized_instance_dir: blocksworld/mystery/generated
+domain_file: blocksworld/mystery/generated_domain.pddl
+domain_name: mystery_blocksworld
+n_instances: 501
+start: 1
+end: 500
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of [noun_6][plural]. Here are the actions I can do
+   
+      [verb_1][capitalize] [noun_6]
+      [verb_4][capitalize] [noun_6] from another [noun_6]
+      [verb_2][capitalize] [noun_6]
+      [verb_3][capitalize] [noun_6] from another [noun_6]
+   
+   I have the following restrictions on my actions:
+       To perform [verb_1] action, the following facts need to be true: Province [noun_6], Planet [noun_6], Harmony.
+       Once [verb_1] action is performed the following facts will be true: Pain [noun_6].
+       Once [verb_1] action is performed the following facts will be false: Province [noun_6], Planet [noun_6], Harmony.
+       To perform [verb_2] action, the following facts need to be true: Pain [noun_6].
+       Once [verb_2] action is performed the following facts will be true: Province [noun_6], Planet [noun_6], Harmony.    
+       Once [verb_2] action is performed the following facts will be false: Pain [noun_6].
+       To perform [verb_3] action, the following needs to be true: Province other [noun_6], Pain [noun_6].
+       Once [verb_3] action is performed the following will be true: Harmony, Province [noun_6], [noun_6] Craves other [noun_6].
+       Once [verb_3] action is performed the following will be false: Province other [noun_6], Pain [noun_6].
+       To perform [verb_4] action, the following needs to be true: [noun_6] Craves other [noun_6], Province [noun_6], Harmony.
+       Once [verb_4] action is performed the following will be true: Pain [noun_6], Province other [noun_6].
+       Once [verb_4] action is performed the following will be false:, [noun_6] Craves other [noun_6], Province [noun_6], Harmony.
+
+domain_intro_state_tracking: |
+   I am playing with a set of [noun_6][plural]. Here are the actions I can do
+   
+      [verb_1][capitalize] [noun_6]
+      [verb_4][capitalize] [noun_6] from another [noun_6]
+      [verb_2][capitalize] [noun_6]
+      [verb_3][capitalize] [noun_6] from another [noun_6]
+   
+   I have the following restrictions on my actions:
+       To perform [verb_1] action, the following facts need to be true: Province [noun_6], Planet [noun_6], Harmony.
+       Once [verb_1] action is performed the following facts will be true: Pain [noun_6].
+       Once [verb_1] action is performed the following facts will be false: Province [noun_6], Planet [noun_6], Harmony.
+       To perform [verb_2] action, the following facts need to be true: Pain [noun_6].
+       Once [verb_2] action is performed the following facts will be true: Province [noun_6], Planet [noun_6], Harmony.    
+       Once [verb_2] action is performed the following facts will be false: Pain [noun_6].
+       To perform [verb_3] action, the following needs to be true: Province other [noun_6], Pain [noun_6].
+       Once [verb_3] action is performed the following will be true: Harmony, Province [noun_6], [noun_6] Craves other [noun_6].
+       Once [verb_3] action is performed the following will be false: Province other [noun_6], Pain [noun_6].
+       To perform [verb_4] action, the following needs to be true: [noun_6] Craves other [noun_6], Province [noun_6], Harmony.
+       Once [verb_4] action is performed the following will be true: Pain [noun_6], Province other [noun_6].
+       Once [verb_4] action is performed the following will be false:, [noun_6] Craves other [noun_6], Province [noun_6], Harmony.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {[verb_1]: "[verb_1] {}",
+   [verb_2]: "[verb_2] {}",
+   [verb_3]: "[verb_3] {} from {}",
+   [verb_4]: "[verb_4] {} from {}"}
+
+predicates:
+  {planet: "planet {}",
+   province: "province {}",
+   harmony: "harmony",
+   "craves": "{} craves {}",
+  "pain": "pain {}"}
+
+# encoded_objects: dictionary of [noun_6] names, have to be alphabetical
+encoded_objects:
+  {"a": "[noun_6] a", "b": "[noun_6] b", "c": "[noun_6] c", "d": "[noun_6] d",
+   "e": "[noun_6] e", "f": "[noun_6] f", "g": "[noun_6] g", "h": "[noun_6] h",
+   "i": "[noun_6] i", "j": "[noun_6] j", "k": "[noun_6] k", "l": "[noun_6] l" }

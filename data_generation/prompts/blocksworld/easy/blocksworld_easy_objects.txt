@@ -1,0 +1,89 @@
+instance_dir: blocksworld/generated_basic
+generalized_instance_dir: blocksworld/generated
+domain_file: blocksworld/generated_domain.pddl
+domain_name: blocksworld
+n_instances: 501
+start: 1
+end: 500
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of [noun_3][plural] where I need to arrange the [noun_3][plural] into stacks. Here are the actions I can do
+
+   Pick up a [noun_3]
+   Unstack a [noun_3] from on top of another [noun_3]
+   Put down a [noun_3]
+   Stack a [noun_3] on top of another [noun_3]
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one [noun_3] at a time.
+   I can only pick up or unstack a [noun_3] if my hand is empty.
+   I can only pick up a [noun_3] if the [noun_3] is on the table and the [noun_3] is clear. A [noun_3] is clear if the [noun_3] has no other [noun_3][plural] on top of it and if the [noun_3] is not picked up.
+   I can only unstack a [noun_3] from on top of another [noun_3] if the [noun_3] I am unstacking was really on top of the other [noun_3].
+   I can only unstack a [noun_3] from on top of another [noun_3] if the [noun_3] I am unstacking is clear.
+   Once I pick up or unstack a [noun_3], I am holding the [noun_3].
+   I can only put down a [noun_3] that I am holding.
+   I can only stack a [noun_3] on top of another [noun_3] if I am holding the [noun_3] being stacked.
+   I can only stack a [noun_3] on top of another [noun_3] if the [noun_3] onto which I am stacking the [noun_3] is clear.
+   Once I put down or stack a [noun_3], my hand becomes empty.
+   Once you stack a [noun_3] on top of a second [noun_3], the second [noun_3] is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of [noun_3][plural] where I need to arrange the [noun_3][plural] into stacks. Here are the actions I can do
+
+   Pick up a [noun_3]
+   Unstack a [noun_3] from on top of another [noun_3]
+   Put down a [noun_3]
+   Stack a [noun_3] on top of another [noun_3]
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one [noun_3] at a time.
+   I can only pick up or unstack a [noun_3] if my hand is empty.
+   I can only pick up a [noun_3] if the [noun_3] is on the table and the [noun_3] is clear. A [noun_3] is clear if the [noun_3] has no other [noun_3][plural] on top of it and if the [noun_3] is not picked up.
+   I can only unstack a [noun_3] from on top of another [noun_3] if the [noun_3] I am unstacking was really on top of the other [noun_3].
+   I can only unstack a [noun_3] from on top of another [noun_3] if the [noun_3] I am unstacking is clear.
+   Once I pick up or unstack a [noun_3], I am holding the [noun_3].
+   I can only put down a [noun_3] that I am holding.
+   I can only stack a [noun_3] on top of another [noun_3] if I am holding the [noun_3] being stacked.
+   I can only stack a [noun_3] on top of another [noun_3] if the [noun_3] onto which I am stacking the [noun_3] is clear.
+   Once I put down or stack a [noun_3], my hand becomes empty.
+   Once you stack a [noun_3] on top of a second [noun_3], the second [noun_3] is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} on top of the {}",
+   unstack: "unstack the {} from on top of the {}"}
+
+
+predicates:
+  {ontable: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "ontable": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"a": "red [noun_3]", "b": "blue [noun_3]", "c": "orange [noun_3]", "d": "yellow [noun_3]",
+   "e": "white [noun_3]", "f": "magenta [noun_3]", "g": "black [noun_3]", "h": "cyan [noun_3]",
+   "i": "green [noun_3]", "j": "violet [noun_3]", "k": "silver [noun_3]", "l": "gold [noun_3]" }
+encoded_objects_compact:
+  {"a": "red", "b": "blue", "c": "orange", "d": "yellow",
+   "e": "white", "f": "magenta", "g": "black", "h": "cyan",
+   "i": "green", "j": "violet", "k": "silver", "l": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

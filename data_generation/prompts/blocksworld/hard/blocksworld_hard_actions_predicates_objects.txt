@@ -1,0 +1,91 @@
+instance_dir: blocksworld/generated_basic
+generalized_instance_dir: blocksworld/generated
+domain_file: blocksworld/generated_domain.pddl
+domain_name: blocksworld
+n_instances: 501
+start: 1
+end: 500
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of [noun_3][plural] where I need to arrange the [noun_3][plural] into [verb_3][plural]. Here are the actions I can do
+
+   [verb_1][capitalize] a [noun_3]
+   [negate][verb_3][capitalize] a [noun_3] from [rel_1] another [noun_3]
+   [verb_2][capitalize] a [noun_3]
+   [verb_3][capitalize] a [noun_3] [rel_1] another [noun_3]
+
+   I have the following restrictions on my actions:
+   I can only [verb_1] or [negate][verb_3] one [noun_3] at a time.
+   I can only [verb_1] or [negate][verb_3] a [noun_3] if my [noun_2] is [adj_2].
+   I can only [verb_1] a [noun_3] if the [noun_3] is [rel_1] the [noun_1] and the [noun_3] is [adj_1]. A [noun_3] is [adj_1] if the [noun_3] has no other [noun_3][plural] [rel_1] it and if the [noun_3] is not [verb_1][past].
+   I can only [negate][verb_3] a [noun_3] from [rel_1] another [noun_3] if the [noun_3] I am [negate][verb_3][progressive] was really [rel_1] the other [noun_3].
+   I can only [negate][verb_3] a [noun_3] from [rel_1] another [noun_3] if the [noun_3] I am [negate][verb_3][progressive] is [adj_1].
+   Once I [verb_1] or [negate][verb_3] a [noun_3], I am [verb_4][progressive] the [noun_3].
+   I can only [verb_2] a [noun_3] that I am [verb_4][progressive].
+   I can only [verb_3] a [noun_3] [rel_1] another [noun_3] if I am [verb_4][progressive] the [noun_3] being [verb_3][past].
+   I can only [verb_3] a [noun_3] [rel_1] another [noun_3] if the [noun_3] onto which I am [verb_3][progressive] the [noun_3] is [adj_1].
+   Once I [verb_2] or [verb_3] a [noun_3], my [noun_2] becomes [adj_2].
+   Once you [verb_3] a [noun_3] [rel_1] a second [noun_3], the second [noun_3] is no longer [adj_1].
+
+domain_intro_state_tracking: |
+   I am playing with a set of [noun_3][plural] where I need to arrange the [noun_3][plural] into [verb_3][plural]. Here are the actions I can do
+
+   [verb_1][capitalize] a [noun_3]
+   [negate][verb_3][capitalize] a [noun_3] from [rel_1] another [noun_3]
+   [verb_2][capitalize] a [noun_3]
+   [verb_3][capitalize] a [noun_3] [rel_1] another [noun_3]
+
+   I have the following restrictions on my actions:
+   I can only [verb_1] or [negate][verb_3] one [noun_3] at a time.
+   I can only [verb_1] or [negate][verb_3] a [noun_3] if my [noun_2] is [adj_2].
+   I can only [verb_1] a [noun_3] if the [noun_3] is [rel_1] the [noun_1] and the [noun_3] is [adj_1]. A [noun_3] is [adj_1] if the [noun_3] has no other [noun_3][plural] [rel_1] it and if the [noun_3] is not [verb_1][past].
+   I can only [negate][verb_3] a [noun_3] from [rel_1] another [noun_3] if the [noun_3] I am [negate][verb_3][progressive] was really [rel_1] the other [noun_3].
+   I can only [negate][verb_3] a [noun_3] from [rel_1] another [noun_3] if the [noun_3] I am [negate][verb_3][progressive] is [adj_1].
+   Once I [verb_1] or [negate][verb_3] a [noun_3], I am [verb_4][progressive] the [noun_3].
+   I can only [verb_2] a [noun_3] that I am [verb_4][progressive].
+   I can only [verb_3] a [noun_3] [rel_1] another [noun_3] if I am [verb_4][progressive] the [noun_3] being [verb_3][past].
+   I can only [verb_3] a [noun_3] [rel_1] another [noun_3] if the [noun_3] onto which I am [verb_3][progressive] the [noun_3] is [adj_1].
+   Once I [verb_2] or [verb_3] a [noun_3], my [noun_2] becomes [adj_2].
+   Once you [verb_3] a [noun_3] [rel_1] a second [noun_3], the second [noun_3] is no longer [adj_1].
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {[verb_1][abbr]: "[verb_1] the {}",
+   [verb_2][abbr]: "[verb_2] the {}",
+   [verb_3][abbr]: "[verb_3] the {} [rel_1] the {}",
+   [negate][verb_3][abbr]: "[negate][verb_3] the {} from [rel_1] the {}"}
+
+
+
+predicates:
+  {[rel_1][noun_1][abbr]: "the {} is [rel_1] the [noun_1]",
+   [adj_1][abbr]: "the {} is [adj_1]",
+   [noun_2][adj_2][abbr]: "the [noun_2] is [adj_2]",
+   [verb_4][progressive][abbr]: "the [noun_2] is currently [verb_4][progressive] {}",
+   "[rel_1][abbr]": "the {} is [rel_1] the {}"}
+
+predicate_mapping:
+   {
+   "[rel_1][noun_1][abbr]": "[rel_1] the [noun_1]",
+   "[adj_1][abbr]": "[adj_1]",
+   "[noun_2][adj_2][abbr]": "[noun_2] is [adj_2]",
+   "[verb_4][progressive][abbr]": "[verb_4][progressive]",
+   "[rel_1][abbr]": "[rel_1]"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"a": "red [noun_3]", "b": "blue [noun_3]", "c": "orange [noun_3]", "d": "yellow [noun_3]",
+   "e": "white [noun_3]", "f": "magenta [noun_3]", "g": "black [noun_3]", "h": "cyan [noun_3]",
+   "i": "green [noun_3]", "j": "violet [noun_3]", "k": "silver [noun_3]", "l": "gold [noun_3]" }
+encoded_objects_compact:
+  {"a": "red", "b": "blue", "c": "orange", "d": "yellow",
+   "e": "white", "f": "magenta", "g": "black", "h": "cyan",
+   "i": "green", "j": "violet", "k": "silver", "l": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

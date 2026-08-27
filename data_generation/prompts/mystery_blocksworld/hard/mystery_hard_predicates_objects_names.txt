@@ -1,0 +1,74 @@
+instance_dir: blocksworld/mystery/generated_basic
+generalized_instance_dir: blocksworld/mystery/generated
+domain_file: blocksworld/mystery/generated_domain.pddl
+domain_name: mystery_blocksworld
+n_instances: 501
+start: 1
+end: 500
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of [noun_6][plural]. Here are the actions I can do
+   
+      Attack [noun_6]
+      Feast [noun_6] from another [noun_6]
+      Succumb [noun_6]
+      Overcome [noun_6] from another [noun_6]
+   
+   I have the following restrictions on my actions:
+       To perform Attack action, the following facts need to be true: [noun_2] [noun_6], [noun_1] [noun_6], [noun_3].
+       Once Attack action is performed the following facts will be true: [noun_5] [noun_6].
+       Once Attack action is performed the following facts will be false: [noun_2] [noun_6], [noun_1] [noun_6], [noun_3].
+       To perform Succumb action, the following facts need to be true: [noun_5] [noun_6].
+       Once Succumb action is performed the following facts will be true: [noun_2] [noun_6], [noun_1] [noun_6], [noun_3].    
+       Once Succumb action is performed the following facts will be false: [noun_5] [noun_6].
+       To perform Overcome action, the following needs to be true: [noun_2] other [noun_6], [noun_5] [noun_6].
+       Once Overcome action is performed the following will be true: [noun_3], [noun_2] [noun_6], [noun_6] [noun_4] other [noun_6].
+       Once Overcome action is performed the following will be false: [noun_2] other [noun_6], [noun_5] [noun_6].
+       To perform Feast action, the following needs to be true: [noun_6] [noun_4] other [noun_6], [noun_2] [noun_6], [noun_3].
+       Once Feast action is performed the following will be true: [noun_5] [noun_6], [noun_2] other [noun_6].
+       Once Feast action is performed the following will be false:, [noun_6] [noun_4] other [noun_6], [noun_2] [noun_6], [noun_3].
+
+domain_intro_state_tracking: |
+   I am playing with a set of [noun_6][plural]. Here are the actions I can do
+   
+      Attack [noun_6]
+      Feast [noun_6] from another [noun_6]
+      Succumb [noun_6]
+      Overcome [noun_6] from another [noun_6]
+   
+   I have the following restrictions on my actions:
+       To perform Attack action, the following facts need to be true: [noun_2] [noun_6], [noun_1] [noun_6], [noun_3].
+       Once Attack action is performed the following facts will be true: [noun_5] [noun_6].
+       Once Attack action is performed the following facts will be false: [noun_2] [noun_6], [noun_1] [noun_6], [noun_3].
+       To perform Succumb action, the following facts need to be true: [noun_5] [noun_6].
+       Once Succumb action is performed the following facts will be true: [noun_2] [noun_6], [noun_1] [noun_6], [noun_3].    
+       Once Succumb action is performed the following facts will be false: [noun_5] [noun_6].
+       To perform Overcome action, the following needs to be true: [noun_2] other [noun_6], [noun_5] [noun_6].
+       Once Overcome action is performed the following will be true: [noun_3], [noun_2] [noun_6], [noun_6] [noun_4] other [noun_6].
+       Once Overcome action is performed the following will be false: [noun_2] other [noun_6], [noun_5] [noun_6].
+       To perform Feast action, the following needs to be true: [noun_6] [noun_4] other [noun_6], [noun_2] [noun_6], [noun_3].
+       Once Feast action is performed the following will be true: [noun_5] [noun_6], [noun_2] other [noun_6].
+       Once Feast action is performed the following will be false:, [noun_6] [noun_4] other [noun_6], [noun_2] [noun_6], [noun_3].
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {attack: "attack {}",
+   succumb: "succumb {}",
+   overcome: "overcome {} from {}",
+   feast: "feast {} from {}"}
+
+predicates:
+  {[noun_1]: "[noun_1] {}",
+   [noun_2]: "[noun_2] {}",
+   [noun_3]: "[noun_3]",
+   "[noun_4]": "{} [noun_4] {}",
+  "[noun_5]": "[noun_5] {}"}
+
+# encoded_objects: dictionary of [noun_6] names, have to be alphabetical
+encoded_objects:
+  {"a": "[noun_6] [noun_7]", "b": "[noun_6] [noun_8]", "c": "[noun_6] [noun_9]", "d": "[noun_6] [noun_10]",
+   "e": "[noun_6] [noun_11]", "f": "[noun_6] [noun_12]", "g": "[noun_6] [noun_13]", "h": "[noun_6] [noun_14]",
+   "i": "[noun_6] i", "j": "[noun_6] [noun_16]", "k": "[noun_6] [noun_17]", "l": "[noun_6] [noun_18]" }

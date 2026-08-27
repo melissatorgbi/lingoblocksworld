@@ -1,0 +1,31 @@
+(define (domain blocksworld-4ops)
+  (:requirements :strips)
+(:predicates ([adj_1][abbr] ?x)
+             ([rel_1][noun_1][abbr] ?x)
+             ([noun_2][adj_2][abbr])
+             ([verb_4][progressive][abbr] ?x)
+             ([rel_1][abbr] ?x ?y))
+
+(:action [verb_1][abbr]
+  :parameters (?[noun_3])
+  :precondition (and ([adj_1][abbr] ?[noun_3]) ([rel_1][noun_1][abbr] ?[noun_3]) ([noun_2][adj_2][abbr]))
+  :effect (and ([verb_4][progressive][abbr] ?[noun_3]) (not ([adj_1][abbr] ?[noun_3])) (not ([rel_1][noun_1][abbr] ?[noun_3]))
+               (not ([noun_2][adj_2][abbr]))))
+
+(:action [verb_2][abbr]
+  :parameters  (?[noun_3])
+  :precondition ([verb_4][progressive][abbr] ?[noun_3])
+  :effect (and ([adj_1][abbr] ?[noun_3]) ([noun_2][adj_2][abbr]) ([rel_1][noun_1][abbr] ?[noun_3])
+               (not ([verb_4][progressive][abbr] ?[noun_3]))))
+
+(:action [verb_3][abbr]
+  :parameters  (?[noun_3] ?under[noun_3])
+  :precondition (and ([adj_1][abbr] ?under[noun_3]) ([verb_4][progressive][abbr] ?[noun_3]))
+  :effect (and ([noun_2][adj_2][abbr]) ([adj_1][abbr] ?[noun_3]) ([rel_1][abbr] ?[noun_3] ?under[noun_3])
+               (not ([adj_1][abbr] ?under[noun_3])) (not ([verb_4][progressive][abbr] ?[noun_3]))))
+
+(:action [negate][verb_3][abbr]
+  :parameters  (?[noun_3] ?under[noun_3])
+  :precondition (and ([rel_1][abbr] ?[noun_3] ?under[noun_3]) ([adj_1][abbr] ?[noun_3]) ([noun_2][adj_2][abbr]))
+  :effect (and ([verb_4][progressive][abbr] ?[noun_3]) ([adj_1][abbr] ?under[noun_3])
+               (not ([rel_1][abbr] ?[noun_3] ?under[noun_3])) (not ([adj_1][abbr] ?[noun_3])) (not ([noun_2][adj_2][abbr])))))

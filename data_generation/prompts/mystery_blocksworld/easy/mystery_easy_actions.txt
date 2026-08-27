@@ -1,0 +1,74 @@
+instance_dir: blocksworld/mystery/generated_basic
+generalized_instance_dir: blocksworld/mystery/generated
+domain_file: blocksworld/mystery/generated_domain.pddl
+domain_name: mystery_blocksworld
+n_instances: 501
+start: 1
+end: 500
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of objects. Here are the actions I can do
+   
+      [verb_1][capitalize] object
+      [verb_4][capitalize] object from another object
+      [verb_2][capitalize] object
+      [verb_3][capitalize] object from another object
+   
+   I have the following restrictions on my actions:
+       To perform [verb_1] action, the following facts need to be true: Province object, Planet object, Harmony.
+       Once [verb_1] action is performed the following facts will be true: Pain object.
+       Once [verb_1] action is performed the following facts will be false: Province object, Planet object, Harmony.
+       To perform [verb_2] action, the following facts need to be true: Pain object.
+       Once [verb_2] action is performed the following facts will be true: Province object, Planet object, Harmony.    
+       Once [verb_2] action is performed the following facts will be false: Pain object.
+       To perform [verb_3] action, the following needs to be true: Province other object, Pain object.
+       Once [verb_3] action is performed the following will be true: Harmony, Province object, Object Craves other object.
+       Once [verb_3] action is performed the following will be false: Province other object, Pain object.
+       To perform [verb_4] action, the following needs to be true: Object Craves other object, Province object, Harmony.
+       Once [verb_4] action is performed the following will be true: Pain object, Province other object.
+       Once [verb_4] action is performed the following will be false:, Object Craves other object, Province object, Harmony.
+
+domain_intro_state_tracking: |
+   I am playing with a set of objects. Here are the actions I can do
+   
+      [verb_1][capitalize] object
+      [verb_4][capitalize] object from another object
+      [verb_2][capitalize] object
+      [verb_3][capitalize] object from another object
+   
+   I have the following restrictions on my actions:
+       To perform [verb_1] action, the following facts need to be true: Province object, Planet object, Harmony.
+       Once [verb_1] action is performed the following facts will be true: Pain object.
+       Once [verb_1] action is performed the following facts will be false: Province object, Planet object, Harmony.
+       To perform [verb_2] action, the following facts need to be true: Pain object.
+       Once [verb_2] action is performed the following facts will be true: Province object, Planet object, Harmony.    
+       Once [verb_2] action is performed the following facts will be false: Pain object.
+       To perform [verb_3] action, the following needs to be true: Province other object, Pain object.
+       Once [verb_3] action is performed the following will be true: Harmony, Province object, Object Craves other object.
+       Once [verb_3] action is performed the following will be false: Province other object, Pain object.
+       To perform [verb_4] action, the following needs to be true: Object Craves other object, Province object, Harmony.
+       Once [verb_4] action is performed the following will be true: Pain object, Province other object.
+       Once [verb_4] action is performed the following will be false:, Object Craves other object, Province object, Harmony.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {[verb_1]: "[verb_1] {}",
+   [verb_2]: "[verb_2] {}",
+   [verb_3]: "[verb_3] {} from {}",
+   [verb_4]: "[verb_4] {} from {}"}
+
+predicates:
+  {planet: "planet {}",
+   province: "province {}",
+   harmony: "harmony",
+   "craves": "{} craves {}",
+  "pain": "pain {}"}
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"a": "object a", "b": "object b", "c": "object c", "d": "object d",
+   "e": "object e", "f": "object f", "g": "object g", "h": "object h",
+   "i": "object i", "j": "object j", "k": "object k", "l": "object l" }

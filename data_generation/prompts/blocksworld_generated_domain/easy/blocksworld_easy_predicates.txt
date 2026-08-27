@@ -1,0 +1,31 @@
+(define (domain blocksworld-4ops)
+  (:requirements :strips)
+(:predicates ([adj_1][abbr] ?x)
+             ([rel_1][noun_1][abbr] ?x)
+             ([noun_2][adj_2][abbr])
+             ([verb_4][progressive][abbr] ?x)
+             ([rel_1][abbr] ?x ?y))
+
+(:action pick-up
+  :parameters (?ob)
+  :precondition (and ([adj_1][abbr] ?ob) ([rel_1][noun_1][abbr] ?ob) ([noun_2][adj_2][abbr]))
+  :effect (and ([verb_4][progressive][abbr] ?ob) (not ([adj_1][abbr] ?ob)) (not ([rel_1][noun_1][abbr] ?ob))
+               (not ([noun_2][adj_2][abbr]))))
+
+(:action put-down
+  :parameters  (?ob)
+  :precondition ([verb_4][progressive][abbr] ?ob)
+  :effect (and ([adj_1][abbr] ?ob) ([noun_2][adj_2][abbr]) ([rel_1][noun_1][abbr] ?ob)
+               (not ([verb_4][progressive][abbr] ?ob))))
+
+(:action stack
+  :parameters  (?ob ?underob)
+  :precondition (and ([adj_1][abbr] ?underob) ([verb_4][progressive][abbr] ?ob))
+  :effect (and ([noun_2][adj_2][abbr]) ([adj_1][abbr] ?ob) ([rel_1][abbr] ?ob ?underob)
+               (not ([adj_1][abbr] ?underob)) (not ([verb_4][progressive][abbr] ?ob))))
+
+(:action unstack
+  :parameters  (?ob ?underob)
+  :precondition (and ([rel_1][abbr] ?ob ?underob) ([adj_1][abbr] ?ob) ([noun_2][adj_2][abbr]))
+  :effect (and ([verb_4][progressive][abbr] ?ob) ([adj_1][abbr] ?underob)
+               (not ([rel_1][abbr] ?ob ?underob)) (not ([adj_1][abbr] ?ob)) (not ([noun_2][adj_2][abbr])))))
