@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_actions_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_actions_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row2/generated_domain_medium_actions_names.pddl
+domain_name: blocksworld_medium_actions_names_row2
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into wrentiths. Here are the actions I can do
+
+   Maphile a block
+   Unwrentith a block from on top of another block
+   Diouet a block
+   Wrentith a block on top of another block
+
+   I have the following restrictions on my actions:
+   I can only maphile or unwrentith one block at a time.
+   I can only maphile or unwrentith a block if my hand is empty.
+   I can only maphile a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not maphiled.
+   I can only unwrentith a block from on top of another block if the block I am unwrentithing was really on top of the other block.
+   I can only unwrentith a block from on top of another block if the block I am unwrentithing is clear.
+   Once I maphile or unwrentith a block, I am holding the block.
+   I can only diouet a block that I am holding.
+   I can only wrentith a block on top of another block if I am holding the block being wrentithed.
+   I can only wrentith a block on top of another block if the block onto which I am wrentithing the block is clear.
+   Once I diouet or wrentith a block, my hand becomes empty.
+   Once you wrentith a block on top of a second block, the second block is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into wrentiths. Here are the actions I can do
+
+   Maphile a block
+   Unwrentith a block from on top of another block
+   Diouet a block
+   Wrentith a block on top of another block
+
+   I have the following restrictions on my actions:
+   I can only maphile or unwrentith one block at a time.
+   I can only maphile or unwrentith a block if my hand is empty.
+   I can only maphile a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not maphiled.
+   I can only unwrentith a block from on top of another block if the block I am unwrentithing was really on top of the other block.
+   I can only unwrentith a block from on top of another block if the block I am unwrentithing is clear.
+   Once I maphile or unwrentith a block, I am holding the block.
+   I can only diouet a block that I am holding.
+   I can only wrentith a block on top of another block if I am holding the block being wrentithed.
+   I can only wrentith a block on top of another block if the block onto which I am wrentithing the block is clear.
+   Once I diouet or wrentith a block, my hand becomes empty.
+   Once you wrentith a block on top of a second block, the second block is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {maphile: "maphile the {}",
+   diouet: "diouet the {}",
+   wrentith: "wrentith the {} on top of the {}",
+   unwrentith: "unwrentith the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "magnatinte block", "b2": "inatter block", "b3": "aleable block", "b4": "porth block",
+   "b5": "magnifian block", "b6": "dowmen block", "b7": "consvia block", "b8": "miltip block",
+   "b9": "porturser block", "b10": "rootog block", "b11": "precuth block", "b12": "faitta block" }
+encoded_objects_compact:
+  {"b1": "magnatinte", "b2": "inatter", "b3": "aleable", "b4": "porth",
+   "b5": "magnifian", "b6": "dowmen", "b7": "consvia", "b8": "miltip",
+   "b9": "porturser", "b10": "rootog", "b11": "precuth", "b12": "faitta" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

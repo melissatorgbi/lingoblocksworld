@@ -1,0 +1,2248 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_names_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0pzEDIOVZZ69zsgd56YY7lXmEti",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(michime, tegust)\n2. Put down(michime)\n3. Unstack(tegust, westoor)\n4. Put down(tegust)\n5. Unstack(westoor, facizer)\n6. Put down(westoor)\n7. Pick up(michime)\n8. Stack(michime, facizer)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315783,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3377,
+                    "prompt_tokens": 412,
+                    "total_tokens": 3789,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3264,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.85642981529236,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(michime, tegust)\n2. Put down(michime)\n3. Unstack(tegust, westoor)\n4. Put down(tegust)\n5. Unstack(westoor, facizer)\n6. Put down(westoor)\n7. Pick up(michime)\n8. Stack(michime, facizer)",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)",
+            "raw_translation": "```plaintext\n[PDDL PLAN]\n(unstack michime tegust)\n(put-down michime)\n(unstack tegust westoor)\n(put-down tegust)\n(unstack westoor facizer)\n(put-down westoor)\n(pick-up michime)\n(stack michime facizer)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the tegust block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0qk6juy9Ud3meAtAH2QCaDz1nrk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack michime from facizer\nStack michime on tegust\nPick up facizer\nStack facizer on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315830,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1251,
+                    "prompt_tokens": 441,
+                    "total_tokens": 1692,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.148322105407715,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack michime from facizer\nStack michime on tegust\nPick up facizer\nStack facizer on michime",
+            "extracted_llm_plan": "```)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n```)",
+            "raw_translation": "```\n(unstack michime facizer)\n(stack michime tegust)\n(pick-up facizer)\n(stack facizer michime)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0r35x1hUDV2DVHSnsJxbmxwP1Gd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack michime from tegust\n2. Put down michime\n3. Unstack tegust from westoor\n4. Put down tegust\n5. Pick up westoor\n6. Stack westoor on facizer\n7. Pick up michime\n8. Stack michime on westoor\n9. Pick up tegust\n10. Stack tegust on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315849,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1698,
+                    "prompt_tokens": 441,
+                    "total_tokens": 2139,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.803783416748047,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack michime from tegust\n2. Put down michime\n3. Unstack tegust from westoor\n4. Put down tegust\n5. Pick up westoor\n6. Stack westoor on facizer\n7. Pick up michime\n8. Stack michime on westoor\n9. Pick up tegust\n10. Stack tegust on michime",
+            "extracted_llm_plan": "```)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n```)",
+            "raw_translation": "```\n(unstack michime tegust)\n(put-down michime)\n(unstack tegust westoor)\n(put-down tegust)\n(pick-up westoor)\n(stack westoor facizer)\n(pick-up michime)\n(stack michime westoor)\n(pick-up tegust)\n(stack tegust michime)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the tegust block is on top of the westoor block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0rSHpSfVRRhnxjMl1jNjq5jfAE6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tegust from westoor\n2. Put down tegust\n3. Pick up facizer\n4. Stack facizer on tegust\n5. Pick up michime\n6. Stack michime on facizer\n7. Pick up westoor\n8. Stack westoor on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315874,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2191,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2635,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.13292479515076,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tegust from westoor\n2. Put down tegust\n3. Pick up facizer\n4. Stack facizer on tegust\n5. Pick up michime\n6. Stack michime on facizer\n7. Pick up westoor\n8. Stack westoor on michime",
+            "extracted_llm_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack tegust westoor)\n(put-down tegust)\n(pick-up facizer)\n(stack facizer tegust)\n(pick-up michime)\n(stack michime facizer)\n(pick-up westoor)\n(stack westoor michime)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the michime block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0s3kQwob2K2rSNmZOifdlelaEmO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(westoor, michime)\n2. Stack(westoor, facizer)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315911,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 542,
+                    "prompt_tokens": 428,
+                    "total_tokens": 970,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 512,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 8.776875257492065,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(westoor, michime)\n2. Stack(westoor, facizer)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(stack b4 b1)",
+            "raw_translation": "[PDDL PLAN]\n(unstack westoor michime)\n(stack westoor facizer)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the westoor block is on top of the michime block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0sCoaIVeCMIUD6LCGegVC3H7ZKg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from michime\n2. Put down westoor\n3. Unstack michime from facizer\n4. Put down michime\n5. Pick up tegust\n6. Stack tegust on facizer\n7. Pick up westoor\n8. Stack westoor on tegust\n9. Pick up michime\n10. Stack michime on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315920,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3162,
+                    "prompt_tokens": 441,
+                    "total_tokens": 3603,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 52.86228132247925,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from michime\n2. Put down westoor\n3. Unstack michime from facizer\n4. Put down michime\n5. Pick up tegust\n6. Stack tegust on facizer\n7. Pick up westoor\n8. Stack westoor on tegust\n9. Pick up michime\n10. Stack michime on westoor",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "(unstack westoor michime)\n(put-down westoor)\n(unstack michime facizer)\n(put-down michime)\n(pick-up tegust)\n(stack tegust facizer)\n(pick-up westoor)\n(stack westoor tegust)\n(pick-up michime)\n(stack michime westoor)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the westoor block is on top of the tegust block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0t3TD8NHEDF9EPRa7bqy7gmqgWm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack facizer from westoor\n2. Put down facizer\n3. Unstack westoor from tegust\n4. Put down westoor\n5. Pick up michime\n6. Stack michime on facizer\n7. Pick up tegust\n8. Stack tegust on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315973,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1933,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2361,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.100969076156616,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack facizer from westoor\n2. Put down facizer\n3. Unstack westoor from tegust\n4. Put down westoor\n5. Pick up michime\n6. Stack michime on facizer\n7. Pick up tegust\n8. Stack tegust on michime",
+            "extracted_llm_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b2)",
+            "raw_translation": "```plaintext\n[PDDL PLAN]\n(unstack facizer westoor)\n(put-down facizer)\n(unstack westoor tegust)\n(put-down westoor)\n(pick-up michime)\n(stack michime facizer)\n(pick-up tegust)\n(stack tegust michime)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0tUXDbHaacEabavBDhdLIzpmCzk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(tegust, michime)\n2. PutDown(tegust)\n3. Unstack(michime, westoor)\n4. Stack(michime, tegust)\n5. Unstack(westoor, facizer)\n6. PutDown(westoor)\n7. PickUp(facizer)\n8. Stack(facizer, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316000,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2143,
+                    "prompt_tokens": 425,
+                    "total_tokens": 2568,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.30927014350891,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(tegust, michime)\n2. PutDown(tegust)\n3. Unstack(michime, westoor)\n4. Stack(michime, tegust)\n5. Unstack(westoor, facizer)\n6. PutDown(westoor)\n7. PickUp(facizer)\n8. Stack(facizer, michime)",
+            "extracted_llm_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack tegust michime)\n(put-down tegust)\n(unstack michime westoor)\n(stack michime tegust)\n(unstack westoor facizer)\n(put-down westoor)\n(pick-up facizer)\n(stack facizer michime)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the tegust block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0tyq321dQfaInuCijJuCniK2CEr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack michime from westoor\n2. Put down michime\n3. Unstack westoor from tegust\n4. Put down westoor\n5. Pick up michime\n6. Stack michime on tegust\n7. Pick up westoor\n8. Stack westoor on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316030,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2122,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2550,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.582575798034668,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack michime from westoor\n2. Put down michime\n3. Unstack westoor from tegust\n4. Put down westoor\n5. Pick up michime\n6. Stack michime on tegust\n7. Pick up westoor\n8. Stack westoor on michime",
+            "extracted_llm_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "(unstack michime westoor)\n(put-down michime)\n(unstack westoor tegust)\n(put-down westoor)\n(pick-up michime)\n(stack michime tegust)\n(pick-up westoor)\n(stack westoor michime)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0uRZ6vDkz7BnbHoa93Gm3VvpkdK",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(westoor, michime)\nPutDown(westoor)\nUnstack(michime, facizer)\nPutDown(michime)\nUnstack(facizer, tegust)\nStack(facizer, michime)\nPickUp(westoor)\nStack(westoor, facizer)\nPickUp(tegust)\nStack(tegust, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316059,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2328,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2766,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.070045471191406,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(westoor, michime)\nPutDown(westoor)\nUnstack(michime, facizer)\nPutDown(michime)\nUnstack(facizer, tegust)\nStack(facizer, michime)\nPickUp(westoor)\nStack(westoor, facizer)\nPickUp(tegust)\nStack(tegust, westoor)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "[PDDL PLAN]\n(unstack westoor michime)\n(put-down westoor)\n(unstack michime facizer)\n(put-down michime)\n(unstack facizer tegust)\n(stack facizer michime)\n(pick-up westoor)\n(stack westoor facizer)\n(pick-up tegust)\n(stack tegust westoor)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0v29lGRHLcUGXDT7LEX9blrzIg5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(westoor, michime)\n2. PutDown(westoor)\n3. Unstack(michime, tegust)\n4. Stack(michime, westoor)\n5. Unstack(tegust, facizer)\n6. Stack(tegust, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316096,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1226,
+                    "prompt_tokens": 425,
+                    "total_tokens": 1651,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.171700954437256,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(westoor, michime)\n2. PutDown(westoor)\n3. Unstack(michime, tegust)\n4. Stack(michime, westoor)\n5. Unstack(tegust, facizer)\n6. Stack(tegust, michime)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)",
+            "raw_translation": "```plaintext\n[PDDL PLAN]\n(unstack westoor michime)\n(put-down westoor)\n(unstack michime tegust)\n(stack michime westoor)\n(unstack tegust facizer)\n(stack tegust michime)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0vLB12XYcpF8dUqX2Q2s6raTVFz",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(facizer, westoor)\nStack(facizer, tegust)\nPick up(michime)\nStack(michime, facizer)\nPick up(westoor)\nStack(westoor, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316115,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1526,
+                    "prompt_tokens": 444,
+                    "total_tokens": 1970,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.32254433631897,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(facizer, westoor)\nStack(facizer, tegust)\nPick up(michime)\nStack(michime, facizer)\nPick up(westoor)\nStack(westoor, michime)",
+            "extracted_llm_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "(unstack facizer westoor)\n(stack facizer tegust)\n(pick-up michime)\n(stack michime facizer)\n(pick-up westoor)\n(stack westoor michime)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0vgdwGrsWf4g0HR7MYOuUmTaI1K",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack facizer from michime\n2. Put down facizer\n3. Pick up westoor\n4. Stack westoor on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316136,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 681,
+                    "prompt_tokens": 428,
+                    "total_tokens": 1109,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 640,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.950706243515015,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack facizer from michime\n2. Put down facizer\n3. Pick up westoor\n4. Stack westoor on michime",
+            "extracted_llm_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack facizer michime)\n(put-down facizer)\n(pick-up westoor)\n(stack westoor michime)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0vqz0VtQCkq5Pph6fEvIPqcx3sk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from michime\n2. Put down westoor\n3. Unstack michime from facizer\n4. Put down michime\n5. Unstack facizer from tegust\n6. Put down facizer\n7. Pick up tegust\n8. Stack tegust on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316146,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2267,
+                    "prompt_tokens": 412,
+                    "total_tokens": 2679,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.86661434173584,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from michime\n2. Put down westoor\n3. Unstack michime from facizer\n4. Put down michime\n5. Unstack facizer from tegust\n6. Put down facizer\n7. Pick up tegust\n8. Stack tegust on michime",
+            "extracted_llm_plan": "```)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)",
+            "raw_translation": "```\n(unstack westoor michime)\n(put-down westoor)\n(unstack michime facizer)\n(put-down michime)\n(unstack facizer tegust)\n(put-down facizer)\n(pick-up tegust)\n(stack tegust michime)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0wOoqrQiITceCwJ9ClNtZqO9tKz",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from on top of tegust\n2. Put down westoor\n3. Unstack tegust from on top of facizer\n4. Put down tegust\n5. Pick up michime\n6. Stack michime on top of tegust\n7. Pick up westoor\n8. Stack westoor on top of michime\n9. Pick up facizer\n10. Stack facizer on top of westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316180,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2150,
+                    "prompt_tokens": 441,
+                    "total_tokens": 2591,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.103559732437134,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from on top of tegust\n2. Put down westoor\n3. Unstack tegust from on top of facizer\n4. Put down tegust\n5. Pick up michime\n6. Stack michime on top of tegust\n7. Pick up westoor\n8. Stack westoor on top of michime\n9. Pick up facizer\n10. Stack facizer on top of westoor",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack westoor tegust)\n(put-down westoor)\n(unstack tegust facizer)\n(put-down tegust)\n(pick-up michime)\n(stack michime tegust)\n(pick-up westoor)\n(stack westoor michime)\n(pick-up facizer)\n(stack facizer westoor)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the michime block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0wuzumnh7MEn2JzgqWOgrFtQwtE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tegust from westoor\n2. Put down tegust\n3. Unstack westoor from facizer\n4. Put down westoor\n5. Unstack facizer from michime\n6. Put down facizer\n7. Pick up michime\n8. Stack michime on facizer\n9. Pick up tegust\n10. Stack tegust on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316212,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2397,
+                    "prompt_tokens": 425,
+                    "total_tokens": 2822,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.04080033302307,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tegust from westoor\n2. Put down tegust\n3. Unstack westoor from facizer\n4. Put down westoor\n5. Unstack facizer from michime\n6. Put down facizer\n7. Pick up michime\n8. Stack michime on facizer\n9. Pick up tegust\n10. Stack tegust on westoor",
+            "extracted_llm_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack tegust westoor)\n(put-down tegust)\n(unstack westoor facizer)\n(put-down westoor)\n(unstack facizer michime)\n(put-down facizer)\n(pick-up michime)\n(stack michime facizer)\n(pick-up tegust)\n(stack tegust westoor)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0xSGZeej9XU3EOZ87jUkkCprddO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tegust from michime\n2. Stack tegust on facizer\n3. Unstack michime from westoor\n4. Put down michime\n5. Pick up westoor\n6. Stack westoor on tegust\n7. Pick up michime\n8. Stack michime on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316246,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2516,
+                    "prompt_tokens": 441,
+                    "total_tokens": 2957,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.45504665374756,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tegust from michime\n2. Stack tegust on facizer\n3. Unstack michime from westoor\n4. Put down michime\n5. Pick up westoor\n6. Stack westoor on tegust\n7. Pick up michime\n8. Stack michime on westoor",
+            "extracted_llm_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack tegust michime)\n(stack tegust facizer)\n(unstack michime westoor)\n(put-down michime)\n(pick-up westoor)\n(stack westoor tegust)\n(pick-up michime)\n(stack michime westoor)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0y3DRFhU5nCv5vziIzVGGtfUlEv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(tegust, michime)\n2. Putdown(tegust)\n3. Pickup(facizer)\n4. Stack(facizer, tegust)\n5. Pickup(michime)\n6. Stack(michime, facizer)\n7. Pickup(westoor)\n8. Stack(westoor, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316283,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1299,
+                    "prompt_tokens": 444,
+                    "total_tokens": 1743,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.54897904396057,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(tegust, michime)\n2. Putdown(tegust)\n3. Pickup(facizer)\n4. Stack(facizer, tegust)\n5. Pickup(michime)\n6. Stack(michime, facizer)\n7. Pickup(westoor)\n8. Stack(westoor, michime)",
+            "extracted_llm_plan": "(unstack b3 b2)\n(putdown b3)\n(pickup b1)\n(stack b1 b3)\n(pickup b2)\n(stack b2 b1)\n(pickup b4)\n(stack b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack tegust michime)\n(putdown tegust)\n(pickup facizer)\n(stack facizer tegust)\n(pickup michime)\n(stack michime facizer)\n(pickup westoor)\n(stack westoor michime)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(putdown b3)\n(pickup b1)\n(stack b1 b3)\n(pickup b2)\n(stack b2 b1)\n(pickup b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the facizer block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the westoor block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0yQt6DkViz1xLfdUZIzSSWxKo2J",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack michime from on top of westoor\n2. Put down michime\n3. Unstack westoor from on top of facizer\n4. Stack westoor on top of tegust\n5. Pick up michime\n6. Stack michime on top of westoor\n7. Pick up facizer\n8. Stack facizer on top of michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316306,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1816,
+                    "prompt_tokens": 441,
+                    "total_tokens": 2257,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.486032009124756,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack michime from on top of westoor\n2. Put down michime\n3. Unstack westoor from on top of facizer\n4. Stack westoor on top of tegust\n5. Pick up michime\n6. Stack michime on top of westoor\n7. Pick up facizer\n8. Stack facizer on top of michime",
+            "extracted_llm_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "Here's the PDDL plan based on the provided actions:\n\n[PDDL PLAN]\n(unstack michime westoor)\n(put-down michime)\n(unstack westoor facizer)\n(stack westoor tegust)\n(pick-up michime)\n(stack michime westoor)\n(pick-up facizer)\n(stack facizer michime)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0yszVrX5D6kgFXOY2hvy90y8d41",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(michime, tegust)\n2. PutDown(michime)\n3. Unstack(tegust, facizer)\n4. PutDown(tegust)\n5. PickUp(westoor)\n6. Stack(westoor, facizer)\n7. PickUp(michime)\n8. Stack(michime, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316334,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1879,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2307,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.035932064056396,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(michime, tegust)\n2. PutDown(michime)\n3. Unstack(tegust, facizer)\n4. PutDown(tegust)\n5. PickUp(westoor)\n6. Stack(westoor, facizer)\n7. PickUp(michime)\n8. Stack(michime, westoor)",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack michime tegust)\n(put-down michime)\n(unstack tegust facizer)\n(put-down tegust)\n(pick-up westoor)\n(stack westoor facizer)\n(pick-up michime)\n(stack michime westoor)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0zGyP0rNUM6cWFlNYndVBdIBSub",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(michime, tegust)\n2. Put down(michime)\n3. Unstack(facizer, westoor)\n4. Put down(facizer)\n5. Pick up(tegust)\n6. Stack(tegust, westoor)\n7. Pick up(facizer)\n8. Stack(facizer, tegust)\n9. Pick up(michime)\n10. Stack(michime, facizer)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316358,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1965,
+                    "prompt_tokens": 441,
+                    "total_tokens": 2406,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.861753463745117,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(michime, tegust)\n2. Put down(michime)\n3. Unstack(facizer, westoor)\n4. Put down(facizer)\n5. Pick up(tegust)\n6. Stack(tegust, westoor)\n7. Pick up(facizer)\n8. Stack(facizer, tegust)\n9. Pick up(michime)\n10. Stack(michime, facizer)",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)",
+            "raw_translation": "```plaintext\n[PDDL PLAN]\n(unstack michime tegust)\n(put-down michime)\n(unstack facizer westoor)\n(put-down facizer)\n(pick-up tegust)\n(stack tegust westoor)\n(pick-up facizer)\n(stack facizer tegust)\n(pick-up michime)\n(stack michime facizer)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0zjJIbJ4g1Vih2a1Q5iTuzkwvGt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(tegust, facizer)\n2. PutDown(tegust)\n3. PickUp(michime)\n4. Stack(michime, tegust)\n5. PickUp(facizer)\n6. Stack(facizer, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316387,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1225,
+                    "prompt_tokens": 431,
+                    "total_tokens": 1656,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.73508071899414,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(tegust, facizer)\n2. PutDown(tegust)\n3. PickUp(michime)\n4. Stack(michime, tegust)\n5. PickUp(facizer)\n6. Stack(facizer, michime)",
+            "extracted_llm_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack tegust facizer)\n(put-down tegust)\n(pick-up michime)\n(stack michime tegust)\n(pick-up facizer)\n(stack facizer michime)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ101B0RlSZaql9VGomUpbXoNGBH7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from tegust\n2. Put down westoor\n3. Unstack tegust from michime\n4. Put down tegust\n5. Pick up facizer\n6. Stack facizer on michime\n7. Pick up westoor\n8. Stack westoor on facizer\n9. Pick up tegust\n10. Stack tegust on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316405,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3559,
+                    "prompt_tokens": 441,
+                    "total_tokens": 4000,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3456,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 52.75172543525696,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from tegust\n2. Put down westoor\n3. Unstack tegust from michime\n4. Put down tegust\n5. Pick up facizer\n6. Stack facizer on michime\n7. Pick up westoor\n8. Stack westoor on facizer\n9. Pick up tegust\n10. Stack tegust on westoor",
+            "extracted_llm_plan": "```)\n(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "```\n(unstack westoor tegust)\n(put-down westoor)\n(unstack tegust michime)\n(put-down tegust)\n(pick-up facizer)\n(stack facizer michime)\n(pick-up westoor)\n(stack westoor facizer)\n(pick-up tegust)\n(stack tegust westoor)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ10smLCaANstQDV80D7gw6jmm56F",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(facizer, michime)\nPutDown(facizer)\nUnstack(michime, tegust)\nPutDown(michime)\nPickUp(westoor)\nStack(westoor, michime)\nPickUp(tegust)\nStack(tegust, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316458,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1543,
+                    "prompt_tokens": 428,
+                    "total_tokens": 1971,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.61101794242859,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(facizer, michime)\nPutDown(facizer)\nUnstack(michime, tegust)\nPutDown(michime)\nPickUp(westoor)\nStack(westoor, michime)\nPickUp(tegust)\nStack(tegust, westoor)",
+            "extracted_llm_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "[PDDL PLAN]\n(unstack facizer michime)\n(put-down facizer)\n(unstack michime tegust)\n(put-down michime)\n(pick-up westoor)\n(stack westoor michime)\n(pick-up tegust)\n(stack tegust westoor)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ11GrF3pGIXqJzIdhCIiB3sl1bOW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack facizer from tegust\n2. Put down facizer\n3. Pick up michime\n4. Stack michime on tegust\n5. Pick up westoor\n6. Stack westoor on michime\n7. Pick up facizer\n8. Stack facizer on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316482,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1609,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2053,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.586763858795166,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack facizer from tegust\n2. Put down facizer\n3. Pick up michime\n4. Stack michime on tegust\n5. Pick up westoor\n6. Stack westoor on michime\n7. Pick up facizer\n8. Stack facizer on westoor",
+            "extracted_llm_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack facizer tegust)\n(put-down facizer)\n(pick-up michime)\n(stack michime tegust)\n(pick-up westoor)\n(stack westoor michime)\n(pick-up facizer)\n(stack facizer westoor)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ11dsKC18ZGVZ39Twgf9N8WJyT3D",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack michime from facizer\n2. Put down michime\n3. Unstack facizer from westoor\n4. Put down facizer\n5. Pick up michime\n6. Stack michime on westoor\n7. Pick up facizer\n8. Stack facizer on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316505,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1866,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2294,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.81708312034607,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack michime from facizer\n2. Put down michime\n3. Unstack facizer from westoor\n4. Put down facizer\n5. Pick up michime\n6. Stack michime on westoor\n7. Pick up facizer\n8. Stack facizer on michime",
+            "extracted_llm_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "(unstack michime facizer)  \n(put-down michime)  \n(unstack facizer westoor)  \n(put-down facizer)  \n(pick-up michime)  \n(stack michime westoor)  \n(pick-up facizer)  \n(stack facizer michime)  \n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ124g1JfJQGsRuhtdST3yyklAyV5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from facizer\n2. Put down westoor\n3. Pick up facizer\n4. Stack facizer on michime\n5. Pick up westoor\n6. Stack westoor on facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316532,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1017,
+                    "prompt_tokens": 431,
+                    "total_tokens": 1448,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.962108850479126,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from facizer\n2. Put down westoor\n3. Pick up facizer\n4. Stack facizer on michime\n5. Pick up westoor\n6. Stack westoor on facizer",
+            "extracted_llm_plan": "(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "raw_translation": "[PDDL PLAN]\n(unstack westoor facizer)\n(put-down westoor)\n(pick-up facizer)\n(stack facizer michime)\n(pick-up westoor)\n(stack westoor facizer)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ12JGJIBZOSXdMLAuvEfwZOsoQFV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(tegust, westoor)\nPutDown(tegust)\nUnstack(westoor, michime)\nPutDown(westoor)\nUnstack(michime, facizer)\nPutDown(michime)\nPickUp(facizer)\nStack(facizer, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316547,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2128,
+                    "prompt_tokens": 412,
+                    "total_tokens": 2540,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.00951099395752,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(tegust, westoor)\nPutDown(tegust)\nUnstack(westoor, michime)\nPutDown(westoor)\nUnstack(michime, facizer)\nPutDown(michime)\nPickUp(facizer)\nStack(facizer, westoor)",
+            "extracted_llm_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "[PDDL PLAN]\n(unstack tegust westoor)\n(put-down tegust)\n(unstack westoor michime)\n(put-down westoor)\n(unstack michime facizer)\n(put-down michime)\n(pick-up facizer)\n(stack facizer westoor)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ12vRwJx92nGAsiFTMcyiRVAI6oN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from tegust\n2. Put down westoor\n3. Unstack tegust from facizer\n4. Put down tegust\n5. Unstack facizer from michime\n6. Put down facizer\n7. Pick up michime\n8. Stack michime on top of westoor\n9. Pick up facizer\n10. Stack facizer on top of michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316585,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1889,
+                    "prompt_tokens": 425,
+                    "total_tokens": 2314,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.53897476196289,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from tegust\n2. Put down westoor\n3. Unstack tegust from facizer\n4. Put down tegust\n5. Unstack facizer from michime\n6. Put down facizer\n7. Pick up michime\n8. Stack michime on top of westoor\n9. Pick up facizer\n10. Stack facizer on top of michime",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack westoor tegust)\n(put-down westoor)\n(unstack tegust facizer)\n(put-down tegust)\n(unstack facizer michime)\n(put-down facizer)\n(pick-up michime)\n(stack michime westoor)\n(pick-up facizer)\n(stack facizer michime)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the westoor block, the westoor block is on top of the facizer block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ13JhiLCnagRkyeB7WWRVT4C8pjT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(michime, westoor)\n2. PutDown(michime)\n3. Unstack(westoor, facizer)\n4. PutDown(westoor)\n5. Unstack(facizer, tegust)\n6. PutDown(facizer)\n7. PickUp(tegust)\n8. Stack(tegust, michime)\n9. PickUp(facizer)\n10. Stack(facizer, tegust)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316609,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2670,
+                    "prompt_tokens": 425,
+                    "total_tokens": 3095,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.914690256118774,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(michime, westoor)\n2. PutDown(michime)\n3. Unstack(westoor, facizer)\n4. PutDown(westoor)\n5. Unstack(facizer, tegust)\n6. PutDown(facizer)\n7. PickUp(tegust)\n8. Stack(tegust, michime)\n9. PickUp(facizer)\n10. Stack(facizer, tegust)",
+            "extracted_llm_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "raw_translation": "```plaintext\n[PDDL PLAN]\n(unstack michime westoor)\n(put-down michime)\n(unstack westoor facizer)\n(put-down westoor)\n(unstack facizer tegust)\n(put-down facizer)\n(pick-up tegust)\n(stack tegust michime)\n(pick-up facizer)\n(stack facizer tegust)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ13v37JcjUVoSdbgWyAEaM8fYNZc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(westoor, michime)\nPut down(westoor)\nUnstack(michime, tegust)\nPut down(michime)\nUnstack(tegust, facizer)\nStack(tegust, michime)\nPick up(facizer)\nStack(facizer, tegust)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316647,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3156,
+                    "prompt_tokens": 425,
+                    "total_tokens": 3581,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 51.3999183177948,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(westoor, michime)\nPut down(westoor)\nUnstack(michime, tegust)\nPut down(michime)\nUnstack(tegust, facizer)\nStack(tegust, michime)\nPick up(facizer)\nStack(facizer, tegust)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "raw_translation": "[PDDL PLAN]\n(unstack westoor michime)\n(put-down westoor)\n(unstack michime tegust)\n(put-down michime)\n(unstack tegust facizer)\n(stack tegust michime)\n(pick-up facizer)\n(stack facizer tegust)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ14kSiVLE9bJ3LXgBUJ9m73ffgFx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions needed \u2014 the goal is already satisfied (tegust is already on top of facizer).",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316698,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 413,
+                    "prompt_tokens": 415,
+                    "total_tokens": 828,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 384,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 7.746629953384399,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions needed \u2014 the goal is already satisfied (tegust is already on top of facizer).",
+            "extracted_llm_plan": "no)",
+            "raw_translation": "[PDDL PLAN]\nno actions needed\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "no)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ14s91Y5Q4bU8QKQfKZl2YlLMIHc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from tegust\n2. Stack westoor on facizer\n3. Unstack tegust from michime\n4. Put down tegust\n5. Pick up michime\n6. Stack michime on tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316706,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1404,
+                    "prompt_tokens": 428,
+                    "total_tokens": 1832,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.256808757781982,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from tegust\n2. Stack westoor on facizer\n3. Unstack tegust from michime\n4. Put down tegust\n5. Pick up michime\n6. Stack michime on tegust",
+            "extracted_llm_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)",
+            "raw_translation": "[PDDL PLAN]\n(unstack westoor tegust)\n(stack westoor facizer)\n(unstack tegust michime)\n(put-down tegust)\n(pick-up michime)\n(stack michime tegust)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the facizer block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ15CLgh1TqM0XFD66DMoyg2ArU04",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from facizer\n2. Put down westoor\n3. Unstack facizer from tegust\n4. Put down facizer\n5. Pick up michime\n6. Stack michime on tegust\n7. Pick up facizer\n8. Stack facizer on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316726,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1994,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2422,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.01491189002991,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from facizer\n2. Put down westoor\n3. Unstack facizer from tegust\n4. Put down facizer\n5. Pick up michime\n6. Stack michime on tegust\n7. Pick up facizer\n8. Stack facizer on michime",
+            "extracted_llm_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack westoor facizer)\n(put-down westoor)\n(unstack facizer tegust)\n(put-down facizer)\n(pick-up michime)\n(stack michime tegust)\n(pick-up facizer)\n(stack facizer michime)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the westoor block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the facizer block, the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ15jFnsD7fdBihu7gqPtXISc9H86",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack facizer from michime\n2. Put down facizer\n3. Unstack michime from westoor\n4. Stack michime on facizer\n5. Pick up westoor\n6. Stack westoor on michime\n7. Pick up tegust\n8. Stack tegust on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316759,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1420,
+                    "prompt_tokens": 441,
+                    "total_tokens": 1861,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.61573338508606,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack facizer from michime\n2. Put down facizer\n3. Unstack michime from westoor\n4. Stack michime on facizer\n5. Pick up westoor\n6. Stack westoor on michime\n7. Pick up tegust\n8. Stack tegust on westoor",
+            "extracted_llm_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "[PDDL PLAN]\n(unstack facizer michime)\n(put-down facizer)\n(unstack michime westoor)\n(stack michime facizer)\n(pick-up westoor)\n(stack westoor michime)\n(pick-up tegust)\n(stack tegust westoor)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ16An4iL4WwOLAc33EmqQBF4TH1Y",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack facizer from tegust\n2. Put down facizer\n3. Unstack tegust from westoor\n4. Put down tegust\n5. Unstack westoor from michime\n6. Put down westoor\n7. Pick up facizer\n8. Stack facizer on michime\n9. Pick up westoor\n10. Stack westoor on facizer\n11. Pick up tegust\n12. Stack tegust on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316786,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2411,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2849,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.033135175704956,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack facizer from tegust\n2. Put down facizer\n3. Unstack tegust from westoor\n4. Put down tegust\n5. Unstack westoor from michime\n6. Put down westoor\n7. Pick up facizer\n8. Stack facizer on michime\n9. Pick up westoor\n10. Stack westoor on facizer\n11. Pick up tegust\n12. Stack tegust on westoor",
+            "extracted_llm_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "(unstack facizer tegust)  \n(put-down facizer)  \n(unstack tegust westoor)  \n(put-down tegust)  \n(unstack westoor michime)  \n(put-down westoor)  \n(pick-up facizer)  \n(stack facizer michime)  \n(pick-up westoor)  \n(stack westoor facizer)  \n(pick-up tegust)  \n(stack tegust westoor)  \n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the michime block, the westoor block is on top of the tegust block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ16mWgsdJ3qMHgJer3D4gn47nSUp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from on top of tegust\n2. Put down westoor\n3. Unstack tegust from on top of michime\n4. Put down tegust\n5. Unstack michime from on top of facizer\n6. Stack michime on top of tegust\n7. Pick up facizer\n8. Stack facizer on top of westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316824,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2714,
+                    "prompt_tokens": 425,
+                    "total_tokens": 3139,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 46.895254373550415,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from on top of tegust\n2. Put down westoor\n3. Unstack tegust from on top of michime\n4. Put down tegust\n5. Unstack michime from on top of facizer\n6. Stack michime on top of tegust\n7. Pick up facizer\n8. Stack facizer on top of westoor",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "\n(unstack westoor tegust)\n(put-down westoor)\n(unstack tegust michime)\n(put-down tegust)\n(unstack michime facizer)\n(stack michime tegust)\n(pick-up facizer)\n(stack facizer westoor)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the tegust block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ17XCPkOrw24gECBoUSbMgJBiRYt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(tegust, michime)\n2. Put down(tegust)\n3. Unstack(michime, westoor)\n4. Put down(michime)\n5. Unstack(westoor, facizer)\n6. Put down(westoor)\n7. Pick up(tegust)\n8. Stack(tegust, facizer)\n9. Pick up(michime)\n10. Stack(michime, tegust)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316871,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2883,
+                    "prompt_tokens": 425,
+                    "total_tokens": 3308,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 63.89249229431152,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(tegust, michime)\n2. Put down(tegust)\n3. Unstack(michime, westoor)\n4. Put down(michime)\n5. Unstack(westoor, facizer)\n6. Put down(westoor)\n7. Pick up(tegust)\n8. Stack(tegust, facizer)\n9. Pick up(michime)\n10. Stack(michime, tegust)",
+            "extracted_llm_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)",
+            "raw_translation": "[PDDL PLAN]\n(unstack tegust michime)\n(put-down tegust)\n(unstack michime westoor)\n(put-down michime)\n(unstack westoor facizer)\n(put-down westoor)\n(pick-up tegust)\n(stack tegust facizer)\n(pick-up michime)\n(stack michime tegust)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ18ZHJ9inWGSOr59WeOcvARECc0w",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(westoor, michime)\n2. Put-down(westoor)\n3. Pick-up(facizer)\n4. Stack(facizer, michime)\n5. Pick-up(westoor)\n6. Stack(westoor, facizer)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316935,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1344,
+                    "prompt_tokens": 431,
+                    "total_tokens": 1775,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.431976795196533,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(westoor, michime)\n2. Put-down(westoor)\n3. Pick-up(facizer)\n4. Stack(facizer, michime)\n5. Pick-up(westoor)\n6. Stack(westoor, facizer)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "raw_translation": "(unstack westoor michime)\n(put-down westoor)\n(pick-up facizer)\n(stack facizer michime)\n(pick-up westoor)\n(stack westoor facizer)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ190SXUfZUR0G040lAyXKZEWXMdr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack facizer from westoor\n2. Put down facizer\n3. Unstack westoor from michime\n4. Put down westoor\n5. Unstack michime from tegust\n6. Stack michime on facizer\n7. Pick up westoor\n8. Stack westoor on tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316962,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2125,
+                    "prompt_tokens": 412,
+                    "total_tokens": 2537,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.221028089523315,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack facizer from westoor\n2. Put down facizer\n3. Unstack westoor from michime\n4. Put down westoor\n5. Unstack michime from tegust\n6. Stack michime on facizer\n7. Pick up westoor\n8. Stack westoor on tegust",
+            "extracted_llm_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b3)",
+            "raw_translation": "[RAW TEXT]\n1. Unstack facizer from westoor\n2. Put down facizer\n3. Unstack westoor from michime\n4. Put down westoor\n5. Unstack michime from tegust\n6. Stack michime on facizer\n7. Pick up westoor\n8. Stack westoor on tegust\n\n**Plan of Actions:**\n\n1. Unstack facizer from westoor\n2. Put down facizer\n3. Unstack westoor from michime\n4. Put down westoor\n5. Unstack michime from tegust\n6. Stack michime on facizer\n7. Pick up westoor\n8. Stack westoor on tegust\n\n[PDDL PLAN]\n(unstack facizer westoor)\n(put-down facizer)\n(unstack westoor michime)\n(put-down westoor)\n(unstack michime tegust)\n(stack michime facizer)\n(pick-up westoor)\n(stack westoor tegust)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b3)",
+            "cleaned_llm_correct": true
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

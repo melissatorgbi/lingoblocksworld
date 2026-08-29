@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_names_row2",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the hand is empty, the hermeden block is on top of the dustrylind block, the dustrylind block is on top of the defele block, the defele block is on top of the corpastion block and the corpastion block is on the table.\nMy goal is to have that the hermeden block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ96eziBGcqKpJs2BiGeXeZx8AuwB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack hermeden from dustrylind\n2. Put down hermeden\n3. Unstack dustrylind from defele\n4. Put down dustrylind\n5. Unstack defele from corpastion\n6. Put down defele\n7. Pick up hermeden\n8. Stack hermeden on corpastion",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347568,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1555,
+                    "prompt_tokens": 419,
+                    "total_tokens": 1974,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.50431799888611,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack hermeden from dustrylind\n2. Put down hermeden\n3. Unstack dustrylind from defele\n4. Put down dustrylind\n5. Unstack defele from corpastion\n6. Put down defele\n7. Pick up hermeden\n8. Stack hermeden on corpastion"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the dustrylind block is clear, the hand is empty, the corpastion block is on top of the defele block, the hermeden block is on top of the corpastion block, the dustrylind block is on the table and the defele block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block, the hermeden block is on top of the dustrylind block and the dustrylind block is on top of the defele block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ96ykPoUjSt0RUUisLAnxFZCIvnY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(hermeden, corpastion)\n2. Stack(hermeden, dustrylind)\n3. Unstack(corpastion, defele)\n4. Stack(corpastion, hermeden)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347588,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1016,
+                    "prompt_tokens": 452,
+                    "total_tokens": 1468,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.11177110671997,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(hermeden, corpastion)\n2. Stack(hermeden, dustrylind)\n3. Unstack(corpastion, defele)\n4. Stack(corpastion, hermeden)"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hermeden block is clear, the hand is empty, the hermeden block is on top of the dustrylind block, the dustrylind block is on top of the defele block, the corpastion block is on the table and the defele block is on the table.\nMy goal is to have that the hermeden block is on top of the defele block, the dustrylind block is on top of the hermeden block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ97FYHydLthS7dq7cEPAf4CViHPu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack hermeden from dustrylind\n2. Put down hermeden\n3. Unstack dustrylind from defele\n4. Put down dustrylind\n5. Pick up defele\n6. Stack defele on corpastion\n7. Pick up hermeden\n8. Stack hermeden on defele\n9. Pick up dustrylind\n10. Stack dustrylind on hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347605,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3301,
+                    "prompt_tokens": 450,
+                    "total_tokens": 3751,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3200,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 50.18622946739197,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack hermeden from dustrylind\n2. Put down hermeden\n3. Unstack dustrylind from defele\n4. Put down dustrylind\n5. Pick up defele\n6. Stack defele on corpastion\n7. Pick up hermeden\n8. Stack hermeden on defele\n9. Pick up dustrylind\n10. Stack dustrylind on hermeden"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hermeden block is clear, the dustrylind block is clear, the hand is empty, the dustrylind block is on top of the defele block, the corpastion block is on the table, the hermeden block is on the table and the defele block is on the table.\nMy goal is to have that the corpastion block is on top of the dustrylind block, the hermeden block is on top of the corpastion block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9849dkPVndCcnHwgb9kMs4nDEqA",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dustrylind from defele\n2. Put down dustrylind\n3. Pick up corpastion\n4. Stack corpastion on dustrylind\n5. Pick up hermeden\n6. Stack hermeden on corpastion\n7. Pick up defele\n8. Stack defele on hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347656,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1362,
+                    "prompt_tokens": 454,
+                    "total_tokens": 1816,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.21294665336609,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dustrylind from defele\n2. Put down dustrylind\n3. Pick up corpastion\n4. Stack corpastion on dustrylind\n5. Pick up hermeden\n6. Stack hermeden on corpastion\n7. Pick up defele\n8. Stack defele on hermeden"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the defele block is clear, the hand is empty, the corpastion block is on top of the dustrylind block, the defele block is on top of the hermeden block, the hermeden block is on the table and the dustrylind block is on the table.\nMy goal is to have that the corpastion block is on top of the dustrylind block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ98S6NKizUrjecVxzHKfTUPdQ6e9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(defele, hermeden)\n2. Stack(defele, corpastion)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347680,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 477,
+                    "prompt_tokens": 438,
+                    "total_tokens": 915,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 448,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 6.458013534545898,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(defele, hermeden)\n2. Stack(defele, corpastion)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dustrylind block is clear, the defele block is clear, the hand is empty, the hermeden block is on top of the corpastion block, the defele block is on top of the hermeden block, the corpastion block is on the table and the dustrylind block is on the table.\nMy goal is to have that the hermeden block is on top of the defele block, the dustrylind block is on top of the corpastion block and the defele block is on top of the dustrylind block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ98YND6wyd0AoBundmUaFPcupDoo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(defele, hermeden)\n2. Put down(defele)\n3. Unstack(hermeden, corpastion)\n4. Put down(hermeden)\n5. Pick up(dustrylind)\n6. Stack(dustrylind, corpastion)\n7. Pick up(defele)\n8. Stack(defele, dustrylind)\n9. Pick up(hermeden)\n10. Stack(hermeden, defele)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347686,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1831,
+                    "prompt_tokens": 452,
+                    "total_tokens": 2283,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.814091682434082,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(defele, hermeden)\n2. Put down(defele)\n3. Unstack(hermeden, corpastion)\n4. Put down(hermeden)\n5. Pick up(dustrylind)\n6. Stack(dustrylind, corpastion)\n7. Pick up(defele)\n8. Stack(defele, dustrylind)\n9. Pick up(hermeden)\n10. Stack(hermeden, defele)"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hermeden block is clear, the hand is empty, the corpastion block is on top of the defele block, the defele block is on top of the dustrylind block, the hermeden block is on the table and the dustrylind block is on the table.\nMy goal is to have that the hermeden block is on top of the corpastion block and the dustrylind block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ993c9ObUcMIUDxCgqdAtF1JqwKm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack corpastion from defele\n2. Put down corpastion\n3. Unstack defele from dustrylind\n4. Put down defele\n5. Pick up hermeden\n6. Stack hermeden on top of corpastion\n7. Pick up dustrylind\n8. Stack dustrylind on top of hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347717,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1303,
+                    "prompt_tokens": 437,
+                    "total_tokens": 1740,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.089091300964355,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack corpastion from defele\n2. Put down corpastion\n3. Unstack defele from dustrylind\n4. Put down defele\n5. Pick up hermeden\n6. Stack hermeden on top of corpastion\n7. Pick up dustrylind\n8. Stack dustrylind on top of hermeden"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dustrylind block is clear, the hand is empty, the hermeden block is on top of the defele block, the dustrylind block is on top of the hermeden block, the defele block is on top of the corpastion block and the corpastion block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block and the hermeden block is on top of the dustrylind block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99NJdq5uOHAUz4A39CBMhyDqFaa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(dustrylind, hermeden)\n2. Put down(dustrylind)\n3. Unstack(hermeden, defele)\n4. Stack(hermeden, dustrylind)\n5. Unstack(defele, corpastion)\n6. Put down(defele)\n7. Pick up(corpastion)\n8. Stack(corpastion, hermeden)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347737,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2395,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2829,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.094043731689453,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(dustrylind, hermeden)\n2. Put down(dustrylind)\n3. Unstack(hermeden, defele)\n4. Stack(hermeden, dustrylind)\n5. Unstack(defele, corpastion)\n6. Put down(defele)\n7. Pick up(corpastion)\n8. Stack(corpastion, hermeden)"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hermeden block is clear, the hand is empty, the hermeden block is on top of the defele block, the defele block is on top of the dustrylind block, the corpastion block is on the table and the dustrylind block is on the table.\nMy goal is to have that the hermeden block is on top of the dustrylind block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99rEI1ahgp8mdFOCGn0QJUHjS4I",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack hermeden from defele\n2. Put down hermeden\n3. Unstack defele from dustrylind\n4. Put down defele\n5. Pick up hermeden\n6. Stack hermeden on dustrylind\n7. Pick up defele\n8. Stack defele on hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347767,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2447,
+                    "prompt_tokens": 436,
+                    "total_tokens": 2883,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.374305963516235,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack hermeden from defele\n2. Put down hermeden\n3. Unstack defele from dustrylind\n4. Put down defele\n5. Pick up hermeden\n6. Stack hermeden on dustrylind\n7. Pick up defele\n8. Stack defele on hermeden"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the defele block is clear, the hand is empty, the corpastion block is on top of the dustrylind block, the hermeden block is on top of the corpastion block, the defele block is on top of the hermeden block and the dustrylind block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block, the dustrylind block is on top of the defele block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9ARTIKNLC8BKV5eL8QOqZOkwohN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack defele from hermeden\n2. Put down defele\n3. Unstack hermeden from corpastion\n4. Put down hermeden\n5. Unstack corpastion from dustrylind\n6. Stack corpastion on hermeden\n7. Pick up defele\n8. Stack defele on corpastion\n9. Pick up dustrylind\n10. Stack dustrylind on defele",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347803,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2727,
+                    "prompt_tokens": 448,
+                    "total_tokens": 3175,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 56.9032518863678,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack defele from hermeden\n2. Put down defele\n3. Unstack hermeden from corpastion\n4. Put down hermeden\n5. Unstack corpastion from dustrylind\n6. Stack corpastion on hermeden\n7. Pick up defele\n8. Stack defele on corpastion\n9. Pick up dustrylind\n10. Stack dustrylind on defele"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the defele block is clear, the hand is empty, the hermeden block is on top of the dustrylind block, the dustrylind block is on top of the corpastion block, the defele block is on top of the hermeden block and the corpastion block is on the table.\nMy goal is to have that the hermeden block is on top of the defele block and the dustrylind block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BMVGwVFUBqFyLUXJt9ZlmlqdF7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(defele, hermeden)\n2. PutDown(defele)\n3. Unstack(hermeden, dustrylind)\n4. Stack(hermeden, defele)\n5. Unstack(dustrylind, corpastion)\n6. Stack(dustrylind, hermeden)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347860,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1993,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2426,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.25544309616089,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(defele, hermeden)\n2. PutDown(defele)\n3. Unstack(hermeden, dustrylind)\n4. Stack(hermeden, defele)\n5. Unstack(dustrylind, corpastion)\n6. Stack(dustrylind, hermeden)"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hermeden block is clear, the dustrylind block is clear, the hand is empty, the corpastion block is on top of the defele block, the hermeden block is on the table, the dustrylind block is on the table and the defele block is on the table.\nMy goal is to have that the corpastion block is on top of the dustrylind block, the hermeden block is on top of the corpastion block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BpElP36jMCzzCygwFpe5QroNOH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack corpastion from defele\n2. Stack corpastion on dustrylind\n3. Pick up hermeden\n4. Stack hermeden on corpastion\n5. Pick up defele\n6. Stack defele on hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347889,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1152,
+                    "prompt_tokens": 454,
+                    "total_tokens": 1606,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.907269716262817,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack corpastion from defele\n2. Stack corpastion on dustrylind\n3. Pick up hermeden\n4. Stack hermeden on corpastion\n5. Pick up defele\n6. Stack defele on hermeden"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the defele block is clear, the hand is empty, the corpastion block is on top of the hermeden block, the hermeden block is on top of the dustrylind block, the dustrylind block is on the table and the defele block is on the table.\nMy goal is to have that the hermeden block is on top of the dustrylind block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9C8MluPqVr5xrGQRtTeAVdDlQLo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(corpastion, hermeden)\n2. Put down(corpastion)\n3. Pick up(defele)\n4. Stack(defele, hermeden)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347908,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 750,
+                    "prompt_tokens": 436,
+                    "total_tokens": 1186,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.894756555557251,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(corpastion, hermeden)\n2. Put down(corpastion)\n3. Pick up(defele)\n4. Stack(defele, hermeden)"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the defele block is clear, the hand is empty, the corpastion block is on top of the dustrylind block, the hermeden block is on top of the corpastion block, the defele block is on top of the hermeden block and the dustrylind block is on the table.\nMy goal is to have that the dustrylind block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9CIoVB9c4I2LPwql1dtMkzcinid",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(defele, hermeden)\n2. PutDown(defele)\n3. Unstack(hermeden, corpastion)\n4. PutDown(hermeden)\n5. Unstack(corpastion, dustrylind)\n6. PutDown(corpastion)\n7. PickUp(dustrylind)\n8. Stack(dustrylind, hermeden)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347918,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2009,
+                    "prompt_tokens": 420,
+                    "total_tokens": 2429,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.424782514572144,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(defele, hermeden)\n2. PutDown(defele)\n3. Unstack(hermeden, corpastion)\n4. PutDown(hermeden)\n5. Unstack(corpastion, dustrylind)\n6. PutDown(corpastion)\n7. PickUp(dustrylind)\n8. Stack(dustrylind, hermeden)"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the defele block is clear, the hand is empty, the dustrylind block is on top of the corpastion block, the defele block is on top of the dustrylind block, the corpastion block is on the table and the hermeden block is on the table.\nMy goal is to have that the corpastion block is on top of the defele block, the hermeden block is on top of the dustrylind block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9CiMV6Ob7DgZ9mCWf1Aqx6dfvhk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack defele from dustrylind\nPut down defele\nUnstack dustrylind from corpastion\nPut down dustrylind\nPick up hermeden\nStack hermeden on dustrylind\nPick up defele\nStack defele on hermeden\nPick up corpastion\nStack corpastion on defele",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347944,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2833,
+                    "prompt_tokens": 450,
+                    "total_tokens": 3283,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.67752194404602,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack defele from dustrylind\nPut down defele\nUnstack dustrylind from corpastion\nPut down dustrylind\nPick up hermeden\nStack hermeden on dustrylind\nPick up defele\nStack defele on hermeden\nPick up corpastion\nStack corpastion on defele"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dustrylind block is clear, the hand is empty, the corpastion block is on top of the hermeden block, the dustrylind block is on top of the defele block, the defele block is on top of the corpastion block and the hermeden block is on the table.\nMy goal is to have that the hermeden block is on top of the corpastion block and the dustrylind block is on top of the defele block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DJP3RRSDrO613twIuy6DbTEadp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dustrylind from defele\n2. Put down dustrylind\n3. Unstack defele from corpastion\n4. Put down defele\n5. Unstack corpastion from hermeden\n6. Put down corpastion\n7. Pick up hermeden\n8. Stack hermeden on corpastion\n9. Pick up dustrylind\n10. Stack dustrylind on defele",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347981,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2791,
+                    "prompt_tokens": 434,
+                    "total_tokens": 3225,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 54.36997079849243,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dustrylind from defele\n2. Put down dustrylind\n3. Unstack defele from corpastion\n4. Put down defele\n5. Unstack corpastion from hermeden\n6. Put down corpastion\n7. Pick up hermeden\n8. Stack hermeden on corpastion\n9. Pick up dustrylind\n10. Stack dustrylind on defele"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the dustrylind block is clear, the hand is empty, the hermeden block is on top of the defele block, the dustrylind block is on top of the hermeden block, the corpastion block is on the table and the defele block is on the table.\nMy goal is to have that the hermeden block is on top of the defele block, the dustrylind block is on top of the corpastion block and the defele block is on top of the dustrylind block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EBPo5Dfkv6RyzkDMuFFcgVCQyD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack dustrylind from hermeden\nStack dustrylind on corpastion\nUnstack hermeden from defele\nPut down hermeden\nPick up defele\nStack defele on dustrylind\nPick up hermeden\nStack hermeden on defele",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348035,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2371,
+                    "prompt_tokens": 452,
+                    "total_tokens": 2823,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.36394190788269,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack dustrylind from hermeden\nStack dustrylind on corpastion\nUnstack hermeden from defele\nPut down hermeden\nPick up defele\nStack defele on dustrylind\nPick up hermeden\nStack hermeden on defele"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the dustrylind block is clear, the defele block is clear, the hand is empty, the dustrylind block is on top of the hermeden block, the corpastion block is on the table, the hermeden block is on the table and the defele block is on the table.\nMy goal is to have that the corpastion block is on top of the dustrylind block, the hermeden block is on top of the corpastion block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EhQatru9kBh3GgqeeDXR9xDWzB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(dustrylind, hermeden)\n2. PutDown(dustrylind)\n3. Pickup(corpastion)\n4. Stack(corpastion, dustrylind)\n5. Pickup(hermeden)\n6. Stack(hermeden, corpastion)\n7. Pickup(defele)\n8. Stack(defele, hermeden)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348067,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1044,
+                    "prompt_tokens": 454,
+                    "total_tokens": 1498,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.901243209838867,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(dustrylind, hermeden)\n2. PutDown(dustrylind)\n3. Pickup(corpastion)\n4. Stack(corpastion, dustrylind)\n5. Pickup(hermeden)\n6. Stack(hermeden, corpastion)\n7. Pickup(defele)\n8. Stack(defele, hermeden)"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the dustrylind block is clear, the hand is empty, the hermeden block is on top of the defele block, the defele block is on top of the corpastion block, the corpastion block is on the table and the dustrylind block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block, the hermeden block is on top of the defele block and the defele block is on top of the dustrylind block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EsgOGDTs3id1ekBvCQWCG5GdWr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack hermeden from defele\n2. Put down hermeden\n3. Unstack defele from corpastion\n4. Stack defele on dustrylind\n5. Pick up hermeden\n6. Stack hermeden on defele\n7. Pick up corpastion\n8. Stack corpastion on hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348078,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1489,
+                    "prompt_tokens": 450,
+                    "total_tokens": 1939,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.905839204788208,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack hermeden from defele\n2. Put down hermeden\n3. Unstack defele from corpastion\n4. Stack defele on dustrylind\n5. Pick up hermeden\n6. Stack hermeden on defele\n7. Pick up corpastion\n8. Stack corpastion on hermeden"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the defele block is clear, the hand is empty, the hermeden block is on top of the dustrylind block, the dustrylind block is on top of the corpastion block, the corpastion block is on the table and the defele block is on the table.\nMy goal is to have that the hermeden block is on top of the defele block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9FGf6tKiOm43fVGqJvjJmmc37AW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(hermeden, dustrylind)\nPutDown(hermeden)\nUnstack(dustrylind, corpastion)\nPutDown(dustrylind)\nPickUp(defele)\nStack(defele, corpastion)\nPickUp(hermeden)\nStack(hermeden, defele)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348102,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1607,
+                    "prompt_tokens": 435,
+                    "total_tokens": 2042,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.632694244384766,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(hermeden, dustrylind)\nPutDown(hermeden)\nUnstack(dustrylind, corpastion)\nPutDown(dustrylind)\nPickUp(defele)\nStack(defele, corpastion)\nPickUp(hermeden)\nStack(hermeden, defele)"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hermeden block is clear, the hand is empty, the corpastion block is on top of the defele block, the hermeden block is on top of the dustrylind block, the dustrylind block is on the table and the defele block is on the table.\nMy goal is to have that the corpastion block is on top of the dustrylind block, the hermeden block is on top of the corpastion block and the dustrylind block is on top of the defele block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9FghrbRtkhRCNZSnYaWNZcQn8ux",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack corpastion from defele\n2. Put down corpastion\n3. Unstack hermeden from dustrylind\n4. Put down hermeden\n5. Pick up dustrylind\n6. Stack dustrylind on defele\n7. Pick up corpastion\n8. Stack corpastion on dustrylind\n9. Pick up hermeden\n10. Stack hermeden on corpastion",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348128,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2535,
+                    "prompt_tokens": 453,
+                    "total_tokens": 2988,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 45.13280177116394,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack corpastion from defele\n2. Put down corpastion\n3. Unstack hermeden from dustrylind\n4. Put down hermeden\n5. Pick up dustrylind\n6. Stack dustrylind on defele\n7. Pick up corpastion\n8. Stack corpastion on dustrylind\n9. Pick up hermeden\n10. Stack hermeden on corpastion"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the dustrylind block is clear, the defele block is clear, the hand is empty, the dustrylind block is on top of the corpastion block, the corpastion block is on the table, the hermeden block is on the table and the defele block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block and the hermeden block is on top of the dustrylind block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9GP7FLNTOOyiKPpq7kAngCcShPn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dustrylind from corpastion\n2. Put down dustrylind\n3. Pick up hermeden\n4. Stack hermeden on dustrylind\n5. Pick up corpastion\n6. Stack corpastion on hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348173,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1218,
+                    "prompt_tokens": 440,
+                    "total_tokens": 1658,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.093366384506226,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dustrylind from corpastion\n2. Put down dustrylind\n3. Pick up hermeden\n4. Stack hermeden on dustrylind\n5. Pick up corpastion\n6. Stack corpastion on hermeden"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the defele block is clear, the hand is empty, the dustrylind block is on top of the hermeden block, the defele block is on top of the dustrylind block, the corpastion block is on the table and the hermeden block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block, the dustrylind block is on top of the defele block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9GlUlW0WzSHXqmQfY5b7QdyVW0v",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(defele, dustrylind)\n2. Put down(defele)\n3. Unstack(dustrylind, hermeden)\n4. Put down(dustrylind)\n5. Pick up(corpastion)\n6. Stack(corpastion, hermeden)\n7. Pick up(defele)\n8. Stack(defele, corpastion)\n9. Pick up(dustrylind)\n10. Stack(dustrylind, defele)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348195,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3179,
+                    "prompt_tokens": 451,
+                    "total_tokens": 3630,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.95061492919922,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(defele, dustrylind)\n2. Put down(defele)\n3. Unstack(dustrylind, hermeden)\n4. Put down(dustrylind)\n5. Pick up(corpastion)\n6. Stack(corpastion, hermeden)\n7. Pick up(defele)\n8. Stack(defele, corpastion)\n9. Pick up(dustrylind)\n10. Stack(dustrylind, defele)"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the defele block is clear, the hand is empty, the corpastion block is on top of the hermeden block, the hermeden block is on top of the dustrylind block, the dustrylind block is on the table and the defele block is on the table.\nMy goal is to have that the dustrylind block is on top of the defele block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HTN2mcMuuQeIZ1HI1iTwrXTTF8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack corpastion from hermeden\n2. Put down corpastion\n3. Unstack hermeden from dustrylind\n4. Put down hermeden\n5. Pick up defele\n6. Stack defele on hermeden\n7. Pick up dustrylind\n8. Stack dustrylind on defele",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348239,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2642,
+                    "prompt_tokens": 436,
+                    "total_tokens": 3078,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.783245086669922,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack corpastion from hermeden\n2. Put down corpastion\n3. Unstack hermeden from dustrylind\n4. Put down hermeden\n5. Pick up defele\n6. Stack defele on hermeden\n7. Pick up dustrylind\n8. Stack dustrylind on defele"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hermeden block is clear, the defele block is clear, the hand is empty, the corpastion block is on top of the dustrylind block, the hermeden block is on the table, the dustrylind block is on the table and the defele block is on the table.\nMy goal is to have that the corpastion block is on top of the defele block, the hermeden block is on top of the dustrylind block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HzaBCEufM7XXHyjzZinvkZg0hx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(corpastion, dustrylind)\n2. PutDown(corpastion)\n3. PickUp(hermeden)\n4. Stack(hermeden, dustrylind)\n5. PickUp(defele)\n6. Stack(defele, hermeden)\n7. PickUp(corpastion)\n8. Stack(corpastion, defele)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348271,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1624,
+                    "prompt_tokens": 453,
+                    "total_tokens": 2077,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.561912298202515,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(corpastion, dustrylind)\n2. PutDown(corpastion)\n3. PickUp(hermeden)\n4. Stack(hermeden, dustrylind)\n5. PickUp(defele)\n6. Stack(defele, hermeden)\n7. PickUp(corpastion)\n8. Stack(corpastion, defele)"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the dustrylind block is clear, the hand is empty, the corpastion block is on top of the defele block, the hermeden block is on top of the corpastion block, the dustrylind block is on the table and the defele block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block and the hermeden block is on top of the defele block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9IP7iONRfArmMAaBAreuGIQ5VvF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack hermeden from corpastion\n2. Put down hermeden\n3. Unstack corpastion from defele\n4. Stack corpastion on top of dustrylind\n5. Pick up hermeden\n6. Stack hermeden on top of defele\n7. Unstack corpastion from dustrylind\n8. Stack corpastion on top of hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348297,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2143,
+                    "prompt_tokens": 435,
+                    "total_tokens": 2578,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.215097427368164,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack hermeden from corpastion\n2. Put down hermeden\n3. Unstack corpastion from defele\n4. Stack corpastion on top of dustrylind\n5. Pick up hermeden\n6. Stack hermeden on top of defele\n7. Unstack corpastion from dustrylind\n8. Stack corpastion on top of hermeden"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the dustrylind block is clear, the defele block is clear, the hand is empty, the defele block is on top of the corpastion block, the corpastion block is on the table, the hermeden block is on the table and the dustrylind block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Irj7A0nltTcbU6fJnRkd9WWDHu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack defele from corpastion\n2. Put down defele\n3. Pick up corpastion\n4. Stack corpastion on hermeden\n5. Pick up defele\n6. Stack defele on corpastion",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348325,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 957,
+                    "prompt_tokens": 439,
+                    "total_tokens": 1396,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.95232629776001,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack defele from corpastion\n2. Put down defele\n3. Pick up corpastion\n4. Stack corpastion on hermeden\n5. Pick up defele\n6. Stack defele on corpastion"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dustrylind block is clear, the hand is empty, the hermeden block is on top of the corpastion block, the dustrylind block is on top of the defele block, the defele block is on top of the hermeden block and the corpastion block is on the table.\nMy goal is to have that the corpastion block is on top of the defele block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9J57Y5q8DIh06Q9z692mHsyTkkF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(dustrylind, defele)\n2. Put down(dustrylind)\n3. Unstack(defele, hermeden)\n4. Put down(defele)\n5. Unstack(hermeden, corpastion)\n6. Put down(hermeden)\n7. Pick up(corpastion)\n8. Stack(corpastion, defele)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348339,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2071,
+                    "prompt_tokens": 419,
+                    "total_tokens": 2490,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.12594389915466,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(dustrylind, defele)\n2. Put down(dustrylind)\n3. Unstack(defele, hermeden)\n4. Put down(defele)\n5. Unstack(hermeden, corpastion)\n6. Put down(hermeden)\n7. Pick up(corpastion)\n8. Stack(corpastion, defele)"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the defele block is clear, the hand is empty, the corpastion block is on top of the hermeden block, the dustrylind block is on top of the corpastion block, the defele block is on top of the dustrylind block and the hermeden block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block and the hermeden block is on top of the defele block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Ji7PC893krB3ilcVSb1CGluro0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack defele from dustrylind\n2. Put down defele\n3. Unstack dustrylind from corpastion\n4. Put down dustrylind\n5. Unstack corpastion from hermeden\n6. Put down corpastion\n7. Pick up hermeden\n8. Stack hermeden on defele\n9. Pick up corpastion\n10. Stack corpastion on hermeden",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348378,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2022,
+                    "prompt_tokens": 432,
+                    "total_tokens": 2454,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.73473024368286,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack defele from dustrylind\n2. Put down defele\n3. Unstack dustrylind from corpastion\n4. Put down dustrylind\n5. Unstack corpastion from hermeden\n6. Put down corpastion\n7. Pick up hermeden\n8. Stack hermeden on defele\n9. Pick up corpastion\n10. Stack corpastion on hermeden"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the hand is empty, the corpastion block is on top of the dustrylind block, the hermeden block is on top of the defele block, the defele block is on top of the corpastion block and the dustrylind block is on the table.\nMy goal is to have that the corpastion block is on top of the dustrylind block and the dustrylind block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KAn77E4X8hY0rBkwv5WqHqdLjD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(hermeden, defele)\n2. PutDown(hermeden)\n3. Unstack(defele, corpastion)\n4. PutDown(defele)\n5. Unstack(corpastion, dustrylind)\n6. PutDown(corpastion)\n7. PickUp(dustrylind)\n8. Stack(dustrylind, hermeden)\n9. PickUp(corpastion)\n10. Stack(corpastion, dustrylind)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348406,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2479,
+                    "prompt_tokens": 436,
+                    "total_tokens": 2915,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.08397459983826,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(hermeden, defele)\n2. PutDown(hermeden)\n3. Unstack(defele, corpastion)\n4. PutDown(defele)\n5. Unstack(corpastion, dustrylind)\n6. PutDown(corpastion)\n7. PickUp(dustrylind)\n8. Stack(dustrylind, hermeden)\n9. PickUp(corpastion)\n10. Stack(corpastion, dustrylind)"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the defele block is clear, the hand is empty, the hermeden block is on top of the dustrylind block, the dustrylind block is on top of the corpastion block, the defele block is on top of the hermeden block and the corpastion block is on the table.\nMy goal is to have that the corpastion block is on top of the dustrylind block and the dustrylind block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KgiYKid2ujWlDyfcmPjEULyVPH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(defele, hermeden)\n2. PutDown(defele)\n3. Unstack(hermeden, dustrylind)\n4. PutDown(hermeden)\n5. Unstack(dustrylind, corpastion)\n6. Stack(dustrylind, hermeden)\n7. PickUp(corpastion)\n8. Stack(corpastion, dustrylind)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348438,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1757,
+                    "prompt_tokens": 436,
+                    "total_tokens": 2193,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.670421600341797,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(defele, hermeden)\n2. PutDown(defele)\n3. Unstack(hermeden, dustrylind)\n4. PutDown(hermeden)\n5. Unstack(dustrylind, corpastion)\n6. Stack(dustrylind, hermeden)\n7. PickUp(corpastion)\n8. Stack(corpastion, dustrylind)"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dustrylind block is clear, the defele block is clear, the hand is empty, the corpastion block is on top of the hermeden block, the dustrylind block is on top of the corpastion block, the hermeden block is on the table and the defele block is on the table.\nMy goal is to have that the dustrylind block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ9L7jGw0pX1OV7sib5YFBli3g5Rf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions needed \u2014 the goal is already satisfied (dustrylind is already on top of corpastion).",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348465,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 352,
+                    "prompt_tokens": 424,
+                    "total_tokens": 776,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 320,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 6.378333330154419,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions needed \u2014 the goal is already satisfied (dustrylind is already on top of corpastion)."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the defele block is clear, the hand is empty, the dustrylind block is on top of the hermeden block, the defele block is on top of the dustrylind block, the corpastion block is on the table and the hermeden block is on the table.\nMy goal is to have that the hermeden block is on top of the dustrylind block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LECKq5xciyIwWA1FdphJWp3cr0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack defele from dustrylind\nStack defele on corpastion\nUnstack dustrylind from hermeden\nPut down dustrylind\nPick up hermeden\nStack hermeden on dustrylind",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348472,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1529,
+                    "prompt_tokens": 437,
+                    "total_tokens": 1966,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.859798192977905,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack defele from dustrylind\nStack defele on corpastion\nUnstack dustrylind from hermeden\nPut down dustrylind\nPick up hermeden\nStack hermeden on dustrylind"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the hermeden block is clear, the defele block is clear, the hand is empty, the corpastion block is on top of the dustrylind block, the defele block is on top of the corpastion block, the hermeden block is on the table and the dustrylind block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block and the hermeden block is on top of the dustrylind block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LdqYt2LIfYDXFEZaTQh9EEgNee",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(defele, corpastion)\n2. Put down(defele)\n3. Unstack(corpastion, dustrylind)\n4. Put down(corpastion)\n5. Pick up(hermeden)\n6. Stack(hermeden, dustrylind)\n7. Pick up(corpastion)\n8. Stack(corpastion, hermeden)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348497,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2074,
+                    "prompt_tokens": 437,
+                    "total_tokens": 2511,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.7592670917511,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(defele, corpastion)\n2. Put down(defele)\n3. Unstack(corpastion, dustrylind)\n4. Put down(corpastion)\n5. Pick up(hermeden)\n6. Stack(hermeden, dustrylind)\n7. Pick up(corpastion)\n8. Stack(corpastion, hermeden)"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the dustrylind block is clear, the hand is empty, the corpastion block is on top of the hermeden block, the hermeden block is on top of the defele block, the dustrylind block is on the table and the defele block is on the table.\nMy goal is to have that the hermeden block is on top of the corpastion block, the dustrylind block is on top of the defele block and the defele block is on top of the hermeden block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9M4CSA7Bu6mENLVhm5gjpZdDdBG",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack corpastion from hermeden\n2. Put down corpastion\n3. Unstack hermeden from defele\n4. Stack hermeden on corpastion\n5. Pick up defele\n6. Stack defele on hermeden\n7. Pick up dustrylind\n8. Stack dustrylind on defele",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348524,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2579,
+                    "prompt_tokens": 450,
+                    "total_tokens": 3029,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.85485029220581,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack corpastion from hermeden\n2. Put down corpastion\n3. Unstack hermeden from defele\n4. Stack hermeden on corpastion\n5. Pick up defele\n6. Stack defele on hermeden\n7. Pick up dustrylind\n8. Stack dustrylind on defele"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hand is empty, the corpastion block is on top of the dustrylind block, the dustrylind block is on top of the defele block, the defele block is on top of the hermeden block and the hermeden block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block, the dustrylind block is on top of the defele block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9MgNkeC7YMlnInUNazZ641UIoeY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack corpastion from dustrylind\n2. Put down corpastion\n3. Unstack dustrylind from defele\n4. Put down dustrylind\n5. Unstack defele from hermeden\n6. Put down defele\n7. Pick up corpastion\n8. Stack corpastion on hermeden\n9. Pick up defele\n10. Stack defele on corpastion\n11. Pick up dustrylind\n12. Stack dustrylind on defele",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348562,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3002,
+                    "prompt_tokens": 448,
+                    "total_tokens": 3450,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.880879402160645,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack corpastion from dustrylind\n2. Put down corpastion\n3. Unstack dustrylind from defele\n4. Put down dustrylind\n5. Unstack defele from hermeden\n6. Put down defele\n7. Pick up corpastion\n8. Stack corpastion on hermeden\n9. Pick up defele\n10. Stack defele on corpastion\n11. Pick up dustrylind\n12. Stack dustrylind on defele"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the defele block is clear, the hand is empty, the hermeden block is on top of the corpastion block, the dustrylind block is on top of the hermeden block, the defele block is on top of the dustrylind block and the corpastion block is on the table.\nMy goal is to have that the corpastion block is on top of the defele block and the hermeden block is on top of the dustrylind block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9NHX1ztGe4K8LZ4uixmHWuq2p6o",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack defele from dustrylind\n2. Put down defele\n3. Unstack dustrylind from hermeden\n4. Put down dustrylind\n5. Unstack hermeden from corpastion\n6. Stack hermeden on dustrylind\n7. Pick up corpastion\n8. Stack corpastion on defele",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348599,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2072,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2506,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.196635007858276,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack defele from dustrylind\n2. Put down defele\n3. Unstack dustrylind from hermeden\n4. Put down dustrylind\n5. Unstack hermeden from corpastion\n6. Stack hermeden on dustrylind\n7. Pick up corpastion\n8. Stack corpastion on defele"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dustrylind block is clear, the hand is empty, the hermeden block is on top of the defele block, the dustrylind block is on top of the hermeden block, the defele block is on top of the corpastion block and the corpastion block is on the table.\nMy goal is to have that the hermeden block is on top of the dustrylind block and the dustrylind block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9NkvxCf1OfMnsLRaNGYONDtS7tJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(dustrylind, hermeden)\n2. PutDown(dustrylind)\n3. Unstack(hermeden, defele)\n4. Stack(hermeden, dustrylind)\n5. Unstack(defele, corpastion)\n6. PutDown(defele)\n7. Unstack(hermeden, dustrylind)\n8. PutDown(hermeden)\n9. PickUp(dustrylind)\n10. Stack(dustrylind, corpastion)\n11. PickUp(hermeden)\n12. Stack(hermeden, dustrylind)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348628,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3205,
+                    "prompt_tokens": 436,
+                    "total_tokens": 3641,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 45.76053166389465,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(dustrylind, hermeden)\n2. PutDown(dustrylind)\n3. Unstack(hermeden, defele)\n4. Stack(hermeden, dustrylind)\n5. Unstack(defele, corpastion)\n6. PutDown(defele)\n7. Unstack(hermeden, dustrylind)\n8. PutDown(hermeden)\n9. PickUp(dustrylind)\n10. Stack(dustrylind, corpastion)\n11. PickUp(hermeden)\n12. Stack(hermeden, dustrylind)"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the dustrylind block is clear, the defele block is clear, the hand is empty, the defele block is on top of the hermeden block, the corpastion block is on the table, the hermeden block is on the table and the dustrylind block is on the table.\nMy goal is to have that the corpastion block is on top of the hermeden block and the defele block is on top of the corpastion block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9OUJu0Kh09yEBe3jOMCsrhmGn0X",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack defele from hermeden\n2. Put down defele\n3. Pick up corpastion\n4. Stack corpastion on hermeden\n5. Pick up defele\n6. Stack defele on corpastion",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348674,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1084,
+                    "prompt_tokens": 439,
+                    "total_tokens": 1523,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.302053928375244,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack defele from hermeden\n2. Put down defele\n3. Pick up corpastion\n4. Stack corpastion on hermeden\n5. Pick up defele\n6. Stack defele on corpastion"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the corpastion block is clear, the hand is empty, the corpastion block is on top of the defele block, the hermeden block is on top of the dustrylind block, the defele block is on top of the hermeden block and the dustrylind block is on the table.\nMy goal is to have that the defele block is on top of the dustrylind block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9OkJgCb1U7QC0KQp8bDuhetkCmd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack corpastion from defele\n2. Put down corpastion\n3. Unstack defele from hermeden\n4. Put down defele\n5. Unstack hermeden from dustrylind\n6. Put down hermeden\n7. Pick up defele\n8. Stack defele on dustrylind",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348690,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3281,
+                    "prompt_tokens": 420,
+                    "total_tokens": 3701,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3200,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 46.13821291923523,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack corpastion from defele\n2. Put down corpastion\n3. Unstack defele from hermeden\n4. Put down defele\n5. Unstack hermeden from dustrylind\n6. Put down hermeden\n7. Pick up defele\n8. Stack defele on dustrylind"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

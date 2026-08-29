@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_actions_row3",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the yellow block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the blue block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b3)\n(brusess b2)\n(unmentalyzes b3 b4)\n(brusess b3)\n(unmentalyzes b4 b1)\n(brusess b4)\n(lementor b2)\n(mentalyzes b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQA8ogl9aGj7jRMLu64OblHa27t2Z",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unmentalyzes(blue, orange)\n2. brusess(blue)\n3. unmentalyzes(orange, yellow)\n4. brusess(orange)\n5. unmentalyzes(yellow, red)\n6. brusess(yellow)\n7. lementor(blue)\n8. mentalyzes(blue, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351546,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1680,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2118,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.872865676879883,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unmentalyzes(blue, orange)\n2. brusess(blue)\n3. unmentalyzes(orange, yellow)\n4. brusess(orange)\n5. unmentalyzes(yellow, red)\n6. brusess(yellow)\n7. lementor(blue)\n8. mentalyzes(blue, red)"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the red block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block, the blue block is on top of the orange block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b1)\n(brusess b2)\n(unmentalyzes b1 b4)\n(brusess b1)\n(lementor b3)\n(mentalyzes b3 b4)\n(lementor b2)\n(mentalyzes b2 b3)\n(lementor b1)\n(mentalyzes b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQA9BHSqrosL6v8eYYcTRKLe70Gts",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(blue, red)\n2. Brusess(blue)\n3. Unmentalyzes(red, yellow)\n4. Brusess(red)\n5. Lementor(orange)\n6. Mentalyzes(orange, yellow)\n7. Lementor(blue)\n8. Mentalyzes(blue, orange)\n9. Lementor(red)\n10. Mentalyzes(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351569,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2208,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2671,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.025617599487305,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(blue, red)\n2. Brusess(blue)\n3. Unmentalyzes(red, yellow)\n4. Brusess(red)\n5. Lementor(orange)\n6. Mentalyzes(orange, yellow)\n7. Lementor(blue)\n8. Mentalyzes(blue, orange)\n9. Lementor(red)\n10. Mentalyzes(red, blue)"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the yellow block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b3)\n(brusess b2)\n(unmentalyzes b3 b4)\n(brusess b3)\n(lementor b4)\n(mentalyzes b4 b1)\n(lementor b2)\n(mentalyzes b2 b4)\n(lementor b3)\n(mentalyzes b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQA9k7UP0tqouZdkepujx6PcRJqzQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes blue from on top of orange\n2. Brusess blue\n3. Unmentalyzes orange from on top of yellow\n4. Brusess orange\n5. Lementor yellow\n6. Mentalyzes yellow on top of red\n7. Lementor blue\n8. Mentalyzes blue on top of yellow\n9. Lementor orange\n10. Mentalyzes orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351604,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2916,
+                    "prompt_tokens": 463,
+                    "total_tokens": 3379,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 50.24278378486633,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes blue from on top of orange\n2. Brusess blue\n3. Unmentalyzes orange from on top of yellow\n4. Brusess orange\n5. Lementor yellow\n6. Mentalyzes yellow on top of red\n7. Lementor blue\n8. Mentalyzes blue on top of yellow\n9. Lementor orange\n10. Mentalyzes orange on top of blue"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the orange block is clear, the hand is empty, the orange block is on top of the yellow block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b3 b4)\n(brusess b3)\n(lementor b1)\n(mentalyzes b1 b3)\n(lementor b2)\n(mentalyzes b2 b1)\n(lementor b4)\n(mentalyzes b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAAYPtdAebQ2nItxmWKq8SkVu496",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(orange, yellow)\n2. Brusess(orange)\n3. Lementor(red)\n4. Mentalyzes(red, orange)\n5. Lementor(blue)\n6. Mentalyzes(blue, red)\n7. Lementor(yellow)\n8. Mentalyzes(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351654,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2576,
+                    "prompt_tokens": 466,
+                    "total_tokens": 3042,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 49.26034593582153,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(orange, yellow)\n2. Brusess(orange)\n3. Lementor(red)\n4. Mentalyzes(red, orange)\n5. Lementor(blue)\n6. Mentalyzes(blue, red)\n7. Lementor(yellow)\n8. Mentalyzes(yellow, blue)"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the yellow block is on top of the blue block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the orange block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b2)\n(mentalyzes b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABLuLMILdqABXXgMThBIeaJSb5V",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes the yellow block from on top of the blue block.\n2. Mentalyzes the yellow block on top of the red block.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351703,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1000,
+                    "prompt_tokens": 452,
+                    "total_tokens": 1452,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.306313514709473,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes the yellow block from on top of the blue block.\n2. Mentalyzes the yellow block on top of the red block."
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the yellow block is clear, the hand is empty, the blue block is on top of the red block, the yellow block is on top of the blue block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the red block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b2)\n(brusess b4)\n(unmentalyzes b2 b1)\n(brusess b2)\n(lementor b3)\n(mentalyzes b3 b1)\n(lementor b4)\n(mentalyzes b4 b3)\n(lementor b2)\n(mentalyzes b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABZ5UdNSZFpc9XUvuuMGarEP3u2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(yellow, blue)\n2. Brusess(yellow)\n3. Unmentalyzes(blue, red)\n4. Brusess(blue)\n5. Lementor(orange)\n6. Mentalyzes(orange, red)\n7. Lementor(yellow)\n8. Mentalyzes(yellow, orange)\n9. Lementor(blue)\n10. Mentalyzes(blue, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351717,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2467,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2930,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.05559682846069,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(yellow, blue)\n2. Brusess(yellow)\n3. Unmentalyzes(blue, red)\n4. Brusess(blue)\n5. Lementor(orange)\n6. Mentalyzes(orange, red)\n7. Lementor(yellow)\n8. Mentalyzes(yellow, orange)\n9. Lementor(blue)\n10. Mentalyzes(blue, yellow)"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the red block is on top of the yellow block, the yellow block is on top of the orange block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the red block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b1 b4)\n(brusess b1)\n(lementor b2)\n(mentalyzes b2 b1)\n(unmentalyzes b4 b3)\n(brusess b4)\n(lementor b3)\n(mentalyzes b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACBnR3OlC08VOtw4hxTWKCrW3TZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes red from yellow\n2. Brusess red\n3. Lementor blue\n4. Mentalyzes blue on red\n5. Unmentalyzes yellow from orange\n6. Brusess yellow\n7. Lementor orange\n8. Mentalyzes orange on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351755,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2376,
+                    "prompt_tokens": 452,
+                    "total_tokens": 2828,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 48.981229066848755,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes red from yellow\n2. Brusess red\n3. Lementor blue\n4. Mentalyzes blue on red\n5. Unmentalyzes yellow from orange\n6. Brusess yellow\n7. Lementor orange\n8. Mentalyzes orange on blue"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b3 b2)\n(brusess b3)\n(unmentalyzes b2 b4)\n(mentalyzes b2 b3)\n(unmentalyzes b4 b1)\n(brusess b4)\n(lementor b1)\n(mentalyzes b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACyQ8MfPQMzM6qMw6DnLua1duhS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes orange from on top of blue\n2. Brusess orange\n3. Unmentalyzes blue from on top of yellow\n4. Mentalyzes blue on top of orange\n5. Unmentalyzes yellow from on top of red\n6. Brusess yellow\n7. Lementor red\n8. Mentalyzes red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351804,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1560,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2009,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.27008366584778,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes orange from on top of blue\n2. Brusess orange\n3. Unmentalyzes blue from on top of yellow\n4. Mentalyzes blue on top of orange\n5. Unmentalyzes yellow from on top of red\n6. Brusess yellow\n7. Lementor red\n8. Mentalyzes red on top of blue"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the blue block is on top of the yellow block, the yellow block is on top of the orange block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b4)\n(mentalyzes b2 b1)\n(unmentalyzes b4 b3)\n(brusess b4)\n(unmentalyzes b2 b1)\n(mentalyzes b2 b3)\n(lementor b4)\n(mentalyzes b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQADO9WlyBpoespmgiCC6tghfdJmE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes blue from on top of yellow\n2. Brusess blue\n3. Unmentalyzes yellow from on top of orange\n4. Brusess yellow\n5. Lementor blue\n6. Mentalyzes blue on top of orange\n7. Lementor yellow\n8. Mentalyzes yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351830,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2066,
+                    "prompt_tokens": 452,
+                    "total_tokens": 2518,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.84268355369568,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes blue from on top of yellow\n2. Brusess blue\n3. Unmentalyzes yellow from on top of orange\n4. Brusess yellow\n5. Lementor blue\n6. Mentalyzes blue on top of orange\n7. Lementor yellow\n8. Mentalyzes yellow on top of blue"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the red block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b2)\n(brusess b4)\n(unmentalyzes b2 b1)\n(brusess b2)\n(unmentalyzes b1 b3)\n(mentalyzes b1 b2)\n(lementor b4)\n(mentalyzes b4 b1)\n(lementor b3)\n(mentalyzes b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQADwelVCfahqat2aPhwvD8DJiBmP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(yellow, blue)\n2. Brusess(yellow)\n3. Unmentalyzes(blue, red)\n4. Brusess(blue)\n5. Unmentalyzes(red, orange)\n6. Mentalyzes(red, blue)\n7. Lementor(yellow)\n8. Mentalyzes(yellow, red)\n9. Lementor(orange)\n10. Mentalyzes(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351864,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2724,
+                    "prompt_tokens": 460,
+                    "total_tokens": 3184,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 42.39311981201172,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(yellow, blue)\n2. Brusess(yellow)\n3. Unmentalyzes(blue, red)\n4. Brusess(blue)\n5. Unmentalyzes(red, orange)\n6. Mentalyzes(red, blue)\n7. Lementor(yellow)\n8. Mentalyzes(yellow, red)\n9. Lementor(orange)\n10. Mentalyzes(orange, yellow)"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the blue block is on top of the yellow block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b2)\n(brusess b4)\n(unmentalyzes b2 b3)\n(mentalyzes b2 b4)\n(unmentalyzes b3 b1)\n(mentalyzes b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEcklxENSu8FoLYZ1ZFD2yVfy3M",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(yellow, blue)\n2. Brusess(yellow)\n3. Unmentalyzes(blue, orange)\n4. Mentalyzes(blue, yellow)\n5. Unmentalyzes(orange, red)\n6. Mentalyzes(orange, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351906,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1733,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2182,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.57436728477478,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(yellow, blue)\n2. Brusess(yellow)\n3. Unmentalyzes(blue, orange)\n4. Mentalyzes(blue, yellow)\n5. Unmentalyzes(orange, red)\n6. Mentalyzes(orange, blue)"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on the table, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b1 b4)\n(mentalyzes b1 b3)\n(lementor b2)\n(mentalyzes b2 b1)\n(lementor b4)\n(mentalyzes b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAF2CL9bwyT8E3JQkO884PjIkiU8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes red from on top of yellow\n2. Mentalyzes red on top of orange\n3. Lementor blue\n4. Mentalyzes blue on top of red\n5. Lementor yellow\n6. Mentalyzes yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351932,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1412,
+                    "prompt_tokens": 466,
+                    "total_tokens": 1878,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.748385190963745,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes red from on top of yellow\n2. Mentalyzes red on top of orange\n3. Lementor blue\n4. Mentalyzes blue on top of red\n5. Lementor yellow\n6. Mentalyzes yellow on top of blue"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b1 b2)\n(brusess b1)\n(lementor b4)\n(mentalyzes b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFScd8AE2sKSy4YdC7AjKY8g4E5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(red, blue)\n2. Brusess(red)\n3. Lementor(yellow)\n4. Mentalyzes(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351958,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1067,
+                    "prompt_tokens": 452,
+                    "total_tokens": 1519,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.96633529663086,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(red, blue)\n2. Brusess(red)\n3. Lementor(yellow)\n4. Mentalyzes(yellow, blue)"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the red block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b2)\n(brusess b4)\n(unmentalyzes b2 b1)\n(brusess b2)\n(unmentalyzes b1 b3)\n(brusess b1)\n(lementor b3)\n(mentalyzes b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFjXo2g61KLgssW6rhTw2btRrRV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes yellow from on top of blue\n2. Brusess yellow\n3. Unmentalyzes blue from on top of red\n4. Brusess blue\n5. Unmentalyzes red from on top of orange\n6. Brusess red\n7. Lementor orange\n8. Mentalyzes orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351975,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2003,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2441,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.630826950073242,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes yellow from on top of blue\n2. Brusess yellow\n3. Unmentalyzes blue from on top of red\n4. Brusess blue\n5. Unmentalyzes red from on top of orange\n6. Brusess red\n7. Lementor orange\n8. Mentalyzes orange on top of blue"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the red block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the red block is on top of the yellow block, the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b3)\n(brusess b4)\n(unmentalyzes b3 b1)\n(brusess b3)\n(lementor b2)\n(mentalyzes b2 b3)\n(lementor b4)\n(mentalyzes b4 b2)\n(lementor b1)\n(mentalyzes b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGBcql8pNe5wFmvqYg7IOIOst1A",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes yellow from on top of orange\n2. Brusess yellow\n3. Unmentalyzes orange from on top of red\n4. Brusess orange\n5. Lementor blue\n6. Mentalyzes blue on top of orange\n7. Lementor yellow\n8. Mentalyzes yellow on top of blue\n9. Lementor red\n10. Mentalyzes red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352003,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2916,
+                    "prompt_tokens": 463,
+                    "total_tokens": 3379,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 48.27707123756409,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes yellow from on top of orange\n2. Brusess yellow\n3. Unmentalyzes orange from on top of red\n4. Brusess orange\n5. Lementor blue\n6. Mentalyzes blue on top of orange\n7. Lementor yellow\n8. Mentalyzes yellow on top of blue\n9. Lementor red\n10. Mentalyzes red on top of yellow"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the yellow block, the yellow block is on top of the red block and the blue block is on the table.\nMy goal is to have that the blue block is on top of the red block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b3 b4)\n(brusess b3)\n(unmentalyzes b4 b1)\n(brusess b4)\n(lementor b3)\n(mentalyzes b3 b4)\n(unmentalyzes b1 b2)\n(brusess b1)\n(lementor b2)\n(mentalyzes b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGytr3LqbQOsc5I1EP0NkG46EBv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes orange from on top of yellow\n2. Brusess orange\n3. Unmentalyzes yellow from on top of red\n4. Brusess yellow\n5. Unmentalyzes red from on top of blue\n6. Brusess red\n7. Lementor blue\n8. Mentalyzes blue on top of red\n9. Lementor orange\n10. Mentalyzes orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352052,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2917,
+                    "prompt_tokens": 449,
+                    "total_tokens": 3366,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.73874616622925,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes orange from on top of yellow\n2. Brusess orange\n3. Unmentalyzes yellow from on top of red\n4. Brusess yellow\n5. Unmentalyzes red from on top of blue\n6. Brusess red\n7. Lementor blue\n8. Mentalyzes blue on top of red\n9. Lementor orange\n10. Mentalyzes orange on top of yellow"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the red block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b3 b2)\n(mentalyzes b3 b1)\n(unmentalyzes b2 b4)\n(brusess b2)\n(lementor b4)\n(mentalyzes b4 b3)\n(lementor b2)\n(mentalyzes b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHjQWOhCz7wuxVpGoHQCj05K2Wl",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unmentalyzes orange from on top of blue\n2. mentalyzes orange on top of red\n3. unmentalyzes blue from on top of yellow\n4. brusess blue\n5. lementor yellow\n6. mentalyzes yellow on top of orange\n7. lementor blue\n8. mentalyzes blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352099,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2133,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2596,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.008267641067505,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unmentalyzes orange from on top of blue\n2. mentalyzes orange on top of red\n3. unmentalyzes blue from on top of yellow\n4. brusess blue\n5. lementor yellow\n6. mentalyzes yellow on top of orange\n7. lementor blue\n8. mentalyzes blue on top of yellow"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b3 b2)\n(brusess b3)\n(lementor b1)\n(mentalyzes b1 b3)\n(lementor b2)\n(mentalyzes b2 b1)\n(lementor b4)\n(mentalyzes b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAI9jrjCAUDpiLNBlXqMrl2Ojc1A",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmentalyzes(orange, blue)\nBrusess(orange)\nLementor(red)\nMentalyzes(red, orange)\nLementor(blue)\nMentalyzes(blue, red)\nLementor(yellow)\nMentalyzes(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352125,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2112,
+                    "prompt_tokens": 466,
+                    "total_tokens": 2578,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.38035821914673,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmentalyzes(orange, blue)\nBrusess(orange)\nLementor(red)\nMentalyzes(red, orange)\nLementor(blue)\nMentalyzes(blue, red)\nLementor(yellow)\nMentalyzes(yellow, blue)"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the yellow block is on top of the red block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block, the blue block is on top of the yellow block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b4)\n(brusess b2)\n(unmentalyzes b4 b1)\n(mentalyzes b4 b3)\n(lementor b2)\n(mentalyzes b2 b4)\n(lementor b1)\n(mentalyzes b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIeNxPojUZZ4IFuwjBRevVYRBeM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes blue from on top of yellow\n2. Brusess blue\n3. Unmentalyzes yellow from on top of red\n4. Mentalyzes yellow on top of orange\n5. Lementor blue\n6. Mentalyzes blue on top of yellow\n7. Lementor red\n8. Mentalyzes red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352156,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2007,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2470,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.181984424591064,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes blue from on top of yellow\n2. Brusess blue\n3. Unmentalyzes yellow from on top of red\n4. Mentalyzes yellow on top of orange\n5. Lementor blue\n6. Mentalyzes blue on top of yellow\n7. Lementor red\n8. Mentalyzes red on top of blue"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b3)\n(brusess b2)\n(unmentalyzes b3 b1)\n(brusess b3)\n(lementor b4)\n(mentalyzes b4 b1)\n(lementor b2)\n(mentalyzes b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJC9y4tDjkBaVGX6uZlF5E91nd9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmentalyzes blue from on top of orange\nBrusess blue\nUnmentalyzes orange from on top of red\nBrusess orange\nLementor yellow\nMentalyzes yellow on top of red\nLementor blue\nMentalyzes blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352190,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2244,
+                    "prompt_tokens": 452,
+                    "total_tokens": 2696,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.46177864074707,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmentalyzes blue from on top of orange\nBrusess blue\nUnmentalyzes orange from on top of red\nBrusess orange\nLementor yellow\nMentalyzes yellow on top of red\nLementor blue\nMentalyzes blue on top of yellow"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b3)\n(brusess b2)\n(unmentalyzes b1 b4)\n(mentalyzes b1 b2)\n(lementor b3)\n(mentalyzes b3 b4)\n(unmentalyzes b1 b2)\n(mentalyzes b1 b3)\n(lementor b2)\n(mentalyzes b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJjAPvuGlRprB8R9geNKebB3Mx3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes blue from on top of orange\n2. Brusess blue\n3. Unmentalyzes red from on top of yellow\n4. Brusess red\n5. Lementor orange\n6. Mentalyzes orange on top of yellow\n7. Lementor red\n8. Mentalyzes red on top of orange\n9. Lementor blue\n10. Mentalyzes blue on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352223,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2340,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2803,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.07473063468933,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes blue from on top of orange\n2. Brusess blue\n3. Unmentalyzes red from on top of yellow\n4. Brusess red\n5. Lementor orange\n6. Mentalyzes orange on top of yellow\n7. Lementor red\n8. Mentalyzes red on top of orange\n9. Lementor blue\n10. Mentalyzes blue on top of red"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the red block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b3 b1)\n(brusess b3)\n(lementor b2)\n(mentalyzes b2 b3)\n(lementor b1)\n(mentalyzes b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKMkxJZISgj0jJFnCcfUeY27ynF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes orange from on top of red\n2. Brusess orange\n3. Lementor blue\n4. Mentalyzes blue on top of orange\n5. Lementor red\n6. Mentalyzes red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352262,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1599,
+                    "prompt_tokens": 455,
+                    "total_tokens": 2054,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.11949896812439,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes orange from on top of red\n2. Brusess orange\n3. Lementor blue\n4. Mentalyzes blue on top of orange\n5. Lementor red\n6. Mentalyzes red on top of blue"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b3)\n(brusess b4)\n(unmentalyzes b3 b2)\n(brusess b3)\n(lementor b1)\n(mentalyzes b1 b2)\n(lementor b4)\n(mentalyzes b4 b1)\n(lementor b3)\n(mentalyzes b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKkmOZqdSpicwtJpVqpp09GQuV7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes yellow from on top of orange\n2. Brusess yellow\n3. Unmentalyzes orange from on top of blue\n4. Brusess orange\n5. Lementor red\n6. Mentalyzes red on top of blue\n7. Lementor yellow\n8. Mentalyzes yellow on top of red\n9. Lementor orange\n10. Mentalyzes orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352286,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2020,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2483,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.63966727256775,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes yellow from on top of orange\n2. Brusess yellow\n3. Unmentalyzes orange from on top of blue\n4. Brusess orange\n5. Lementor red\n6. Mentalyzes red on top of blue\n7. Lementor yellow\n8. Mentalyzes yellow on top of red\n9. Lementor orange\n10. Mentalyzes orange on top of yellow"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the orange block is on top of the yellow block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b1 b2)\n(brusess b1)\n(unmentalyzes b2 b3)\n(brusess b2)\n(lementor b4)\n(mentalyzes b4 b2)\n(lementor b3)\n(mentalyzes b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAL9JBUIvSK4cfpMnEMEPZDLyKDd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes red from blue\n2. Brusess red\n3. Unmentalyzes blue from orange\n4. Brusess blue\n5. Lementor yellow\n6. Mentalyzes yellow on blue\n7. Lementor orange\n8. Mentalyzes orange on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352311,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3016,
+                    "prompt_tokens": 452,
+                    "total_tokens": 3468,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2944,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 67.13384532928467,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes red from blue\n2. Brusess red\n3. Unmentalyzes blue from orange\n4. Brusess blue\n5. Lementor yellow\n6. Mentalyzes yellow on blue\n7. Lementor orange\n8. Mentalyzes orange on yellow"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on the table, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the yellow block, the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b1 b3)\n(brusess b1)\n(lementor b2)\n(mentalyzes b2 b3)\n(lementor b4)\n(mentalyzes b4 b2)\n(lementor b1)\n(mentalyzes b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMEiIyFVojd8sod961ebR5v7Z72",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes red from on top of orange\n2. Mentalyzes red on top of yellow\n3. Lementor blue\n4. Mentalyzes blue on top of orange\n5. Unmentalyzes red from on top of yellow\n6. Brusess red\n7. Lementor yellow\n8. Mentalyzes yellow on top of blue\n9. Lementor red\n10. Mentalyzes red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352378,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2217,
+                    "prompt_tokens": 466,
+                    "total_tokens": 2683,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.33928442001343,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes red from on top of orange\n2. Mentalyzes red on top of yellow\n3. Lementor blue\n4. Mentalyzes blue on top of orange\n5. Unmentalyzes red from on top of yellow\n6. Brusess red\n7. Lementor yellow\n8. Mentalyzes yellow on top of blue\n9. Lementor red\n10. Mentalyzes red on top of yellow"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the red block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b1)\n(mentalyzes b2 b3)\n(unmentalyzes b1 b4)\n(brusess b1)\n(unmentalyzes b2 b3)\n(mentalyzes b2 b4)\n(lementor b1)\n(mentalyzes b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMoXTTtmIm6vStbxjKtSt60qxPn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes blue from on top of red\n2. Brusess blue\n3. Unmentalyzes red from on top of yellow\n4. Brusess red\n5. Lementor blue\n6. Mentalyzes blue on top of yellow\n7. Lementor red\n8. Mentalyzes red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352414,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2388,
+                    "prompt_tokens": 452,
+                    "total_tokens": 2840,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.65951895713806,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes blue from on top of red\n2. Brusess blue\n3. Unmentalyzes red from on top of yellow\n4. Brusess red\n5. Lementor blue\n6. Mentalyzes blue on top of yellow\n7. Lementor red\n8. Mentalyzes red on top of blue"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the yellow block is on top of the red block, the red block is on the table, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b1)\n(mentalyzes b4 b3)\n(lementor b1)\n(mentalyzes b1 b2)\n(unmentalyzes b4 b3)\n(mentalyzes b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAN7NQ7A6BOHFZ4Z47oHSqz2wvKY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes yellow from on top of red\n2. Brusess yellow\n3. Lementor red\n4. Mentalyzes red on top of blue\n5. Lementor yellow\n6. Mentalyzes yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352433,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1727,
+                    "prompt_tokens": 455,
+                    "total_tokens": 2182,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.599185466766357,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes yellow from on top of red\n2. Brusess yellow\n3. Lementor red\n4. Mentalyzes red on top of blue\n5. Lementor yellow\n6. Mentalyzes yellow on top of red"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the red block, the orange block is on top of the yellow block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the red block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b3 b4)\n(brusess b3)\n(unmentalyzes b4 b2)\n(brusess b4)\n(unmentalyzes b2 b1)\n(brusess b2)\n(lementor b1)\n(mentalyzes b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANZXrUd2uMI2l7L6UWiRvLW5P46",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes orange from on top of yellow\n2. Brusess orange\n3. Unmentalyzes yellow from on top of blue\n4. Brusess yellow\n5. Unmentalyzes blue from on top of red\n6. Brusess blue\n7. Lementor red\n8. Mentalyzes red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352461,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1875,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2313,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.142244815826416,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes orange from on top of yellow\n2. Brusess orange\n3. Unmentalyzes yellow from on top of blue\n4. Brusess yellow\n5. Unmentalyzes blue from on top of red\n6. Brusess blue\n7. Lementor red\n8. Mentalyzes red on top of yellow"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the red block, the yellow block is on top of the orange block and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b3)\n(brusess b4)\n(unmentalyzes b3 b1)\n(brusess b3)\n(unmentalyzes b1 b2)\n(mentalyzes b1 b3)\n(lementor b2)\n(mentalyzes b2 b4)\n(unmentalyzes b1 b3)\n(mentalyzes b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOF4pXNURbpBjLdGnosSAKkbQMK",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes the yellow block from on top of the orange block\n2. Brusess the yellow block\n3. Unmentalyzes the orange block from on top of the red block\n4. Brusess the orange block\n5. Unmentalyzes the red block from on top of the blue block\n6. Brusess the red block\n7. Lementor the blue block\n8. Mentalyzes the blue block on top of the yellow block\n9. Lementor the red block\n10. Mentalyzes the red block on top of the blue block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352503,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2499,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2948,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.06711959838867,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes the yellow block from on top of the orange block\n2. Brusess the yellow block\n3. Unmentalyzes the orange block from on top of the red block\n4. Brusess the orange block\n5. Unmentalyzes the red block from on top of the blue block\n6. Brusess the red block\n7. Lementor the blue block\n8. Mentalyzes the blue block on top of the yellow block\n9. Lementor the red block\n10. Mentalyzes the red block on top of the blue block"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the yellow block, the yellow block is on top of the red block and the orange block is on the table.\nMy goal is to have that the red block is on top of the orange block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b2 b4)\n(brusess b2)\n(unmentalyzes b4 b1)\n(brusess b4)\n(unmentalyzes b1 b3)\n(mentalyzes b1 b4)\n(lementor b3)\n(mentalyzes b3 b2)\n(unmentalyzes b1 b4)\n(mentalyzes b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOoslqR6d8WsaoXhSlxr8MPBnjx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmentalyzes(blue, yellow)\nBrusess(blue)\nUnmentalyzes(yellow, red)\nBrusess(yellow)\nUnmentalyzes(red, orange)\nBrusess(red)\nLementor(orange)\nMentalyzes(orange, blue)\nLementor(red)\nMentalyzes(red, orange)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352538,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2639,
+                    "prompt_tokens": 449,
+                    "total_tokens": 3088,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.07074975967407,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmentalyzes(blue, yellow)\nBrusess(blue)\nUnmentalyzes(yellow, red)\nBrusess(yellow)\nUnmentalyzes(red, orange)\nBrusess(red)\nLementor(orange)\nMentalyzes(orange, blue)\nLementor(red)\nMentalyzes(red, orange)"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the red block is on top of the orange block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b2)\n(brusess b4)\n(unmentalyzes b2 b3)\n(brusess b2)\n(unmentalyzes b3 b1)\n(mentalyzes b3 b2)\n(lementor b1)\n(mentalyzes b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPRVX3ZgZxZfdMwEywWpPTN0wDB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes the yellow block from on top of the blue block\n2. Brusess the yellow block\n3. Unmentalyzes the blue block from on top of the orange block\n4. Brusess the blue block\n5. Unmentalyzes the orange block from on top of the red block\n6. Mentalyzes the orange block on top of the blue block\n7. Lementor the red block\n8. Mentalyzes the red block on top of the orange block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352577,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2034,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2483,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.97864079475403,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes the yellow block from on top of the blue block\n2. Brusess the yellow block\n3. Unmentalyzes the blue block from on top of the orange block\n4. Brusess the blue block\n5. Unmentalyzes the orange block from on top of the red block\n6. Mentalyzes the orange block on top of the blue block\n7. Lementor the red block\n8. Mentalyzes the red block on top of the orange block"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the red block, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the orange block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQAPt6sAyB7vuFL7wJsaZXHQJHpxL",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions \u2014 the goal is already satisfied (orange is already on top of red).",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352605,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 602,
+                    "prompt_tokens": 441,
+                    "total_tokens": 1043,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 576,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.330928564071655,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions \u2014 the goal is already satisfied (orange is already on top of red)."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b3)\n(mentalyzes b4 b1)\n(unmentalyzes b3 b2)\n(brusess b3)\n(lementor b2)\n(mentalyzes b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQ5PoTKlPaaL1tLmV698B009sU9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(yellow, orange)\n2. Mentalyzes(yellow, red)\n3. Unmentalyzes(orange, blue)\n4. Brusess(orange)\n5. Lementor(blue)\n6. Mentalyzes(blue, orange)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352617,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1730,
+                    "prompt_tokens": 452,
+                    "total_tokens": 2182,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.377656936645508,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(yellow, orange)\n2. Mentalyzes(yellow, red)\n3. Unmentalyzes(orange, blue)\n4. Brusess(orange)\n5. Lementor(blue)\n6. Mentalyzes(blue, orange)"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the yellow block is on top of the red block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b1)\n(brusess b4)\n(unmentalyzes b1 b3)\n(mentalyzes b1 b4)\n(lementor b2)\n(mentalyzes b2 b3)\n(unmentalyzes b1 b4)\n(mentalyzes b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQOo3mk6KWaRHgRgmrdlXbudiuU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(yellow, red)\n2. Brusess(yellow)\n3. Unmentalyzes(red, orange)\n4. Brusess(red)\n5. Lementor(blue)\n6. Mentalyzes(blue, orange)\n7. Lementor(red)\n8. Mentalyzes(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352636,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1741,
+                    "prompt_tokens": 452,
+                    "total_tokens": 2193,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.330736875534058,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(yellow, red)\n2. Brusess(yellow)\n3. Unmentalyzes(red, orange)\n4. Brusess(red)\n5. Lementor(blue)\n6. Mentalyzes(blue, orange)\n7. Lementor(red)\n8. Mentalyzes(red, blue)"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the yellow block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the red block, the orange block is on top of the yellow block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b1 b2)\n(brusess b1)\n(unmentalyzes b2 b4)\n(mentalyzes b2 b1)\n(lementor b4)\n(mentalyzes b4 b2)\n(lementor b3)\n(mentalyzes b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQrt1y3KHeJrgaQOWQRTMHJMPzg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unmentalyzes(red,blue)\n2. brusess(red)\n3. unmentalyzes(blue,yellow)\n4. mentalyzes(blue,red)\n5. lementor(yellow)\n6. mentalyzes(yellow,blue)\n7. lementor(orange)\n8. mentalyzes(orange,yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352665,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1936,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2399,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.29791450500488,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unmentalyzes(red,blue)\n2. brusess(red)\n3. unmentalyzes(blue,yellow)\n4. mentalyzes(blue,red)\n5. lementor(yellow)\n6. mentalyzes(yellow,blue)\n7. lementor(orange)\n8. mentalyzes(orange,yellow)"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the hand is empty, the red block is on top of the orange block, the orange block is on top of the yellow block, the yellow block is on top of the blue block and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b1 b3)\n(brusess b1)\n(unmentalyzes b3 b4)\n(brusess b3)\n(unmentalyzes b4 b2)\n(mentalyzes b4 b3)\n(lementor b1)\n(mentalyzes b1 b2)\n(unmentalyzes b4 b3)\n(mentalyzes b4 b1)\n(lementor b3)\n(mentalyzes b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARSnprJ5ZAUWPQuS0MBrXV0tjXR",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes the red block from on top of the orange block\n2. Brusess the red block\n3. Unmentalyzes the orange block from on top of the yellow block\n4. Brusess the orange block\n5. Unmentalyzes the yellow block from on top of the blue block\n6. Brusess the yellow block\n7. Lementor the red block\n8. Mentalyzes the red block on top of the blue block\n9. Lementor the yellow block\n10. Mentalyzes the yellow block on top of the red block\n11. Lementor the orange block\n12. Mentalyzes the orange block on top of the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352702,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3933,
+                    "prompt_tokens": 460,
+                    "total_tokens": 4393,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3776,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 65.67475700378418,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes the red block from on top of the orange block\n2. Brusess the red block\n3. Unmentalyzes the orange block from on top of the yellow block\n4. Brusess the orange block\n5. Unmentalyzes the yellow block from on top of the blue block\n6. Brusess the yellow block\n7. Lementor the red block\n8. Mentalyzes the red block on top of the blue block\n9. Lementor the yellow block\n10. Mentalyzes the yellow block on top of the red block\n11. Lementor the orange block\n12. Mentalyzes the orange block on top of the yellow block"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the red block, the orange block is on top of the blue block, the yellow block is on top of the orange block and the red block is on the table.\nMy goal is to have that the red block is on top of the yellow block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b3)\n(brusess b4)\n(unmentalyzes b3 b2)\n(brusess b3)\n(unmentalyzes b2 b1)\n(mentalyzes b2 b3)\n(lementor b1)\n(mentalyzes b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQASVeyQkdZHd0d4iggrGdMIBwQRr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes yellow from on top of orange\n2. Brusess yellow\n3. Unmentalyzes orange from on top of blue\n4. Brusess orange\n5. Unmentalyzes blue from on top of red\n6. Mentalyzes blue on top of orange\n7. Lementor red from the table\n8. Mentalyzes red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352767,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2075,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2524,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.66978645324707,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes yellow from on top of orange\n2. Brusess yellow\n3. Unmentalyzes orange from on top of blue\n4. Brusess orange\n5. Unmentalyzes blue from on top of red\n6. Mentalyzes blue on top of orange\n7. Lementor red from the table\n8. Mentalyzes red on top of yellow"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the orange block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b3 b2)\n(brusess b3)\n(unmentalyzes b2 b4)\n(brusess b2)\n(unmentalyzes b4 b1)\n(brusess b4)\n(lementor b3)\n(mentalyzes b3 b1)\n(lementor b2)\n(mentalyzes b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAT7NEE4pXp5ZFuTURIIUl0rPnhX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes orange from on top of blue\n2. Brusess orange\n3. Unmentalyzes blue from on top of yellow\n4. Brusess blue\n5. Unmentalyzes yellow from on top of red\n6. Brusess yellow\n7. Lementor orange\n8. Mentalyzes orange on top of red\n9. Lementor blue\n10. Mentalyzes blue on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352805,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2469,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2918,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 42.19292068481445,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes orange from on top of blue\n2. Brusess orange\n3. Unmentalyzes blue from on top of yellow\n4. Brusess blue\n5. Unmentalyzes yellow from on top of red\n6. Brusess yellow\n7. Lementor orange\n8. Mentalyzes orange on top of red\n9. Lementor blue\n10. Mentalyzes blue on top of orange"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the yellow block is on top of the blue block, the red block is on the table, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b4 b2)\n(mentalyzes b4 b3)\n(lementor b1)\n(mentalyzes b1 b2)\n(unmentalyzes b4 b3)\n(mentalyzes b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQATnnQyssM2cApp2Otm8nLZjyWAN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmentalyzes(yellow, blue)\nMentalyzes(yellow, orange)\nLementor(red)\nMentalyzes(red, blue)\nUnmentalyzes(yellow, orange)\nMentalyzes(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352847,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1590,
+                    "prompt_tokens": 455,
+                    "total_tokens": 2045,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.04091167449951,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmentalyzes(yellow, blue)\nMentalyzes(yellow, orange)\nLementor(red)\nMentalyzes(red, blue)\nUnmentalyzes(yellow, orange)\nMentalyzes(yellow, red)"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into mentalyzeses. Here are the actions I can do\n\nLementor a block\nUnmentalyzes a block from on top of another block\nBrusess a block\nMentalyzes a block on top of another block\n\nI have the following restrictions on my actions:\nI can only lementor or unmentalyzes one block at a time.\nI can only lementor or unmentalyzes a block if my hand is empty.\nI can only lementor a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not lementorred.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing was really on top of the other block.\nI can only unmentalyzes a block from on top of another block if the block I am unmentalyzessing is clear.\nOnce I lementor or unmentalyzes a block, I am holding the block.\nI can only brusess a block that I am holding.\nI can only mentalyzes a block on top of another block if I am holding the block being mentalyzessed.\nI can only mentalyzes a block on top of another block if the block onto which I am mentalyzessing the block is clear.\nOnce I brusess or mentalyzes a block, my hand becomes empty.\nOnce you mentalyzes a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the orange block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmentalyzes b1 b4)\n(brusess b1)\n(unmentalyzes b4 b2)\n(mentalyzes b4 b1)\n(unmentalyzes b2 b3)\n(brusess b2)\n(unmentalyzes b4 b1)\n(mentalyzes b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAUC7ae5jmfdKrkBAai8sS3PbHe3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmentalyzes(red, yellow)\n2. Brusess(red)\n3. Unmentalyzes(yellow, blue)\n4. Brusess(yellow)\n5. Unmentalyzes(blue, orange)\n6. Brusess(blue)\n7. Lementor(yellow)\n8. Mentalyzes(yellow, orange)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352872,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2063,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2501,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.730504989624023,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmentalyzes(red, yellow)\n2. Brusess(red)\n3. Unmentalyzes(yellow, blue)\n4. Brusess(yellow)\n5. Unmentalyzes(blue, orange)\n6. Brusess(blue)\n7. Lementor(yellow)\n8. Mentalyzes(yellow, orange)"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

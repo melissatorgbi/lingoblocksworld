@@ -1,0 +1,90 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/easy/blocksworld_easy_objects/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/easy/blocksworld_easy_objects/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/easy_row2/generated_domain_easy_objects.pddl
+domain_name: blocksworld_nonce_easy_objects_row2
+n_instances: 81
+start: 1
+end: 80
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do
+
+   Pick up a consvia
+   Unstack a consvia from on top of another consvia
+   Put down a consvia
+   Stack a consvia on top of another consvia
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one consvia at a time.
+   I can only pick up or unstack a consvia if my hand is empty.
+   I can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.
+   I can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.
+   I can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.
+   Once I pick up or unstack a consvia, I am holding the consvia.
+   I can only put down a consvia that I am holding.
+   I can only stack a consvia on top of another consvia if I am holding the consvia being stacked.
+   I can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.
+   Once I put down or stack a consvia, my hand becomes empty.
+   Once you stack a consvia on top of a second consvia, the second consvia is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do
+
+   Pick up a consvia
+   Unstack a consvia from on top of another consvia
+   Put down a consvia
+   Stack a consvia on top of another consvia
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one consvia at a time.
+   I can only pick up or unstack a consvia if my hand is empty.
+   I can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.
+   I can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.
+   I can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.
+   Once I pick up or unstack a consvia, I am holding the consvia.
+   I can only put down a consvia that I am holding.
+   I can only stack a consvia on top of another consvia if I am holding the consvia being stacked.
+   I can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.
+   Once I put down or stack a consvia, my hand becomes empty.
+   Once you stack a consvia on top of a second consvia, the second consvia is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} on top of the {}",
+   unstack: "unstack the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red consvia", "b2": "blue consvia", "b3": "orange consvia", "b4": "yellow consvia",
+   "b5": "white consvia", "b6": "magenta consvia", "b7": "black consvia", "b8": "cyan consvia",
+   "b9": "green consvia", "b10": "violet consvia", "b11": "silver consvia", "b12": "gold consvia" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

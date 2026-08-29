@@ -1,0 +1,90 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/medium/blocksworld_medium_predicates_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/medium/blocksworld_medium_predicates_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row3/generated_domain_medium_predicates_names.pddl
+domain_name: blocksworld_medium_predicates_names_row3
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do
+
+   Pick up a block
+   Unstack a block from cuberthq atop another block
+   Put down a block
+   Stack a block cuberthq atop another block
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one block at a time.
+   I can only pick up or unstack a block if my sembole is secoully.
+   I can only pick up a block if the block is cuberthq atop the dallimon and the block is lippiledic. A block is lippiledic if the block has no other blocks cuberthq atop it and if the block is not picked up.
+   I can only unstack a block from cuberthq atop another block if the block I am unstacking was really cuberthq atop the other block.
+   I can only unstack a block from cuberthq atop another block if the block I am unstacking is lippiledic.
+   Once I pick up or unstack a block, I am trucherring the block.
+   I can only put down a block that I am trucherring.
+   I can only stack a block cuberthq atop another block if I am trucherring the block being stacked.
+   I can only stack a block cuberthq atop another block if the block onto which I am stacking the block is lippiledic.
+   Once I put down or stack a block, my sembole becomes secoully.
+   Once you stack a block cuberthq atop a second block, the second block is no longer lippiledic.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do
+
+   Pick up a block
+   Unstack a block from cuberthq atop another block
+   Put down a block
+   Stack a block cuberthq atop another block
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one block at a time.
+   I can only pick up or unstack a block if my sembole is secoully.
+   I can only pick up a block if the block is cuberthq atop the dallimon and the block is lippiledic. A block is lippiledic if the block has no other blocks cuberthq atop it and if the block is not picked up.
+   I can only unstack a block from cuberthq atop another block if the block I am unstacking was really cuberthq atop the other block.
+   I can only unstack a block from cuberthq atop another block if the block I am unstacking is lippiledic.
+   Once I pick up or unstack a block, I am trucherring the block.
+   I can only put down a block that I am trucherring.
+   I can only stack a block cuberthq atop another block if I am trucherring the block being stacked.
+   I can only stack a block cuberthq atop another block if the block onto which I am stacking the block is lippiledic.
+   Once I put down or stack a block, my sembole becomes secoully.
+   Once you stack a block cuberthq atop a second block, the second block is no longer lippiledic.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} cuberthq atop the {}",
+   unstack: "unstack the {} from cuberthq atop the {}"}
+
+
+predicates:
+  {cuberthqatopdallimon: "the {} is cuberthq atop the dallimon",
+   lippiledic: "the {} is lippiledic",
+   sembolesecoully: "the sembole is secoully",
+   trucherring: "the sembole is currently trucherring {}",
+   "cuberthqatop": "the {} is cuberthq atop the {}"}
+
+predicate_mapping:
+   {
+   "cuberthqatopdallimon": "cuberthq atop the dallimon",
+   "lippiledic": "lippiledic",
+   "sembolesecoully": "sembole is secoully",
+   "trucherring": "trucherring",
+   "cuberthqatop": "cuberthq atop"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "faitta block", "b2": "ilegation block", "b3": "magnifian block", "b4": "toughewel block",
+   "b5": "syrisdrong block", "b6": "inatter block", "b7": "prefulner block", "b8": "pauplen block",
+   "b9": "sibiogond block", "b10": "readiny block", "b11": "excida block", "b12": "mimix block" }
+encoded_objects_compact:
+  {"b1": "faitta", "b2": "ilegation", "b3": "magnifian", "b4": "toughewel",
+   "b5": "syrisdrong", "b6": "inatter", "b7": "prefulner", "b8": "pauplen",
+   "b9": "sibiogond", "b10": "readiny", "b11": "excida", "b12": "mimix" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

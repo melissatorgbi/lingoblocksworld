@@ -1,0 +1,727 @@
+{
+    "task": "task_1_plan_generation",
+    "prompt_type": "oneshot",
+    "domain": "blocksworld_nonce_easy_names_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "example_instance_ids": [
+                0
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on top of the westoor block and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the facizer block from on top of the michime block\nput down the facizer block\nunstack the michime block from on top of the tegust block\nstack the michime block on top of the facizer block\nunstack the tegust block from on top of the westoor block\nput down the tegust block\nunstack the michime block from on top of the facizer block\nstack the michime block on top of the tegust block\npick up the westoor block\nstack the westoor block on top of the michime block\npick up the facizer block\nstack the facizer block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 5,
+                    "evaluated": 8,
+                    "generated": 11,
+                    "search_time (in secs)": 0.000618
+                },
+                "readable_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n"
+            }
+        },
+        {
+            "instance_id": 2,
+            "example_instance_ids": [
+                1
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the tegust block\nput down the michime block\nunstack the tegust block from on top of the westoor block\nput down the tegust block\nunstack the westoor block from on top of the facizer block\nput down the westoor block\npick up the michime block\nstack the michime block on top of the facizer block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the tegust block and the tegust block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 14,
+                    "evaluated": 24,
+                    "generated": 36,
+                    "search_time (in secs)": 0.000863
+                },
+                "readable_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 3,
+            "example_instance_ids": [
+                2
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the tegust block and the tegust block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the facizer block\nput down the michime block\nunstack the facizer block from on top of the westoor block\nput down the facizer block\npick up the tegust block\nstack the tegust block on top of the westoor block\npick up the michime block\nstack the michime block on top of the tegust block\npick up the facizer block\nstack the facizer block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the michime block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 12,
+                    "evaluated": 20,
+                    "generated": 30,
+                    "search_time (in secs)": 0.000969
+                },
+                "readable_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n"
+            }
+        },
+        {
+            "instance_id": 4,
+            "example_instance_ids": [
+                3
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the michime block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the tegust block\nput down the michime block\nunstack the tegust block from on top of the westoor block\nput down the tegust block\npick up the westoor block\nstack the westoor block on top of the facizer block\npick up the michime block\nstack the michime block on top of the westoor block\npick up the tegust block\nstack the tegust block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the tegust block is on top of the westoor block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 8,
+                    "generated": 9,
+                    "search_time (in secs)": 0.000752
+                },
+                "readable_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 5,
+            "example_instance_ids": [
+                4
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the tegust block is on top of the westoor block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the tegust block from on top of the westoor block\nput down the tegust block\npick up the facizer block\nstack the facizer block on top of the tegust block\npick up the michime block\nstack the michime block on top of the facizer block\npick up the westoor block\nstack the westoor block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the michime block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(stack b4 b1)",
+                "length": 2,
+                "states_info": {
+                    "expanded": 0,
+                    "evaluated": 1,
+                    "generated": 0,
+                    "search_time (in secs)": 0.000378
+                },
+                "readable_plan": "(unstack b4 b2)\n(stack b4 b1)\n"
+            }
+        },
+        {
+            "instance_id": 6,
+            "example_instance_ids": [
+                5
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the michime block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the michime block\nstack the westoor block on top of the facizer block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the westoor block is on top of the michime block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 14,
+                    "evaluated": 24,
+                    "generated": 36,
+                    "search_time (in secs)": 0.000853
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n"
+            }
+        },
+        {
+            "instance_id": 7,
+            "example_instance_ids": [
+                6
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the westoor block is on top of the michime block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the michime block\nput down the westoor block\nunstack the michime block from on top of the facizer block\nput down the michime block\npick up the tegust block\nstack the tegust block on top of the facizer block\npick up the westoor block\nstack the westoor block on top of the tegust block\npick up the michime block\nstack the michime block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the westoor block is on top of the tegust block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 7,
+                    "evaluated": 11,
+                    "generated": 16,
+                    "search_time (in secs)": 0.00064
+                },
+                "readable_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n"
+            }
+        },
+        {
+            "instance_id": 8,
+            "example_instance_ids": [
+                7
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the westoor block is on top of the tegust block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the facizer block from on top of the westoor block\nput down the facizer block\npick up the michime block\nstack the michime block on top of the facizer block\nunstack the westoor block from on top of the tegust block\nput down the westoor block\npick up the tegust block\nstack the tegust block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 5,
+                    "evaluated": 7,
+                    "generated": 10,
+                    "search_time (in secs)": 0.000646
+                },
+                "readable_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 9,
+            "example_instance_ids": [
+                8
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the tegust block from on top of the michime block\nput down the tegust block\nunstack the michime block from on top of the westoor block\nstack the michime block on top of the tegust block\nunstack the westoor block from on top of the facizer block\nput down the westoor block\npick up the facizer block\nstack the facizer block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the tegust block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000652
+                },
+                "readable_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 10,
+            "example_instance_ids": [
+                9
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the tegust block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the westoor block\nstack the michime block on top of the facizer block\nunstack the westoor block from on top of the tegust block\nput down the westoor block\nunstack the michime block from on top of the facizer block\nstack the michime block on top of the tegust block\npick up the westoor block\nstack the westoor block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 4,
+                    "generated": 5,
+                    "search_time (in secs)": 0.000721
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 11,
+            "example_instance_ids": [
+                10
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the michime block\nput down the westoor block\nunstack the michime block from on top of the facizer block\nput down the michime block\nunstack the facizer block from on top of the tegust block\nstack the facizer block on top of the michime block\npick up the westoor block\nstack the westoor block on top of the facizer block\npick up the tegust block\nstack the tegust block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 1,
+                    "evaluated": 2,
+                    "generated": 1,
+                    "search_time (in secs)": 0.000547
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n"
+            }
+        },
+        {
+            "instance_id": 12,
+            "example_instance_ids": [
+                11
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the michime block\nput down the westoor block\nunstack the michime block from on top of the tegust block\nstack the michime block on top of the westoor block\nunstack the tegust block from on top of the facizer block\nstack the tegust block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 0,
+                    "evaluated": 1,
+                    "generated": 0,
+                    "search_time (in secs)": 0.000599
+                },
+                "readable_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 13,
+            "example_instance_ids": [
+                12
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the facizer block from on top of the westoor block\nstack the facizer block on top of the tegust block\npick up the michime block\nstack the michime block on top of the facizer block\npick up the westoor block\nstack the westoor block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 4,
+                "states_info": {
+                    "expanded": 1,
+                    "evaluated": 3,
+                    "generated": 2,
+                    "search_time (in secs)": 0.000432
+                },
+                "readable_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 14,
+            "example_instance_ids": [
+                13
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the facizer block from on top of the michime block\nput down the facizer block\npick up the westoor block\nstack the westoor block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 6,
+                    "evaluated": 9,
+                    "generated": 13,
+                    "search_time (in secs)": 0.000642
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n"
+            }
+        },
+        {
+            "instance_id": 15,
+            "example_instance_ids": [
+                14
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the michime block\nput down the westoor block\nunstack the michime block from on top of the facizer block\nput down the michime block\nunstack the facizer block from on top of the tegust block\nput down the facizer block\npick up the tegust block\nstack the tegust block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000889
+                },
+                "readable_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n"
+            }
+        },
+        {
+            "instance_id": 16,
+            "example_instance_ids": [
+                15
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the tegust block\nput down the westoor block\nunstack the tegust block from on top of the facizer block\nput down the tegust block\npick up the michime block\nstack the michime block on top of the tegust block\npick up the westoor block\nstack the westoor block on top of the michime block\npick up the facizer block\nstack the facizer block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the michime block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 7,
+                    "evaluated": 11,
+                    "generated": 16,
+                    "search_time (in secs)": 0.000671
+                },
+                "readable_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n"
+            }
+        },
+        {
+            "instance_id": 17,
+            "example_instance_ids": [
+                16
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the michime block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the tegust block from on top of the westoor block\nput down the tegust block\nunstack the westoor block from on top of the facizer block\nput down the westoor block\npick up the tegust block\nstack the tegust block on top of the westoor block\nunstack the facizer block from on top of the michime block\nput down the facizer block\npick up the michime block\nstack the michime block on top of the facizer block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 6,
+                    "evaluated": 11,
+                    "generated": 15,
+                    "search_time (in secs)": 0.000646
+                },
+                "readable_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n"
+            }
+        },
+        {
+            "instance_id": 18,
+            "example_instance_ids": [
+                17
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the tegust block from on top of the michime block\nstack the tegust block on top of the facizer block\nunstack the michime block from on top of the westoor block\nput down the michime block\npick up the westoor block\nstack the westoor block on top of the tegust block\npick up the michime block\nstack the michime block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 2,
+                    "evaluated": 6,
+                    "generated": 6,
+                    "search_time (in secs)": 0.000733
+                },
+                "readable_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 19,
+            "example_instance_ids": [
+                18
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the tegust block from on top of the michime block\nput down the tegust block\npick up the facizer block\nstack the facizer block on top of the tegust block\npick up the michime block\nstack the michime block on top of the facizer block\npick up the westoor block\nstack the westoor block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the facizer block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the westoor block and the westoor block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 6,
+                    "generated": 7,
+                    "search_time (in secs)": 0.000662
+                },
+                "readable_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 20,
+            "example_instance_ids": [
+                19
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the facizer block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the westoor block and the westoor block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the westoor block\nput down the michime block\nunstack the westoor block from on top of the facizer block\nstack the westoor block on top of the tegust block\npick up the michime block\nstack the michime block on top of the westoor block\npick up the facizer block\nstack the facizer block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 8,
+                    "evaluated": 13,
+                    "generated": 19,
+                    "search_time (in secs)": 0.000718
+                },
+                "readable_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n"
+            }
+        },
+        {
+            "instance_id": 21,
+            "example_instance_ids": [
+                20
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the tegust block\nput down the michime block\nunstack the tegust block from on top of the facizer block\nput down the tegust block\npick up the westoor block\nstack the westoor block on top of the facizer block\npick up the michime block\nstack the michime block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 17,
+                    "evaluated": 30,
+                    "generated": 46,
+                    "search_time (in secs)": 0.000861
+                },
+                "readable_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n"
+            }
+        },
+        {
+            "instance_id": 22,
+            "example_instance_ids": [
+                21
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the tegust block\nput down the michime block\nunstack the facizer block from on top of the westoor block\nstack the facizer block on top of the michime block\npick up the tegust block\nstack the tegust block on top of the westoor block\nunstack the facizer block from on top of the michime block\nstack the facizer block on top of the tegust block\npick up the michime block\nstack the michime block on top of the facizer block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 2,
+                    "evaluated": 6,
+                    "generated": 6,
+                    "search_time (in secs)": 0.000598
+                },
+                "readable_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 23,
+            "example_instance_ids": [
+                22
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the tegust block from on top of the facizer block\nput down the tegust block\npick up the michime block\nstack the michime block on top of the tegust block\npick up the facizer block\nstack the facizer block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 14,
+                    "evaluated": 24,
+                    "generated": 36,
+                    "search_time (in secs)": 0.00085
+                },
+                "readable_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 24,
+            "example_instance_ids": [
+                23
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the tegust block\nput down the westoor block\nunstack the tegust block from on top of the michime block\nput down the tegust block\npick up the facizer block\nstack the facizer block on top of the michime block\npick up the westoor block\nstack the westoor block on top of the facizer block\npick up the tegust block\nstack the tegust block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 5,
+                    "evaluated": 10,
+                    "generated": 13,
+                    "search_time (in secs)": 0.000738
+                },
+                "readable_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 25,
+            "example_instance_ids": [
+                24
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the facizer block from on top of the michime block\nput down the facizer block\nunstack the michime block from on top of the tegust block\nput down the michime block\npick up the westoor block\nstack the westoor block on top of the michime block\npick up the tegust block\nstack the tegust block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 9,
+                    "evaluated": 19,
+                    "generated": 26,
+                    "search_time (in secs)": 0.000768
+                },
+                "readable_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n"
+            }
+        },
+        {
+            "instance_id": 26,
+            "example_instance_ids": [
+                25
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the facizer block from on top of the tegust block\nput down the facizer block\npick up the michime block\nstack the michime block on top of the tegust block\npick up the westoor block\nstack the westoor block on top of the michime block\npick up the facizer block\nstack the facizer block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000674
+                },
+                "readable_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 27,
+            "example_instance_ids": [
+                26
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the facizer block\nstack the michime block on top of the tegust block\nunstack the facizer block from on top of the westoor block\nput down the facizer block\nunstack the michime block from on top of the tegust block\nstack the michime block on top of the westoor block\npick up the facizer block\nstack the facizer block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 5,
+                    "evaluated": 12,
+                    "generated": 15,
+                    "search_time (in secs)": 0.000589
+                },
+                "readable_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n"
+            }
+        },
+        {
+            "instance_id": 28,
+            "example_instance_ids": [
+                27
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the facizer block\nstack the westoor block on top of the tegust block\npick up the facizer block\nstack the facizer block on top of the michime block\nunstack the westoor block from on top of the tegust block\nstack the westoor block on top of the facizer block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 6,
+                    "evaluated": 9,
+                    "generated": 13,
+                    "search_time (in secs)": 0.000618
+                },
+                "readable_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n"
+            }
+        },
+        {
+            "instance_id": 29,
+            "example_instance_ids": [
+                28
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the tegust block from on top of the westoor block\nput down the tegust block\nunstack the westoor block from on top of the michime block\nput down the westoor block\nunstack the michime block from on top of the facizer block\nput down the michime block\npick up the facizer block\nstack the facizer block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000725
+                },
+                "readable_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 30,
+            "example_instance_ids": [
+                29
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the tegust block\nput down the westoor block\nunstack the tegust block from on top of the facizer block\nput down the tegust block\nunstack the facizer block from on top of the michime block\nstack the facizer block on top of the tegust block\npick up the michime block\nstack the michime block on top of the westoor block\nunstack the facizer block from on top of the tegust block\nstack the facizer block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the westoor block, the westoor block is on top of the facizer block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000786
+                },
+                "readable_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n"
+            }
+        },
+        {
+            "instance_id": 31,
+            "example_instance_ids": [
+                30
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the westoor block, the westoor block is on top of the facizer block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the michime block from on top of the westoor block\nput down the michime block\nunstack the westoor block from on top of the facizer block\nput down the westoor block\nunstack the facizer block from on top of the tegust block\nstack the facizer block on top of the westoor block\npick up the tegust block\nstack the tegust block on top of the michime block\nunstack the facizer block from on top of the westoor block\nstack the facizer block on top of the tegust block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 4,
+                    "generated": 5,
+                    "search_time (in secs)": 0.000642
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n"
+            }
+        },
+        {
+            "instance_id": 32,
+            "example_instance_ids": [
+                31
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the michime block\nput down the westoor block\nunstack the michime block from on top of the tegust block\nput down the michime block\nunstack the tegust block from on top of the facizer block\nstack the tegust block on top of the michime block\npick up the facizer block\nstack the facizer block on top of the tegust block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "",
+                "length": 0,
+                "states_info": {
+                    "expanded": 0,
+                    "evaluated": 1,
+                    "generated": 0,
+                    "search_time (in secs)": 0.000254
+                },
+                "readable_plan": ""
+            }
+        },
+        {
+            "instance_id": 33,
+            "example_instance_ids": [
+                32
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 6,
+                    "generated": 7,
+                    "search_time (in secs)": 0.000549
+                },
+                "readable_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n"
+            }
+        },
+        {
+            "instance_id": 34,
+            "example_instance_ids": [
+                33
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the tegust block\nstack the westoor block on top of the facizer block\nunstack the tegust block from on top of the michime block\nput down the tegust block\npick up the michime block\nstack the michime block on top of the tegust block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the facizer block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 9,
+                    "evaluated": 16,
+                    "generated": 23,
+                    "search_time (in secs)": 0.000773
+                },
+                "readable_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 35,
+            "example_instance_ids": [
+                34
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the facizer block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the facizer block\nput down the westoor block\nunstack the facizer block from on top of the tegust block\nstack the facizer block on top of the westoor block\npick up the michime block\nstack the michime block on top of the tegust block\nunstack the facizer block from on top of the westoor block\nstack the facizer block on top of the michime block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the westoor block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the facizer block, the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 1,
+                    "evaluated": 3,
+                    "generated": 2,
+                    "search_time (in secs)": 0.000717
+                },
+                "readable_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 36,
+            "example_instance_ids": [
+                35
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the westoor block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the facizer block, the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the facizer block from on top of the michime block\nput down the facizer block\nunstack the michime block from on top of the westoor block\nstack the michime block on top of the facizer block\npick up the westoor block\nstack the westoor block on top of the michime block\npick up the tegust block\nstack the tegust block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 12,
+                "states_info": {
+                    "expanded": 11,
+                    "evaluated": 20,
+                    "generated": 29,
+                    "search_time (in secs)": 0.000795
+                },
+                "readable_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 37,
+            "example_instance_ids": [
+                36
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the facizer block from on top of the tegust block\nput down the facizer block\nunstack the tegust block from on top of the westoor block\nput down the tegust block\nunstack the westoor block from on top of the michime block\nstack the westoor block on top of the tegust block\npick up the facizer block\nstack the facizer block on top of the michime block\nunstack the westoor block from on top of the tegust block\nstack the westoor block on top of the facizer block\npick up the tegust block\nstack the tegust block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the michime block, the westoor block is on top of the tegust block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block and the michime block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 4,
+                    "generated": 5,
+                    "search_time (in secs)": 0.00064
+                },
+                "readable_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n"
+            }
+        },
+        {
+            "instance_id": 38,
+            "example_instance_ids": [
+                37
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the michime block, the westoor block is on top of the tegust block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block and the michime block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the tegust block\nput down the westoor block\nunstack the tegust block from on top of the michime block\nput down the tegust block\nunstack the michime block from on top of the facizer block\nstack the michime block on top of the tegust block\npick up the facizer block\nstack the facizer block on top of the westoor block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the tegust block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 8,
+                    "evaluated": 13,
+                    "generated": 19,
+                    "search_time (in secs)": 0.000729
+                },
+                "readable_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n"
+            }
+        },
+        {
+            "instance_id": 39,
+            "example_instance_ids": [
+                38
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the tegust block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the tegust block from on top of the michime block\nput down the tegust block\nunstack the michime block from on top of the westoor block\nput down the michime block\nunstack the westoor block from on top of the facizer block\nput down the westoor block\npick up the tegust block\nstack the tegust block on top of the facizer block\npick up the michime block\nstack the michime block on top of the tegust block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 4,
+                    "evaluated": 11,
+                    "generated": 13,
+                    "search_time (in secs)": 0.00058
+                },
+                "readable_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n"
+            }
+        },
+        {
+            "instance_id": 40,
+            "example_instance_ids": [
+                39
+            ],
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the westoor block from on top of the michime block\nstack the westoor block on top of the tegust block\npick up the facizer block\nstack the facizer block on top of the michime block\nunstack the westoor block from on top of the tegust block\nstack the westoor block on top of the facizer block\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the westoor block is on top of the tegust block.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 6,
+                    "evaluated": 9,
+                    "generated": 13,
+                    "search_time (in secs)": 0.000602
+                },
+                "readable_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n"
+            }
+        }
+    ]
+}

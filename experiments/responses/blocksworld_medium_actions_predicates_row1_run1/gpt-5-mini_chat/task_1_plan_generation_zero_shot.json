@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_actions_predicates_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the michime is circonsy, the blue block is waldsmwards the orange block, the orange block is waldsmwards the yellow block, the yellow block is waldsmwards the red block and the red block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b3)\n(woolod b2)\n(unimpred b3 b4)\n(woolod b3)\n(unimpred b4 b1)\n(woolod b4)\n(abathitcry b2)\n(impred b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0xLXq5u446FrjuvYZ95rumT8Fi4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the blue block from the orange block\n2. Woolod the blue block\n3. Unimpred the orange block from the yellow block\n4. Woolod the orange block\n5. Unimpred the yellow block from the red block\n6. Woolod the yellow block\n7. Abathitcry the blue block\n8. Impred the blue block waldsmwards the red block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316239,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5857,
+                    "prompt_tokens": 491,
+                    "total_tokens": 6348,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 5760,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 99.09993433952332,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the blue block from the orange block\n2. Woolod the blue block\n3. Unimpred the orange block from the yellow block\n4. Woolod the orange block\n5. Unimpred the yellow block from the red block\n6. Woolod the yellow block\n7. Abathitcry the blue block\n8. Impred the blue block waldsmwards the red block"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the orange block is bountingless, the michime is circonsy, the red block is waldsmwards the yellow block, the blue block is waldsmwards the red block, the orange block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block, the blue block is waldsmwards the orange block and the orange block is waldsmwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b1)\n(woolod b2)\n(unimpred b1 b4)\n(woolod b1)\n(abathitcry b3)\n(impred b3 b4)\n(abathitcry b2)\n(impred b2 b3)\n(abathitcry b1)\n(impred b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0ywI8IrSadQ1effegLr1Y4cGMZs",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred blue from waldsmwards red\n2. Woolod blue\n3. Unimpred red from waldsmwards yellow\n4. Impred red waldsmwards blue\n5. Abathitcry orange\n6. Impred orange waldsmwards yellow\n7. Unimpred red from waldsmwards blue\n8. Woolod red\n9. Abathitcry blue\n10. Impred blue waldsmwards orange\n11. Abathitcry red\n12. Impred red waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316338,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 6591,
+                    "prompt_tokens": 524,
+                    "total_tokens": 7115,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 6464,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 99.26917266845703,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred blue from waldsmwards red\n2. Woolod blue\n3. Unimpred red from waldsmwards yellow\n4. Impred red waldsmwards blue\n5. Abathitcry orange\n6. Impred orange waldsmwards yellow\n7. Unimpred red from waldsmwards blue\n8. Woolod red\n9. Abathitcry blue\n10. Impred blue waldsmwards orange\n11. Abathitcry red\n12. Impred red waldsmwards blue"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the blue block is bountingless, the michime is circonsy, the blue block is waldsmwards the orange block, the orange block is waldsmwards the yellow block, the red block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the yellow block, the orange block is waldsmwards the blue block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b3)\n(woolod b2)\n(unimpred b3 b4)\n(woolod b3)\n(abathitcry b4)\n(impred b4 b1)\n(abathitcry b2)\n(impred b2 b4)\n(abathitcry b3)\n(impred b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ10Yly0sQeuf4NPtTltS2FBps8tT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred blue from orange\n2. Impred blue waldsmwards red\n3. Unimpred orange from yellow\n4. Impred orange waldsmwards blue\n5. Unimpred orange from blue\n6. Woolod orange\n7. Unimpred blue from red\n8. Impred blue waldsmwards yellow\n9. Abathitcry orange\n10. Impred orange waldsmwards blue\n11. Unimpred orange from blue\n12. Woolod orange\n13. Unimpred blue from yellow\n14. Woolod blue\n15. Abathitcry yellow\n16. Impred yellow waldsmwards red\n17. Abathitcry blue\n18. Impred blue waldsmwards yellow\n19. Abathitcry orange\n20. Impred orange waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316438,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 7357,
+                    "prompt_tokens": 524,
+                    "total_tokens": 7881,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 7168,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 103.794842004776,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred blue from orange\n2. Impred blue waldsmwards red\n3. Unimpred orange from yellow\n4. Impred orange waldsmwards blue\n5. Unimpred orange from blue\n6. Woolod orange\n7. Unimpred blue from red\n8. Impred blue waldsmwards yellow\n9. Abathitcry orange\n10. Impred orange waldsmwards blue\n11. Unimpred orange from blue\n12. Woolod orange\n13. Unimpred blue from yellow\n14. Woolod blue\n15. Abathitcry yellow\n16. Impred yellow waldsmwards red\n17. Abathitcry blue\n18. Impred blue waldsmwards yellow\n19. Abathitcry orange\n20. Impred orange waldsmwards blue"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the blue block is bountingless, the orange block is bountingless, the michime is circonsy, the orange block is waldsmwards the yellow block, the red block is waldsmwards the facizer, the blue block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the orange block, the blue block is waldsmwards the red block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b3 b4)\n(woolod b3)\n(abathitcry b1)\n(impred b1 b3)\n(abathitcry b2)\n(impred b2 b1)\n(abathitcry b4)\n(impred b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ12DKScFS2R1i0Z5ITFdZ0EYnYOD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred orange from waldsmwards yellow\n2. Woolod orange\n3. Abathitcry red\n4. Impred red waldsmwards orange\n5. Abathitcry blue\n6. Impred blue waldsmwards red\n7. Abathitcry yellow\n8. Impred yellow waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316541,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2964,
+                    "prompt_tokens": 533,
+                    "total_tokens": 3497,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 52.13496470451355,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred orange from waldsmwards yellow\n2. Woolod orange\n3. Abathitcry red\n4. Impred red waldsmwards orange\n5. Abathitcry blue\n6. Impred blue waldsmwards red\n7. Abathitcry yellow\n8. Impred yellow waldsmwards blue"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the orange block, the yellow block is waldsmwards the blue block, the blue block is waldsmwards the facizer and the orange block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the orange block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b2)\n(impred b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ134eATxoQPwXoeg1zQVoHuK1EwZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the yellow block from waldsmwards the blue block\n2. Impred the yellow block waldsmwards the red block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316594,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1704,
+                    "prompt_tokens": 512,
+                    "total_tokens": 2216,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.95985555648804,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the yellow block from waldsmwards the blue block\n2. Impred the yellow block waldsmwards the red block"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is bountingless, the yellow block is bountingless, the michime is circonsy, the blue block is waldsmwards the red block, the yellow block is waldsmwards the blue block, the red block is waldsmwards the facizer and the orange block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the yellow block, the orange block is waldsmwards the red block and the yellow block is waldsmwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b2)\n(woolod b4)\n(unimpred b2 b1)\n(woolod b2)\n(abathitcry b3)\n(impred b3 b1)\n(abathitcry b4)\n(impred b4 b3)\n(abathitcry b2)\n(impred b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ13jYTQKXUmuNZyeyp7zFWhdAmeG",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the yellow block from waldsmwards the blue block\n2. Woolod the yellow block\n3. Unimpred the blue block from waldsmwards the red block\n4. Woolod the blue block\n5. Abathitcry the orange block\n6. Impred the orange block waldsmwards the red block\n7. Abathitcry the yellow block\n8. Impred the yellow block waldsmwards the orange block\n9. Abathitcry the blue block\n10. Impred the blue block waldsmwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316635,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4741,
+                    "prompt_tokens": 524,
+                    "total_tokens": 5265,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4608,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 73.5526876449585,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the yellow block from waldsmwards the blue block\n2. Woolod the yellow block\n3. Unimpred the blue block from waldsmwards the red block\n4. Woolod the blue block\n5. Abathitcry the orange block\n6. Impred the orange block waldsmwards the red block\n7. Abathitcry the yellow block\n8. Impred the yellow block waldsmwards the orange block\n9. Abathitcry the blue block\n10. Impred the blue block waldsmwards the yellow block"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the blue block is bountingless, the michime is circonsy, the red block is waldsmwards the yellow block, the yellow block is waldsmwards the orange block, the blue block is waldsmwards the facizer and the orange block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the red block and the orange block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b1 b4)\n(woolod b1)\n(abathitcry b2)\n(impred b2 b1)\n(unimpred b4 b3)\n(woolod b4)\n(abathitcry b3)\n(impred b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ14uUvmdQwUq8bRZ5DAVXyGVcYvq",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred red from yellow\n2. Woolod red\n3. Abathitcry blue\n4. Impred blue waldsmwards red\n5. Unimpred yellow from orange\n6. Woolod yellow\n7. Abathitcry orange\n8. Impred orange waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316708,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5068,
+                    "prompt_tokens": 512,
+                    "total_tokens": 5580,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4992,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 86.83010864257812,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred red from yellow\n2. Woolod red\n3. Abathitcry blue\n4. Impred blue waldsmwards red\n5. Unimpred yellow from orange\n6. Woolod yellow\n7. Abathitcry orange\n8. Impred orange waldsmwards blue"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is bountingless, the michime is circonsy, the blue block is waldsmwards the yellow block, the orange block is waldsmwards the blue block, the yellow block is waldsmwards the red block and the red block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block and the blue block is waldsmwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b3 b2)\n(woolod b3)\n(unimpred b2 b4)\n(impred b2 b3)\n(unimpred b4 b1)\n(woolod b4)\n(abathitcry b1)\n(impred b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ16J5txIcDGOfobuOu99idZaTmK5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the orange block from waldsmwards the blue block\n2. Woolod the orange block\n3. Unimpred the blue block from waldsmwards the yellow block\n4. Impred the blue block waldsmwards the orange block\n5. Unimpred the yellow block from waldsmwards the red block\n6. Woolod the yellow block\n7. Abathitcry the red block\n8. Impred the red block waldsmwards the blue block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316795,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3059,
+                    "prompt_tokens": 503,
+                    "total_tokens": 3562,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2944,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 51.12936210632324,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the orange block from waldsmwards the blue block\n2. Woolod the orange block\n3. Unimpred the blue block from waldsmwards the yellow block\n4. Impred the blue block waldsmwards the orange block\n5. Unimpred the yellow block from waldsmwards the red block\n6. Woolod the yellow block\n7. Abathitcry the red block\n8. Impred the red block waldsmwards the blue block"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the blue block is bountingless, the michime is circonsy, the blue block is waldsmwards the yellow block, the yellow block is waldsmwards the orange block, the red block is waldsmwards the facizer and the orange block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the orange block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b4)\n(impred b2 b1)\n(unimpred b4 b3)\n(woolod b4)\n(unimpred b2 b1)\n(impred b2 b3)\n(abathitcry b4)\n(impred b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ178Zbov4IVyuWMA0eD0g9h3AZwC",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred blue from waldsmwards yellow\n2. Impred blue waldsmwards red\n3. Unimpred yellow from waldsmwards orange\n4. Woolod yellow\n5. Unimpred blue from waldsmwards red\n6. Impred blue waldsmwards orange\n7. Abathitcry yellow\n8. Impred yellow waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316846,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5214,
+                    "prompt_tokens": 512,
+                    "total_tokens": 5726,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 5120,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 96.90208458900452,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred blue from waldsmwards yellow\n2. Impred blue waldsmwards red\n3. Unimpred yellow from waldsmwards orange\n4. Woolod yellow\n5. Unimpred blue from waldsmwards red\n6. Impred blue waldsmwards orange\n7. Abathitcry yellow\n8. Impred yellow waldsmwards blue"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the orange block, the blue block is waldsmwards the red block, the yellow block is waldsmwards the blue block and the orange block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block, the orange block is waldsmwards the yellow block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b2)\n(woolod b4)\n(unimpred b2 b1)\n(woolod b2)\n(unimpred b1 b3)\n(impred b1 b2)\n(abathitcry b4)\n(impred b4 b1)\n(abathitcry b3)\n(impred b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ18hTkFSINny0ALmy1ZqgBsxFnGf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred yellow from blue\n2. Woolod yellow\n3. Unimpred blue from red\n4. Woolod blue\n5. Unimpred red from orange\n6. Impred red waldsmwards blue\n7. Abathitcry yellow\n8. Impred yellow waldsmwards red\n9. Abathitcry orange\n10. Impred orange waldsmwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316943,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4704,
+                    "prompt_tokens": 515,
+                    "total_tokens": 5219,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4608,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 92.67802858352661,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred yellow from blue\n2. Woolod yellow\n3. Unimpred blue from red\n4. Woolod blue\n5. Unimpred red from orange\n6. Impred red waldsmwards blue\n7. Abathitcry yellow\n8. Impred yellow waldsmwards red\n9. Abathitcry orange\n10. Impred orange waldsmwards yellow"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is bountingless, the michime is circonsy, the blue block is waldsmwards the orange block, the orange block is waldsmwards the red block, the yellow block is waldsmwards the blue block and the red block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the yellow block and the orange block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b2)\n(woolod b4)\n(unimpred b2 b3)\n(impred b2 b4)\n(unimpred b3 b1)\n(impred b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1ACktySj8W6fsZwCeAZZ8asIxfk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unimpred yellow from waldsmwards blue\nWoolod yellow\nUnimpred blue from waldsmwards orange\nImpred blue waldsmwards yellow\nUnimpred orange from waldsmwards red\nImpred orange waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317036,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3072,
+                    "prompt_tokens": 503,
+                    "total_tokens": 3575,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 61.35583567619324,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unimpred yellow from waldsmwards blue\nWoolod yellow\nUnimpred blue from waldsmwards orange\nImpred blue waldsmwards yellow\nUnimpred orange from waldsmwards red\nImpred orange waldsmwards blue"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the blue block is bountingless, the orange block is bountingless, the michime is circonsy, the red block is waldsmwards the yellow block, the blue block is waldsmwards the facizer, the orange block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the orange block, the blue block is waldsmwards the red block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b1 b4)\n(impred b1 b3)\n(abathitcry b2)\n(impred b2 b1)\n(abathitcry b4)\n(impred b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1BBWjhpOKIVuW03BL6mAFGQW7uR",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred red from yellow\n2. Impred red waldsmwards orange\n3. Unimpred blue from facizer\n4. Impred blue waldsmwards red\n5. Unimpred yellow from facizer\n6. Impred yellow waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317097,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4550,
+                    "prompt_tokens": 533,
+                    "total_tokens": 5083,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4480,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 65.1452624797821,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred red from yellow\n2. Impred red waldsmwards orange\n3. Unimpred blue from facizer\n4. Impred blue waldsmwards red\n5. Unimpred yellow from facizer\n6. Impred yellow waldsmwards blue"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the blue block, the blue block is waldsmwards the orange block, the orange block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the orange block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b1 b2)\n(woolod b1)\n(abathitcry b4)\n(impred b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1CEMNUOgRbZXXWFfAFZkjnc2Hmo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred red from waldsmwards blue\n2. Woolod red\n3. Abathitcry yellow\n4. Impred yellow waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317162,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1966,
+                    "prompt_tokens": 512,
+                    "total_tokens": 2478,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.207502365112305,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred red from waldsmwards blue\n2. Woolod red\n3. Abathitcry yellow\n4. Impred yellow waldsmwards blue"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the orange block, the blue block is waldsmwards the red block, the yellow block is waldsmwards the blue block and the orange block is waldsmwards the facizer.\nMy goal is to have that the orange block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b2)\n(woolod b4)\n(unimpred b2 b1)\n(woolod b2)\n(unimpred b1 b3)\n(woolod b1)\n(abathitcry b3)\n(impred b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1Cq1WubS6hdD7jtFfar9WsySRqv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred yellow from blue\n2. Woolod yellow\n3. Unimpred blue from red\n4. Woolod blue\n5. Unimpred red from orange\n6. Woolod red\n7. Abathitcry orange\n8. Impred orange waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317200,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3144,
+                    "prompt_tokens": 491,
+                    "total_tokens": 3635,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.779223680496216,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred yellow from blue\n2. Woolod yellow\n3. Unimpred blue from red\n4. Woolod blue\n5. Unimpred red from orange\n6. Woolod red\n7. Abathitcry orange\n8. Impred orange waldsmwards blue"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the yellow block is bountingless, the michime is circonsy, the orange block is waldsmwards the red block, the yellow block is waldsmwards the orange block, the red block is waldsmwards the facizer and the blue block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the yellow block, the blue block is waldsmwards the orange block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b3)\n(woolod b4)\n(unimpred b3 b1)\n(woolod b3)\n(abathitcry b2)\n(impred b2 b3)\n(abathitcry b4)\n(impred b4 b2)\n(abathitcry b1)\n(impred b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1DcRa6TVQwD43PV0Mdt8DVO45Ag",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the yellow block from waldsmwards the orange block\n2. Impred the yellow block waldsmwards the blue block\n3. Unimpred the orange block from waldsmwards the red block\n4. Woolod the orange block\n5. Unimpred the yellow block from waldsmwards the blue block\n6. Woolod the yellow block\n7. Abathitcry the blue block\n8. Impred the blue block waldsmwards the orange block\n9. Abathitcry the yellow block\n10. Impred the yellow block waldsmwards the blue block\n11. Abathitcry the red block\n12. Impred the red block waldsmwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317248,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5861,
+                    "prompt_tokens": 524,
+                    "total_tokens": 6385,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 5696,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 78.90611386299133,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the yellow block from waldsmwards the orange block\n2. Impred the yellow block waldsmwards the blue block\n3. Unimpred the orange block from waldsmwards the red block\n4. Woolod the orange block\n5. Unimpred the yellow block from waldsmwards the blue block\n6. Woolod the yellow block\n7. Abathitcry the blue block\n8. Impred the blue block waldsmwards the orange block\n9. Abathitcry the yellow block\n10. Impred the yellow block waldsmwards the blue block\n11. Abathitcry the red block\n12. Impred the red block waldsmwards the yellow block"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is bountingless, the michime is circonsy, the red block is waldsmwards the blue block, the orange block is waldsmwards the yellow block, the yellow block is waldsmwards the red block and the blue block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the red block and the orange block is waldsmwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b3 b4)\n(woolod b3)\n(unimpred b4 b1)\n(woolod b4)\n(abathitcry b3)\n(impred b3 b4)\n(unimpred b1 b2)\n(woolod b1)\n(abathitcry b2)\n(impred b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1EtgzDuPBoOCnglRK2gOghrdcO6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred orange from yellow\n2. Woolod orange\n3. Unimpred yellow from red\n4. Woolod yellow\n5. Unimpred red from blue\n6. Woolod red\n7. Abathitcry blue\n8. Impred blue waldsmwards red\n9. Abathitcry orange\n10. Impred orange waldsmwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317327,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5531,
+                    "prompt_tokens": 503,
+                    "total_tokens": 6034,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 5440,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 59.9925537109375,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred orange from yellow\n2. Woolod orange\n3. Unimpred yellow from red\n4. Woolod yellow\n5. Unimpred red from blue\n6. Woolod red\n7. Abathitcry blue\n8. Impred blue waldsmwards red\n9. Abathitcry orange\n10. Impred orange waldsmwards yellow"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the orange block is bountingless, the michime is circonsy, the blue block is waldsmwards the yellow block, the orange block is waldsmwards the blue block, the red block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the yellow block, the orange block is waldsmwards the red block and the yellow block is waldsmwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b3 b2)\n(impred b3 b1)\n(unimpred b2 b4)\n(woolod b2)\n(abathitcry b4)\n(impred b4 b3)\n(abathitcry b2)\n(impred b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1Fr4NBku76Vp92lZnVPUvPCTbRJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred orange from blue\n2. Impred orange waldsmwards red\n3. Unimpred blue from yellow\n4. Woolod blue\n5. Abathitcry yellow\n6. Impred yellow waldsmwards orange\n7. Abathitcry blue\n8. Impred blue waldsmwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317387,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 6353,
+                    "prompt_tokens": 524,
+                    "total_tokens": 6877,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 6272,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 137.39658737182617,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred orange from blue\n2. Impred orange waldsmwards red\n3. Unimpred blue from yellow\n4. Woolod blue\n5. Abathitcry yellow\n6. Impred yellow waldsmwards orange\n7. Abathitcry blue\n8. Impred blue waldsmwards yellow"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the orange block is bountingless, the yellow block is bountingless, the michime is circonsy, the orange block is waldsmwards the blue block, the red block is waldsmwards the facizer, the blue block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the orange block, the blue block is waldsmwards the red block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b3 b2)\n(woolod b3)\n(abathitcry b1)\n(impred b1 b3)\n(abathitcry b2)\n(impred b2 b1)\n(abathitcry b4)\n(impred b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1I5HOOgdtPuk5rBjINJVlSEErea",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred orange from waldsmwards blue\n2. Woolod orange\n3. Abathitcry red\n4. Impred red waldsmwards orange\n5. Abathitcry blue\n6. Impred blue waldsmwards red\n7. Abathitcry yellow\n8. Impred yellow waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317525,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 7060,
+                    "prompt_tokens": 533,
+                    "total_tokens": 7593,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 6976,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 85.54389882087708,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred orange from waldsmwards blue\n2. Woolod orange\n3. Abathitcry red\n4. Impred red waldsmwards orange\n5. Abathitcry blue\n6. Impred blue waldsmwards red\n7. Abathitcry yellow\n8. Impred yellow waldsmwards blue"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the orange block is bountingless, the michime is circonsy, the blue block is waldsmwards the yellow block, the yellow block is waldsmwards the red block, the red block is waldsmwards the facizer and the orange block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block, the blue block is waldsmwards the yellow block and the yellow block is waldsmwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b4)\n(woolod b2)\n(unimpred b4 b1)\n(impred b4 b3)\n(abathitcry b2)\n(impred b2 b4)\n(abathitcry b1)\n(impred b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1JSIikkrYwIKz71QnaUXWENBsRE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred blue from waldsmwards yellow\n2. Woolod blue\n3. Unimpred yellow from waldsmwards red\n4. Impred yellow waldsmwards orange\n5. Abathitcry blue\n6. Impred blue waldsmwards yellow\n7. Abathitcry red\n8. Impred red waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317610,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4761,
+                    "prompt_tokens": 524,
+                    "total_tokens": 5285,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4672,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 71.05539393424988,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred blue from waldsmwards yellow\n2. Woolod blue\n3. Unimpred yellow from waldsmwards red\n4. Impred yellow waldsmwards orange\n5. Abathitcry blue\n6. Impred blue waldsmwards yellow\n7. Abathitcry red\n8. Impred red waldsmwards blue"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the yellow block is bountingless, the michime is circonsy, the blue block is waldsmwards the orange block, the orange block is waldsmwards the red block, the red block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the yellow block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b3)\n(woolod b2)\n(unimpred b3 b1)\n(woolod b3)\n(abathitcry b4)\n(impred b4 b1)\n(abathitcry b2)\n(impred b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1KbEEL2zH2ScQrF7nd6dJCcljQU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Abathitcry blue\nWoolod blue\nAbathitcry orange\nWoolod orange\nAbathitcry yellow\nImpred yellow waldsmwards red\nAbathitcry blue\nImpred blue waldsmwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317681,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5372,
+                    "prompt_tokens": 512,
+                    "total_tokens": 5884,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 5312,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 74.95246195793152,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Abathitcry blue\nWoolod blue\nAbathitcry orange\nWoolod orange\nAbathitcry yellow\nImpred yellow waldsmwards red\nAbathitcry blue\nImpred blue waldsmwards yellow"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the blue block is bountingless, the michime is circonsy, the red block is waldsmwards the yellow block, the blue block is waldsmwards the orange block, the orange block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the orange block, the blue block is waldsmwards the red block and the orange block is waldsmwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b3)\n(woolod b2)\n(unimpred b1 b4)\n(impred b1 b2)\n(abathitcry b3)\n(impred b3 b4)\n(unimpred b1 b2)\n(impred b1 b3)\n(abathitcry b2)\n(impred b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1LoBSOShh0gOf37y9aXDwn1cOUg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred red from waldsmwards yellow\n2. Woolod red\n3. Unimpred blue from waldsmwards orange\n4. Woolod blue\n5. Abathitcry orange\n6. Impred orange waldsmwards yellow\n7. Abathitcry red\n8. Impred red waldsmwards orange\n9. Abathitcry blue\n10. Impred blue waldsmwards red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317756,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5544,
+                    "prompt_tokens": 524,
+                    "total_tokens": 6068,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 5440,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 94.65399503707886,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred red from waldsmwards yellow\n2. Woolod red\n3. Unimpred blue from waldsmwards orange\n4. Woolod blue\n5. Abathitcry orange\n6. Impred orange waldsmwards yellow\n7. Abathitcry red\n8. Impred red waldsmwards orange\n9. Abathitcry blue\n10. Impred blue waldsmwards red"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the orange block is bountingless, the yellow block is bountingless, the michime is circonsy, the orange block is waldsmwards the red block, the red block is waldsmwards the facizer, the blue block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block and the blue block is waldsmwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b3 b1)\n(woolod b3)\n(abathitcry b2)\n(impred b2 b3)\n(abathitcry b1)\n(impred b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1NL65tLgz3YbEE5nn8ZICKmN9Ud",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred orange from red\n2. Woolod orange\n3. Abathitcry blue\n4. Impred blue waldsmwards orange\n5. Abathitcry red\n6. Impred red waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317851,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3133,
+                    "prompt_tokens": 521,
+                    "total_tokens": 3654,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.08713102340698,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred orange from red\n2. Woolod orange\n3. Abathitcry blue\n4. Impred blue waldsmwards orange\n5. Abathitcry red\n6. Impred red waldsmwards blue"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the yellow block is bountingless, the michime is circonsy, the orange block is waldsmwards the blue block, the yellow block is waldsmwards the orange block, the red block is waldsmwards the facizer and the blue block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block, the orange block is waldsmwards the yellow block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b3)\n(woolod b4)\n(unimpred b3 b2)\n(woolod b3)\n(abathitcry b1)\n(impred b1 b2)\n(abathitcry b4)\n(impred b4 b1)\n(abathitcry b3)\n(impred b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1O0s1fECdFP0GUJH81yRjonauZM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Abathitcry red\n2. Impred red waldsmwards blue\n3. Unimpred yellow from waldsmwards orange\n4. Impred yellow waldsmwards red\n5. Unimpred orange from waldsmwards blue\n6. Impred orange waldsmwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317892,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4811,
+                    "prompt_tokens": 524,
+                    "total_tokens": 5335,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4736,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 97.47727990150452,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Abathitcry red\n2. Impred red waldsmwards blue\n3. Unimpred yellow from waldsmwards orange\n4. Impred yellow waldsmwards red\n5. Unimpred orange from waldsmwards blue\n6. Impred orange waldsmwards yellow"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the blue block, the blue block is waldsmwards the orange block, the orange block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the orange block is waldsmwards the yellow block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b1 b2)\n(woolod b1)\n(unimpred b2 b3)\n(woolod b2)\n(abathitcry b4)\n(impred b4 b2)\n(abathitcry b3)\n(impred b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1PZhWEMyp0hWEOQeutvv24Ga33F",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred red from blue\n2. Unimpred blue from orange\n3. Abathitcry yellow\n4. Impred yellow waldsmwards blue\n5. Abathitcry orange\n6. Impred orange waldsmwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760317989,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 6208,
+                    "prompt_tokens": 512,
+                    "total_tokens": 6720,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 6144,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 83.38203573226929,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred red from blue\n2. Unimpred blue from orange\n3. Abathitcry yellow\n4. Impred yellow waldsmwards blue\n5. Abathitcry orange\n6. Impred orange waldsmwards yellow"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the blue block is bountingless, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the orange block, the blue block is waldsmwards the facizer, the orange block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the yellow block, the blue block is waldsmwards the orange block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b1 b3)\n(woolod b1)\n(abathitcry b2)\n(impred b2 b3)\n(abathitcry b4)\n(impred b4 b2)\n(abathitcry b1)\n(impred b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1QvtTAnHNw7gTfjEundwjla7Gaz",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred red from waldsmwards orange\n2. Woolod red\n3. Abathitcry blue\n4. Impred blue waldsmwards orange\n5. Abathitcry yellow\n6. Impred yellow waldsmwards blue\n7. Abathitcry red\n8. Impred red waldsmwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318073,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3604,
+                    "prompt_tokens": 533,
+                    "total_tokens": 4137,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3520,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 48.34223556518555,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred red from waldsmwards orange\n2. Woolod red\n3. Abathitcry blue\n4. Impred blue waldsmwards orange\n5. Abathitcry yellow\n6. Impred yellow waldsmwards blue\n7. Abathitcry red\n8. Impred red waldsmwards yellow"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the orange block is bountingless, the michime is circonsy, the red block is waldsmwards the yellow block, the blue block is waldsmwards the red block, the orange block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block and the blue block is waldsmwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b1)\n(impred b2 b3)\n(unimpred b1 b4)\n(woolod b1)\n(unimpred b2 b3)\n(impred b2 b4)\n(abathitcry b1)\n(impred b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1RhQyIEIBl6JrcRSvp0PmAL6SKX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred blue from red\n2. Woolod blue\n3. Unimpred red from yellow\n4. Impred red waldsmwards orange\n5. Abathitcry blue\n6. Impred blue waldsmwards yellow\n7. Unimpred red from orange\n8. Impred red waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318121,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 10643,
+                    "prompt_tokens": 512,
+                    "total_tokens": 11155,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 10560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 94.30033564567566,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred blue from red\n2. Woolod blue\n3. Unimpred red from yellow\n4. Impred red waldsmwards orange\n5. Abathitcry blue\n6. Impred blue waldsmwards yellow\n7. Unimpred red from orange\n8. Impred red waldsmwards blue"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the orange block is bountingless, the yellow block is bountingless, the michime is circonsy, the yellow block is waldsmwards the red block, the red block is waldsmwards the facizer, the blue block is waldsmwards the facizer and the orange block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b1)\n(impred b4 b3)\n(abathitcry b1)\n(impred b1 b2)\n(unimpred b4 b3)\n(impred b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1TEhus5IbVJcQJADntgWCQGtFYx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the yellow block from waldsmwards the red block\n2. Woolod the yellow block\n3. Abathitcry the red block\n4. Impred the red block waldsmwards the blue block\n5. Abathitcry the yellow block\n6. Impred the yellow block waldsmwards the red block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318216,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4051,
+                    "prompt_tokens": 521,
+                    "total_tokens": 4572,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3968,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 54.92682456970215,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the yellow block from waldsmwards the red block\n2. Woolod the yellow block\n3. Abathitcry the red block\n4. Impred the red block waldsmwards the blue block\n5. Abathitcry the yellow block\n6. Impred the yellow block waldsmwards the red block"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is bountingless, the michime is circonsy, the blue block is waldsmwards the red block, the orange block is waldsmwards the yellow block, the yellow block is waldsmwards the blue block and the red block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b3 b4)\n(woolod b3)\n(unimpred b4 b2)\n(woolod b4)\n(unimpred b2 b1)\n(woolod b2)\n(abathitcry b1)\n(impred b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1U6v58399o8WDRcVPl1MajiMXBM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unimpred orange from yellow\nWoolod orange\nUnimpred yellow from blue\nWoolod yellow\nUnimpred blue from red\nWoolod blue\nAbathitcry red\nImpred red waldsmwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318270,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3451,
+                    "prompt_tokens": 491,
+                    "total_tokens": 3942,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3392,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 49.47879076004028,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unimpred orange from yellow\nWoolod orange\nUnimpred yellow from blue\nWoolod yellow\nUnimpred blue from red\nWoolod blue\nAbathitcry red\nImpred red waldsmwards yellow"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the blue block, the orange block is waldsmwards the red block, the yellow block is waldsmwards the orange block and the blue block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block and the blue block is waldsmwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b3)\n(woolod b4)\n(unimpred b3 b1)\n(woolod b3)\n(unimpred b1 b2)\n(impred b1 b3)\n(abathitcry b2)\n(impred b2 b4)\n(unimpred b1 b3)\n(impred b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1UurnJqu5EjKxO4MhZQoXD8JrpU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the yellow block from the orange block\n2. Unimpred the orange block from the red block\n3. Unimpred the red block from the blue block\n4. Abathitcry the blue block\n5. Impred the blue block waldsmwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318320,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3208,
+                    "prompt_tokens": 503,
+                    "total_tokens": 3711,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 63.41936707496643,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the yellow block from the orange block\n2. Unimpred the orange block from the red block\n3. Unimpred the red block from the blue block\n4. Abathitcry the blue block\n5. Impred the blue block waldsmwards the yellow block"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the michime is circonsy, the red block is waldsmwards the orange block, the blue block is waldsmwards the yellow block, the yellow block is waldsmwards the red block and the orange block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the orange block and the orange block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b2 b4)\n(woolod b2)\n(unimpred b4 b1)\n(woolod b4)\n(unimpred b1 b3)\n(impred b1 b4)\n(abathitcry b3)\n(impred b3 b2)\n(unimpred b1 b4)\n(impred b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1Vvusa60IrvN1JM0cr6vvHJpRSp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "unimpred blue from waldsmwards yellow\nwoolod blue\nunimpred yellow from waldsmwards red\nwoolod yellow\nunimpred red from waldsmwards orange\nwoolod red\nabathitcry orange\nimpred orange waldsmwards blue\nabathitcry red\nimpred red waldsmwards orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318383,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5590,
+                    "prompt_tokens": 503,
+                    "total_tokens": 6093,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 5504,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 82.78826570510864,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "unimpred blue from waldsmwards yellow\nwoolod blue\nunimpred yellow from waldsmwards red\nwoolod yellow\nunimpred red from waldsmwards orange\nwoolod red\nabathitcry orange\nimpred orange waldsmwards blue\nabathitcry red\nimpred red waldsmwards orange"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is bountingless, the michime is circonsy, the blue block is waldsmwards the orange block, the orange block is waldsmwards the red block, the yellow block is waldsmwards the blue block and the red block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the orange block and the orange block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b2)\n(woolod b4)\n(unimpred b2 b3)\n(woolod b2)\n(unimpred b3 b1)\n(impred b3 b2)\n(abathitcry b1)\n(impred b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1XGz4TlJi1VMNRAiNitepiiq6Ki",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unimpred yellow from blue\nWoolod yellow\nUnimpred blue from orange\nWoolod blue\nUnimpred orange from red\nImpred orange waldsmwards blue\nAbathitcry red\nImpred red waldsmwards orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318466,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4543,
+                    "prompt_tokens": 503,
+                    "total_tokens": 5046,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4480,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 63.103588342666626,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unimpred yellow from blue\nWoolod yellow\nUnimpred blue from orange\nWoolod blue\nUnimpred orange from red\nImpred orange waldsmwards blue\nAbathitcry red\nImpred red waldsmwards orange"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is bountingless, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the blue block, the orange block is waldsmwards the red block, the blue block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the orange block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ1YH4TfoUEB33v25zxrYzdpDtrFW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions (goal already satisfied).",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318529,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 656,
+                    "prompt_tokens": 500,
+                    "total_tokens": 1156,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 640,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.194608926773071,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions (goal already satisfied)."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the yellow block is bountingless, the michime is circonsy, the orange block is waldsmwards the blue block, the yellow block is waldsmwards the orange block, the red block is waldsmwards the facizer and the blue block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the orange block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b3)\n(impred b4 b1)\n(unimpred b3 b2)\n(woolod b3)\n(abathitcry b2)\n(impred b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1YQfVlvdCdZBFlNxYi9ou8dF1CQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred yellow from orange\n2. Impred yellow waldsmwards red\n3. Unimpred orange from blue\n4. Woolod orange\n5. Abathitcry blue\n6. Impred blue waldsmwards orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318538,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2814,
+                    "prompt_tokens": 512,
+                    "total_tokens": 3326,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 51.48442220687866,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred yellow from orange\n2. Impred yellow waldsmwards red\n3. Unimpred orange from blue\n4. Woolod orange\n5. Abathitcry blue\n6. Impred blue waldsmwards orange"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is bountingless, the yellow block is bountingless, the michime is circonsy, the red block is waldsmwards the orange block, the yellow block is waldsmwards the red block, the blue block is waldsmwards the facizer and the orange block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block and the blue block is waldsmwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b1)\n(woolod b4)\n(unimpred b1 b3)\n(impred b1 b4)\n(abathitcry b2)\n(impred b2 b3)\n(unimpred b1 b4)\n(impred b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1ZG2QjmRyCLsbVRDsZoypB922zc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred yellow from red\n2. Woolod yellow\n3. Unimpred red from orange\n4. Impred red waldsmwards blue\n5. Unimpred red from blue\n6. Woolod red\n7. Abathitcry blue\n8. Impred blue waldsmwards orange\n9. Abathitcry red\n10. Impred red waldsmwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318590,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 8032,
+                    "prompt_tokens": 512,
+                    "total_tokens": 8544,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 7936,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 102.89695048332214,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred yellow from red\n2. Woolod yellow\n3. Unimpred red from orange\n4. Impred red waldsmwards blue\n5. Unimpred red from blue\n6. Woolod red\n7. Abathitcry blue\n8. Impred blue waldsmwards orange\n9. Abathitcry red\n10. Impred red waldsmwards blue"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the orange block is bountingless, the michime is circonsy, the red block is waldsmwards the blue block, the blue block is waldsmwards the yellow block, the orange block is waldsmwards the facizer and the yellow block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the red block, the orange block is waldsmwards the yellow block and the yellow block is waldsmwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b1 b2)\n(woolod b1)\n(unimpred b2 b4)\n(impred b2 b1)\n(abathitcry b4)\n(impred b4 b2)\n(abathitcry b3)\n(impred b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1av3PkfHHC6f7ntWbzCDIJ3xtzf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the red block from the blue block\n2. Woolod the red block\n3. Unimpred the blue block from the yellow block\n4. Impred the blue block waldsmwards the red block\n5. Abathitcry the yellow block\n6. Impred the yellow block waldsmwards the blue block\n7. Abathitcry the orange block\n8. Impred the orange block waldsmwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318693,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4843,
+                    "prompt_tokens": 524,
+                    "total_tokens": 5367,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4736,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 66.75758600234985,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the red block from the blue block\n2. Woolod the red block\n3. Unimpred the blue block from the yellow block\n4. Impred the blue block waldsmwards the red block\n5. Abathitcry the yellow block\n6. Impred the yellow block waldsmwards the blue block\n7. Abathitcry the orange block\n8. Impred the orange block waldsmwards the yellow block"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the michime is circonsy, the red block is waldsmwards the orange block, the orange block is waldsmwards the yellow block, the yellow block is waldsmwards the blue block and the blue block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block, the orange block is waldsmwards the yellow block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b1 b3)\n(woolod b1)\n(unimpred b3 b4)\n(woolod b3)\n(unimpred b4 b2)\n(impred b4 b3)\n(abathitcry b1)\n(impred b1 b2)\n(unimpred b4 b3)\n(impred b4 b1)\n(abathitcry b3)\n(impred b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1c0162DLFuIzpttZeFeWgiC56bW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the red block from waldsmwards the orange block\n2. Woolod the red block\n3. Unimpred the orange block from waldsmwards the yellow block\n4. Woolod the orange block\n5. Unimpred the yellow block from waldsmwards the blue block\n6. Woolod the yellow block\n7. Abathitcry the red block\n8. Impred the red block waldsmwards the blue block\n9. Abathitcry the yellow block\n10. Impred the yellow block waldsmwards the red block\n11. Abathitcry the orange block\n12. Impred the orange block waldsmwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318760,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 7646,
+                    "prompt_tokens": 515,
+                    "total_tokens": 8161,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 7488,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 126.06151175498962,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the red block from waldsmwards the orange block\n2. Woolod the red block\n3. Unimpred the orange block from waldsmwards the yellow block\n4. Woolod the orange block\n5. Unimpred the yellow block from waldsmwards the blue block\n6. Woolod the yellow block\n7. Abathitcry the red block\n8. Impred the red block waldsmwards the blue block\n9. Abathitcry the yellow block\n10. Impred the yellow block waldsmwards the red block\n11. Abathitcry the orange block\n12. Impred the orange block waldsmwards the yellow block"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is bountingless, the michime is circonsy, the blue block is waldsmwards the red block, the orange block is waldsmwards the blue block, the yellow block is waldsmwards the orange block and the red block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the yellow block and the blue block is waldsmwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b3)\n(woolod b4)\n(unimpred b3 b2)\n(woolod b3)\n(unimpred b2 b1)\n(impred b2 b3)\n(abathitcry b1)\n(impred b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1e2PHketMO2mau7XfnVvdD1xyOA",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the yellow block from the orange block\n2. Woolod the yellow block\n3. Unimpred the orange block from the blue block\n4. Woolod the orange block\n5. Unimpred the blue block from the red block\n6. Impred the blue block waldsmwards the orange block\n7. Abathitcry the red block\n8. Impred the red block waldsmwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318886,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3432,
+                    "prompt_tokens": 503,
+                    "total_tokens": 3935,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3328,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 58.6114296913147,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the yellow block from the orange block\n2. Woolod the yellow block\n3. Unimpred the orange block from the blue block\n4. Woolod the orange block\n5. Unimpred the blue block from the red block\n6. Impred the blue block waldsmwards the orange block\n7. Abathitcry the red block\n8. Impred the red block waldsmwards the yellow block"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is bountingless, the michime is circonsy, the blue block is waldsmwards the yellow block, the orange block is waldsmwards the blue block, the yellow block is waldsmwards the red block and the red block is waldsmwards the facizer.\nMy goal is to have that the blue block is waldsmwards the orange block and the orange block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b3 b2)\n(woolod b3)\n(unimpred b2 b4)\n(woolod b2)\n(unimpred b4 b1)\n(woolod b4)\n(abathitcry b3)\n(impred b3 b1)\n(abathitcry b2)\n(impred b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1f145dpEXpR6nkn2Ge3bVPWrEiO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the orange block from waldsmwards the blue block\n2. Woolod the orange block\n3. Unimpred the blue block from waldsmwards the yellow block\n4. Woolod the blue block\n5. Unimpred the yellow block from waldsmwards the red block\n6. Woolod the yellow block\n7. Abathitcry the orange block\n8. Impred the orange block waldsmwards the red block\n9. Abathitcry the blue block\n10. Impred the blue block waldsmwards the orange block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318947,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4933,
+                    "prompt_tokens": 503,
+                    "total_tokens": 5436,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4800,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 100.09522986412048,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the orange block from waldsmwards the blue block\n2. Woolod the orange block\n3. Unimpred the blue block from waldsmwards the yellow block\n4. Woolod the blue block\n5. Unimpred the yellow block from waldsmwards the red block\n6. Woolod the yellow block\n7. Abathitcry the orange block\n8. Impred the orange block waldsmwards the red block\n9. Abathitcry the blue block\n10. Impred the blue block waldsmwards the orange block"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the orange block is bountingless, the yellow block is bountingless, the michime is circonsy, the yellow block is waldsmwards the blue block, the red block is waldsmwards the facizer, the blue block is waldsmwards the facizer and the orange block is waldsmwards the facizer.\nMy goal is to have that the red block is waldsmwards the blue block and the yellow block is waldsmwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b4 b2)\n(impred b4 b3)\n(abathitcry b1)\n(impred b1 b2)\n(unimpred b4 b3)\n(impred b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1gaPJq0nodgACe6Vs99PA8Ap1Z4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred the yellow block from waldsmwards the blue block\n2. Woolod the yellow block\n3. Abathitcry the red block\n4. Impred the red block waldsmwards the blue block\n5. Abathitcry the yellow block\n6. Impred the yellow block waldsmwards the red block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319044,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2259,
+                    "prompt_tokens": 521,
+                    "total_tokens": 2780,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.64787244796753,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred the yellow block from waldsmwards the blue block\n2. Woolod the yellow block\n3. Abathitcry the red block\n4. Impred the red block waldsmwards the blue block\n5. Abathitcry the yellow block\n6. Impred the yellow block waldsmwards the red block"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do\n\nAbathitcry a block\nUnimpred a block from waldsmwards another block\nWoolod a block\nImpred a block waldsmwards another block\n\nI have the following restrictions on my actions:\nI can only abathitcry or unimpred one block at a time.\nI can only abathitcry or unimpred a block if my michime is circonsy.\nI can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.\nI can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.\nOnce I abathitcry or unimpred a block, I am croblifilting the block.\nI can only woolod a block that I am croblifilting.\nI can only impred a block waldsmwards another block if I am croblifilting the block being impredded.\nI can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.\nOnce I woolod or impred a block, my michime becomes circonsy.\nOnce you impred a block waldsmwards a second block, the second block is no longer bountingless.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is bountingless, the michime is circonsy, the red block is waldsmwards the yellow block, the blue block is waldsmwards the orange block, the yellow block is waldsmwards the blue block and the orange block is waldsmwards the facizer.\nMy goal is to have that the yellow block is waldsmwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unimpred b1 b4)\n(woolod b1)\n(unimpred b4 b2)\n(impred b4 b1)\n(unimpred b2 b3)\n(woolod b2)\n(unimpred b4 b1)\n(impred b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1h6nR71BELpUj2KEMy1hxcWHBPa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unimpred red from yellow\n2. Woolod red\n3. Unimpred yellow from blue\n4. Impred yellow waldsmwards red\n5. Unimpred blue from orange\n6. Woolod blue\n7. Unimpred yellow from red\n8. Impred yellow waldsmwards orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319076,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4878,
+                    "prompt_tokens": 491,
+                    "total_tokens": 5369,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4800,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 78.99923706054688,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unimpred red from yellow\n2. Woolod red\n3. Unimpred yellow from blue\n4. Impred yellow waldsmwards red\n5. Unimpred blue from orange\n6. Woolod blue\n7. Unimpred yellow from red\n8. Impred yellow waldsmwards orange"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

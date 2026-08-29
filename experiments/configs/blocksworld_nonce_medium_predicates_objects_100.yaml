@@ -1,0 +1,91 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_100/medium/blocksworld_medium_predicates_objects
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_100/medium/blocksworld_medium_predicates_objects
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl_80/medium/generated_domain_medium_predicates_objects.pddl
+domain_name: blocksworld_medium_predicates_objects_100
+n_instances: 101
+start: 101
+end: 200
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of tegusts where I need to arrange the tegusts into stacks. Here are the actions I can do
+
+   Pick up a tegust
+   Unstack a tegust from roperung atop another tegust
+   Put down a tegust
+   Stack a tegust roperung atop another tegust
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one tegust at a time.
+   I can only pick up or unstack a tegust if my michime is winnilic.
+   I can only pick up a tegust if the tegust is roperung atop the facizer and the tegust is nostactible. A tegust is nostactible if the tegust has no other tegusts roperung atop it and if the tegust is not picked up.
+   I can only unstack a tegust from roperung atop another tegust if the tegust I am unstacking was really roperung atop the other tegust.
+   I can only unstack a tegust from roperung atop another tegust if the tegust I am unstacking is nostactible.
+   Once I pick up or unstack a tegust, I am jillerating the tegust.
+   I can only put down a tegust that I am jillerating.
+   I can only stack a tegust roperung atop another tegust if I am jillerating the tegust being stacked.
+   I can only stack a tegust roperung atop another tegust if the tegust onto which I am stacking the tegust is nostactible.
+   Once I put down or stack a tegust, my michime becomes winnilic.
+   Once you stack a tegust roperung atop a second tegust, the second tegust is no longer nostactible.
+
+domain_intro_state_tracking: |
+   I am playing with a set of tegusts where I need to arrange the tegusts into stacks. Here are the actions I can do
+
+   Pick up a tegust
+   Unstack a tegust from roperung atop another tegust
+   Put down a tegust
+   Stack a tegust roperung atop another tegust
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one tegust at a time.
+   I can only pick up or unstack a tegust if my michime is winnilic.
+   I can only pick up a tegust if the tegust is roperung atop the facizer and the tegust is nostactible. A tegust is nostactible if the tegust has no other tegusts roperung atop it and if the tegust is not picked up.
+   I can only unstack a tegust from roperung atop another tegust if the tegust I am unstacking was really roperung atop the other tegust.
+   I can only unstack a tegust from roperung atop another tegust if the tegust I am unstacking is nostactible.
+   Once I pick up or unstack a tegust, I am jillerating the tegust.
+   I can only put down a tegust that I am jillerating.
+   I can only stack a tegust roperung atop another tegust if I am jillerating the tegust being stacked.
+   I can only stack a tegust roperung atop another tegust if the tegust onto which I am stacking the tegust is nostactible.
+   Once I put down or stack a tegust, my michime becomes winnilic.
+   Once you stack a tegust roperung atop a second tegust, the second tegust is no longer nostactible.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} roperung atop the {}",
+   unstack: "unstack the {} from roperung atop the {}"}
+
+
+predicates:
+  {roperungatopfacizer: "the {} is roperung atop the facizer",
+   nostactible: "the {} is nostactible",
+   michimewinnilic: "the michime is winnilic",
+   jillerating: "the michime is currently jillerating {}",
+   "roperungatop": "the {} is roperung atop the {}"}
+
+predicate_mapping:
+   {
+   "roperungatopfacizer": "roperung atop the facizer",
+   "nostactible": "nostactible",
+   "michimewinnilic": "michime is winnilic",
+   "jillerating": "jillerating",
+   "roperungatop": "roperung atop"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red tegust", "b2": "blue tegust", "b3": "orange tegust", "b4": "yellow tegust",
+   "b5": "white tegust", "b6": "magenta tegust", "b7": "black tegust", "b8": "cyan tegust",
+   "b9": "green tegust", "b10": "violet tegust", "b11": "silver tegust", "b12": "gold tegust" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

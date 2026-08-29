@@ -1,0 +1,93 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/medium/blocksworld_medium_predicates_objects/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/medium/blocksworld_medium_predicates_objects/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row3/generated_domain_medium_predicates_objects.pddl
+domain_name: blocksworld_medium_predicates_objects_row3
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do
+
+   Pick up a pauplen
+   Unstack a pauplen from appitersside another pauplen
+   Put down a pauplen
+   Stack a pauplen appitersside another pauplen
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one pauplen at a time.
+   I can only pick up or unstack a pauplen if my converion is equivocible.
+   I can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.
+   I can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.
+   I can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.
+   Once I pick up or unstack a pauplen, I am artbouting the pauplen.
+   I can only put down a pauplen that I am artbouting.
+   I can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.
+   I can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.
+   Once I put down or stack a pauplen, my converion becomes equivocible.
+   Once you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.
+
+domain_intro_state_tracking: |
+   I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do
+
+   Pick up a pauplen
+   Unstack a pauplen from appitersside another pauplen
+   Put down a pauplen
+   Stack a pauplen appitersside another pauplen
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one pauplen at a time.
+   I can only pick up or unstack a pauplen if my converion is equivocible.
+   I can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.
+   I can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.
+   I can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.
+   Once I pick up or unstack a pauplen, I am artbouting the pauplen.
+   I can only put down a pauplen that I am artbouting.
+   I can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.
+   I can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.
+   Once I put down or stack a pauplen, my converion becomes equivocible.
+   Once you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} appitersside the {}",
+   unstack: "unstack the {} from appitersside the {}"}
+
+
+predicates:
+  {appiterssidesembole: "the {} is appitersside the sembole",
+   tuentsal: "the {} is tuentsal",
+   converionequivocible: "the converion is equivocible",
+   artbouting: "the converion is currently artbouting {}",
+   "appitersside": "the {} is appitersside the {}"}
+
+predicate_mapping:
+   {
+   "appiterssidesembole": "appitersside the sembole",
+   "tuentsal": "tuentsal",
+   "converionequivocible": "converion is equivocible",
+   "artbouting": "artbouting",
+   "appitersside": "appitersside"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red pauplen", "b2": "blue pauplen", "b3": "orange pauplen", "b4": "yellow pauplen",
+   "b5": "white pauplen", "b6": "magenta pauplen", "b7": "black pauplen", "b8": "cyan pauplen",
+   "b9": "green pauplen", "b10": "violet pauplen", "b11": "silver pauplen", "b12": "gold pauplen" }
+
+
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

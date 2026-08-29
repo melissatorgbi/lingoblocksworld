@@ -1,0 +1,2248 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_predicates_row2",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the blue block is iniating atop the orange block, the orange block is iniating atop the yellow block, the yellow block is iniating atop the red block, the red block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ97XNUfYsDrgqOGquyLv774LV4Mq",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from yellow\n4. Put down orange\n5. Unstack yellow from red\n6. Put down yellow\n7. Pick up blue\n8. Stack blue atop red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347623,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2047,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2485,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.135812044143677,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from yellow\n4. Put down orange\n5. Unstack yellow from red\n6. Put down yellow\n7. Pick up blue\n8. Stack blue atop red",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)",
+            "raw_translation": "(unstack blue orange)\n(put-down blue)\n(unstack orange yellow)\n(put-down orange)\n(unstack yellow red)\n(put-down yellow)\n(pick-up blue)\n(stack blue red)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the orange block is defourible, the red block is iniating atop the yellow block, the blue block is iniating atop the red block, the orange block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block, the blue block is iniating atop the orange block and the orange block is iniating atop the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ97yxceJlxMdRkGYC7Lxp6qNztxV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from red\n2. Put down blue\n3. Unstack red from yellow\n4. Put down red\n5. Pick up orange\n6. Stack orange atop yellow\n7. Pick up blue\n8. Stack blue atop orange\n9. Pick up red\n10. Stack red atop blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347650,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2507,
+                    "prompt_tokens": 468,
+                    "total_tokens": 2975,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.22783160209656,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from red\n2. Put down blue\n3. Unstack red from yellow\n4. Put down red\n5. Pick up orange\n6. Stack orange atop yellow\n7. Pick up blue\n8. Stack blue atop orange\n9. Pick up red\n10. Stack red atop blue",
+            "extracted_llm_plan": "```)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n```)",
+            "raw_translation": "```\n(unstack blue red)\n(put-down blue)\n(unstack red yellow)\n(put-down red)\n(pick-up orange)\n(stack orange yellow)\n(pick-up blue)\n(stack blue orange)\n(pick-up red)\n(stack red blue)\n```\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the blue block is defourible, the blue block is iniating atop the orange block, the orange block is iniating atop the yellow block, the red block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the yellow block, the orange block is iniating atop the blue block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ98YqOAudo1KhNJ9cpg9E74M9v3p",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from yellow\n4. Put down orange\n5. Pick up yellow\n6. Stack yellow atop red\n7. Pick up blue\n8. Stack blue atop yellow\n9. Pick up orange\n10. Stack orange atop blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347686,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3851,
+                    "prompt_tokens": 468,
+                    "total_tokens": 4319,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3776,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 55.20861864089966,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from yellow\n4. Put down orange\n5. Pick up yellow\n6. Stack yellow atop red\n7. Pick up blue\n8. Stack blue atop yellow\n9. Pick up orange\n10. Stack orange atop blue",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)",
+            "raw_translation": "(unstack blue orange)\n(put-down blue)\n(unstack orange yellow)\n(put-down orange)\n(pick-up yellow)\n(stack yellow red)\n(pick-up blue)\n(stack blue yellow)\n(pick-up orange)\n(stack orange blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the blue block is defourible, the orange block is defourible, the orange block is iniating atop the yellow block, the red block is iniating atop the commodety, the blue block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the orange block, the blue block is iniating atop the red block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99Rkrh1g2bxIo0AgAj3SfKddTBU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from yellow\n2. Put down orange\n3. Pick up red\n4. Stack red atop orange\n5. Pick up blue\n6. Stack blue atop red\n7. Pick up yellow\n8. Stack yellow atop blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347741,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1981,
+                    "prompt_tokens": 476,
+                    "total_tokens": 2457,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.82632851600647,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from yellow\n2. Put down orange\n3. Pick up red\n4. Stack red atop orange\n5. Pick up blue\n6. Stack blue atop red\n7. Pick up yellow\n8. Stack yellow atop blue",
+            "extracted_llm_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack orange yellow)\n(put-down orange)\n(pick-up red)\n(stack red orange)\n(pick-up blue)\n(stack blue red)\n(pick-up yellow)\n(stack yellow blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the yellow block is defourible, the red block is iniating atop the orange block, the yellow block is iniating atop the blue block, the blue block is iniating atop the commodety, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the orange block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99wkB4v1tTNRpgAqsVOkqBvPrzu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(yellow, blue)\n2. Stack(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347772,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 922,
+                    "prompt_tokens": 457,
+                    "total_tokens": 1379,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.07728385925293,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(yellow, blue)\n2. Stack(yellow, red)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(stack b4 b1)",
+            "raw_translation": "[PDDL PLAN]\n(unstack yellow blue)\n(stack yellow red)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is defourible, the yellow block is defourible, the blue block is iniating atop the red block, the yellow block is iniating atop the blue block, the red block is iniating atop the commodety, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the yellow block, the orange block is iniating atop the red block and the yellow block is iniating atop the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9ABSYMAM06S1303DX0Of9DdTjqh",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(yellow, blue)\n2. Put down(yellow)\n3. Unstack(blue, red)\n4. Stack(blue, yellow)\n5. Pick up(orange)\n6. Stack(orange, red)\n7. Unstack(blue, yellow)\n8. Put down(blue)\n9. Pick up(yellow)\n10. Stack(yellow, orange)\n11. Pick up(blue)\n12. Stack(blue, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347787,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3175,
+                    "prompt_tokens": 468,
+                    "total_tokens": 3643,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.881120681762695,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(yellow, blue)\n2. Put down(yellow)\n3. Unstack(blue, red)\n4. Stack(blue, yellow)\n5. Pick up(orange)\n6. Stack(orange, red)\n7. Unstack(blue, yellow)\n8. Put down(blue)\n9. Pick up(yellow)\n10. Stack(yellow, orange)\n11. Pick up(blue)\n12. Stack(blue, yellow)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "(unstack yellow blue)\n(put-down yellow)\n(unstack blue red)\n(stack blue yellow)\n(pick-up orange)\n(stack orange red)\n(unstack blue yellow)\n(put-down blue)\n(pick-up yellow)\n(stack yellow orange)\n(pick-up blue)\n(stack blue yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the blue block is defourible, the red block is iniating atop the yellow block, the yellow block is iniating atop the orange block, the blue block is iniating atop the commodety, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the red block and the orange block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Atk1VZTW5SvFK7X30ThyuoUrqO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from yellow\n2. Put down red\n3. Unstack yellow from orange\n4. Put down yellow\n5. Pick up blue\n6. Stack blue onto red\n7. Pick up orange\n8. Stack orange onto blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347831,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2238,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2695,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.8590042591095,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from yellow\n2. Put down red\n3. Unstack yellow from orange\n4. Put down yellow\n5. Pick up blue\n6. Stack blue onto red\n7. Pick up orange\n8. Stack orange onto blue",
+            "extracted_llm_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack red yellow)\n(put-down red)\n(unstack yellow orange)\n(put-down yellow)\n(pick-up blue)\n(stack blue red)\n(pick-up orange)\n(stack orange blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is defourible, the blue block is iniating atop the yellow block, the orange block is iniating atop the blue block, the yellow block is iniating atop the red block, the red block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block and the blue block is iniating atop the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BWxCpJHL1DoOqBLU5Xc7YUDtbY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack orange from blue\nPut down orange\nUnstack blue from yellow\nStack blue on orange\nUnstack yellow from red\nPut down yellow\nPick up red\nStack red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347870,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2352,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2801,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.040725231170654,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack orange from blue\nPut down orange\nUnstack blue from yellow\nStack blue on orange\nUnstack yellow from red\nPut down yellow\nPick up red\nStack red on blue",
+            "extracted_llm_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "(unstack orange blue)\n(put-down orange)\n(unstack blue yellow)\n(stack blue orange)\n(unstack yellow red)\n(put-down yellow)\n(pick-up red)\n(stack red blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the blue block is defourible, the blue block is iniating atop the yellow block, the yellow block is iniating atop the orange block, the red block is iniating atop the commodety, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the orange block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9C7noI3sxXfz54jEsHCU3Qqgdc5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from yellow\n2. Stack blue atop red\n3. Unstack yellow from orange\n4. Put down yellow\n5. Unstack blue from red\n6. Stack blue atop orange\n7. Pick up yellow\n8. Stack yellow atop blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347907,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3009,
+                    "prompt_tokens": 457,
+                    "total_tokens": 3466,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2944,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.890504121780396,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from yellow\n2. Stack blue atop red\n3. Unstack yellow from orange\n4. Put down yellow\n5. Unstack blue from red\n6. Stack blue atop orange\n7. Pick up yellow\n8. Stack yellow atop blue",
+            "extracted_llm_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack blue yellow)\n(stack blue red)\n(unstack yellow orange)\n(put-down yellow)\n(unstack blue red)\n(stack blue orange)\n(pick-up yellow)\n(stack yellow blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is defourible, the red block is iniating atop the orange block, the blue block is iniating atop the red block, the yellow block is iniating atop the blue block, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block, the orange block is iniating atop the yellow block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Cmz62lCm13LrqkkbftJICzTavQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Unstack red from orange\n6. Stack red onto blue\n7. Pick up yellow\n8. Stack yellow onto red\n9. Pick up orange\n10. Stack orange onto yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347948,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2509,
+                    "prompt_tokens": 460,
+                    "total_tokens": 2969,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.63007640838623,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Unstack red from orange\n6. Stack red onto blue\n7. Pick up yellow\n8. Stack yellow onto red\n9. Pick up orange\n10. Stack orange onto yellow",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "[PDDL PLAN]\n(unstack yellow blue)\n(put-down yellow)\n(unstack blue red)\n(put-down blue)\n(unstack red orange)\n(stack red blue)\n(pick-up yellow)\n(stack yellow red)\n(pick-up orange)\n(stack orange yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is defourible, the blue block is iniating atop the orange block, the orange block is iniating atop the red block, the yellow block is iniating atop the blue block, the red block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the yellow block and the orange block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DNhCJ7oy7r30pPbBCGQHsWXnxd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(yellow, blue)\n2. PutDown(yellow)\n3. Unstack(blue, orange)\n4. Stack(blue, yellow)\n5. Unstack(orange, red)\n6. Stack(orange, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347985,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1595,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2044,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.206109285354614,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(yellow, blue)\n2. PutDown(yellow)\n3. Unstack(blue, orange)\n4. Stack(blue, yellow)\n5. Unstack(orange, red)\n6. Stack(orange, blue)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(putdown b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack yellow blue)\n(putdown yellow)\n(unstack blue orange)\n(stack blue yellow)\n(unstack orange red)\n(stack orange blue)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(putdown b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the blue block is defourible, the orange block is defourible, the red block is iniating atop the yellow block, the blue block is iniating atop the commodety, the orange block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the orange block, the blue block is iniating atop the red block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DhFaadf0W10iXJyrFfEdgQpWtb",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from yellow\n2. Stack red onto orange\n3. Pick up blue\n4. Stack blue onto red\n5. Pick up yellow\n6. Stack yellow onto blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348005,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1841,
+                    "prompt_tokens": 476,
+                    "total_tokens": 2317,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.00940132141113,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from yellow\n2. Stack red onto orange\n3. Pick up blue\n4. Stack blue onto red\n5. Pick up yellow\n6. Stack yellow onto blue",
+            "extracted_llm_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack red yellow)\n(stack red orange)\n(pick-up blue)\n(stack blue red)\n(pick-up yellow)\n(stack yellow blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the yellow block is defourible, the red block is iniating atop the blue block, the blue block is iniating atop the orange block, the orange block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the orange block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EDwqEzBhFN6rXbwsBJbDLM4Pi0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red block from iniating atop the blue block\n2. Put down the red block\n3. Pick up the yellow block\n4. Stack the yellow block iniating atop the blue block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348037,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1140,
+                    "prompt_tokens": 457,
+                    "total_tokens": 1597,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.84120798110962,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red block from iniating atop the blue block\n2. Put down the red block\n3. Pick up the yellow block\n4. Stack the yellow block iniating atop the blue block",
+            "extracted_llm_plan": "```pddl)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n```)",
+            "raw_translation": "```PDDL\n(unstack red blue)\n(put-down red)\n(pick-up yellow)\n(stack yellow blue)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is defourible, the red block is iniating atop the orange block, the blue block is iniating atop the red block, the yellow block is iniating atop the blue block, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the orange block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9ESKS4Q3I7FbzBmzPgXNsFBWaXY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Unstack red from orange\n6. Put down red\n7. Pick up orange\n8. Stack orange atop blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348052,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2175,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2613,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.833653926849365,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Unstack red from orange\n6. Put down red\n7. Pick up orange\n8. Stack orange atop blue",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)",
+            "raw_translation": "[RAW TEXT]\n\n1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Unstack red from orange\n6. Put down red\n7. Pick up orange\n8. Stack orange atop blue\n\n[PDDL PLAN]\n(unstack yellow blue)\n(put-down yellow)\n(unstack blue red)\n(put-down blue)\n(unstack red orange)\n(put-down red)\n(pick-up orange)\n(stack orange blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the yellow block is defourible, the orange block is iniating atop the red block, the yellow block is iniating atop the orange block, the red block is iniating atop the commodety, the blue block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the yellow block, the blue block is iniating atop the orange block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Ew1ONi2dZQWaQRQHKn7L55sfNn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow block from the orange block\n2. Put down the yellow block\n3. Unstack the orange block from the red block\n4. Put down the orange block\n5. Pick up the blue block\n6. Stack the blue block atop the orange block\n7. Pick up the yellow block\n8. Stack the yellow block atop the blue block\n9. Pick up the red block\n10. Stack the red block atop the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348082,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2025,
+                    "prompt_tokens": 468,
+                    "total_tokens": 2493,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.26434803009033,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow block from the orange block\n2. Put down the yellow block\n3. Unstack the orange block from the red block\n4. Put down the orange block\n5. Pick up the blue block\n6. Stack the blue block atop the orange block\n7. Pick up the yellow block\n8. Stack the yellow block atop the blue block\n9. Pick up the red block\n10. Stack the red block atop the yellow block",
+            "extracted_llm_plan": "```)\n(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n```)",
+            "raw_translation": "```\n(unstack yellow orange)\n(put-down yellow)\n(unstack orange red)\n(put-down orange)\n(pick-up blue)\n(stack blue orange)\n(pick-up yellow)\n(stack yellow blue)\n(pick-up red)\n(stack red yellow)\n```\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is defourible, the red block is iniating atop the blue block, the orange block is iniating atop the yellow block, the yellow block is iniating atop the red block, the blue block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the red block and the orange block is iniating atop the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9FSsMlBNzgcrIjiBa3YZQew0GBH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from yellow\n2. Put down orange\n3. Unstack yellow from red\n4. Put down yellow\n5. Unstack red from blue\n6. Put down red\n7. Pick up blue\n8. Stack blue on red\n9. Pick up orange\n10. Stack orange on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348114,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2956,
+                    "prompt_tokens": 449,
+                    "total_tokens": 3405,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.23073196411133,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from yellow\n2. Put down orange\n3. Unstack yellow from red\n4. Put down yellow\n5. Unstack red from blue\n6. Put down red\n7. Pick up blue\n8. Stack blue on red\n9. Pick up orange\n10. Stack orange on yellow",
+            "extracted_llm_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "(unstack orange yellow)\n(put-down orange)\n(unstack yellow red)\n(put-down yellow)\n(unstack red blue)\n(put-down red)\n(pick-up blue)\n(stack blue red)\n(pick-up orange)\n(stack orange yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the orange block is defourible, the blue block is iniating atop the yellow block, the orange block is iniating atop the blue block, the red block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the yellow block, the orange block is iniating atop the red block and the yellow block is iniating atop the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9G6eXTCwMnfdcNieR29gG7QQGKm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from blue\n2. Stack orange atop red\n3. Unstack blue from yellow\n4. Put down blue\n5. Pick up yellow\n6. Stack yellow atop orange\n7. Pick up blue\n8. Stack blue atop yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348154,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3327,
+                    "prompt_tokens": 468,
+                    "total_tokens": 3795,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3264,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 55.0256712436676,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from blue\n2. Stack orange atop red\n3. Unstack blue from yellow\n4. Put down blue\n5. Pick up yellow\n6. Stack yellow atop orange\n7. Pick up blue\n8. Stack blue atop yellow",
+            "extracted_llm_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "(unstack orange blue)\n(stack orange red)\n(unstack blue yellow)\n(put-down blue)\n(pick-up yellow)\n(stack yellow orange)\n(pick-up blue)\n(stack blue yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the orange block is defourible, the yellow block is defourible, the orange block is iniating atop the blue block, the red block is iniating atop the commodety, the blue block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the orange block, the blue block is iniating atop the red block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9GzMxZybLrWGi6cBpoBcOlYjOqN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(orange, blue)\n2. PutDown(orange)\n3. PickUp(red)\n4. Stack(red, orange)\n5. PickUp(blue)\n6. Stack(blue, red)\n7. PickUp(yellow)\n8. Stack(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348209,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2116,
+                    "prompt_tokens": 476,
+                    "total_tokens": 2592,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.63329553604126,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(orange, blue)\n2. PutDown(orange)\n3. PickUp(red)\n4. Stack(red, orange)\n5. PickUp(blue)\n6. Stack(blue, red)\n7. PickUp(yellow)\n8. Stack(yellow, blue)",
+            "extracted_llm_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "(unstack orange blue)\n(put-down orange)\n(pick-up red)\n(stack red orange)\n(pick-up blue)\n(stack blue red)\n(pick-up yellow)\n(stack yellow blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the orange block is defourible, the blue block is iniating atop the yellow block, the yellow block is iniating atop the red block, the red block is iniating atop the commodety, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block, the blue block is iniating atop the yellow block and the yellow block is iniating atop the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HQYGDmrRX0ETaDYHeLJotlRbXJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from yellow\n2. Put down blue\n3. Unstack yellow from red\n4. Stack yellow on orange\n5. Pick up blue\n6. Stack blue on yellow\n7. Pick up red\n8. Stack red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348236,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2303,
+                    "prompt_tokens": 468,
+                    "total_tokens": 2771,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.532063961029053,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from yellow\n2. Put down blue\n3. Unstack yellow from red\n4. Stack yellow on orange\n5. Pick up blue\n6. Stack blue on yellow\n7. Pick up red\n8. Stack red on blue",
+            "extracted_llm_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "```plaintext\n[PDDL PLAN]\n(unstack blue yellow)\n(put-down blue)\n(unstack yellow red)\n(stack yellow orange)\n(pick-up blue)\n(stack blue yellow)\n(pick-up red)\n(stack red blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the yellow block is defourible, the blue block is iniating atop the orange block, the orange block is iniating atop the red block, the red block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the yellow block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HxJrTwOGsvmOBvrk5fygIwqSol",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from red\n4. Put down orange\n5. Pick up yellow\n6. Stack yellow atop red\n7. Pick up blue\n8. Stack blue atop yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348269,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2366,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2823,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.187058210372925,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from red\n4. Put down orange\n5. Pick up yellow\n6. Stack yellow atop red\n7. Pick up blue\n8. Stack blue atop yellow",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "(unstack blue orange)\n(put-down blue)\n(unstack orange red)\n(put-down orange)\n(pick-up yellow)\n(stack yellow red)\n(pick-up blue)\n(stack blue yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the blue block is defourible, the red block is iniating atop the yellow block, the blue block is iniating atop the orange block, the orange block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the orange block, the blue block is iniating atop the red block and the orange block is iniating atop the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9ISVhMJjY0efq3IKzKIHdDZ4K1B",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack red from yellow\n4. Stack red atop orange\n5. Pick up blue\n6. Stack blue atop red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348300,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2610,
+                    "prompt_tokens": 468,
+                    "total_tokens": 3078,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 49.38649559020996,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack red from yellow\n4. Stack red atop orange\n5. Pick up blue\n6. Stack blue atop red",
+            "extracted_llm_plan": "```)\n(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n```)",
+            "raw_translation": "```\n(unstack blue orange)\n(put-down blue)\n(unstack red yellow)\n(stack red orange)\n(pick-up blue)\n(stack blue red)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the orange block is defourible, the yellow block is defourible, the orange block is iniating atop the red block, the red block is iniating atop the commodety, the blue block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block and the blue block is iniating atop the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9JFhSZN9moNAll9LSs40HwFvvPV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from red\n2. Put down orange\n3. Pick up blue\n4. Stack blue atop orange\n5. Pick up red\n6. Stack red atop blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348349,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1904,
+                    "prompt_tokens": 465,
+                    "total_tokens": 2369,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.97836184501648,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from red\n2. Put down orange\n3. Pick up blue\n4. Stack blue atop orange\n5. Pick up red\n6. Stack red atop blue",
+            "extracted_llm_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "(unstack orange red)\n(put-down orange)\n(pick-up blue)\n(stack blue orange)\n(pick-up red)\n(stack red blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the yellow block is defourible, the orange block is iniating atop the blue block, the yellow block is iniating atop the orange block, the red block is iniating atop the commodety, the blue block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block, the orange block is iniating atop the yellow block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9JgGSdfdR3S9da2I9FcsFLIa46T",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack yellow from atop orange\nPut down yellow\nUnstack orange from atop blue\nPut down orange\nPick up red\nStack red onto blue\nPick up yellow\nStack yellow onto red\nPick up orange\nStack orange onto yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348376,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2553,
+                    "prompt_tokens": 468,
+                    "total_tokens": 3021,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.95839476585388,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack yellow from atop orange\nPut down yellow\nUnstack orange from atop blue\nPut down orange\nPick up red\nStack red onto blue\nPick up yellow\nStack yellow onto red\nPick up orange\nStack orange onto yellow",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "(unstack yellow orange)\n(put-down yellow)\n(unstack orange blue)\n(put-down orange)\n(pick-up red)\n(stack red blue)\n(pick-up yellow)\n(stack yellow red)\n(pick-up orange)\n(stack orange yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the yellow block is defourible, the red block is iniating atop the blue block, the blue block is iniating atop the orange block, the orange block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the orange block is iniating atop the yellow block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KGzLSdlR2LGRWM91yLbbmGf78K",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(red, blue)\n2. Put down(red)\n3. Unstack(blue, orange)\n4. Put down(blue)\n5. Pick up(yellow)\n6. Stack(yellow, blue)\n7. Pick up(orange)\n8. Stack(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348412,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2501,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2958,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.4932758808136,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(red, blue)\n2. Put down(red)\n3. Unstack(blue, orange)\n4. Put down(blue)\n5. Pick up(yellow)\n6. Stack(yellow, blue)\n7. Pick up(orange)\n8. Stack(orange, yellow)",
+            "extracted_llm_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "(unstack red blue)\n(put-down red)\n(unstack blue orange)\n(put-down blue)\n(pick-up yellow)\n(stack yellow blue)\n(pick-up orange)\n(stack orange yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the blue block is defourible, the yellow block is defourible, the red block is iniating atop the orange block, the blue block is iniating atop the commodety, the orange block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the yellow block, the blue block is iniating atop the orange block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Ks8tUrGza9XvwGgsB4ixpCndss",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from orange\n2. Put down red\n3. Pick up blue\n4. Stack blue onto orange\n5. Pick up yellow\n6. Stack yellow onto blue\n7. Pick up red\n8. Stack red onto yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348450,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1917,
+                    "prompt_tokens": 476,
+                    "total_tokens": 2393,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.207212448120117,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from orange\n2. Put down red\n3. Pick up blue\n4. Stack blue onto orange\n5. Pick up yellow\n6. Stack yellow onto blue\n7. Pick up red\n8. Stack red onto yellow",
+            "extracted_llm_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "(unstack red orange)\n(put-down red)\n(pick-up blue)\n(stack blue orange)\n(pick-up yellow)\n(stack yellow blue)\n(pick-up red)\n(stack red yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the orange block is defourible, the red block is iniating atop the yellow block, the blue block is iniating atop the red block, the orange block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block and the blue block is iniating atop the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LKSD2lidVX38Wypt3c2VYRAqM2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from red\n2. Put down blue\n3. Unstack red from yellow\n4. Put down red\n5. Pick up blue\n6. Stack blue atop yellow\n7. Pick up red\n8. Stack red atop blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348478,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1918,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2375,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.6595196723938,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from red\n2. Put down blue\n3. Unstack red from yellow\n4. Put down red\n5. Pick up blue\n6. Stack blue atop yellow\n7. Pick up red\n8. Stack red atop blue",
+            "extracted_llm_plan": "```)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n```)",
+            "raw_translation": "```\n(unstack blue red)\n(put-down blue)\n(unstack red yellow)\n(put-down red)\n(pick-up blue)\n(stack blue yellow)\n(pick-up red)\n(stack red blue)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the orange block is defourible, the yellow block is defourible, the yellow block is iniating atop the red block, the red block is iniating atop the commodety, the blue block is iniating atop the commodety, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LjIy5tGAONrzdrnyXy9aeQDNgt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from red\n2. Put down yellow\n3. Pick up red\n4. Stack red onto blue\n5. Pick up yellow\n6. Stack yellow onto red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348503,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1776,
+                    "prompt_tokens": 465,
+                    "total_tokens": 2241,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.61818528175354,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from red\n2. Put down yellow\n3. Pick up red\n4. Stack red onto blue\n5. Pick up yellow\n6. Stack yellow onto red",
+            "extracted_llm_plan": "(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "raw_translation": "(unstack yellow red)\n(put-down yellow)\n(pick-up red)\n(stack red blue)\n(pick-up yellow)\n(stack yellow red)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is defourible, the blue block is iniating atop the red block, the orange block is iniating atop the yellow block, the yellow block is iniating atop the blue block, the red block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9MEScqmsffbjHaDHUwjdqKkqgt7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from yellow\n2. Put down orange\n3. Unstack yellow from blue\n4. Put down yellow\n5. Unstack blue from red\n6. Put down blue\n7. Pick up red\n8. Stack red onto yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348534,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1791,
+                    "prompt_tokens": 438,
+                    "total_tokens": 2229,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.736544847488403,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from yellow\n2. Put down orange\n3. Unstack yellow from blue\n4. Put down yellow\n5. Unstack blue from red\n6. Put down blue\n7. Pick up red\n8. Stack red onto yellow",
+            "extracted_llm_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "(unstack orange yellow)\n(put-down orange)\n(unstack yellow blue)\n(put-down yellow)\n(unstack blue red)\n(put-down blue)\n(pick-up red)\n(stack red yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is defourible, the red block is iniating atop the blue block, the orange block is iniating atop the red block, the yellow block is iniating atop the orange block, the blue block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block and the blue block is iniating atop the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9MbW3Lx1LkwVGCDfoMfSkZaRkBU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from atop orange\n2. Put down yellow\n3. Unstack orange from atop red\n4. Put down orange\n5. Unstack red from atop blue\n6. Put down red\n7. Pick up blue\n8. Stack blue atop yellow\n9. Pick up red\n10. Stack red atop blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348557,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2319,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2768,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.086456298828125,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from atop orange\n2. Put down yellow\n3. Unstack orange from atop red\n4. Put down orange\n5. Unstack red from atop blue\n6. Put down red\n7. Pick up blue\n8. Stack blue atop yellow\n9. Pick up red\n10. Stack red atop blue",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "(unstack yellow orange)\n(put-down yellow)\n(unstack orange red)\n(put-down orange)\n(unstack red blue)\n(put-down red)\n(pick-up blue)\n(stack blue yellow)\n(pick-up red)\n(stack red blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the red block is iniating atop the orange block, the blue block is iniating atop the yellow block, the yellow block is iniating atop the red block, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the orange block and the orange block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9N9sD8bLdHUt24lu5i3LXCZGVBw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from yellow\n2. Put down blue\n3. Unstack yellow from red\n4. Put down yellow\n5. Unstack red from orange\n6. Put down red\n7. Pick up orange\n8. Stack orange atop blue\n9. Pick up red\n10. Stack red atop orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348591,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2828,
+                    "prompt_tokens": 449,
+                    "total_tokens": 3277,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.10269856452942,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from yellow\n2. Put down blue\n3. Unstack yellow from red\n4. Put down yellow\n5. Unstack red from orange\n6. Put down red\n7. Pick up orange\n8. Stack orange atop blue\n9. Pick up red\n10. Stack red atop orange",
+            "extracted_llm_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "raw_translation": "[PDDL PLAN]\n(unstack blue yellow)\n(put-down blue)\n(unstack yellow red)\n(put-down yellow)\n(unstack red orange)\n(put-down red)\n(pick-up orange)\n(stack orange blue)\n(pick-up red)\n(stack red orange)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is defourible, the blue block is iniating atop the orange block, the orange block is iniating atop the red block, the yellow block is iniating atop the blue block, the red block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the orange block and the orange block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9NqbEh4ACNAdJtk41QrdCmw2Xcy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from orange\n4. Put down blue\n5. Unstack orange from red\n6. Stack orange onto blue\n7. Pick up red\n8. Stack red onto orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348634,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3328,
+                    "prompt_tokens": 449,
+                    "total_tokens": 3777,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3264,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 55.32434296607971,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from orange\n4. Put down blue\n5. Unstack orange from red\n6. Stack orange onto blue\n7. Pick up red\n8. Stack red onto orange",
+            "extracted_llm_plan": "```)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "raw_translation": "```\n(unstack yellow blue)\n(put-down yellow)\n(unstack blue orange)\n(put-down blue)\n(unstack orange red)\n(stack orange blue)\n(pick-up red)\n(stack red orange)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is defourible, the yellow block is defourible, the red block is iniating atop the blue block, the orange block is iniating atop the red block, the blue block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the orange block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ9OkDGTqw8fzFSeSHc15MbQoyWBf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions \u2014 the goal is already satisfied in the initial state.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348690,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 918,
+                    "prompt_tokens": 446,
+                    "total_tokens": 1364,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.625977516174316,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions \u2014 the goal is already satisfied in the initial state.",
+            "extracted_llm_plan": "(no)",
+            "raw_translation": "[PDDL PLAN]\n(no action needed)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(no)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the yellow block is defourible, the orange block is iniating atop the blue block, the yellow block is iniating atop the orange block, the red block is iniating atop the commodety, the blue block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the orange block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9OyU0NP0sbQ2Kj7NVU9RgoiwxSw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(yellow, orange)\n2. Stack(yellow, red)\n3. Unstack(orange, blue)\n4. Put down(orange)\n5. Pick up(blue)\n6. Stack(blue, orange)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348704,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2169,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2626,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.260964155197144,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(yellow, orange)\n2. Stack(yellow, red)\n3. Unstack(orange, blue)\n4. Put down(orange)\n5. Pick up(blue)\n6. Stack(blue, orange)",
+            "extracted_llm_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack yellow orange)\n(stack yellow red)\n(unstack orange blue)\n(put-down orange)\n(pick-up blue)\n(stack blue orange)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is defourible, the yellow block is defourible, the red block is iniating atop the orange block, the yellow block is iniating atop the red block, the blue block is iniating atop the commodety, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block and the blue block is iniating atop the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9PbbAEYBWt7FZ0braYrrh32SU2K",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from red\n2. Put down yellow\n3. Unstack red from orange\n4. Put down red\n5. Pick up blue\n6. Stack blue onto orange\n7. Pick up red\n8. Stack red onto blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348743,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2174,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2631,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.733903646469116,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from red\n2. Put down yellow\n3. Unstack red from orange\n4. Put down red\n5. Pick up blue\n6. Stack blue onto orange\n7. Pick up red\n8. Stack red onto blue",
+            "extracted_llm_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "(unstack yellow red)  \n(put-down yellow)  \n(unstack red orange)  \n(put-down red)  \n(pick-up blue)  \n(stack blue orange)  \n(pick-up red)  \n(stack red blue)  \n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the orange block is defourible, the red block is iniating atop the blue block, the blue block is iniating atop the yellow block, the orange block is iniating atop the commodety, the yellow block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the red block, the orange block is iniating atop the yellow block and the yellow block is iniating atop the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Q7EJiW8hD6tqDVRS5c5Zf9tL9Z",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from blue\n2. Put down red (on the table)\n3. Unstack blue from yellow\n4. Stack blue atop red\n5. Pick up yellow from the table\n6. Stack yellow atop blue\n7. Pick up orange from the table\n8. Stack orange atop yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348775,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2313,
+                    "prompt_tokens": 468,
+                    "total_tokens": 2781,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.76523685455322,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from blue\n2. Put down red (on the table)\n3. Unstack blue from yellow\n4. Stack blue atop red\n5. Pick up yellow from the table\n6. Stack yellow atop blue\n7. Pick up orange from the table\n8. Stack orange atop yellow",
+            "extracted_llm_plan": "```)\n(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n```)",
+            "raw_translation": "```\n(unstack red blue)\n(put-down red)\n(unstack blue yellow)\n(stack blue red)\n(pick-up yellow)\n(stack yellow blue)\n(pick-up orange)\n(stack orange yellow)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the red block is iniating atop the orange block, the orange block is iniating atop the yellow block, the yellow block is iniating atop the blue block, the blue block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block, the orange block is iniating atop the yellow block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9QgIHCsMeG3TLwZV0QYDTagmLUg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from orange\n2. Put down red\n3. Unstack orange from yellow\n4. Put down orange\n5. Unstack yellow from blue\n6. Put down yellow\n7. Pick up red\n8. Stack red atop blue\n9. Pick up yellow\n10. Stack yellow atop red\n11. Pick up orange\n12. Stack orange atop yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348810,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2713,
+                    "prompt_tokens": 460,
+                    "total_tokens": 3173,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.71542739868164,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from orange\n2. Put down red\n3. Unstack orange from yellow\n4. Put down orange\n5. Unstack yellow from blue\n6. Put down yellow\n7. Pick up red\n8. Stack red atop blue\n9. Pick up yellow\n10. Stack yellow atop red\n11. Pick up orange\n12. Stack orange atop yellow",
+            "extracted_llm_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "(unstack red orange)\n(put-down red)\n(unstack orange yellow)\n(put-down orange)\n(unstack yellow blue)\n(put-down yellow)\n(pick-up red)\n(stack red blue)\n(pick-up yellow)\n(stack yellow red)\n(pick-up orange)\n(stack orange yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is defourible, the blue block is iniating atop the red block, the orange block is iniating atop the blue block, the yellow block is iniating atop the orange block, the red block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the yellow block and the blue block is iniating atop the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9RMTUbM9a00XifrKGkURa096P6w",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from orange\n2. Put down yellow\n3. Unstack orange from blue\n4. Put down orange\n5. Unstack blue from red\n6. Stack blue atop orange\n7. Pick up red\n8. Stack red atop yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348852,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2304,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2753,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.94796824455261,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from orange\n2. Put down yellow\n3. Unstack orange from blue\n4. Put down orange\n5. Unstack blue from red\n6. Stack blue atop orange\n7. Pick up red\n8. Stack red atop yellow",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "(unstack yellow orange)\n(put-down yellow)\n(unstack orange blue)\n(put-down orange)\n(unstack blue red)\n(stack blue orange)\n(pick-up red)\n(stack red yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is defourible, the blue block is iniating atop the yellow block, the orange block is iniating atop the blue block, the yellow block is iniating atop the red block, the red block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the blue block is iniating atop the orange block and the orange block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9RvH5FlGOcSPSHzyaGyUaXpsuyX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from blue\n2. Put down orange\n3. Unstack blue from yellow\n4. Put down blue\n5. Unstack yellow from red\n6. Put down yellow\n7. Pick up orange\n8. Stack orange onto red\n9. Pick up blue\n10. Stack blue onto orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348887,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2508,
+                    "prompt_tokens": 449,
+                    "total_tokens": 2957,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.201242446899414,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from blue\n2. Put down orange\n3. Unstack blue from yellow\n4. Put down blue\n5. Unstack yellow from red\n6. Put down yellow\n7. Pick up orange\n8. Stack orange onto red\n9. Pick up blue\n10. Stack blue onto orange",
+            "extracted_llm_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)",
+            "raw_translation": "[PDDL PLAN]\n(unstack orange blue)\n(put-down orange)\n(unstack blue yellow)\n(put-down blue)\n(unstack yellow red)\n(put-down yellow)\n(pick-up orange)\n(stack orange red)\n(pick-up blue)\n(stack blue orange)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the orange block is defourible, the yellow block is defourible, the yellow block is iniating atop the blue block, the red block is iniating atop the commodety, the blue block is iniating atop the commodety, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the red block is iniating atop the blue block and the yellow block is iniating atop the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9SaxI3vw8DCtFpsZuBF6KDlYgUj",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(yellow, blue)\n2. PutDown(yellow)\n3. PickUp(red)\n4. Stack(red, blue)\n5. PickUp(yellow)\n6. Stack(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348928,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1653,
+                    "prompt_tokens": 465,
+                    "total_tokens": 2118,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.927951335906982,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(yellow, blue)\n2. PutDown(yellow)\n3. PickUp(red)\n4. Stack(red, blue)\n5. PickUp(yellow)\n6. Stack(yellow, red)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "raw_translation": "[PDDL PLAN]\n(unstack yellow blue)\n(put-down yellow)\n(pick-up red)\n(stack red blue)\n(pick-up yellow)\n(stack yellow red)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from iniating atop another block\nPut down a block\nStack a block iniating atop another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my precuth is druneamable.\nI can only pick up a block if the block is iniating atop the commodety and the block is defourible. A block is defourible if the block has no other blocks iniating atop it and if the block is not picked up.\nI can only unstack a block from iniating atop another block if the block I am unstacking was really iniating atop the other block.\nI can only unstack a block from iniating atop another block if the block I am unstacking is defourible.\nOnce I pick up or unstack a block, I am vadelinding the block.\nI can only put down a block that I am vadelinding.\nI can only stack a block iniating atop another block if I am vadelinding the block being stacked.\nI can only stack a block iniating atop another block if the block onto which I am stacking the block is defourible.\nOnce I put down or stack a block, my precuth becomes druneamable.\nOnce you stack a block iniating atop a second block, the second block is no longer defourible.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is defourible, the red block is iniating atop the yellow block, the blue block is iniating atop the orange block, the yellow block is iniating atop the blue block, the orange block is iniating atop the commodety and the precuth is druneamable.\nMy goal is to have that the yellow block is iniating atop the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9SzVPXPhyJiMZ3MnxsDT27q2l2G",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from yellow\n2. Put down red\n3. Unstack yellow from blue\n4. Put down yellow\n5. Unstack blue from orange\n6. Put down blue\n7. Pick up yellow\n8. Stack yellow atop orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348953,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3455,
+                    "prompt_tokens": 438,
+                    "total_tokens": 3893,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3392,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 58.6495680809021,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from yellow\n2. Put down red\n3. Unstack yellow from blue\n4. Put down yellow\n5. Unstack blue from orange\n6. Put down blue\n7. Pick up yellow\n8. Stack yellow atop orange",
+            "extracted_llm_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)",
+            "raw_translation": "[PDDL PLAN]\n(unstack red yellow)\n(put-down red)\n(unstack yellow blue)\n(put-down yellow)\n(unstack blue orange)\n(put-down blue)\n(pick-up yellow)\n(stack yellow orange)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)",
+            "cleaned_llm_correct": true
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

@@ -1,0 +1,40 @@
+
+
+(define (problem BW-rand-12)
+(:domain blocksworld-4ops)
+(:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 )
+(:init
+(michimedaydendate)
+(syntwards b1 b8)
+(syntwards b2 b5)
+(syntwards b3 b11)
+(syntwardsfacizer b4)
+(syntwardsfacizer b5)
+(syntwards b6 b9)
+(syntwards b7 b6)
+(syntwardsfacizer b8)
+(syntwardsfacizer b9)
+(syntwards b10 b7)
+(syntwardsfacizer b11)
+(syntwards b12 b10)
+(hummony b1)
+(hummony b2)
+(hummony b3)
+(hummony b4)
+(hummony b12)
+)
+(:goal
+(and
+(syntwards b1 b9)
+(syntwards b3 b1)
+(syntwards b4 b2)
+(syntwards b6 b12)
+(syntwards b7 b11)
+(syntwards b8 b5)
+(syntwards b9 b8)
+(syntwards b11 b4)
+(syntwards b12 b7))
+)
+)
+
+

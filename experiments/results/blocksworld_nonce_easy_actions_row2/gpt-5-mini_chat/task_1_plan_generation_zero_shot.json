@@ -1,0 +1,2248 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_actions_row2",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the yellow block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the blue block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b1)\n(astley b4)\n(raphom b2)\n(hotent b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ966SWRWBAjcJkrLIXkfsEqdshV4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent blue from on top of orange\n2. Astley blue\n3. Unhotent orange from on top of yellow\n4. Astley orange\n5. Unhotent yellow from on top of red\n6. Astley yellow\n7. Raphom blue\n8. Hotent blue on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347534,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 975,
+                    "prompt_tokens": 423,
+                    "total_tokens": 1398,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.112764358520508,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent blue from on top of orange\n2. Astley blue\n3. Unhotent orange from on top of yellow\n4. Astley orange\n5. Unhotent yellow from on top of red\n6. Astley yellow\n7. Raphom blue\n8. Hotent blue on top of red",
+            "extracted_llm_plan": "```)\n(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b1)\n(astley b4)\n(raphom b2)\n(hotent b2 b1)\n```)",
+            "raw_translation": "``` \n(unhotent blue orange)\n(astley blue)\n(unhotent orange yellow)\n(astley orange)\n(unhotent yellow red)\n(astley yellow)\n(raphom blue)\n(hotent blue red)\n``` \n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b1)\n(astley b4)\n(raphom b2)\n(hotent b2 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the red block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block, the blue block is on top of the orange block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b4)\n(astley b1)\n(raphom b3)\n(hotent b3 b4)\n(raphom b2)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ96JPfbHUnCZGUME6QpO74RIt7H1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Raphom orange\nHotent orange on yellow\nUnhotent blue from red\nHotent blue on orange\nUnhotent red from yellow\nHotent red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347547,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2093,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2541,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.649821758270264,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Raphom orange\nHotent orange on yellow\nUnhotent blue from red\nHotent blue on orange\nUnhotent red from yellow\nHotent red on blue",
+            "extracted_llm_plan": "(unhotent b2 b1)\n(hotent b2 b3)\n(unhotent b1 b4)\n(hotent b1 b2)\n(raphom b3)\n(hotent b3 b4)",
+            "raw_translation": "(unhotent blue red)\n(hotent blue orange)\n(unhotent red yellow)\n(hotent red blue)\n(raphom orange)\n(hotent orange yellow)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b2 b1)\n(hotent b2 b3)\n(unhotent b1 b4)\n(hotent b1 b2)\n(raphom b3)\n(hotent b3 b4)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the yellow block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b4)\n(astley b3)\n(raphom b4)\n(hotent b4 b1)\n(raphom b2)\n(hotent b2 b4)\n(raphom b3)\n(hotent b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ96lF05ItmgJBT9tjzx2cJsoRd7E",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unhotent blue from on top of orange\nAstley blue\nUnhotent orange from on top of yellow\nAstley orange\nRaphom yellow\nHotent yellow on top of red\nRaphom blue\nHotent blue on top of yellow\nRaphom orange\nHotent orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347575,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2443,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2891,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.29568123817444,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unhotent blue from on top of orange\nAstley blue\nUnhotent orange from on top of yellow\nAstley orange\nRaphom yellow\nHotent yellow on top of red\nRaphom blue\nHotent blue on top of yellow\nRaphom orange\nHotent orange on top of blue",
+            "extracted_llm_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b4)\n(astley b3)\n(raphom b4)\n(hotent b4 b1)\n(raphom b2)\n(hotent b2 b4)\n(raphom b3)\n(hotent b3 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unhotent blue orange)\n(astley blue)\n(unhotent orange yellow)\n(astley orange)\n(raphom yellow)\n(hotent yellow red)\n(raphom blue)\n(hotent blue yellow)\n(raphom orange)\n(hotent orange blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b4)\n(astley b3)\n(raphom b4)\n(hotent b4 b1)\n(raphom b2)\n(hotent b2 b4)\n(raphom b3)\n(hotent b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the orange block is clear, the hand is empty, the orange block is on top of the yellow block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b3 b4)\n(astley b3)\n(raphom b1)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ97HoBdVz4qWqaanxWFlo3gFPRHv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent orange from on top of yellow\n2. Astley orange\n3. Raphom red\n4. Hotent red on top of orange\n5. Raphom blue\n6. Hotent blue on top of red\n7. Raphom yellow\n8. Hotent yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347607,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1549,
+                    "prompt_tokens": 451,
+                    "total_tokens": 2000,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.25062894821167,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent orange from on top of yellow\n2. Astley orange\n3. Raphom red\n4. Hotent red on top of orange\n5. Raphom blue\n6. Hotent blue on top of red\n7. Raphom yellow\n8. Hotent yellow on top of blue",
+            "extracted_llm_plan": "(unhotent b3 b4)\n(astley b3)\n(raphom b1)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unhotent orange yellow)\n(astley orange)\n(raphom red)\n(hotent red orange)\n(raphom blue)\n(hotent blue red)\n(raphom yellow)\n(hotent yellow blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b3 b4)\n(astley b3)\n(raphom b1)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the yellow block is on top of the blue block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the orange block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b2)\n(hotent b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ97dYnlVSXDqrGuA8FT8z6Wt1YOi",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent(yellow, blue)\n2. Hotent(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347629,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 668,
+                    "prompt_tokens": 437,
+                    "total_tokens": 1105,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 640,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 10.518169641494751,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent(yellow, blue)\n2. Hotent(yellow, red)",
+            "extracted_llm_plan": "(unhotent b4 b2)\n(hotent b4 b1)",
+            "raw_translation": "[PDDL PLAN]\n(unhotent yellow blue)\n(hotent yellow red)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b2)\n(hotent b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the yellow block is clear, the hand is empty, the blue block is on top of the red block, the yellow block is on top of the blue block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the red block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(raphom b3)\n(hotent b3 b1)\n(raphom b4)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ97nMv4CC3RrsgU8WN5ONlzGWIzY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of red\n4. Astley blue\n5. Raphom orange\n6. Hotent orange on top of red\n7. Raphom yellow\n8. Hotent yellow on top of orange\n9. Raphom blue\n10. Hotent blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347639,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1887,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2335,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.198713302612305,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of red\n4. Astley blue\n5. Raphom orange\n6. Hotent orange on top of red\n7. Raphom yellow\n8. Hotent yellow on top of orange\n9. Raphom blue\n10. Hotent blue on top of yellow",
+            "extracted_llm_plan": "```)\n(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(raphom b3)\n(hotent b3 b1)\n(raphom b4)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)",
+            "raw_translation": "```\n(unhotent yellow blue)\n(astley yellow)\n(unhotent blue red)\n(astley blue)\n(raphom orange)\n(hotent orange red)\n(raphom yellow)\n(hotent yellow orange)\n(raphom blue)\n(hotent blue yellow)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(raphom b3)\n(hotent b3 b1)\n(raphom b4)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the red block is on top of the yellow block, the yellow block is on top of the orange block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the red block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b1 b4)\n(astley b1)\n(raphom b2)\n(hotent b2 b1)\n(unhotent b4 b3)\n(astley b4)\n(raphom b3)\n(hotent b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ98F1jVreandEDXwqH1CunggN0cy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Raphom blue\n2. Hotent blue on top of red\n3. Unhotent yellow from on top of orange\n4. Astley yellow\n5. Raphom orange\n6. Hotent orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347667,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2236,
+                    "prompt_tokens": 437,
+                    "total_tokens": 2673,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.235660791397095,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Raphom blue\n2. Hotent blue on top of red\n3. Unhotent yellow from on top of orange\n4. Astley yellow\n5. Raphom orange\n6. Hotent orange on top of blue",
+            "extracted_llm_plan": "(raphom b2)\n(hotent b2 b1)\n(unhotent b4 b3)\n(astley b4)\n(raphom b3)\n(hotent b3 b2)",
+            "raw_translation": "[PDDL PLAN]\n(raphom blue)\n(hotent blue red)\n(unhotent yellow orange)\n(astley yellow)\n(raphom orange)\n(hotent orange blue)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(raphom b2)\n(hotent b2 b1)\n(unhotent b4 b3)\n(astley b4)\n(raphom b3)\n(hotent b3 b2)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b4)\n(hotent b2 b3)\n(unhotent b4 b1)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ98k926XTIYvl2u8UGOKXhsJ5U75",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent orange from on top of blue\n2. Astley orange\n3. Unhotent blue from on top of yellow\n4. Hotent blue on top of orange\n5. Unhotent yellow from on top of red\n6. Astley yellow\n7. Raphom red\n8. Hotent red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347698,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1747,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2181,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.644510507583618,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent orange from on top of blue\n2. Astley orange\n3. Unhotent blue from on top of yellow\n4. Hotent blue on top of orange\n5. Unhotent yellow from on top of red\n6. Astley yellow\n7. Raphom red\n8. Hotent red on top of blue",
+            "extracted_llm_plan": "(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b4)\n(hotent b2 b3)\n(unhotent b4 b1)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)",
+            "raw_translation": "(unhotent orange blue)\n(astley orange)\n(unhotent blue yellow)\n(hotent blue orange)\n(unhotent yellow red)\n(astley yellow)\n(raphom red)\n(hotent red blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b4)\n(hotent b2 b3)\n(unhotent b4 b1)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the blue block is on top of the yellow block, the yellow block is on top of the orange block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b4)\n(hotent b2 b1)\n(unhotent b4 b3)\n(astley b4)\n(unhotent b2 b1)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99AdW8GNdGOaEPs5fiYeyiWJIW9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent blue from yellow\n2. Astley blue\n3. Unhotent yellow from orange\n4. Hotent yellow on blue\n5. Unhotent yellow from blue\n6. Astley yellow\n7. Raphom blue\n8. Hotent blue on orange\n9. Raphom yellow\n10. Hotent yellow on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347724,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2773,
+                    "prompt_tokens": 437,
+                    "total_tokens": 3210,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.53094172477722,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent blue from yellow\n2. Astley blue\n3. Unhotent yellow from orange\n4. Hotent yellow on blue\n5. Unhotent yellow from blue\n6. Astley yellow\n7. Raphom blue\n8. Hotent blue on orange\n9. Raphom yellow\n10. Hotent yellow on blue",
+            "extracted_llm_plan": "```)\n(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b3)\n(hotent b4 b2)\n(unhotent b4 b2)\n(astley b4)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)",
+            "raw_translation": "```\n(unhotent blue yellow)\n(astley blue)\n(unhotent yellow orange)\n(hotent yellow blue)\n(unhotent yellow blue)\n(astley yellow)\n(raphom blue)\n(hotent blue orange)\n(raphom yellow)\n(hotent yellow blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b3)\n(hotent b4 b2)\n(unhotent b4 b2)\n(astley b4)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the red block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b3)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99qs0Ws8m6BiKZscP9gWZZRuIF8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of red\n4. Astley blue\n5. Unhotent red from on top of orange\n6. Hotent red on top of blue\n7. Raphom yellow\n8. Hotent yellow on top of red\n9. Raphom orange\n10. Hotent orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347766,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1828,
+                    "prompt_tokens": 445,
+                    "total_tokens": 2273,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.872904539108276,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of red\n4. Astley blue\n5. Unhotent red from on top of orange\n6. Hotent red on top of blue\n7. Raphom yellow\n8. Hotent yellow on top of red\n9. Raphom orange\n10. Hotent orange on top of yellow",
+            "extracted_llm_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b3)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)",
+            "raw_translation": "[PDDL PLAN]\n(unhotent yellow blue)\n(astley yellow)\n(unhotent blue red)\n(astley blue)\n(unhotent red orange)\n(hotent red blue)\n(raphom yellow)\n(hotent yellow red)\n(raphom orange)\n(hotent orange yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b3)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the blue block is on top of the yellow block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b3)\n(hotent b2 b4)\n(unhotent b3 b1)\n(hotent b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9APBkZTKehfann6sKhrgx6VNZdC",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of orange\n4. Hotent blue on top of yellow\n5. Unhotent orange from on top of red\n6. Hotent orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347801,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1990,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2424,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.786041259765625,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of orange\n4. Hotent blue on top of yellow\n5. Unhotent orange from on top of red\n6. Hotent orange on top of blue",
+            "extracted_llm_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b3)\n(hotent b2 b4)\n(unhotent b3 b1)\n(hotent b3 b2)",
+            "raw_translation": "(unhotent yellow blue)\n(astley yellow)\n(unhotent blue orange)\n(hotent blue yellow)\n(unhotent orange red)\n(hotent orange blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b3)\n(hotent b2 b4)\n(unhotent b3 b1)\n(hotent b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on the table, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b1 b4)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9AySNK15uSbsACmAGzhMetFZwcU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent red from on top of yellow\n2. Hotent red on top of orange\n3. Raphom blue\n4. Hotent blue on top of red\n5. Raphom yellow\n6. Hotent yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347836,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1152,
+                    "prompt_tokens": 451,
+                    "total_tokens": 1603,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.725766897201538,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent red from on top of yellow\n2. Hotent red on top of orange\n3. Raphom blue\n4. Hotent blue on top of red\n5. Raphom yellow\n6. Hotent yellow on top of blue",
+            "extracted_llm_plan": "```plaintext)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)",
+            "raw_translation": "```plaintext\n(hotent red orange)\n(raphom blue)\n(hotent blue red)\n(raphom yellow)\n(hotent yellow blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b1 b2)\n(astley b1)\n(raphom b4)\n(hotent b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BH6UqRRf0Sz67uBohcKwU5u2JO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent red from on top of blue\n2. Astley red\n3. Raphom yellow\n4. Hotent yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347855,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1323,
+                    "prompt_tokens": 437,
+                    "total_tokens": 1760,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.879379987716675,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent red from on top of blue\n2. Astley red\n3. Raphom yellow\n4. Hotent yellow on top of blue",
+            "extracted_llm_plan": "```plaintext)\n(unhotent b1 b2)\n(astley b1)\n(raphom b4)\n(hotent b4 b2)",
+            "raw_translation": "```plaintext\n(unhotent red blue)\n(astley red)\n(raphom yellow)\n(hotent yellow blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b1 b2)\n(astley b1)\n(raphom b4)\n(hotent b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the red block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b3)\n(astley b1)\n(raphom b3)\n(hotent b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BarK9qKvhUfVn8mEOO7C5VrqtC",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of red\n4. Astley blue\n5. Unhotent red from on top of orange\n6. Astley red\n7. Raphom orange\n8. Hotent orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347874,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1999,
+                    "prompt_tokens": 423,
+                    "total_tokens": 2422,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.82854628562927,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of red\n4. Astley blue\n5. Unhotent red from on top of orange\n6. Astley red\n7. Raphom orange\n8. Hotent orange on top of blue",
+            "extracted_llm_plan": "```plaintext)\n(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b3)\n(astley b1)\n(raphom b3)\n(hotent b3 b2)\n```)",
+            "raw_translation": "```plaintext\n(unhotent yellow blue)\n(astley yellow)\n(unhotent blue red)\n(astley blue)\n(unhotent red orange)\n(astley red)\n(raphom orange)\n(hotent orange blue)\n```\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b3)\n(astley b1)\n(raphom b3)\n(hotent b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the red block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the red block is on top of the yellow block, the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b1)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)\n(raphom b1)\n(hotent b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9C8eU2QsL89GpeEO44WhByVblnP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unhotent yellow from orange\nAstley yellow\nUnhotent orange from red\nAstley orange\nRaphom blue\nHotent blue on orange\nRaphom yellow\nHotent yellow on blue\nRaphom red\nHotent red on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347908,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2815,
+                    "prompt_tokens": 448,
+                    "total_tokens": 3263,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.562498807907104,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unhotent yellow from orange\nAstley yellow\nUnhotent orange from red\nAstley orange\nRaphom blue\nHotent blue on orange\nRaphom yellow\nHotent yellow on blue\nRaphom red\nHotent red on yellow",
+            "extracted_llm_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b1)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)\n(raphom b1)\n(hotent b1 b4)",
+            "raw_translation": "(unhotent yellow orange)\n(astley yellow)\n(unhotent orange red)\n(astley orange)\n(raphom blue)\n(hotent blue orange)\n(raphom yellow)\n(hotent yellow blue)\n(raphom red)\n(hotent red yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b1)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)\n(raphom b1)\n(hotent b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the yellow block, the yellow block is on top of the red block and the blue block is on the table.\nMy goal is to have that the blue block is on top of the red block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b1)\n(astley b4)\n(raphom b3)\n(hotent b3 b4)\n(unhotent b1 b2)\n(astley b1)\n(raphom b2)\n(hotent b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9CmU2tNDzvG53XxkfsMW0llozna",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent orange from yellow\n2. Astley orange\n3. Unhotent yellow from red\n4. Astley yellow\n5. Unhotent red from blue\n6. Astley red\n7. Raphom blue\n8. Hotent blue on red\n9. Raphom orange\n10. Hotent orange on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347948,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2003,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2437,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.503344774246216,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent orange from yellow\n2. Astley orange\n3. Unhotent yellow from red\n4. Astley yellow\n5. Unhotent red from blue\n6. Astley red\n7. Raphom blue\n8. Hotent blue on red\n9. Raphom orange\n10. Hotent orange on yellow",
+            "extracted_llm_plan": "```)\n(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b1)\n(astley b4)\n(unhotent b1 b2)\n(astley b1)\n(raphom b2)\n(hotent b2 b1)\n(raphom b3)\n(hotent b3 b4)",
+            "raw_translation": "```\n(unhotent orange yellow)\n(astley orange)\n(unhotent yellow red)\n(astley yellow)\n(unhotent red blue)\n(astley red)\n(raphom blue)\n(hotent blue red)\n(raphom orange)\n(hotent orange yellow)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b1)\n(astley b4)\n(unhotent b1 b2)\n(astley b1)\n(raphom b2)\n(hotent b2 b1)\n(raphom b3)\n(hotent b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the red block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b3 b2)\n(hotent b3 b1)\n(unhotent b2 b4)\n(astley b2)\n(raphom b4)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DANiUqR4X0ACo3GFNdE9z6eQ5H",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent orange from on top of blue\n2. Hotent orange on top of red\n3. Unhotent blue from on top of yellow\n4. Astley blue\n5. Raphom yellow\n6. Hotent yellow on top of orange\n7. Raphom blue\n8. Hotent blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347972,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2130,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2578,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.95585584640503,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent orange from on top of blue\n2. Hotent orange on top of red\n3. Unhotent blue from on top of yellow\n4. Astley blue\n5. Raphom yellow\n6. Hotent yellow on top of orange\n7. Raphom blue\n8. Hotent blue on top of yellow",
+            "extracted_llm_plan": "(hotent b3 b1)\n(unhotent b2 b4)\n(astley b2)\n(raphom b4)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)",
+            "raw_translation": "(hotent orange red)\n(unhotent blue yellow)\n(astley blue)\n(raphom yellow)\n(hotent yellow orange)\n(raphom blue)\n(hotent blue yellow)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(hotent b3 b1)\n(unhotent b2 b4)\n(astley b2)\n(raphom b4)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b3 b2)\n(astley b3)\n(raphom b1)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Dg3KrNsatXysrIAzIUpe48H9CB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unhotent(orange, blue)\n2. astley(orange)\n3. raphom(red)\n4. hotent(red, orange)\n5. raphom(blue)\n6. hotent(blue, red)\n7. raphom(yellow)\n8. hotent(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348004,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1611,
+                    "prompt_tokens": 451,
+                    "total_tokens": 2062,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.21672534942627,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unhotent(orange, blue)\n2. astley(orange)\n3. raphom(red)\n4. hotent(red, orange)\n5. raphom(blue)\n6. hotent(blue, red)\n7. raphom(yellow)\n8. hotent(yellow, blue)",
+            "extracted_llm_plan": "(unhotent b3 b2)\n(astley b3)\n(raphom b1)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unhotent orange blue)\n(astley orange)\n(raphom red)\n(hotent red orange)\n(raphom blue)\n(hotent blue red)\n(raphom yellow)\n(hotent yellow blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b3 b2)\n(astley b3)\n(raphom b1)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the yellow block is on top of the red block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block, the blue block is on top of the yellow block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)\n(raphom b1)\n(hotent b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9E264kud95jCwE5wDpMqoSV94ZT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unhotent blue from on top of yellow\nAstley blue\nUnhotent yellow from on top of red\nHotent yellow on top of orange\nRaphom blue\nHotent blue on top of yellow\nRaphom red\nHotent red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348026,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1986,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2434,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.234488010406494,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unhotent blue from on top of yellow\nAstley blue\nUnhotent yellow from on top of red\nHotent yellow on top of orange\nRaphom blue\nHotent blue on top of yellow\nRaphom red\nHotent red on top of blue",
+            "extracted_llm_plan": "(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)\n(raphom b1)\n(hotent b1 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unhotent blue yellow)\n(astley blue)\n(unhotent yellow red)\n(hotent yellow orange)\n(raphom blue)\n(hotent blue yellow)\n(raphom red)\n(hotent red blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(hotent b4 b3)\n(raphom b2)\n(hotent b2 b4)\n(raphom b1)\n(hotent b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b1)\n(astley b3)\n(raphom b4)\n(hotent b4 b1)\n(raphom b2)\n(hotent b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EUM6J3QE4wPQN2ieDadOwv7jJX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent blue from on top of orange\n2. Astley blue\n3. Unhotent orange from on top of red\n4. Astley orange\n5. Raphom yellow\n6. Hotent yellow on top of red\n7. Raphom blue\n8. Hotent blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348054,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1678,
+                    "prompt_tokens": 437,
+                    "total_tokens": 2115,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.643916845321655,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent blue from on top of orange\n2. Astley blue\n3. Unhotent orange from on top of red\n4. Astley orange\n5. Raphom yellow\n6. Hotent yellow on top of red\n7. Raphom blue\n8. Hotent blue on top of yellow",
+            "extracted_llm_plan": "(astley b2)\n(astley b3)\n(unhotent b2 b3)\n(unhotent b3 b1)\n(raphom b4)\n(hotent b4 b1)\n(raphom b2)\n(hotent b2 b4)",
+            "raw_translation": "(astley blue)\n(astley orange)\n(unhotent blue orange)\n(unhotent orange red)\n(raphom yellow)\n(hotent yellow red)\n(raphom blue)\n(hotent blue yellow)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(astley b2)\n(astley b3)\n(unhotent b2 b3)\n(unhotent b3 b1)\n(raphom b4)\n(hotent b4 b1)\n(raphom b2)\n(hotent b2 b4)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b1 b4)\n(hotent b1 b2)\n(raphom b3)\n(hotent b3 b4)\n(unhotent b1 b2)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Er8r6qGFeqwwhxiDy3lEBhcZ9V",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent blue from on top of orange\n2. Astley blue\n3. Unhotent red from on top of yellow\n4. Astley red\n5. Raphom orange\n6. Hotent orange on top of yellow\n7. Raphom red\n8. Hotent red on top of orange\n9. Raphom blue\n10. Hotent blue on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348077,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2335,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2783,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.343695163726807,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent blue from on top of orange\n2. Astley blue\n3. Unhotent red from on top of yellow\n4. Astley red\n5. Raphom orange\n6. Hotent orange on top of yellow\n7. Raphom red\n8. Hotent red on top of orange\n9. Raphom blue\n10. Hotent blue on top of red",
+            "extracted_llm_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b1 b4)\n(astley b1)\n(raphom b3)\n(hotent b3 b4)\n(raphom b1)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)",
+            "raw_translation": "[PDDL PLAN]\n(unhotent blue orange)\n(astley blue)\n(unhotent red yellow)\n(astley red)\n(raphom orange)\n(hotent orange yellow)\n(raphom red)\n(hotent red orange)\n(raphom blue)\n(hotent blue red)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b2 b3)\n(astley b2)\n(unhotent b1 b4)\n(astley b1)\n(raphom b3)\n(hotent b3 b4)\n(raphom b1)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the red block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b3 b1)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9FN0ZpTSFAxbfcWj9SV7NtOlypd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent orange from red\n2. Astley orange\n3. Raphom blue\n4. Hotent blue on orange\n5. Raphom red\n6. Hotent red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348109,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1397,
+                    "prompt_tokens": 440,
+                    "total_tokens": 1837,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.184026956558228,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent orange from red\n2. Astley orange\n3. Raphom blue\n4. Hotent blue on orange\n5. Raphom red\n6. Hotent red on blue",
+            "extracted_llm_plan": "(unhotent b3 b1)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unhotent orange red)\n(astley orange)\n(raphom blue)\n(hotent blue orange)\n(raphom red)\n(hotent red blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b3 b1)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b2)\n(astley b3)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Fhn7BONZIr0QBJy8nVBICZL8V6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unhotent yellow from on top of orange\nAstley yellow\nUnhotent orange from on top of blue\nAstley orange\nRaphom red\nHotent red on top of blue\nRaphom yellow\nHotent yellow on top of red\nRaphom orange\nHotent orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348129,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2443,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2891,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 46.94388747215271,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unhotent yellow from on top of orange\nAstley yellow\nUnhotent orange from on top of blue\nAstley orange\nRaphom red\nHotent red on top of blue\nRaphom yellow\nHotent yellow on top of red\nRaphom orange\nHotent orange on top of yellow",
+            "extracted_llm_plan": "```)\n(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b2)\n(astley b3)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)",
+            "raw_translation": "```\n(unhotent yellow orange)\n(astley yellow)\n(unhotent orange blue)\n(astley orange)\n(raphom red)\n(hotent red blue)\n(raphom yellow)\n(hotent yellow red)\n(raphom orange)\n(hotent orange yellow)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b2)\n(astley b3)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the orange block is on top of the yellow block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b1 b2)\n(astley b1)\n(unhotent b2 b3)\n(astley b2)\n(raphom b4)\n(hotent b4 b2)\n(raphom b3)\n(hotent b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9GS6elNB2fPWR0z8RFeEkN2IPSn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unhotent(red, blue)\nAstley(red)\nUnhotent(blue, orange)\nAstley(blue)\nRaphom(yellow)\nHotent(yellow, blue)\nRaphom(orange)\nHotent(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348176,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2619,
+                    "prompt_tokens": 437,
+                    "total_tokens": 3056,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.4205801486969,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unhotent(red, blue)\nAstley(red)\nUnhotent(blue, orange)\nAstley(blue)\nRaphom(yellow)\nHotent(yellow, blue)\nRaphom(orange)\nHotent(orange, yellow)",
+            "extracted_llm_plan": "(unhotent b1 b2)\n(astley b1)\n(unhotent b2 b3)\n(astley b2)\n(raphom b4)\n(hotent b4 b2)\n(raphom b3)\n(hotent b3 b4)",
+            "raw_translation": "[RAW TEXT]\n1. Unhotent(red, blue)\n2. Astley(red)\n3. Unhotent(blue, orange)\n4. Astley(blue)\n5. Raphom(yellow)\n6. Hotent(yellow, blue)\n7. Raphom(orange)\n8. Hotent(orange, yellow)\n\n[PDDL PLAN]\n(unhotent red blue)\n(astley red)\n(unhotent blue orange)\n(astley blue)\n(raphom yellow)\n(hotent yellow blue)\n(raphom orange)\n(hotent orange yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b1 b2)\n(astley b1)\n(unhotent b2 b3)\n(astley b2)\n(raphom b4)\n(hotent b4 b2)\n(raphom b3)\n(hotent b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on the table, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the yellow block, the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b1 b3)\n(astley b1)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)\n(raphom b1)\n(hotent b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9H6Zsxjo4j4OE79lYlDJcAb9Pf3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent red from on top of orange\n2. Astley red\n3. Raphom blue\n4. Hotent blue on top of orange\n5. Raphom yellow\n6. Hotent yellow on top of blue\n7. Raphom red\n8. Hotent red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348216,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2381,
+                    "prompt_tokens": 451,
+                    "total_tokens": 2832,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.81172037124634,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent red from on top of orange\n2. Astley red\n3. Raphom blue\n4. Hotent blue on top of orange\n5. Raphom yellow\n6. Hotent yellow on top of blue\n7. Raphom red\n8. Hotent red on top of yellow",
+            "extracted_llm_plan": "(hotent b1 b3)\n(astley b1)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)\n(raphom b1)\n(hotent b1 b4)",
+            "raw_translation": "(hotent red orange)\n(astley red)\n(raphom blue)\n(hotent blue orange)\n(raphom yellow)\n(hotent yellow blue)\n(raphom red)\n(hotent red yellow)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(hotent b1 b3)\n(astley b1)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b2)\n(raphom b1)\n(hotent b1 b4)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the red block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b1)\n(hotent b2 b3)\n(unhotent b1 b4)\n(astley b1)\n(unhotent b2 b3)\n(hotent b2 b4)\n(raphom b1)\n(hotent b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HhqrvUjgzdJXH5vmPhobYslCUJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent blue from on top of red\n2. Astley blue\n3. Unhotent red from on top of yellow\n4. Hotent red on top of blue\n5. Unhotent red from on top of blue\n6. Astley red\n7. Raphom blue\n8. Hotent blue on top of yellow\n9. Raphom red\n10. Hotent red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348253,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2724,
+                    "prompt_tokens": 437,
+                    "total_tokens": 3161,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.470393896102905,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent blue from on top of red\n2. Astley blue\n3. Unhotent red from on top of yellow\n4. Hotent red on top of blue\n5. Unhotent red from on top of blue\n6. Astley red\n7. Raphom blue\n8. Hotent blue on top of yellow\n9. Raphom red\n10. Hotent red on top of blue",
+            "extracted_llm_plan": "(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b4)\n(hotent b1 b2)\n(unhotent b1 b2)\n(astley b1)\n(raphom b2)\n(hotent b2 b4)\n(raphom b1)\n(hotent b1 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unhotent blue red)\n(astley blue)\n(unhotent red yellow)\n(hotent red blue)\n(unhotent red blue)\n(astley red)\n(raphom blue)\n(hotent blue yellow)\n(raphom red)\n(hotent red blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b2 b1)\n(astley b2)\n(unhotent b1 b4)\n(hotent b1 b2)\n(unhotent b1 b2)\n(astley b1)\n(raphom b2)\n(hotent b2 b4)\n(raphom b1)\n(hotent b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the yellow block is on top of the red block, the red block is on the table, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b1)\n(hotent b4 b3)\n(raphom b1)\n(hotent b1 b2)\n(unhotent b4 b3)\n(hotent b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9ILvuFmN6cRFwn09FK5euWGOzsH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unhotent yellow from red\nAstley yellow\nRaphom red\nHotent red on top of blue\nRaphom yellow\nHotent yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348293,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1261,
+                    "prompt_tokens": 440,
+                    "total_tokens": 1701,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.768343448638916,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unhotent yellow from red\nAstley yellow\nRaphom red\nHotent red on top of blue\nRaphom yellow\nHotent yellow on top of red",
+            "extracted_llm_plan": "```)\n(unhotent b4 b1)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n```)",
+            "raw_translation": "```\n(unhotent yellow red)\n(astley yellow)\n(raphom red)\n(hotent red blue)\n(raphom yellow)\n(hotent yellow red)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b4 b1)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the red block, the orange block is on top of the yellow block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the red block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(raphom b1)\n(hotent b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Ici2hncpNuVagz0wkvxoULh6gx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent orange from on top of yellow\n2. Astley orange\n3. Unhotent yellow from on top of blue\n4. Astley yellow\n5. Unhotent blue from on top of red\n6. Astley blue\n7. Raphom red\n8. Hotent red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348310,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1807,
+                    "prompt_tokens": 423,
+                    "total_tokens": 2230,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.196552276611328,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent orange from on top of yellow\n2. Astley orange\n3. Unhotent yellow from on top of blue\n4. Astley yellow\n5. Unhotent blue from on top of red\n6. Astley blue\n7. Raphom red\n8. Hotent red on top of yellow",
+            "extracted_llm_plan": "(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(raphom b1)\n(hotent b1 b4)",
+            "raw_translation": "(unhotent orange yellow)\n(astley orange)\n(unhotent yellow blue)\n(astley yellow)\n(unhotent blue red)\n(astley blue)\n(raphom red)\n(hotent red yellow)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b1)\n(astley b2)\n(raphom b1)\n(hotent b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the red block, the yellow block is on top of the orange block and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b1)\n(astley b3)\n(unhotent b1 b2)\n(hotent b1 b3)\n(raphom b2)\n(hotent b2 b4)\n(unhotent b1 b3)\n(hotent b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Iy5BY9LmOWjhe4UXeDLYmS7sZT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from on top of orange\n2. Astley yellow\n3. Unhotent orange from on top of red\n4. Astley orange\n5. Unhotent red from on top of blue\n6. Astley red\n7. Raphom blue\n8. Hotent blue on top of yellow\n9. Raphom red\n10. Hotent red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348332,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2592,
+                    "prompt_tokens": 434,
+                    "total_tokens": 3026,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.47727346420288,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from on top of orange\n2. Astley yellow\n3. Unhotent orange from on top of red\n4. Astley orange\n5. Unhotent red from on top of blue\n6. Astley red\n7. Raphom blue\n8. Hotent blue on top of yellow\n9. Raphom red\n10. Hotent red on top of blue",
+            "extracted_llm_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b1)\n(astley b3)\n(unhotent b1 b2)\n(astley b1)\n(raphom b2)\n(hotent b2 b4)\n(raphom b1)\n(hotent b1 b2)",
+            "raw_translation": "(unhotent yellow orange)\n(astley yellow)\n(unhotent orange red)\n(astley orange)\n(unhotent red blue)\n(astley red)\n(raphom blue)\n(hotent blue yellow)\n(raphom red)\n(hotent red blue)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b1)\n(astley b3)\n(unhotent b1 b2)\n(astley b1)\n(raphom b2)\n(hotent b2 b4)\n(raphom b1)\n(hotent b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the yellow block, the yellow block is on top of the red block and the orange block is on the table.\nMy goal is to have that the red block is on top of the orange block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(astley b4)\n(unhotent b1 b3)\n(hotent b1 b4)\n(raphom b3)\n(hotent b3 b2)\n(unhotent b1 b4)\n(hotent b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9JcYr3K09sfh1M4BliTDqipl4y8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent blue from on top of yellow\n2. Astley blue\n3. Unhotent yellow from on top of red\n4. Astley yellow\n5. Unhotent red from on top of orange\n6. Astley red\n7. Raphom orange\n8. Hotent orange on top of blue\n9. Raphom red\n10. Hotent red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348372,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2208,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2642,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.81819224357605,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent blue from on top of yellow\n2. Astley blue\n3. Unhotent yellow from on top of red\n4. Astley yellow\n5. Unhotent red from on top of orange\n6. Astley red\n7. Raphom orange\n8. Hotent orange on top of blue\n9. Raphom red\n10. Hotent red on top of orange",
+            "extracted_llm_plan": "(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(astley b4)\n(unhotent b1 b3)\n(astley b1)\n(raphom b3)\n(hotent b3 b2)\n(raphom b1)\n(hotent b1 b3)",
+            "raw_translation": "(unhotent blue yellow)\n(astley blue)\n(unhotent yellow red)\n(astley yellow)\n(unhotent red orange)\n(astley red)\n(raphom orange)\n(hotent orange blue)\n(raphom red)\n(hotent red orange)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(astley b4)\n(unhotent b1 b3)\n(astley b1)\n(raphom b3)\n(hotent b3 b2)\n(raphom b1)\n(hotent b1 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the red block is on top of the orange block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b1)\n(hotent b3 b2)\n(raphom b1)\n(hotent b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9K7IehtuPblQjyhUNSUvu9PEE06",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of orange\n4. Astley blue\n5. Unhotent orange from on top of red\n6. Hotent orange on top of blue\n7. Raphom red\n8. Hotent red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348403,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1875,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2309,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.482390642166138,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Unhotent blue from on top of orange\n4. Astley blue\n5. Unhotent orange from on top of red\n6. Hotent orange on top of blue\n7. Raphom red\n8. Hotent red on top of orange",
+            "extracted_llm_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b1)\n(hotent b3 b2)\n(raphom b1)\n(hotent b1 b3)",
+            "raw_translation": "(unhotent yellow blue)  \n(astley yellow)  \n(unhotent blue orange)  \n(astley blue)  \n(unhotent orange red)  \n(hotent orange blue)  \n(raphom red)  \n(hotent red orange)  \n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b3)\n(astley b2)\n(unhotent b3 b1)\n(hotent b3 b2)\n(raphom b1)\n(hotent b1 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the red block, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the orange block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ9KTrnZRi7KmefBiwwt9Gu8fi3HR",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions are needed \u2014 the goal is already satisfied in the initial state. (Plan: empty)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348425,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 477,
+                    "prompt_tokens": 426,
+                    "total_tokens": 903,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 448,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 7.959507465362549,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions are needed \u2014 the goal is already satisfied in the initial state. (Plan: empty)",
+            "extracted_llm_plan": "(no)",
+            "raw_translation": "[PDDL PLAN]\n(no actions needed)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(no)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b3)\n(hotent b4 b1)\n(unhotent b3 b2)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KbOqlslIJSln5g6yzOUedQUa7a",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from on top of orange\n2. Astley yellow\n3. Unhotent orange from on top of blue\n4. Astley orange\n5. Raphom blue\n6. Hotent blue on top of orange\n7. Raphom yellow\n8. Hotent yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348433,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1806,
+                    "prompt_tokens": 437,
+                    "total_tokens": 2243,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.323901891708374,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from on top of orange\n2. Astley yellow\n3. Unhotent orange from on top of blue\n4. Astley orange\n5. Raphom blue\n6. Hotent blue on top of orange\n7. Raphom yellow\n8. Hotent yellow on top of red",
+            "extracted_llm_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b2)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b1)",
+            "raw_translation": "(unhotent yellow orange)\n(astley yellow)\n(unhotent orange blue)\n(astley orange)\n(raphom blue)\n(hotent blue orange)\n(raphom yellow)\n(hotent yellow red)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b2)\n(astley b3)\n(raphom b2)\n(hotent b2 b3)\n(raphom b4)\n(hotent b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the yellow block is on top of the red block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b1)\n(astley b4)\n(unhotent b1 b3)\n(hotent b1 b4)\n(raphom b2)\n(hotent b2 b3)\n(unhotent b1 b4)\n(hotent b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9L099Lfts0B7WMOq7OKRFpZkO9Y",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from red\n2. Astley yellow\n3. Unhotent red from orange\n4. Astley red\n5. Raphom blue\n6. Hotent blue on orange\n7. Raphom red\n8. Hotent red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348458,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1412,
+                    "prompt_tokens": 437,
+                    "total_tokens": 1849,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.627503871917725,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from red\n2. Astley yellow\n3. Unhotent red from orange\n4. Astley red\n5. Raphom blue\n6. Hotent blue on orange\n7. Raphom red\n8. Hotent red on blue",
+            "extracted_llm_plan": "(unhotent b4 b1)\n(astley b4)\n(unhotent b1 b3)\n(astley b1)\n(raphom b2)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unhotent yellow red)\n(astley yellow)\n(unhotent red orange)\n(astley red)\n(raphom blue)\n(hotent blue orange)\n(raphom red)\n(hotent red blue)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b1)\n(astley b4)\n(unhotent b1 b3)\n(astley b1)\n(raphom b2)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the yellow block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the red block, the orange block is on top of the yellow block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b1 b2)\n(astley b1)\n(unhotent b2 b4)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)\n(raphom b3)\n(hotent b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LKHYIkpfTmvK4z2twfLZO6EpQx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent(red, blue)\n2. Astley(red)\n3. Unhotent(blue, yellow)\n4. Hotent(blue, red)\n5. Raphom(yellow)\n6. Hotent(yellow, blue)\n7. Raphom(orange)\n8. Hotent(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348478,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2061,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2509,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.173516750335693,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent(red, blue)\n2. Astley(red)\n3. Unhotent(blue, yellow)\n4. Hotent(blue, red)\n5. Raphom(yellow)\n6. Hotent(yellow, blue)\n7. Raphom(orange)\n8. Hotent(orange, yellow)",
+            "extracted_llm_plan": "(unhotent b1 b2)\n(astley b1)\n(unhotent b2 b4)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)\n(raphom b3)\n(hotent b3 b4)",
+            "raw_translation": "[PDDL PLAN]  \n(unhotent red blue)  \n(astley red)  \n(unhotent blue yellow)  \n(hotent blue red)  \n(raphom yellow)  \n(hotent yellow blue)  \n(raphom orange)  \n(hotent orange yellow)  \n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b1 b2)\n(astley b1)\n(unhotent b2 b4)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b2)\n(raphom b3)\n(hotent b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the hand is empty, the red block is on top of the orange block, the orange block is on top of the yellow block, the yellow block is on top of the blue block and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b1 b3)\n(astley b1)\n(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b2)\n(hotent b4 b3)\n(raphom b1)\n(hotent b1 b2)\n(unhotent b4 b3)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LlTuAh0OFbpfOe3mYoawxLXSHu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent red from orange\n2. Astley red\n3. Unhotent orange from yellow\n4. Astley orange\n5. Unhotent yellow from blue\n6. Astley yellow\n7. Raphom red\n8. Hotent red on blue\n9. Raphom yellow\n10. Hotent yellow on red\n11. Raphom orange\n12. Hotent orange on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348505,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5154,
+                    "prompt_tokens": 445,
+                    "total_tokens": 5599,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 5056,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 79.10702610015869,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent red from orange\n2. Astley red\n3. Unhotent orange from yellow\n4. Astley orange\n5. Unhotent yellow from blue\n6. Astley yellow\n7. Raphom red\n8. Hotent red on blue\n9. Raphom yellow\n10. Hotent yellow on red\n11. Raphom orange\n12. Hotent orange on yellow",
+            "extracted_llm_plan": "```)\n(unhotent b1 b3)\n(astley b1)\n(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b2)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)\n```)",
+            "raw_translation": "```\n(unhotent red orange)\n(astley red)\n(unhotent orange yellow)\n(astley orange)\n(unhotent yellow blue)\n(astley yellow)\n(raphom red)\n(hotent red blue)\n(raphom yellow)\n(hotent yellow red)\n(raphom orange)\n(hotent orange yellow)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b1 b3)\n(astley b1)\n(unhotent b3 b4)\n(astley b3)\n(unhotent b4 b2)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)\n(raphom b3)\n(hotent b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the red block, the orange block is on top of the blue block, the yellow block is on top of the orange block and the red block is on the table.\nMy goal is to have that the red block is on top of the yellow block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b1)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9N2S9XsWAzqtx0SD2lddI5bboXh",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unhotent yellow from orange\nAstley yellow\nUnhotent orange from blue\nAstley orange\nUnhotent blue from red\nHotent blue on orange\nRaphom red\nHotent red on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348584,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1654,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2088,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.401206970214844,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unhotent yellow from orange\nAstley yellow\nUnhotent orange from blue\nAstley orange\nUnhotent blue from red\nHotent blue on orange\nRaphom red\nHotent red on yellow",
+            "extracted_llm_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b1)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b4)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unhotent yellow orange)\n(astley yellow)\n(unhotent orange blue)\n(astley orange)\n(unhotent blue red)\n(hotent blue orange)\n(raphom red)\n(hotent red yellow)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b3)\n(astley b4)\n(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b1)\n(hotent b2 b3)\n(raphom b1)\n(hotent b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the orange block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(astley b4)\n(raphom b3)\n(hotent b3 b1)\n(raphom b2)\n(hotent b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9NQIzmLSzL1nSoUeXp2qSFNh1dW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent orange from on top of blue\n2. Astley orange\n3. Unhotent blue from on top of yellow\n4. Astley blue\n5. Unhotent yellow from on top of red\n6. Astley yellow\n7. Raphom orange\n8. Hotent orange on top of red\n9. Raphom blue\n10. Hotent blue on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348608,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2080,
+                    "prompt_tokens": 434,
+                    "total_tokens": 2514,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.04066491127014,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent orange from on top of blue\n2. Astley orange\n3. Unhotent blue from on top of yellow\n4. Astley blue\n5. Unhotent yellow from on top of red\n6. Astley yellow\n7. Raphom orange\n8. Hotent orange on top of red\n9. Raphom blue\n10. Hotent blue on top of orange",
+            "extracted_llm_plan": "(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(astley b4)\n(raphom b3)\n(hotent b3 b1)\n(raphom b2)\n(hotent b2 b3)",
+            "raw_translation": "(unhotent orange blue)\n(astley orange)\n(unhotent blue yellow)\n(astley blue)\n(unhotent yellow red)\n(astley yellow)\n(raphom orange)\n(hotent orange red)\n(raphom blue)\n(hotent blue orange)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b3 b2)\n(astley b3)\n(unhotent b2 b4)\n(astley b2)\n(unhotent b4 b1)\n(astley b4)\n(raphom b3)\n(hotent b3 b1)\n(raphom b2)\n(hotent b2 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the yellow block is on top of the blue block, the red block is on the table, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b4 b2)\n(hotent b4 b3)\n(raphom b1)\n(hotent b1 b2)\n(unhotent b4 b3)\n(hotent b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9NwwD4syo9KLNOzPTcREtSMqopa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Raphom red\n4. Hotent red on top of blue\n5. Raphom yellow\n6. Hotent yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348640,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1084,
+                    "prompt_tokens": 440,
+                    "total_tokens": 1524,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.155306100845337,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Raphom red\n4. Hotent red on top of blue\n5. Raphom yellow\n6. Hotent yellow on top of red",
+            "extracted_llm_plan": "(unhotent b4 b2)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)",
+            "raw_translation": "```\n[RAW TEXT]\n1. Unhotent yellow from on top of blue\n2. Astley yellow\n3. Raphom red\n4. Hotent red on top of blue\n5. Raphom yellow\n6. Hotent yellow on top of red\n\n[PDDL PLAN]\n(unhotent yellow blue)\n(astley yellow)\n(raphom red)\n(hotent red blue)\n(raphom yellow)\n(hotent yellow red)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unhotent b4 b2)\n(astley b4)\n(raphom b1)\n(hotent b1 b2)\n(raphom b4)\n(hotent b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into hotents. Here are the actions I can do\n\nRaphom a block\nUnhotent a block from on top of another block\nAstley a block\nHotent a block on top of another block\n\nI have the following restrictions on my actions:\nI can only raphom or unhotent one block at a time.\nI can only raphom or unhotent a block if my hand is empty.\nI can only raphom a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not raphommed.\nI can only unhotent a block from on top of another block if the block I am unhotenting was really on top of the other block.\nI can only unhotent a block from on top of another block if the block I am unhotenting is clear.\nOnce I raphom or unhotent a block, I am holding the block.\nI can only astley a block that I am holding.\nI can only hotent a block on top of another block if I am holding the block being hotented.\nI can only hotent a block on top of another block if the block onto which I am hotenting the block is clear.\nOnce I astley or hotent a block, my hand becomes empty.\nOnce you hotent a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the orange block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unhotent b1 b4)\n(astley b1)\n(unhotent b4 b2)\n(hotent b4 b1)\n(unhotent b2 b3)\n(astley b2)\n(unhotent b4 b1)\n(hotent b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9OBizchneSkbDIlEyY5L09s2ej9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unhotent red from yellow\n2. Astley red\n3. Unhotent yellow from blue\n4. Astley yellow\n5. Unhotent blue from orange\n6. Hotent blue on red\n7. Raphom yellow\n8. Hotent yellow on orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348655,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2502,
+                    "prompt_tokens": 423,
+                    "total_tokens": 2925,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 65.79946613311768,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unhotent red from yellow\n2. Astley red\n3. Unhotent yellow from blue\n4. Astley yellow\n5. Unhotent blue from orange\n6. Hotent blue on red\n7. Raphom yellow\n8. Hotent yellow on orange",
+            "extracted_llm_plan": "```)\n(unhotent b1 b4)\n(astley b1)\n(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b3)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b3)",
+            "raw_translation": "```\n(unhotent red yellow)\n(astley red)\n(unhotent yellow blue)\n(astley yellow)\n(unhotent blue orange)\n(hotent blue red)\n(raphom yellow)\n(hotent yellow orange)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unhotent b1 b4)\n(astley b1)\n(unhotent b4 b2)\n(astley b4)\n(unhotent b2 b3)\n(hotent b2 b1)\n(raphom b4)\n(hotent b4 b3)",
+            "cleaned_llm_correct": true
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

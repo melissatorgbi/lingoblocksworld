@@ -1,0 +1,90 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_80/medium/blocksworld_medium_objects_names/blocksworld_instances_12_blocks_120
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_80/medium/blocksworld_medium_objects_names/blocksworld_instances_12_blocks_120
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl_80/medium/generated_domain_medium_objects_names.pddl
+domain_name: blocksworld_medium_objects_names_120
+n_instances: 121
+start: 81
+end: 120
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do
+
+   Pick up a facizer
+   Unstack a facizer from on top of another facizer
+   Put down a facizer
+   Stack a facizer on top of another facizer
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one facizer at a time.
+   I can only pick up or unstack a facizer if my hand is empty.
+   I can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.
+   I can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.
+   I can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.
+   Once I pick up or unstack a facizer, I am holding the facizer.
+   I can only put down a facizer that I am holding.
+   I can only stack a facizer on top of another facizer if I am holding the facizer being stacked.
+   I can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.
+   Once I put down or stack a facizer, my hand becomes empty.
+   Once you stack a facizer on top of a second facizer, the second facizer is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do
+
+   Pick up a facizer
+   Unstack a facizer from on top of another facizer
+   Put down a facizer
+   Stack a facizer on top of another facizer
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one facizer at a time.
+   I can only pick up or unstack a facizer if my hand is empty.
+   I can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.
+   I can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.
+   I can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.
+   Once I pick up or unstack a facizer, I am holding the facizer.
+   I can only put down a facizer that I am holding.
+   I can only stack a facizer on top of another facizer if I am holding the facizer being stacked.
+   I can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.
+   Once I put down or stack a facizer, my hand becomes empty.
+   Once you stack a facizer on top of a second facizer, the second facizer is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} on top of the {}",
+   unstack: "unstack the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "michime facizer", "b2": "tegust facizer", "b3": "westoor facizer", "b4": "wilchip facizer",
+   "b5": "corpastion facizer", "b6": "consvia facizer", "b7": "insurge facizer", "b8": "serichee facizer",
+   "b9": "boyhoon facizer", "b10": "pauplen facizer", "b11": "bruthful facizer", "b12": "flawry facizer" }
+encoded_objects_compact:
+  {"b1": "michime", "b2": "tegust", "b3": "westoor", "b4": "wilchip",
+   "b5": "corpastion", "b6": "consvia", "b7": "insurge", "b8": "serichee",
+   "b9": "boyhoon", "b10": "pauplen", "b11": "bruthful", "b12": "flawry" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

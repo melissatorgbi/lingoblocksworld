@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_100/medium/blocksworld_medium_actions_objects
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_100/medium/blocksworld_medium_actions_objects
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl_80/medium/generated_domain_medium_actions_objects.pddl
+domain_name: blocksworld_medium_actions_objects_100
+n_instances: 101
+start: 101
+end: 200
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do
+
+   Nuatess a facizer
+   Unequele a facizer from on top of another facizer
+   Pareave a facizer
+   Equele a facizer on top of another facizer
+
+   I have the following restrictions on my actions:
+   I can only nuatess or unequele one facizer at a time.
+   I can only nuatess or unequele a facizer if my hand is empty.
+   I can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.
+   I can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.
+   I can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.
+   Once I nuatess or unequele a facizer, I am holding the facizer.
+   I can only pareave a facizer that I am holding.
+   I can only equele a facizer on top of another facizer if I am holding the facizer being equeled.
+   I can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.
+   Once I pareave or equele a facizer, my hand becomes empty.
+   Once you equele a facizer on top of a second facizer, the second facizer is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do
+
+   Nuatess a facizer
+   Unequele a facizer from on top of another facizer
+   Pareave a facizer
+   Equele a facizer on top of another facizer
+
+   I have the following restrictions on my actions:
+   I can only nuatess or unequele one facizer at a time.
+   I can only nuatess or unequele a facizer if my hand is empty.
+   I can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.
+   I can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.
+   I can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.
+   Once I nuatess or unequele a facizer, I am holding the facizer.
+   I can only pareave a facizer that I am holding.
+   I can only equele a facizer on top of another facizer if I am holding the facizer being equeled.
+   I can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.
+   Once I pareave or equele a facizer, my hand becomes empty.
+   Once you equele a facizer on top of a second facizer, the second facizer is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {nuatess: "nuatess the {}",
+   pareave: "pareave the {}",
+   equele: "equele the {} on top of the {}",
+   unequele: "unequele the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red facizer", "b2": "blue facizer", "b3": "orange facizer", "b4": "yellow facizer",
+   "b5": "white facizer", "b6": "magenta facizer", "b7": "black facizer", "b8": "cyan facizer",
+   "b9": "green facizer", "b10": "violet facizer", "b11": "silver facizer", "b12": "gold facizer" }
+
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

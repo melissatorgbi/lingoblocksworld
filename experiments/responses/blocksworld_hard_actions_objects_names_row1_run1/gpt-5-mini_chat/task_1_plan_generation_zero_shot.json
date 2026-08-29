@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_hard_actions_objects_names_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the wilchip facizer, the wilchip facizer is on top of the michime facizer and the michime facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b3)\n(redunde b2)\n(unsuffus b3 b4)\n(redunde b3)\n(unsuffus b4 b1)\n(redunde b4)\n(vaguay b2)\n(suffus b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1UCevnNmFPItn2iuYZ4qQddgMQW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus tegust from on top of westoor\nRedunde tegust\nUnsuffus westoor from on top of wilchip\nRedunde westoor\nUnsuffus wilchip from on top of michime\nRedunde wilchip\nVaguay tegust\nSuffus tegust on top of michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318276,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1676,
+                    "prompt_tokens": 476,
+                    "total_tokens": 2152,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.67272186279297,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus tegust from on top of westoor\nRedunde tegust\nUnsuffus westoor from on top of wilchip\nRedunde westoor\nUnsuffus wilchip from on top of michime\nRedunde wilchip\nVaguay tegust\nSuffus tegust on top of michime"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the michime facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the westoor facizer and the westoor facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b1)\n(redunde b2)\n(unsuffus b1 b4)\n(redunde b1)\n(vaguay b3)\n(suffus b3 b4)\n(vaguay b2)\n(suffus b2 b3)\n(vaguay b1)\n(suffus b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1UcoQjNYTIp5BDkZ2gLa9dYWKyJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus the tegust facizer from on top of the michime facizer\n2. Redunde the tegust facizer\n3. Unsuffus the michime facizer from on top of the wilchip facizer\n4. Redunde the michime facizer\n5. Vaguay the westoor facizer\n6. Suffus the westoor facizer on top of the wilchip facizer\n7. Vaguay the tegust facizer\n8. Suffus the tegust facizer on top of the westoor facizer\n9. Vaguay the michime facizer\n10. Suffus the michime facizer on top of the tegust facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318302,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2524,
+                    "prompt_tokens": 509,
+                    "total_tokens": 3033,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.132216453552246,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus the tegust facizer from on top of the michime facizer\n2. Redunde the tegust facizer\n3. Unsuffus the michime facizer from on top of the wilchip facizer\n4. Redunde the michime facizer\n5. Vaguay the westoor facizer\n6. Suffus the westoor facizer on top of the wilchip facizer\n7. Vaguay the tegust facizer\n8. Suffus the tegust facizer on top of the westoor facizer\n9. Vaguay the michime facizer\n10. Suffus the michime facizer on top of the tegust facizer"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the wilchip facizer, the michime facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the tegust facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b3)\n(redunde b2)\n(unsuffus b3 b4)\n(redunde b3)\n(vaguay b4)\n(suffus b4 b1)\n(vaguay b2)\n(suffus b2 b4)\n(vaguay b3)\n(suffus b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1VH0KesB45HvuTuBe1msKweOn3A",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus tegust from on top of westoor\nRedunde tegust\nUnsuffus westoor from on top of wilchip\nRedunde westoor\nVaguay wilchip\nSuffus wilchip on top of michime\nVaguay tegust\nSuffus tegust on top of wilchip\nVaguay westoor\nSuffus westoor on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318343,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2845,
+                    "prompt_tokens": 509,
+                    "total_tokens": 3354,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.249204635620117,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus tegust from on top of westoor\nRedunde tegust\nUnsuffus westoor from on top of wilchip\nRedunde westoor\nVaguay wilchip\nSuffus wilchip on top of michime\nVaguay tegust\nSuffus tegust on top of wilchip\nVaguay westoor\nSuffus westoor on top of tegust"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the westoor facizer is on top of the wilchip facizer, the michime facizer is on the table, the tegust facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b3 b4)\n(redunde b3)\n(vaguay b1)\n(suffus b1 b3)\n(vaguay b2)\n(suffus b2 b1)\n(vaguay b4)\n(suffus b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1VkASL1uLVA4OZJLyn0LAfsgfDF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus westoor from on top of wilchip\n2. Redunde westoor\n3. Vaguay michime\n4. Suffus michime on top of westoor\n5. Vaguay tegust\n6. Suffus tegust on top of michime\n7. Vaguay wilchip\n8. Suffus wilchip on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318372,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1817,
+                    "prompt_tokens": 512,
+                    "total_tokens": 2329,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.57857894897461,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus westoor from on top of wilchip\n2. Redunde westoor\n3. Vaguay michime\n4. Suffus michime on top of westoor\n5. Vaguay tegust\n6. Suffus tegust on top of michime\n7. Vaguay wilchip\n8. Suffus wilchip on top of tegust"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the wilchip facizer is on top of the tegust facizer, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b2)\n(suffus b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1W4XgxGEEmWezIFyT1VX9MSyWIa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus wilchip from on top of tegust\nSuffus wilchip on top of michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318392,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 671,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1165,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 640,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.739673137664795,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus wilchip from on top of tegust\nSuffus wilchip on top of michime"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer, the michime facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the michime facizer and the wilchip facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b2)\n(redunde b4)\n(unsuffus b2 b1)\n(redunde b2)\n(vaguay b3)\n(suffus b3 b1)\n(vaguay b4)\n(suffus b4 b3)\n(vaguay b2)\n(suffus b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1WEwQ8Mu2xxrugh3AkkJmCDt6mC",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from on top of tegust\n2. Redunde wilchip\n3. Unsuffus tegust from on top of michime\n4. Redunde tegust\n5. Vaguay westoor\n6. Suffus westoor on top of michime\n7. Vaguay wilchip\n8. Suffus wilchip on top of westoor\n9. Vaguay tegust\n10. Suffus tegust on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318402,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2798,
+                    "prompt_tokens": 509,
+                    "total_tokens": 3307,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.59387493133545,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from on top of tegust\n2. Redunde wilchip\n3. Unsuffus tegust from on top of michime\n4. Redunde tegust\n5. Vaguay westoor\n6. Suffus westoor on top of michime\n7. Vaguay wilchip\n8. Suffus wilchip on top of westoor\n9. Vaguay tegust\n10. Suffus tegust on top of wilchip"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the wilchip facizer is on top of the westoor facizer, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the michime facizer and the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b1 b4)\n(redunde b1)\n(vaguay b2)\n(suffus b2 b1)\n(unsuffus b4 b3)\n(redunde b4)\n(vaguay b3)\n(suffus b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1WeixxBkmjWROIm0oFwOERvjV8E",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus michime from wilchip\n2. Redunde michime\n3. Vaguay tegust\n4. Suffus tegust on michime\n5. Unsuffus wilchip from westoor\n6. Redunde wilchip\n7. Vaguay westoor\n8. Suffus westoor on tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318428,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2000,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2494,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.13127565383911,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus michime from wilchip\n2. Redunde michime\n3. Vaguay tegust\n4. Suffus tegust on michime\n5. Unsuffus wilchip from westoor\n6. Redunde wilchip\n7. Vaguay westoor\n8. Suffus westoor on tegust"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the michime facizer and the michime facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b3 b2)\n(redunde b3)\n(unsuffus b2 b4)\n(suffus b2 b3)\n(unsuffus b4 b1)\n(redunde b4)\n(vaguay b1)\n(suffus b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1XAYv84eP832BYj1aIbsjLveQD3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus westoor from on top of tegust\n2. Redunde westoor\n3. Unsuffus tegust from on top of wilchip\n4. Suffus tegust on top of westoor\n5. Unsuffus wilchip from on top of michime\n6. Redunde wilchip\n7. Vaguay michime\n8. Suffus michime on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318460,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2528,
+                    "prompt_tokens": 491,
+                    "total_tokens": 3019,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.52816557884216,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus westoor from on top of tegust\n2. Redunde westoor\n3. Unsuffus tegust from on top of wilchip\n4. Suffus tegust on top of westoor\n5. Unsuffus wilchip from on top of michime\n6. Redunde wilchip\n7. Vaguay michime\n8. Suffus michime on top of tegust"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the wilchip facizer is on top of the westoor facizer, the michime facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b4)\n(suffus b2 b1)\n(unsuffus b4 b3)\n(redunde b4)\n(unsuffus b2 b1)\n(suffus b2 b3)\n(vaguay b4)\n(suffus b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1XoXYup6FQahjQRoiUEMJzy5NGt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus tegust from wilchip\n2. Redunde tegust\n3. Unsuffus wilchip from westoor\n4. Redunde wilchip\n5. Vaguay tegust\n6. Suffus tegust on westoor\n7. Vaguay wilchip\n8. Suffus wilchip on tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318500,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1937,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2431,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.51827907562256,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus tegust from wilchip\n2. Redunde tegust\n3. Unsuffus wilchip from westoor\n4. Redunde wilchip\n5. Vaguay tegust\n6. Suffus tegust on westoor\n7. Vaguay wilchip\n8. Suffus wilchip on tegust"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b2)\n(redunde b4)\n(unsuffus b2 b1)\n(redunde b2)\n(unsuffus b1 b3)\n(suffus b1 b2)\n(vaguay b4)\n(suffus b4 b1)\n(vaguay b3)\n(suffus b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1YFnNX46na7gJDWCd4FY8CWLc7y",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from tegust\n2. Redunde wilchip\n3. Unsuffus tegust from michime\n4. Redunde tegust\n5. Unsuffus michime from westoor\n6. Suffus michime on top of tegust\n7. Vaguay wilchip\n8. Suffus wilchip on top of michime\n9. Vaguay westoor\n10. Suffus westoor on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318527,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2667,
+                    "prompt_tokens": 506,
+                    "total_tokens": 3173,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 45.870744466781616,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from tegust\n2. Redunde wilchip\n3. Unsuffus tegust from michime\n4. Redunde tegust\n5. Unsuffus michime from westoor\n6. Suffus michime on top of tegust\n7. Vaguay wilchip\n8. Suffus wilchip on top of michime\n9. Vaguay westoor\n10. Suffus westoor on top of wilchip"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer and the michime facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer and the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b2)\n(redunde b4)\n(unsuffus b2 b3)\n(suffus b2 b4)\n(unsuffus b3 b1)\n(suffus b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1YzPvWFzBhR8oelIBI5G2WjPRX0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from on top of tegust\n2. Redunde wilchip\n3. Unsuffus tegust from on top of westoor\n4. Suffus tegust on top of wilchip\n5. Unsuffus westoor from on top of michime\n6. Suffus westoor on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318573,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1873,
+                    "prompt_tokens": 491,
+                    "total_tokens": 2364,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.435311794281006,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from on top of tegust\n2. Redunde wilchip\n3. Unsuffus tegust from on top of westoor\n4. Suffus tegust on top of wilchip\n5. Unsuffus westoor from on top of michime\n6. Suffus westoor on top of tegust"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on the table, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b1 b4)\n(suffus b1 b3)\n(vaguay b2)\n(suffus b2 b1)\n(vaguay b4)\n(suffus b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1ZQ0aBDETaSot4yaNeQh6FEkaFp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus michime from wilchip\nSuffus michime on top of westoor\nVaguay tegust\nSuffus tegust on top of michime\nVaguay wilchip\nSuffus wilchip on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318600,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1472,
+                    "prompt_tokens": 512,
+                    "total_tokens": 1984,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.58851909637451,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus michime from wilchip\nSuffus michime on top of westoor\nVaguay tegust\nSuffus tegust on top of michime\nVaguay wilchip\nSuffus wilchip on top of tegust"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the westoor facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b1 b2)\n(redunde b1)\n(vaguay b4)\n(suffus b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1Zp5WZT013lSVQ0CoreySK7vzcQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus michime from on top of tegust\nRedunde michime\nVaguay wilchip\nSuffus wilchip on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318625,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1002,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1496,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.756563663482666,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus michime from on top of tegust\nRedunde michime\nVaguay wilchip\nSuffus wilchip on top of tegust"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer and the westoor facizer is on the table.\nMy goal is to have that the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b2)\n(redunde b4)\n(unsuffus b2 b1)\n(redunde b2)\n(unsuffus b1 b3)\n(redunde b1)\n(vaguay b3)\n(suffus b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1a5Ii7gALmlzmvw13LiWfUlfPzh",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus wilchip from on top of tegust\nRedunde wilchip\nUnsuffus tegust from on top of michime\nSuffus tegust on top of wilchip\nUnsuffus michime from on top of westoor\nRedunde michime\nVaguay westoor\nSuffus westoor on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318641,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2514,
+                    "prompt_tokens": 476,
+                    "total_tokens": 2990,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.125893354415894,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus wilchip from on top of tegust\nRedunde wilchip\nUnsuffus tegust from on top of michime\nSuffus tegust on top of wilchip\nUnsuffus michime from on top of westoor\nRedunde michime\nVaguay westoor\nSuffus westoor on top of tegust"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the michime facizer, the wilchip facizer is on top of the westoor facizer, the michime facizer is on the table and the tegust facizer is on the table.\nMy goal is to have that the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b3)\n(redunde b4)\n(unsuffus b3 b1)\n(redunde b3)\n(vaguay b2)\n(suffus b2 b3)\n(vaguay b4)\n(suffus b4 b2)\n(vaguay b1)\n(suffus b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1ahjTuAxkfDSHqQhIvVJH6VWBwE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from on top of westoor\n2. Redunde wilchip\n3. Unsuffus westoor from on top of michime\n4. Redunde westoor\n5. Vaguay tegust\n6. Suffus tegust on top of westoor\n7. Vaguay wilchip\n8. Suffus wilchip on top of tegust\n9. Vaguay michime\n10. Suffus michime on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318679,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2734,
+                    "prompt_tokens": 509,
+                    "total_tokens": 3243,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 58.57002854347229,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from on top of westoor\n2. Redunde wilchip\n3. Unsuffus westoor from on top of michime\n4. Redunde westoor\n5. Vaguay tegust\n6. Suffus tegust on top of westoor\n7. Vaguay wilchip\n8. Suffus wilchip on top of tegust\n9. Vaguay michime\n10. Suffus michime on top of wilchip"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the wilchip facizer, the wilchip facizer is on top of the michime facizer and the tegust facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the michime facizer and the westoor facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b3 b4)\n(redunde b3)\n(unsuffus b4 b1)\n(redunde b4)\n(vaguay b3)\n(suffus b3 b4)\n(unsuffus b1 b2)\n(redunde b1)\n(vaguay b2)\n(suffus b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1be4rG8YGxBaZJDFGCnIZ94H2nm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus westoor from wilchip\nRedunde westoor\nUnsuffus wilchip from michime\nRedunde wilchip\nUnsuffus michime from tegust\nRedunde michime\nVaguay tegust\nSuffus tegust on michime\nVaguay westoor\nSuffus westoor on wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318738,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1873,
+                    "prompt_tokens": 491,
+                    "total_tokens": 2364,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.704290866851807,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus westoor from wilchip\nRedunde westoor\nUnsuffus wilchip from michime\nRedunde wilchip\nUnsuffus michime from tegust\nRedunde michime\nVaguay tegust\nSuffus tegust on michime\nVaguay westoor\nSuffus westoor on wilchip"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the tegust facizer, the michime facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the michime facizer and the wilchip facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b3 b2)\n(suffus b3 b1)\n(unsuffus b2 b4)\n(redunde b2)\n(vaguay b4)\n(suffus b4 b3)\n(vaguay b2)\n(suffus b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1c5jCykHfXLGn1vrCGzLda6bzwj",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus(westoor, tegust)\n2. Suffus(westoor, michime)\n3. Unsuffus(tegust, wilchip)\n4. Redunde(tegust)\n5. Vaguay(wilchip)\n6. Suffus(wilchip, westoor)\n7. Vaguay(tegust)\n8. Suffus(tegust, wilchip)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318765,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2072,
+                    "prompt_tokens": 509,
+                    "total_tokens": 2581,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.57870650291443,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus(westoor, tegust)\n2. Suffus(westoor, michime)\n3. Unsuffus(tegust, wilchip)\n4. Redunde(tegust)\n5. Vaguay(wilchip)\n6. Suffus(wilchip, westoor)\n7. Vaguay(tegust)\n8. Suffus(tegust, wilchip)"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the tegust facizer, the michime facizer is on the table, the tegust facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b3 b2)\n(redunde b3)\n(vaguay b1)\n(suffus b1 b3)\n(vaguay b2)\n(suffus b2 b1)\n(vaguay b4)\n(suffus b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1cerDcEkxEoEqrgnw3coanC7Tvc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus westoor from on top of tegust\nRedunde westoor\nVaguay michime\nSuffus michime on top of westoor\nVaguay tegust\nSuffus tegust on top of michime\nVaguay wilchip\nSuffus wilchip on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318800,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1292,
+                    "prompt_tokens": 512,
+                    "total_tokens": 1804,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.357417106628418,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus westoor from on top of tegust\nRedunde westoor\nVaguay michime\nSuffus michime on top of westoor\nVaguay tegust\nSuffus tegust on top of michime\nVaguay wilchip\nSuffus wilchip on top of tegust"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the wilchip facizer is on top of the michime facizer, the michime facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the wilchip facizer and the wilchip facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b4)\n(redunde b2)\n(unsuffus b4 b1)\n(suffus b4 b3)\n(vaguay b2)\n(suffus b2 b4)\n(vaguay b1)\n(suffus b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1cynkAvYeSlIyJEwguGhCYRmBAi",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus(tegust, wilchip)\nRedunde(tegust)\nUnsuffus(wilchip, michime)\nSuffus(wilchip, westoor)\nVaguay(tegust)\nSuffus(tegust, wilchip)\nVaguay(michime)\nSuffus(michime, tegust)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318820,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2145,
+                    "prompt_tokens": 509,
+                    "total_tokens": 2654,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.589308500289917,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus(tegust, wilchip)\nRedunde(tegust)\nUnsuffus(wilchip, michime)\nSuffus(wilchip, westoor)\nVaguay(tegust)\nSuffus(tegust, wilchip)\nVaguay(michime)\nSuffus(michime, tegust)"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the michime facizer, the michime facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b3)\n(redunde b2)\n(unsuffus b3 b1)\n(redunde b3)\n(vaguay b4)\n(suffus b4 b1)\n(vaguay b2)\n(suffus b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1dORgdk1YexzkaqDnLpSNTtiIbI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus tegust from on top of westoor\n2. Redunde tegust\n3. Unsuffus westoor from on top of michime\n4. Redunde westoor\n5. Vaguay wilchip\n6. Suffus wilchip on top of michime\n7. Vaguay tegust\n8. Suffus tegust on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318846,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1434,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1928,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.892714977264404,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus tegust from on top of westoor\n2. Redunde tegust\n3. Unsuffus westoor from on top of michime\n4. Redunde westoor\n5. Vaguay wilchip\n6. Suffus wilchip on top of michime\n7. Vaguay tegust\n8. Suffus tegust on top of wilchip"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the westoor facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer and the westoor facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b3)\n(redunde b2)\n(unsuffus b1 b4)\n(suffus b1 b2)\n(vaguay b3)\n(suffus b3 b4)\n(unsuffus b1 b2)\n(suffus b1 b3)\n(vaguay b2)\n(suffus b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1dlhZglrvW7azDkT1GXQedFLaTx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus tegust from westoor\n2. Redunde tegust\n3. Unsuffus michime from wilchip\n4. Redunde michime\n5. Vaguay westoor\n6. Suffus westoor on wilchip\n7. Vaguay michime\n8. Suffus michime on westoor\n9. Vaguay tegust\n10. Suffus tegust on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318869,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2339,
+                    "prompt_tokens": 509,
+                    "total_tokens": 2848,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.17000913619995,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus tegust from westoor\n2. Redunde tegust\n3. Unsuffus michime from wilchip\n4. Redunde michime\n5. Vaguay westoor\n6. Suffus westoor on wilchip\n7. Vaguay michime\n8. Suffus michime on westoor\n9. Vaguay tegust\n10. Suffus tegust on michime"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the michime facizer, the michime facizer is on the table, the tegust facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b3 b1)\n(redunde b3)\n(vaguay b2)\n(suffus b2 b3)\n(vaguay b1)\n(suffus b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1e6eQGLbCR3GPNYPNh9AQZzlrQd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus westoor from on top of michime\n2. Redunde westoor\n3. Vaguay tegust\n4. Suffus tegust on top of westoor\n5. Vaguay michime\n6. Suffus michime on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318890,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1797,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2294,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.411985874176025,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus westoor from on top of michime\n2. Redunde westoor\n3. Vaguay tegust\n4. Suffus tegust on top of westoor\n5. Vaguay michime\n6. Suffus michime on top of tegust"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the westoor facizer, the michime facizer is on the table and the tegust facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b3)\n(redunde b4)\n(unsuffus b3 b2)\n(redunde b3)\n(vaguay b1)\n(suffus b1 b2)\n(vaguay b4)\n(suffus b4 b1)\n(vaguay b3)\n(suffus b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1ePOE54ldtMnkbirMPqP0CE1CkE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from westoor\n2. Redunde wilchip\n3. Unsuffus westoor from tegust\n4. Suffus westoor on top of wilchip\n5. Vaguay michime\n6. Suffus michime on top of tegust\n7. Unsuffus westoor from wilchip\n8. Redunde westoor\n9. Vaguay wilchip\n10. Suffus wilchip on top of michime\n11. Vaguay westoor\n12. Suffus westoor on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318909,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3135,
+                    "prompt_tokens": 509,
+                    "total_tokens": 3644,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 50.71731352806091,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from westoor\n2. Redunde wilchip\n3. Unsuffus westoor from tegust\n4. Suffus westoor on top of wilchip\n5. Vaguay michime\n6. Suffus michime on top of tegust\n7. Unsuffus westoor from wilchip\n8. Redunde westoor\n9. Vaguay wilchip\n10. Suffus wilchip on top of michime\n11. Vaguay westoor\n12. Suffus westoor on top of wilchip"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the westoor facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b1 b2)\n(redunde b1)\n(unsuffus b2 b3)\n(redunde b2)\n(vaguay b4)\n(suffus b4 b2)\n(vaguay b3)\n(suffus b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1fERouDsRGhRdZDCXsKVscBiqwX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus michime from on top of tegust\nRedunde michime\nUnsuffus tegust from on top of westoor\nRedunde tegust\nVaguay wilchip\nSuffus wilchip on top of tegust\nVaguay westoor\nSuffus westoor on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760318960,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2188,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2682,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.314929246902466,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus michime from on top of tegust\nRedunde michime\nUnsuffus tegust from on top of westoor\nRedunde tegust\nVaguay wilchip\nSuffus wilchip on top of tegust\nVaguay westoor\nSuffus westoor on top of wilchip"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the tegust facizer is on the table, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b1 b3)\n(redunde b1)\n(vaguay b2)\n(suffus b2 b3)\n(vaguay b4)\n(suffus b4 b2)\n(vaguay b1)\n(suffus b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1fuO0QgrV52GGj8YVKot2ir6ckN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus michime from on top of westoor\nRedunde michime\nVaguay tegust\nSuffus tegust on top of westoor\nVaguay wilchip\nSuffus wilchip on top of tegust\nVaguay michime\nSuffus michime on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319002,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1612,
+                    "prompt_tokens": 512,
+                    "total_tokens": 2124,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.54352879524231,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus michime from on top of westoor\nRedunde michime\nVaguay tegust\nSuffus tegust on top of westoor\nVaguay wilchip\nSuffus wilchip on top of tegust\nVaguay michime\nSuffus michime on top of wilchip"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the michime facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b1)\n(suffus b2 b3)\n(unsuffus b1 b4)\n(redunde b1)\n(unsuffus b2 b3)\n(suffus b2 b4)\n(vaguay b1)\n(suffus b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1gHQLbHpRDnOhWD3DAQm1htZGAz",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus tegust from michime\nSuffus tegust on westoor\nUnsuffus tegust from westoor\nRedunde tegust\nUnsuffus michime from wilchip\nSuffus michime on westoor\nVaguay tegust\nSuffus tegust on wilchip\nUnsuffus michime from westoor\nSuffus michime on tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319025,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3039,
+                    "prompt_tokens": 494,
+                    "total_tokens": 3533,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2944,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.94648790359497,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus tegust from michime\nSuffus tegust on westoor\nUnsuffus tegust from westoor\nRedunde tegust\nUnsuffus michime from wilchip\nSuffus michime on westoor\nVaguay tegust\nSuffus tegust on wilchip\nUnsuffus michime from westoor\nSuffus michime on tegust"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the wilchip facizer is on top of the michime facizer, the michime facizer is on the table, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b1)\n(suffus b4 b3)\n(vaguay b1)\n(suffus b1 b2)\n(unsuffus b4 b3)\n(suffus b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1h0pNNWym2b9hRAn33DkhJ8BdLf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus(wilchip, michime)\n2. Redunde(wilchip)\n3. Vaguay(michime)\n4. Suffus(michime, tegust)\n5. Vaguay(wilchip)\n6. Suffus(wilchip, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319070,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1413,
+                    "prompt_tokens": 497,
+                    "total_tokens": 1910,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.42523980140686,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus(wilchip, michime)\n2. Redunde(wilchip)\n3. Vaguay(michime)\n4. Suffus(michime, tegust)\n5. Vaguay(wilchip)\n6. Suffus(wilchip, michime)"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the michime facizer, the westoor facizer is on top of the wilchip facizer, the wilchip facizer is on top of the tegust facizer and the michime facizer is on the table.\nMy goal is to have that the michime facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b3 b4)\n(redunde b3)\n(unsuffus b4 b2)\n(redunde b4)\n(unsuffus b2 b1)\n(redunde b2)\n(vaguay b1)\n(suffus b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1hKqFah0TywXRt2ovrBxXD8icaL",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus westoor from on top of wilchip\n2. Redunde westoor\n3. Unsuffus wilchip from on top of tegust\n4. Redunde wilchip\n5. Unsuffus tegust from on top of michime\n6. Suffus tegust on top of westoor\n7. Vaguay michime\n8. Suffus michime on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319090,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3296,
+                    "prompt_tokens": 476,
+                    "total_tokens": 3772,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3200,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.880024433135986,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus westoor from on top of wilchip\n2. Redunde westoor\n3. Unsuffus wilchip from on top of tegust\n4. Redunde wilchip\n5. Unsuffus tegust from on top of michime\n6. Suffus tegust on top of westoor\n7. Vaguay michime\n8. Suffus michime on top of wilchip"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the michime facizer, the wilchip facizer is on top of the westoor facizer and the tegust facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b3)\n(redunde b4)\n(unsuffus b3 b1)\n(redunde b3)\n(unsuffus b1 b2)\n(suffus b1 b3)\n(vaguay b2)\n(suffus b2 b4)\n(unsuffus b1 b3)\n(suffus b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1i0wxvHoN5NQ9rRktdszE2bmAGp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from on top of westoor\n2. Redunde wilchip\n3. Unsuffus westoor from on top of michime\n4. Redunde westoor\n5. Unsuffus michime from on top of tegust\n6. Redunde michime\n7. Vaguay tegust\n8. Suffus tegust on top of wilchip\n9. Vaguay michime\n10. Suffus michime on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319132,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3247,
+                    "prompt_tokens": 491,
+                    "total_tokens": 3738,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.4813973903656,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from on top of westoor\n2. Redunde wilchip\n3. Unsuffus westoor from on top of michime\n4. Redunde westoor\n5. Unsuffus michime from on top of tegust\n6. Redunde michime\n7. Vaguay tegust\n8. Suffus tegust on top of wilchip\n9. Vaguay michime\n10. Suffus michime on top of tegust"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the wilchip facizer, the wilchip facizer is on top of the michime facizer and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer and the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b2 b4)\n(redunde b2)\n(unsuffus b4 b1)\n(redunde b4)\n(unsuffus b1 b3)\n(suffus b1 b4)\n(vaguay b3)\n(suffus b3 b2)\n(unsuffus b1 b4)\n(suffus b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1imuN04MzRFDzkEztnN2LBrvOB7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus(tegust, wilchip)\nRedunde(tegust)\nUnsuffus(wilchip, michime)\nRedunde(wilchip)\nUnsuffus(michime, westoor)\nSuffus(michime, wilchip)\nVaguay(westoor)\nSuffus(westoor, tegust)\nUnsuffus(michime, wilchip)\nSuffus(michime, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319180,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3245,
+                    "prompt_tokens": 491,
+                    "total_tokens": 3736,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.26022124290466,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus(tegust, wilchip)\nRedunde(tegust)\nUnsuffus(wilchip, michime)\nRedunde(wilchip)\nUnsuffus(michime, westoor)\nSuffus(michime, wilchip)\nVaguay(westoor)\nSuffus(westoor, tegust)\nUnsuffus(michime, wilchip)\nSuffus(michime, westoor)"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer and the michime facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer and the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b2)\n(redunde b4)\n(unsuffus b2 b3)\n(redunde b2)\n(unsuffus b3 b1)\n(suffus b3 b2)\n(vaguay b1)\n(suffus b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1jX0Yd4UXdevKqaeJzSHenVxLyE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from on top of tegust\n2. Redunde wilchip\n3. Unsuffus tegust from on top of westoor\n4. Redunde tegust\n5. Unsuffus westoor from on top of michime\n6. Suffus westoor on top of tegust\n7. Vaguay michime\n8. Suffus michime on top of westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319227,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3488,
+                    "prompt_tokens": 491,
+                    "total_tokens": 3979,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3392,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 66.0287573337555,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from on top of tegust\n2. Redunde wilchip\n3. Unsuffus tegust from on top of westoor\n4. Redunde tegust\n5. Unsuffus westoor from on top of michime\n6. Suffus westoor on top of tegust\n7. Vaguay michime\n8. Suffus michime on top of westoor"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the michime facizer, the tegust facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the westoor facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ1kYtURc4WHhR2cCiT90Cv3AUeip",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions needed \u2014 the goal is already satisfied (westoor is already on top of michime).",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319290,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 605,
+                    "prompt_tokens": 479,
+                    "total_tokens": 1084,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 576,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 10.217108011245728,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions needed \u2014 the goal is already satisfied (westoor is already on top of michime)."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the westoor facizer, the michime facizer is on the table and the tegust facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b3)\n(suffus b4 b1)\n(unsuffus b3 b2)\n(redunde b3)\n(vaguay b2)\n(suffus b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1kiZZFumTXca3hawR3YLgXSM9ji",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from on top of westoor\n2. Suffus wilchip on top of michime\n3. Unsuffus westoor from on top of tegust\n4. Redunde westoor\n5. Vaguay tegust\n6. Suffus tegust on top of westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319300,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1547,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2041,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.42680525779724,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from on top of westoor\n2. Suffus wilchip on top of michime\n3. Unsuffus westoor from on top of tegust\n4. Redunde westoor\n5. Vaguay tegust\n6. Suffus tegust on top of westoor"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the wilchip facizer is on top of the michime facizer, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b1)\n(redunde b4)\n(unsuffus b1 b3)\n(suffus b1 b4)\n(vaguay b2)\n(suffus b2 b3)\n(unsuffus b1 b4)\n(suffus b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1l3KB33QwQYnYKQyWvJSWiZKqt9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from michime\n2. Redunde wilchip\n3. Unsuffus michime from westoor\n4. Redunde michime\n5. Vaguay tegust\n6. Suffus tegust on westoor\n7. Vaguay michime\n8. Suffus michime on tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319321,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1488,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1982,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.41379690170288,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from michime\n2. Redunde wilchip\n3. Unsuffus michime from westoor\n4. Redunde michime\n5. Vaguay tegust\n6. Suffus tegust on westoor\n7. Vaguay michime\n8. Suffus michime on tegust"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the wilchip facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the michime facizer, the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b1 b2)\n(redunde b1)\n(unsuffus b2 b4)\n(suffus b2 b1)\n(vaguay b4)\n(suffus b4 b2)\n(vaguay b3)\n(suffus b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1lOqbFMb7BJw2nHPqZcpOjkSSpd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus the michime facizer from on top of the tegust facizer\nRedunde the michime facizer\nUnsuffus the tegust facizer from on top of the wilchip facizer\nSuffus the tegust facizer on top of the michime facizer\nVaguay the wilchip facizer\nSuffus the wilchip facizer on top of the tegust facizer\nVaguay the westoor facizer\nSuffus the westoor facizer on top of the wilchip facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319342,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2489,
+                    "prompt_tokens": 509,
+                    "total_tokens": 2998,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.49337410926819,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus the michime facizer from on top of the tegust facizer\nRedunde the michime facizer\nUnsuffus the tegust facizer from on top of the wilchip facizer\nSuffus the tegust facizer on top of the michime facizer\nVaguay the wilchip facizer\nSuffus the wilchip facizer on top of the tegust facizer\nVaguay the westoor facizer\nSuffus the westoor facizer on top of the wilchip facizer"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the westoor facizer is on top of the wilchip facizer, the wilchip facizer is on top of the tegust facizer and the tegust facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b1 b3)\n(redunde b1)\n(unsuffus b3 b4)\n(redunde b3)\n(unsuffus b4 b2)\n(suffus b4 b3)\n(vaguay b1)\n(suffus b1 b2)\n(unsuffus b4 b3)\n(suffus b4 b1)\n(vaguay b3)\n(suffus b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1ltcDI3nxzuH4e4sieIcB9NI7m2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus michime from on top of westoor\n2. Redunde michime\n3. Unsuffus westoor from on top of wilchip\n4. Redunde westoor\n5. Unsuffus wilchip from on top of tegust\n6. Suffus wilchip on top of michime\n7. Vaguay westoor\n8. Suffus westoor on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319373,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2976,
+                    "prompt_tokens": 506,
+                    "total_tokens": 3482,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.23827624320984,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus michime from on top of westoor\n2. Redunde michime\n3. Unsuffus westoor from on top of wilchip\n4. Redunde westoor\n5. Unsuffus wilchip from on top of tegust\n6. Suffus wilchip on top of michime\n7. Vaguay westoor\n8. Suffus westoor on top of wilchip"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the michime facizer, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the westoor facizer and the michime facizer is on the table.\nMy goal is to have that the michime facizer is on top of the wilchip facizer and the tegust facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b3)\n(redunde b4)\n(unsuffus b3 b2)\n(redunde b3)\n(unsuffus b2 b1)\n(suffus b2 b3)\n(vaguay b1)\n(suffus b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1mT1bpprPnIRiqNKA0JhIqXvEOo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unsuffus wilchip from westoor\nRedunde wilchip\nUnsuffus westoor from tegust\nRedunde westoor\nUnsuffus tegust from michime\nSuffus tegust on top of westoor\nVaguay michime\nSuffus michime on top of wilchip",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319409,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2889,
+                    "prompt_tokens": 491,
+                    "total_tokens": 3380,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.61363172531128,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unsuffus wilchip from westoor\nRedunde wilchip\nUnsuffus westoor from tegust\nRedunde westoor\nUnsuffus tegust from michime\nSuffus tegust on top of westoor\nVaguay michime\nSuffus michime on top of wilchip"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the michime facizer and the michime facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the westoor facizer and the westoor facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b3 b2)\n(redunde b3)\n(unsuffus b2 b4)\n(redunde b2)\n(unsuffus b4 b1)\n(redunde b4)\n(vaguay b3)\n(suffus b3 b1)\n(vaguay b2)\n(suffus b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1n389oh012j9h4oCmfHnoyJCtWx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus(westoor, tegust)\n2. Redunde(westoor)\n3. Unsuffus(tegust, wilchip)\n4. Redunde(tegust)\n5. Unsuffus(wilchip, michime)\n6. Redunde(wilchip)\n7. Vaguay(westoor)\n8. Suffus(westoor, michime)\n9. Vaguay(tegust)\n10. Suffus(tegust, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319445,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2811,
+                    "prompt_tokens": 491,
+                    "total_tokens": 3302,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.35684418678284,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus(westoor, tegust)\n2. Redunde(westoor)\n3. Unsuffus(tegust, wilchip)\n4. Redunde(tegust)\n5. Unsuffus(wilchip, michime)\n6. Redunde(wilchip)\n7. Vaguay(westoor)\n8. Suffus(westoor, michime)\n9. Vaguay(tegust)\n10. Suffus(tegust, westoor)"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the wilchip facizer is on top of the tegust facizer, the michime facizer is on the table, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b4 b2)\n(suffus b4 b3)\n(vaguay b1)\n(suffus b1 b2)\n(unsuffus b4 b3)\n(suffus b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1nkuT7EPhzmFx9L8Z41FQqoBHB5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus wilchip from tegust\n2. Redunde wilchip\n3. Vaguay michime\n4. Suffus michime on tegust\n5. Vaguay wilchip\n6. Suffus wilchip on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319488,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1150,
+                    "prompt_tokens": 497,
+                    "total_tokens": 1647,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.1834614276886,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus wilchip from tegust\n2. Redunde wilchip\n3. Vaguay michime\n4. Suffus michime on tegust\n5. Vaguay wilchip\n6. Suffus wilchip on michime"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into suffuses. Here are the actions I can do\n\nVaguay a facizer\nUnsuffus a facizer from on top of another facizer\nRedunde a facizer\nSuffus a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only vaguay or unsuffus one facizer at a time.\nI can only vaguay or unsuffus a facizer if my hand is empty.\nI can only vaguay a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not vaguayed.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing was really on top of the other facizer.\nI can only unsuffus a facizer from on top of another facizer if the facizer I am unsuffussing is clear.\nOnce I vaguay or unsuffus a facizer, I am holding the facizer.\nI can only redunde a facizer that I am holding.\nI can only suffus a facizer on top of another facizer if I am holding the facizer being suffussed.\nI can only suffus a facizer on top of another facizer if the facizer onto which I am suffussing the facizer is clear.\nOnce I redunde or suffus a facizer, my hand becomes empty.\nOnce you suffus a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the westoor facizer, the wilchip facizer is on top of the tegust facizer and the westoor facizer is on the table.\nMy goal is to have that the wilchip facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unsuffus b1 b4)\n(redunde b1)\n(unsuffus b4 b2)\n(suffus b4 b1)\n(unsuffus b2 b3)\n(redunde b2)\n(unsuffus b4 b1)\n(suffus b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ1o3uHdQ7Tjy10sTUIpk7iMHhLD2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unsuffus michime from on top of wilchip\n2. Redunde michime\n3. Unsuffus wilchip from on top of tegust\n4. Redunde wilchip\n5. Unsuffus tegust from on top of westoor\n6. Redunde tegust\n7. Vaguay wilchip\n8. Suffus wilchip on top of westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760319507,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2587,
+                    "prompt_tokens": 476,
+                    "total_tokens": 3063,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 64.42028474807739,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unsuffus michime from on top of wilchip\n2. Redunde michime\n3. Unsuffus wilchip from on top of tegust\n4. Redunde wilchip\n5. Unsuffus tegust from on top of westoor\n6. Redunde tegust\n7. Vaguay wilchip\n8. Suffus wilchip on top of westoor"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/hard/blocksworld_hard_actions_predicates_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/hard/blocksworld_hard_actions_predicates_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/hard/generated_domain_hard_actions_predicates_names.pddl
+domain_name: blocksworld_hard_actions_predicates_names_row1
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into confolerts. Here are the actions I can do
+
+   Yorate a block
+   Unconfolert a block from vigione over another block
+   Geramed a block
+   Confolert a block vigione over another block
+
+   I have the following restrictions on my actions:
+   I can only yorate or unconfolert one block at a time.
+   I can only yorate or unconfolert a block if my michime is rembledate.
+   I can only yorate a block if the block is vigione over the facizer and the block is erilizessful. A block is erilizessful if the block has no other blocks vigione over it and if the block is not yorated.
+   I can only unconfolert a block from vigione over another block if the block I am unconfolerting was really vigione over the other block.
+   I can only unconfolert a block from vigione over another block if the block I am unconfolerting is erilizessful.
+   Once I yorate or unconfolert a block, I am consolising the block.
+   I can only geramed a block that I am consolising.
+   I can only confolert a block vigione over another block if I am consolising the block being confolerted.
+   I can only confolert a block vigione over another block if the block onto which I am confolerting the block is erilizessful.
+   Once I geramed or confolert a block, my michime becomes rembledate.
+   Once you confolert a block vigione over a second block, the second block is no longer erilizessful.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into confolerts. Here are the actions I can do
+
+   Yorate a block
+   Unconfolert a block from vigione over another block
+   Geramed a block
+   Confolert a block vigione over another block
+
+   I have the following restrictions on my actions:
+   I can only yorate or unconfolert one block at a time.
+   I can only yorate or unconfolert a block if my michime is rembledate.
+   I can only yorate a block if the block is vigione over the facizer and the block is erilizessful. A block is erilizessful if the block has no other blocks vigione over it and if the block is not yorated.
+   I can only unconfolert a block from vigione over another block if the block I am unconfolerting was really vigione over the other block.
+   I can only unconfolert a block from vigione over another block if the block I am unconfolerting is erilizessful.
+   Once I yorate or unconfolert a block, I am consolising the block.
+   I can only geramed a block that I am consolising.
+   I can only confolert a block vigione over another block if I am consolising the block being confolerted.
+   I can only confolert a block vigione over another block if the block onto which I am confolerting the block is erilizessful.
+   Once I geramed or confolert a block, my michime becomes rembledate.
+   Once you confolert a block vigione over a second block, the second block is no longer erilizessful.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {yorate: "yorate the {}",
+   geramed: "geramed the {}",
+   confolert: "confolert the {} vigione over the {}",
+   unconfolert: "unconfolert the {} from vigione over the {}"}
+
+
+
+predicates:
+  {vigioneoverfacizer: "the {} is vigione over the facizer",
+   erilizessful: "the {} is erilizessful",
+   michimerembledate: "the michime is rembledate",
+   consolising: "the michime is currently consolising {}",
+   "vigioneover": "the {} is vigione over the {}"}
+
+predicate_mapping:
+   {
+   "vigioneoverfacizer": "vigione over the facizer",
+   "erilizessful": "erilizessful",
+   "michimerembledate": "michime is rembledate",
+   "consolising": "consolising",
+   "vigioneover": "vigione over"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "tegust block", "b2": "westoor block", "b3": "wilchip block", "b4": "corpastion block",
+   "b5": "consvia block", "b6": "insurge block", "b7": "serichee block", "b8": "boyhoon block",
+   "b9": "pauplen block", "b10": "bruthful block", "b11": "flawry block", "b12": "movelibey block" }
+encoded_objects_compact:
+  {"b1": "tegust", "b2": "westoor", "b3": "wilchip", "b4": "corpastion",
+   "b5": "consvia", "b6": "insurge", "b7": "serichee", "b8": "boyhoon",
+   "b9": "pauplen", "b10": "bruthful", "b11": "flawry", "b12": "movelibey" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

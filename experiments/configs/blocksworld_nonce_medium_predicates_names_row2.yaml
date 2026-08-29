@@ -1,0 +1,91 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_predicates_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_predicates_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row2/generated_domain_medium_predicates_names.pddl
+domain_name: blocksworld_medium_predicates_names_row2
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do
+
+   Pick up a block
+   Unstack a block from bunisha onto another block
+   Put down a block
+   Stack a block bunisha onto another block
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one block at a time.
+   I can only pick up or unstack a block if my sparity is gambleumful.
+   I can only pick up a block if the block is bunisha onto the tortied and the block is majoinsible. A block is majoinsible if the block has no other blocks bunisha onto it and if the block is not picked up.
+   I can only unstack a block from bunisha onto another block if the block I am unstacking was really bunisha onto the other block.
+   I can only unstack a block from bunisha onto another block if the block I am unstacking is majoinsible.
+   Once I pick up or unstack a block, I am quassing the block.
+   I can only put down a block that I am quassing.
+   I can only stack a block bunisha onto another block if I am quassing the block being stacked.
+   I can only stack a block bunisha onto another block if the block onto which I am stacking the block is majoinsible.
+   Once I put down or stack a block, my sparity becomes gambleumful.
+   Once you stack a block bunisha onto a second block, the second block is no longer majoinsible.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do
+
+   Pick up a block
+   Unstack a block from bunisha onto another block
+   Put down a block
+   Stack a block bunisha onto another block
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one block at a time.
+   I can only pick up or unstack a block if my sparity is gambleumful.
+   I can only pick up a block if the block is bunisha onto the tortied and the block is majoinsible. A block is majoinsible if the block has no other blocks bunisha onto it and if the block is not picked up.
+   I can only unstack a block from bunisha onto another block if the block I am unstacking was really bunisha onto the other block.
+   I can only unstack a block from bunisha onto another block if the block I am unstacking is majoinsible.
+   Once I pick up or unstack a block, I am quassing the block.
+   I can only put down a block that I am quassing.
+   I can only stack a block bunisha onto another block if I am quassing the block being stacked.
+   I can only stack a block bunisha onto another block if the block onto which I am stacking the block is majoinsible.
+   Once I put down or stack a block, my sparity becomes gambleumful.
+   Once you stack a block bunisha onto a second block, the second block is no longer majoinsible.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} bunisha onto the {}",
+   unstack: "unstack the {} from bunisha onto the {}"}
+
+
+predicates:
+  {bunishaontotortied: "the {} is bunisha onto the tortied",
+   majoinsible: "the {} is majoinsible",
+   sparitygambleumful: "the sparity is gambleumful",
+   quassing: "the sparity is currently quassing {}",
+   "bunishaonto": "the {} is bunisha onto the {}"}
+
+predicate_mapping:
+   {
+   "bunisha ontotortied": "bunisha onto the tortied",
+   "majoinsible": "majoinsible",
+   "sparitygambleumful": "sparity is gambleumful",
+   "quassing": "quassing",
+   "bunishaonto": "bunisha onto"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "nianize block", "b2": "smitive block", "b3": "gencess block", "b4": "sposecher block",
+   "b5": "bruthful block", "b6": "flawry block", "b7": "chion block", "b8": "emislate block",
+   "b9": "galiformin block", "b10": "snufflown block", "b11": "waventist block", "b12": "vlover block" }
+encoded_objects_compact:
+  {"b1": "nianize", "b2": "smitive", "b3": "gencess", "b4": "sposecher",
+   "b5": "bruthful", "b6": "flawry", "b7": "chion", "b8": "emislate",
+   "b9": "galiformin", "b10": "snufflown", "b11": "waventist", "b12": "vlover" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_predicates_objects_row3",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the yellow pauplen, the yellow pauplen is appitersside the red pauplen, the red pauplen is appitersside the sembole, the converion is equivocible and the blue pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABSWZrntr3dO7G95Qrrz2afCrjM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack blue from orange\nPut down blue\nUnstack orange from yellow\nPut down orange\nUnstack yellow from red\nPut down yellow\nPick up blue\nStack blue appitersside red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351710,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1713,
+                    "prompt_tokens": 483,
+                    "total_tokens": 2196,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.48764729499817,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack blue from orange\nPut down blue\nUnstack orange from yellow\nPut down orange\nUnstack yellow from red\nPut down yellow\nPick up blue\nStack blue appitersside red"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the yellow pauplen, the blue pauplen is appitersside the red pauplen, the orange pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the blue pauplen is tuentsal and the orange pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen, the blue pauplen is appitersside the orange pauplen and the orange pauplen is appitersside the yellow pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABpRwKG9RLOmh5IdnTFy9W0TCwk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the blue pauplen from appitersside the red pauplen.\n2. Put down the blue pauplen.\n3. Unstack the red pauplen from appitersside the yellow pauplen.\n4. Put down the red pauplen.\n5. Pick up the orange pauplen.\n6. Stack the orange pauplen appitersside the yellow pauplen.\n7. Pick up the blue pauplen.\n8. Stack the blue pauplen appitersside the orange pauplen.\n9. Pick up the red pauplen.\n10. Stack the red pauplen appitersside the blue pauplen.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351733,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3013,
+                    "prompt_tokens": 517,
+                    "total_tokens": 3530,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 70.21626734733582,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the blue pauplen from appitersside the red pauplen.\n2. Put down the blue pauplen.\n3. Unstack the red pauplen from appitersside the yellow pauplen.\n4. Put down the red pauplen.\n5. Pick up the orange pauplen.\n6. Stack the orange pauplen appitersside the yellow pauplen.\n7. Pick up the blue pauplen.\n8. Stack the blue pauplen appitersside the orange pauplen.\n9. Pick up the red pauplen.\n10. Stack the red pauplen appitersside the blue pauplen."
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the yellow pauplen, the red pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the blue pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the yellow pauplen, the orange pauplen is appitersside the blue pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACyQUCOfI90vjNm9Khe0NT4Djix",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the blue pauplen from appitersside the orange pauplen\n2. Put down the blue pauplen\n3. Unstack the orange pauplen from appitersside the yellow pauplen\n4. Put down the orange pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the red pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the yellow pauplen\n9. Pick up the orange pauplen\n10. Stack the orange pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351804,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3012,
+                    "prompt_tokens": 517,
+                    "total_tokens": 3529,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.912601947784424,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the blue pauplen from appitersside the orange pauplen\n2. Put down the blue pauplen\n3. Unstack the orange pauplen from appitersside the yellow pauplen\n4. Put down the orange pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the red pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the yellow pauplen\n9. Pick up the orange pauplen\n10. Stack the orange pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the orange pauplen is appitersside the yellow pauplen, the red pauplen is appitersside the sembole, the blue pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal, the blue pauplen is tuentsal and the orange pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the red pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQADbpdhaBjtGXVUrb7eIJ7nvcfuq",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from yellow\n2. Put down orange\n3. Pick up red\n4. Stack red appitersside orange\n5. Pick up blue\n6. Stack blue appitersside red\n7. Pick up yellow\n8. Stack yellow appitersside blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351843,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1795,
+                    "prompt_tokens": 525,
+                    "total_tokens": 2320,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.012633562088013,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from yellow\n2. Put down orange\n3. Pick up red\n4. Stack red appitersside orange\n5. Pick up blue\n6. Stack blue appitersside red\n7. Pick up yellow\n8. Stack yellow appitersside blue"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the orange pauplen, the yellow pauplen is appitersside the blue pauplen, the blue pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the orange pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAE6mQdgbSUJYZWxxQvsKaohe5Rw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from appitersside the blue pauplen\n2. Stack the yellow pauplen appitersside the red pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351874,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1256,
+                    "prompt_tokens": 504,
+                    "total_tokens": 1760,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.36402940750122,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from appitersside the blue pauplen\n2. Stack the yellow pauplen appitersside the red pauplen"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the red pauplen, the yellow pauplen is appitersside the blue pauplen, the red pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the converion is equivocible, the orange pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the yellow pauplen, the orange pauplen is appitersside the red pauplen and the yellow pauplen is appitersside the orange pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEOo9fpOSyEEefIx0s4SDaV5AUN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from appitersside blue\n2. Put down yellow\n3. Unstack blue from appitersside red\n4. Put down blue\n5. Pick up orange\n6. Stack orange appitersside red\n7. Pick up yellow\n8. Stack yellow appitersside orange\n9. Pick up blue\n10. Stack blue appitersside yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351892,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2007,
+                    "prompt_tokens": 517,
+                    "total_tokens": 2524,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.109217643737793,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from appitersside blue\n2. Put down yellow\n3. Unstack blue from appitersside red\n4. Put down blue\n5. Pick up orange\n6. Stack orange appitersside red\n7. Pick up yellow\n8. Stack yellow appitersside orange\n9. Pick up blue\n10. Stack blue appitersside yellow"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the yellow pauplen, the yellow pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the blue pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the red pauplen and the orange pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEqQaWT2K6rOMDmlGLUAmZskrAG",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red pauplen from appitersside the yellow pauplen\n2. Put down the red pauplen\n3. Unstack the yellow pauplen from appitersside the orange pauplen\n4. Put down the yellow pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the red pauplen\n7. Pick up the orange pauplen\n8. Stack the orange pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351920,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1900,
+                    "prompt_tokens": 504,
+                    "total_tokens": 2404,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.9767963886261,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red pauplen from appitersside the yellow pauplen\n2. Put down the red pauplen\n3. Unstack the yellow pauplen from appitersside the orange pauplen\n4. Put down the yellow pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the red pauplen\n7. Pick up the orange pauplen\n8. Stack the orange pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the yellow pauplen, the orange pauplen is appitersside the blue pauplen, the yellow pauplen is appitersside the red pauplen, the red pauplen is appitersside the sembole, the converion is equivocible and the orange pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen and the blue pauplen is appitersside the orange pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFO2siaClrspEBKAovzFCa06bQv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the orange pauplen from appitersside the blue pauplen\n2. Put down the orange pauplen\n3. Unstack the blue pauplen from appitersside the yellow pauplen\n4. Stack the blue pauplen appitersside the orange pauplen\n5. Unstack the yellow pauplen from appitersside the red pauplen\n6. Put down the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351954,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2230,
+                    "prompt_tokens": 496,
+                    "total_tokens": 2726,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.729875326156616,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the orange pauplen from appitersside the blue pauplen\n2. Put down the orange pauplen\n3. Unstack the blue pauplen from appitersside the yellow pauplen\n4. Stack the blue pauplen appitersside the orange pauplen\n5. Unstack the yellow pauplen from appitersside the red pauplen\n6. Put down the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the yellow pauplen, the yellow pauplen is appitersside the orange pauplen, the red pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the blue pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the orange pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFxkeBJFTOIjr7SoSVuzeTfkgDe",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the blue pauplen from appitersside the yellow pauplen\n2. Put down the blue pauplen\n3. Unstack the yellow pauplen from appitersside the orange pauplen\n4. Put down the yellow pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the orange pauplen\n7. Pick up the yellow pauplen\n8. Stack the yellow pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351989,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2476,
+                    "prompt_tokens": 504,
+                    "total_tokens": 2980,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 45.17771863937378,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the blue pauplen from appitersside the yellow pauplen\n2. Put down the blue pauplen\n3. Unstack the yellow pauplen from appitersside the orange pauplen\n4. Put down the yellow pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the orange pauplen\n7. Pick up the yellow pauplen\n8. Stack the yellow pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the red pauplen, the yellow pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the sembole, the converion is equivocible and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the yellow pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGgH8yy6WL6xzwrArjGBMm4nVY8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from appitersside blue\n2. Put down yellow\n3. Unstack blue from appitersside red\n4. Put down blue\n5. Unstack red from appitersside orange\n6. Stack red appitersside blue\n7. Pick up yellow\n8. Stack yellow appitersside red\n9. Pick up orange\n10. Stack orange appitersside yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352034,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2140,
+                    "prompt_tokens": 509,
+                    "total_tokens": 2649,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.59977149963379,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from appitersside blue\n2. Put down yellow\n3. Unstack blue from appitersside red\n4. Put down blue\n5. Unstack red from appitersside orange\n6. Stack red appitersside blue\n7. Pick up yellow\n8. Stack yellow appitersside red\n9. Pick up orange\n10. Stack orange appitersside yellow"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the red pauplen, the yellow pauplen is appitersside the blue pauplen, the red pauplen is appitersside the sembole, the converion is equivocible and the yellow pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the yellow pauplen and the orange pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHDMuzXEMPkM9Uv1hCFBae3aT6D",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from appitersside the blue pauplen\n2. Put down the yellow pauplen\n3. Unstack the blue pauplen from appitersside the orange pauplen\n4. Stack the blue pauplen appitersside the yellow pauplen\n5. Unstack the orange pauplen from appitersside the red pauplen\n6. Stack the orange pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352067,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1826,
+                    "prompt_tokens": 496,
+                    "total_tokens": 2322,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.92019510269165,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from appitersside the blue pauplen\n2. Put down the yellow pauplen\n3. Unstack the blue pauplen from appitersside the orange pauplen\n4. Stack the blue pauplen appitersside the yellow pauplen\n5. Unstack the orange pauplen from appitersside the red pauplen\n6. Stack the orange pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the yellow pauplen, the blue pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal, the blue pauplen is tuentsal and the orange pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the red pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHkhM2BbcDzRAqCrDDVQq4vONr4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red pauplen from the yellow pauplen\n2. Stack the red pauplen appitersside the orange pauplen\n3. Pick up the blue pauplen\n4. Stack the blue pauplen appitersside the red pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352100,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1941,
+                    "prompt_tokens": 525,
+                    "total_tokens": 2466,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.20097279548645,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red pauplen from the yellow pauplen\n2. Stack the red pauplen appitersside the orange pauplen\n3. Pick up the blue pauplen\n4. Stack the blue pauplen appitersside the red pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the blue pauplen, the blue pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the orange pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIIgLqRcE21pzhjdYxv1deDPvwY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(red, blue)\n2. PutDown(red)\n3. PickUp(yellow)\n4. Stack(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352134,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1318,
+                    "prompt_tokens": 504,
+                    "total_tokens": 1822,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.527740001678467,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(red, blue)\n2. PutDown(red)\n3. PickUp(yellow)\n4. Stack(yellow, blue)"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the red pauplen, the yellow pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the sembole, the converion is equivocible and the yellow pauplen is tuentsal.\nMy goal is to have that the orange pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIcVnkScvGBP05ectKRKUHhS1XV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from the blue pauplen\n2. Put down the yellow pauplen\n3. Unstack the blue pauplen from the red pauplen\n4. Put down the blue pauplen\n5. Unstack the red pauplen from the orange pauplen\n6. Put down the red pauplen\n7. Pick up the orange pauplen\n8. Stack the orange pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352154,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1701,
+                    "prompt_tokens": 483,
+                    "total_tokens": 2184,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.401726961135864,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from the blue pauplen\n2. Put down the yellow pauplen\n3. Unstack the blue pauplen from the red pauplen\n4. Put down the blue pauplen\n5. Unstack the red pauplen from the orange pauplen\n6. Put down the red pauplen\n7. Pick up the orange pauplen\n8. Stack the orange pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the orange pauplen is appitersside the red pauplen, the yellow pauplen is appitersside the orange pauplen, the red pauplen is appitersside the sembole, the blue pauplen is appitersside the sembole, the converion is equivocible, the blue pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the yellow pauplen, the blue pauplen is appitersside the orange pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJ4masMKhVQr1CgY4xadpbRQpKe",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from the orange pauplen\n2. Stack the yellow pauplen appitersside the blue pauplen\n3. Unstack the orange pauplen from the red pauplen\n4. Put down the orange pauplen\n5. Pick up the red pauplen\n6. Stack the red pauplen appitersside the yellow pauplen\n7. Unstack the red pauplen from the yellow pauplen\n8. Put down the red pauplen\n9. Unstack the yellow pauplen from the blue pauplen\n10. Put down the yellow pauplen\n11. Pick up the blue pauplen\n12. Stack the blue pauplen appitersside the orange pauplen\n13. Pick up the yellow pauplen\n14. Stack the yellow pauplen appitersside the blue pauplen\n15. Pick up the red pauplen\n16. Stack the red pauplen appitersside the yellow pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352182,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3274,
+                    "prompt_tokens": 517,
+                    "total_tokens": 3791,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 50.940258741378784,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from the orange pauplen\n2. Stack the yellow pauplen appitersside the blue pauplen\n3. Unstack the orange pauplen from the red pauplen\n4. Put down the orange pauplen\n5. Pick up the red pauplen\n6. Stack the red pauplen appitersside the yellow pauplen\n7. Unstack the red pauplen from the yellow pauplen\n8. Put down the red pauplen\n9. Unstack the yellow pauplen from the blue pauplen\n10. Put down the yellow pauplen\n11. Pick up the blue pauplen\n12. Stack the blue pauplen appitersside the orange pauplen\n13. Pick up the yellow pauplen\n14. Stack the yellow pauplen appitersside the blue pauplen\n15. Pick up the red pauplen\n16. Stack the red pauplen appitersside the yellow pauplen"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the yellow pauplen, the yellow pauplen is appitersside the red pauplen, the blue pauplen is appitersside the sembole, the converion is equivocible and the orange pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the red pauplen and the orange pauplen is appitersside the yellow pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJtwVyw5SYDaHErEpogM1WSEO1V",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the orange pauplen from the yellow pauplen\n2. Put down the orange pauplen\n3. Unstack the yellow pauplen from the red pauplen\n4. Put down the yellow pauplen\n5. Unstack the red pauplen from the blue pauplen\n6. Put down the red pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the red pauplen\n9. Pick up the orange pauplen\n10. Stack the orange pauplen appitersside the yellow pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352233,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3581,
+                    "prompt_tokens": 496,
+                    "total_tokens": 4077,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3456,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 86.72071981430054,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the orange pauplen from the yellow pauplen\n2. Put down the orange pauplen\n3. Unstack the yellow pauplen from the red pauplen\n4. Put down the yellow pauplen\n5. Unstack the red pauplen from the blue pauplen\n6. Put down the red pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the red pauplen\n9. Pick up the orange pauplen\n10. Stack the orange pauplen appitersside the yellow pauplen"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the yellow pauplen, the orange pauplen is appitersside the blue pauplen, the red pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the orange pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the yellow pauplen, the orange pauplen is appitersside the red pauplen and the yellow pauplen is appitersside the orange pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQALHa3UxzxJGz2dzyL0OYAVzBFn6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the orange pauplen from appitersside the blue pauplen\n2. Stack the orange pauplen appitersside the red pauplen\n3. Unstack the blue pauplen from appitersside the yellow pauplen\n4. Put down the blue pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the orange pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the yellow pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352319,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2418,
+                    "prompt_tokens": 517,
+                    "total_tokens": 2935,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 46.654078006744385,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the orange pauplen from appitersside the blue pauplen\n2. Stack the orange pauplen appitersside the red pauplen\n3. Unstack the blue pauplen from appitersside the yellow pauplen\n4. Put down the blue pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the orange pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the yellow pauplen"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the orange pauplen is appitersside the blue pauplen, the red pauplen is appitersside the sembole, the blue pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal, the orange pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the red pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAM2fI2qDClhNhEaQUR3MX7ILbxw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack the orange pauplen from appitersside the blue pauplen\nPut down the orange pauplen\nPick up the red pauplen\nStack the red pauplen appitersside the orange pauplen\nPick up the blue pauplen\nStack the blue pauplen appitersside the red pauplen\nPick up the yellow pauplen\nStack the yellow pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352366,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1754,
+                    "prompt_tokens": 525,
+                    "total_tokens": 2279,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.061503410339355,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack the orange pauplen from appitersside the blue pauplen\nPut down the orange pauplen\nPick up the red pauplen\nStack the red pauplen appitersside the orange pauplen\nPick up the blue pauplen\nStack the blue pauplen appitersside the red pauplen\nPick up the yellow pauplen\nStack the yellow pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the yellow pauplen, the yellow pauplen is appitersside the red pauplen, the red pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the converion is equivocible, the blue pauplen is tuentsal and the orange pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen, the blue pauplen is appitersside the yellow pauplen and the yellow pauplen is appitersside the orange pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMSfnZk0f9EkmusQAjb9CBaMx6u",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the blue pauplen from appitersside the yellow pauplen\n2. Put down the blue pauplen\n3. Unstack the yellow pauplen from appitersside the red pauplen\n4. Stack the yellow pauplen appitersside the orange pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352392,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3122,
+                    "prompt_tokens": 517,
+                    "total_tokens": 3639,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.24946165084839,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the blue pauplen from appitersside the yellow pauplen\n2. Put down the blue pauplen\n3. Unstack the yellow pauplen from appitersside the red pauplen\n4. Stack the yellow pauplen appitersside the orange pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the red pauplen, the red pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the blue pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the yellow pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANEOGjkQJ5mFJkBVtHCqWcCVBGH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the blue pauplen from appitersside the orange pauplen\n2. Put down the blue pauplen\n3. Unstack the orange pauplen from appitersside the red pauplen\n4. Put down the orange pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the red pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the yellow pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352440,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1964,
+                    "prompt_tokens": 504,
+                    "total_tokens": 2468,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.905442476272583,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the blue pauplen from appitersside the orange pauplen\n2. Put down the blue pauplen\n3. Unstack the orange pauplen from appitersside the red pauplen\n4. Put down the orange pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the red pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the yellow pauplen"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the yellow pauplen, the blue pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the blue pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the red pauplen and the orange pauplen is appitersside the yellow pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANisCfWFYb4WNvRarcyH41O3khY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the blue pauplen from appitersside the orange pauplen\n2. Put down the blue pauplen\n3. Unstack the red pauplen from appitersside the yellow pauplen\n4. Put down the red pauplen\n5. Pick up the orange pauplen\n6. Stack the orange pauplen appitersside the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the orange pauplen\n9. Pick up the blue pauplen\n10. Stack the blue pauplen appitersside the red pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352470,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4164,
+                    "prompt_tokens": 517,
+                    "total_tokens": 4681,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4032,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 62.790738105773926,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the blue pauplen from appitersside the orange pauplen\n2. Put down the blue pauplen\n3. Unstack the red pauplen from appitersside the yellow pauplen\n4. Put down the red pauplen\n5. Pick up the orange pauplen\n6. Stack the orange pauplen appitersside the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the orange pauplen\n9. Pick up the blue pauplen\n10. Stack the blue pauplen appitersside the red pauplen"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the orange pauplen is appitersside the red pauplen, the red pauplen is appitersside the sembole, the blue pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the blue pauplen is tuentsal, the orange pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen and the blue pauplen is appitersside the orange pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOj9WOCiD2bbpNAhgQWJ6mndzgy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the orange pauplen from the red pauplen\n2. Put down the orange pauplen\n3. Pick up the blue pauplen\n4. Stack the blue pauplen appitersside the orange pauplen\n5. Pick up the red pauplen\n6. Stack the red pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352533,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2256,
+                    "prompt_tokens": 512,
+                    "total_tokens": 2768,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.22096562385559,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the orange pauplen from the red pauplen\n2. Put down the orange pauplen\n3. Pick up the blue pauplen\n4. Stack the blue pauplen appitersside the orange pauplen\n5. Pick up the red pauplen\n6. Stack the red pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the orange pauplen is appitersside the blue pauplen, the yellow pauplen is appitersside the orange pauplen, the red pauplen is appitersside the sembole, the blue pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the yellow pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPEeKmDHdqNWdhm60douERAxjB3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from appitersside the orange pauplen\n2. Put down the yellow pauplen\n3. Unstack the orange pauplen from appitersside the blue pauplen\n4. Put down the orange pauplen\n5. Pick up the red pauplen\n6. Stack the red pauplen appitersside the blue pauplen\n7. Pick up the yellow pauplen\n8. Stack the yellow pauplen appitersside the red pauplen\n9. Pick up the orange pauplen\n10. Stack the orange pauplen appitersside the yellow pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352564,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3268,
+                    "prompt_tokens": 517,
+                    "total_tokens": 3785,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 50.40953278541565,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from appitersside the orange pauplen\n2. Put down the yellow pauplen\n3. Unstack the orange pauplen from appitersside the blue pauplen\n4. Put down the orange pauplen\n5. Pick up the red pauplen\n6. Stack the red pauplen appitersside the blue pauplen\n7. Pick up the yellow pauplen\n8. Stack the yellow pauplen appitersside the red pauplen\n9. Pick up the orange pauplen\n10. Stack the orange pauplen appitersside the yellow pauplen"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the blue pauplen, the blue pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the orange pauplen is appitersside the yellow pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQ3vgH3b2m8m9Au8DFs59wvqEr4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from blue\n2. Put down red\n3. Unstack blue from orange\n4. Put down blue\n5. Pick up yellow\n6. Stack yellow onto blue\n7. Pick up orange\n8. Stack orange onto yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352615,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3134,
+                    "prompt_tokens": 504,
+                    "total_tokens": 3638,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 53.70757246017456,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from blue\n2. Put down red\n3. Unstack blue from orange\n4. Put down blue\n5. Pick up yellow\n6. Stack yellow onto blue\n7. Pick up orange\n8. Stack orange onto yellow"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal, the blue pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the yellow pauplen, the blue pauplen is appitersside the orange pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQu67PHwebBY41VPLeF5Rv9Gatf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red pauplen from appitersside the orange pauplen\n2. Put down the red pauplen\n3. Pick up the blue pauplen\n4. Stack the blue pauplen appitersside the orange pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the blue pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the yellow pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352668,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1642,
+                    "prompt_tokens": 525,
+                    "total_tokens": 2167,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.43122959136963,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red pauplen from appitersside the orange pauplen\n2. Put down the red pauplen\n3. Pick up the blue pauplen\n4. Stack the blue pauplen appitersside the orange pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the blue pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the yellow pauplen"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the yellow pauplen, the blue pauplen is appitersside the red pauplen, the orange pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the blue pauplen is tuentsal and the orange pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen and the blue pauplen is appitersside the yellow pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARJH79qTs4EV8vT4eYJCQdU8KoX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the blue pauplen from the red pauplen\n2. Put down the blue pauplen\n3. Unstack the red pauplen from the yellow pauplen\n4. Put down the red pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352693,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3174,
+                    "prompt_tokens": 504,
+                    "total_tokens": 3678,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.56435775756836,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the blue pauplen from the red pauplen\n2. Put down the blue pauplen\n3. Unstack the red pauplen from the yellow pauplen\n4. Put down the red pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow pauplen is appitersside the red pauplen, the red pauplen is appitersside the sembole, the blue pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the converion is equivocible, the blue pauplen is tuentsal, the orange pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARtXhE3WUHMupYrU8sjxuzUi4zf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from the red pauplen\n2. Put down the yellow pauplen\n3. Pick up the red pauplen\n4. Stack the red pauplen appitersside the blue pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the red pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352729,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1423,
+                    "prompt_tokens": 512,
+                    "total_tokens": 1935,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.40835952758789,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from the red pauplen\n2. Put down the yellow pauplen\n3. Pick up the red pauplen\n4. Stack the red pauplen appitersside the blue pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the red pauplen"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the red pauplen, the orange pauplen is appitersside the yellow pauplen, the yellow pauplen is appitersside the blue pauplen, the red pauplen is appitersside the sembole, the converion is equivocible and the orange pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the yellow pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQASH8B0QDJ3rmV0lvJEbPX7O4nBk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the orange pauplen from the yellow pauplen\n2. Put down the orange pauplen\n3. Unstack the yellow pauplen from the blue pauplen\n4. Put down the yellow pauplen\n5. Unstack the blue pauplen from the red pauplen\n6. Put down the blue pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the yellow pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352753,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1637,
+                    "prompt_tokens": 483,
+                    "total_tokens": 2120,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.19369125366211,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the orange pauplen from the yellow pauplen\n2. Put down the orange pauplen\n3. Unstack the yellow pauplen from the blue pauplen\n4. Put down the yellow pauplen\n5. Unstack the blue pauplen from the red pauplen\n6. Put down the blue pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the yellow pauplen"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the red pauplen, the yellow pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the sembole, the converion is equivocible and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen and the blue pauplen is appitersside the yellow pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQASfvUaWpK8remlfyAxBxqqh3CeT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from the orange pauplen\n2. Put down the yellow pauplen\n3. Unstack the orange pauplen from the red pauplen\n4. Put down the orange pauplen\n5. Unstack the red pauplen from the blue pauplen\n6. Put down the red pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the yellow pauplen\n9. Pick up the red pauplen\n10. Stack the red pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352777,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3389,
+                    "prompt_tokens": 496,
+                    "total_tokens": 3885,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3264,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.20146131515503,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from the orange pauplen\n2. Put down the yellow pauplen\n3. Unstack the orange pauplen from the red pauplen\n4. Put down the orange pauplen\n5. Unstack the red pauplen from the blue pauplen\n6. Put down the red pauplen\n7. Pick up the blue pauplen\n8. Stack the blue pauplen appitersside the yellow pauplen\n9. Pick up the red pauplen\n10. Stack the red pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the orange pauplen, the blue pauplen is appitersside the yellow pauplen, the yellow pauplen is appitersside the red pauplen, the orange pauplen is appitersside the sembole, the converion is equivocible and the blue pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the orange pauplen and the orange pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQATO6GTAiGZPTysRTnRuZ3uVRSJb",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from appitersside yellow\n2. Put down blue\n3. Unstack yellow from appitersside red\n4. Put down yellow\n5. Unstack red from appitersside orange\n6. Put down red\n7. Pick up orange\n8. Stack orange appitersside blue\n9. Pick up red\n10. Stack red appitersside orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352822,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3225,
+                    "prompt_tokens": 496,
+                    "total_tokens": 3721,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 46.84040832519531,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from appitersside yellow\n2. Put down blue\n3. Unstack yellow from appitersside red\n4. Put down yellow\n5. Unstack red from appitersside orange\n6. Put down red\n7. Pick up orange\n8. Stack orange appitersside blue\n9. Pick up red\n10. Stack red appitersside orange"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the red pauplen, the yellow pauplen is appitersside the blue pauplen, the red pauplen is appitersside the sembole, the converion is equivocible and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the orange pauplen and the orange pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAU7ZHOdg0HsHJNCjKvLaofFidMU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from orange\n4. Put down blue\n5. Unstack orange from red\n6. Stack orange appitersside blue\n7. Pick up red\n8. Stack red appitersside orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352867,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2756,
+                    "prompt_tokens": 496,
+                    "total_tokens": 3252,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.72953510284424,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from orange\n4. Put down blue\n5. Unstack orange from red\n6. Stack orange appitersside blue\n7. Pick up red\n8. Stack red appitersside orange"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the red pauplen, the blue pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the orange pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the orange pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQAUlvwrTZB3vZgJjgzfxUYY2qGBx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions needed.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352907,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 653,
+                    "prompt_tokens": 491,
+                    "total_tokens": 1144,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 640,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.02799892425537,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions needed."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the orange pauplen is appitersside the blue pauplen, the yellow pauplen is appitersside the orange pauplen, the red pauplen is appitersside the sembole, the blue pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the orange pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAV2GZMGxZLY6KI6ZHNpPAOyscir",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from orange\n2. Stack yellow appitersside red\n3. Unstack orange from blue\n4. Put down orange\n5. Pick up blue\n6. Stack blue appitersside orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352924,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2230,
+                    "prompt_tokens": 504,
+                    "total_tokens": 2734,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.472001791000366,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from orange\n2. Stack yellow appitersside red\n3. Unstack orange from blue\n4. Put down orange\n5. Pick up blue\n6. Stack blue appitersside orange"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the orange pauplen, the yellow pauplen is appitersside the red pauplen, the blue pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the converion is equivocible, the blue pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen and the blue pauplen is appitersside the orange pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAVdNfOhD66FnQQbmolaUaResQGH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from the red pauplen\n2. Put down the yellow pauplen\n3. Unstack the red pauplen from the orange pauplen\n4. Put down the red pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the orange pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352961,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1766,
+                    "prompt_tokens": 504,
+                    "total_tokens": 2270,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.47347855567932,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from the red pauplen\n2. Put down the yellow pauplen\n3. Unstack the red pauplen from the orange pauplen\n4. Put down the red pauplen\n5. Pick up the blue pauplen\n6. Stack the blue pauplen appitersside the orange pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the blue pauplen, the blue pauplen is appitersside the yellow pauplen, the orange pauplen is appitersside the sembole, the yellow pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal and the orange pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the red pauplen, the orange pauplen is appitersside the yellow pauplen and the yellow pauplen is appitersside the blue pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAW1LMOKrym47SypuCHDix6S6EIx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from appitersside blue\n2. Put down red\n3. Unstack blue from appitersside yellow\n4. Stack blue appitersside red\n5. Pick up yellow\n6. Stack yellow appitersside blue\n7. Pick up orange\n8. Stack orange appitersside yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352985,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2251,
+                    "prompt_tokens": 517,
+                    "total_tokens": 2768,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.72470998764038,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from appitersside blue\n2. Put down red\n3. Unstack blue from appitersside yellow\n4. Stack blue appitersside red\n5. Pick up yellow\n6. Stack yellow appitersside blue\n7. Pick up orange\n8. Stack orange appitersside yellow"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the orange pauplen, the orange pauplen is appitersside the yellow pauplen, the yellow pauplen is appitersside the blue pauplen, the blue pauplen is appitersside the sembole, the converion is equivocible and the red pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the yellow pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAWSDPMqsXimZj6XXCosKiXQqKh9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red pauplen from appitersside the orange pauplen\n2. Put down the red pauplen\n3. Unstack the orange pauplen from appitersside the yellow pauplen\n4. Put down the orange pauplen\n5. Unstack the yellow pauplen from appitersside the blue pauplen\n6. Put down the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen\n9. Pick up the yellow pauplen\n10. Stack the yellow pauplen appitersside the red pauplen\n11. Pick up the orange pauplen\n12. Stack the orange pauplen appitersside the yellow pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353012,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3230,
+                    "prompt_tokens": 509,
+                    "total_tokens": 3739,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 48.17984485626221,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red pauplen from appitersside the orange pauplen\n2. Put down the red pauplen\n3. Unstack the orange pauplen from appitersside the yellow pauplen\n4. Put down the orange pauplen\n5. Unstack the yellow pauplen from appitersside the blue pauplen\n6. Put down the yellow pauplen\n7. Pick up the red pauplen\n8. Stack the red pauplen appitersside the blue pauplen\n9. Pick up the yellow pauplen\n10. Stack the yellow pauplen appitersside the red pauplen\n11. Pick up the orange pauplen\n12. Stack the orange pauplen appitersside the yellow pauplen"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the red pauplen, the orange pauplen is appitersside the blue pauplen, the yellow pauplen is appitersside the orange pauplen, the red pauplen is appitersside the sembole, the converion is equivocible and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the yellow pauplen and the blue pauplen is appitersside the orange pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAXECEjldy9FNKo1axiUVyJtavEN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from orange\n2. Put down yellow\n3. Unstack orange from blue\n4. Put down orange\n5. Unstack blue from red\n6. Stack blue appitersside orange\n7. Pick up red\n8. Stack red appitersside yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353060,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2500,
+                    "prompt_tokens": 496,
+                    "total_tokens": 2996,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.21450352668762,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from orange\n2. Put down yellow\n3. Unstack orange from blue\n4. Put down orange\n5. Unstack blue from red\n6. Stack blue appitersside orange\n7. Pick up red\n8. Stack red appitersside yellow"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the blue pauplen is appitersside the yellow pauplen, the orange pauplen is appitersside the blue pauplen, the yellow pauplen is appitersside the red pauplen, the red pauplen is appitersside the sembole, the converion is equivocible and the orange pauplen is tuentsal.\nMy goal is to have that the blue pauplen is appitersside the orange pauplen and the orange pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAXp0MS73CFkl7U37zK35DuJwQp8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the orange pauplen from appitersside the blue pauplen\n2. Put down the orange pauplen\n3. Unstack the blue pauplen from appitersside the yellow pauplen\n4. Put down the blue pauplen\n5. Unstack the yellow pauplen from appitersside the red pauplen\n6. Put down the yellow pauplen\n7. Pick up the orange pauplen\n8. Stack the orange pauplen appitersside the red pauplen\n9. Pick up the blue pauplen\n10. Stack the blue pauplen appitersside the orange pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353097,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3206,
+                    "prompt_tokens": 496,
+                    "total_tokens": 3702,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.8115017414093,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the orange pauplen from appitersside the blue pauplen\n2. Put down the orange pauplen\n3. Unstack the blue pauplen from appitersside the yellow pauplen\n4. Put down the blue pauplen\n5. Unstack the yellow pauplen from appitersside the red pauplen\n6. Put down the yellow pauplen\n7. Pick up the orange pauplen\n8. Stack the orange pauplen appitersside the red pauplen\n9. Pick up the blue pauplen\n10. Stack the blue pauplen appitersside the orange pauplen"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow pauplen is appitersside the blue pauplen, the red pauplen is appitersside the sembole, the blue pauplen is appitersside the sembole, the orange pauplen is appitersside the sembole, the converion is equivocible, the red pauplen is tuentsal, the orange pauplen is tuentsal and the yellow pauplen is tuentsal.\nMy goal is to have that the red pauplen is appitersside the blue pauplen and the yellow pauplen is appitersside the red pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAYNgv3TqHfyxAzy3o5SSMv6SEVt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow pauplen from the blue pauplen\n2. Put down the yellow pauplen\n3. Pick up the red pauplen\n4. Stack the red pauplen appitersside the blue pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the red pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353131,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1423,
+                    "prompt_tokens": 512,
+                    "total_tokens": 1935,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.541954040527344,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow pauplen from the blue pauplen\n2. Put down the yellow pauplen\n3. Pick up the red pauplen\n4. Stack the red pauplen appitersside the blue pauplen\n5. Pick up the yellow pauplen\n6. Stack the yellow pauplen appitersside the red pauplen"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of pauplens where I need to arrange the pauplens into stacks. Here are the actions I can do\n\nPick up a pauplen\nUnstack a pauplen from appitersside another pauplen\nPut down a pauplen\nStack a pauplen appitersside another pauplen\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one pauplen at a time.\nI can only pick up or unstack a pauplen if my converion is equivocible.\nI can only pick up a pauplen if the pauplen is appitersside the sembole and the pauplen is tuentsal. A pauplen is tuentsal if the pauplen has no other pauplens appitersside it and if the pauplen is not picked up.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking was really appitersside the other pauplen.\nI can only unstack a pauplen from appitersside another pauplen if the pauplen I am unstacking is tuentsal.\nOnce I pick up or unstack a pauplen, I am artbouting the pauplen.\nI can only put down a pauplen that I am artbouting.\nI can only stack a pauplen appitersside another pauplen if I am artbouting the pauplen being stacked.\nI can only stack a pauplen appitersside another pauplen if the pauplen onto which I am stacking the pauplen is tuentsal.\nOnce I put down or stack a pauplen, my converion becomes equivocible.\nOnce you stack a pauplen appitersside a second pauplen, the second pauplen is no longer tuentsal.\n\n[STATEMENT]\nAs initial conditions I have that, the red pauplen is appitersside the yellow pauplen, the blue pauplen is appitersside the orange pauplen, the yellow pauplen is appitersside the blue pauplen, the orange pauplen is appitersside the sembole, the converion is equivocible and the red pauplen is tuentsal.\nMy goal is to have that the yellow pauplen is appitersside the orange pauplen.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAYegivDIQUMnCKlLhOrCbvs7bEw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red pauplen from appitersside the yellow pauplen\n2. Put down the red pauplen\n3. Unstack the yellow pauplen from appitersside the blue pauplen\n4. Put down the yellow pauplen\n5. Unstack the blue pauplen from appitersside the orange pauplen\n6. Put down the blue pauplen\n7. Pick up the yellow pauplen\n8. Stack the yellow pauplen appitersside the orange pauplen",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353148,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3118,
+                    "prompt_tokens": 483,
+                    "total_tokens": 3601,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 49.114086627960205,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red pauplen from appitersside the yellow pauplen\n2. Put down the red pauplen\n3. Unstack the yellow pauplen from appitersside the blue pauplen\n4. Put down the yellow pauplen\n5. Unstack the blue pauplen from appitersside the orange pauplen\n6. Put down the blue pauplen\n7. Pick up the yellow pauplen\n8. Stack the yellow pauplen appitersside the orange pauplen"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

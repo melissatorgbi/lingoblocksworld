@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_actions_objects/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_actions_objects/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row2/generated_domain_medium_actions_objects.pddl
+domain_name: blocksworld_medium_actions_objects_row2
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do
+
+   Approfity a adminebo
+   Unmanizer a adminebo from on top of another adminebo
+   Shague a adminebo
+   Manizer a adminebo on top of another adminebo
+
+   I have the following restrictions on my actions:
+   I can only approfity or unmanizer one adminebo at a time.
+   I can only approfity or unmanizer a adminebo if my hand is empty.
+   I can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.
+   I can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.
+   I can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.
+   Once I approfity or unmanizer a adminebo, I am holding the adminebo.
+   I can only shague a adminebo that I am holding.
+   I can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.
+   I can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.
+   Once I shague or manizer a adminebo, my hand becomes empty.
+   Once you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do
+
+   Approfity a adminebo
+   Unmanizer a adminebo from on top of another adminebo
+   Shague a adminebo
+   Manizer a adminebo on top of another adminebo
+
+   I have the following restrictions on my actions:
+   I can only approfity or unmanizer one adminebo at a time.
+   I can only approfity or unmanizer a adminebo if my hand is empty.
+   I can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.
+   I can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.
+   I can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.
+   Once I approfity or unmanizer a adminebo, I am holding the adminebo.
+   I can only shague a adminebo that I am holding.
+   I can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.
+   I can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.
+   Once I shague or manizer a adminebo, my hand becomes empty.
+   Once you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {approfity: "approfity the {}",
+   shague: "shague the {}",
+   manizer: "manizer the {} on top of the {}",
+   unmanizer: "unmanizer the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red adminebo", "b2": "blue adminebo", "b3": "orange adminebo", "b4": "yellow adminebo",
+   "b5": "white adminebo", "b6": "magenta adminebo", "b7": "black adminebo", "b8": "cyan adminebo",
+   "b9": "green adminebo", "b10": "violet adminebo", "b11": "silver adminebo", "b12": "gold adminebo" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

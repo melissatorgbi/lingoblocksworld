@@ -1,0 +1,90 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/hard/blocksworld_hard_predicates_objects_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/hard/blocksworld_hard_predicates_objects_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/hard_row3/generated_domain_hard_predicates_objects_names.pddl
+domain_name: blocksworld_hard_predicates_objects_names_row3
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do
+
+   Pick up a arkell
+   Unstack a arkell from winoming onto another arkell
+   Put down a arkell
+   Stack a arkell winoming onto another arkell
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one arkell at a time.
+   I can only pick up or unstack a arkell if my swartart is memberectless.
+   I can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.
+   I can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.
+   I can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.
+   Once I pick up or unstack a arkell, I am aptalling the arkell.
+   I can only put down a arkell that I am aptalling.
+   I can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.
+   I can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.
+   Once I put down or stack a arkell, my swartart becomes memberectless.
+   Once you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.
+
+domain_intro_state_tracking: |
+   I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do
+
+   Pick up a arkell
+   Unstack a arkell from winoming onto another arkell
+   Put down a arkell
+   Stack a arkell winoming onto another arkell
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one arkell at a time.
+   I can only pick up or unstack a arkell if my swartart is memberectless.
+   I can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.
+   I can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.
+   I can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.
+   Once I pick up or unstack a arkell, I am aptalling the arkell.
+   I can only put down a arkell that I am aptalling.
+   I can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.
+   I can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.
+   Once I put down or stack a arkell, my swartart becomes memberectless.
+   Once you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} winoming onto the {}",
+   unstack: "unstack the {} from winoming onto the {}"}
+
+
+predicates:
+  {winomingontoscrunny: "the {} is winoming onto the scrunny",
+   butony: "the {} is butony",
+   swartartmemberectless: "the swartart is memberectless",
+   aptalling: "the swartart is currently aptalling {}",
+   "winomingonto": "the {} is winoming onto the {}"}
+
+predicate_mapping:
+   {
+   "winomingontoscrunny": "winoming onto the scrunny",
+   "butony": "butony",
+   "swartartmemberectless": "swartart is memberectless",
+   "aptalling": "aptalling",
+   "winomingonto": "winoming onto"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "scopporth arkell", "b2": "plaine arkell", "b3": "tangalian arkell", "b4": "ovinity arkell",
+   "b5": "cajoulat arkell", "b6": "roscor arkell", "b7": "nooklawful arkell", "b8": "wintia arkell",
+   "b9": "wavenight arkell", "b10": "avatopter arkell", "b11": "cofarity arkell", "l": "turize arkell" }
+encoded_objects_compact:
+  {"b1": "scopporth", "b2": "plaine", "b3": "tangalian", "b4": "ovinity",
+   "b5": "cajoulat", "b6": "roscor", "b7": "nooklawful", "b8": "wintia",
+   "b9": "wavenight", "b10": "avatopter", "b11": "cofarity", "b12": "turize" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

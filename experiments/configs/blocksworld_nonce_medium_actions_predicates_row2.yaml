@@ -1,0 +1,93 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_actions_predicates/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_actions_predicates/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row2/generated_domain_medium_actions_predicates.pddl
+domain_name: blocksworld_medium_actions_predicates_row2
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into delifies. Here are the actions I can do
+
+   Aptall a block
+   Undelify a block from waxity above another block
+   Sacrype a block
+   Delify a block waxity above another block
+
+   I have the following restrictions on my actions:
+   I can only aptall or undelify one block at a time.
+   I can only aptall or undelify a block if my novertible is skephedent.
+   I can only aptall a block if the block is waxity above the wishare and the block is botcry. A block is botcry if the block has no other blocks waxity above it and if the block is not aptalled.
+   I can only undelify a block from waxity above another block if the block I am undelifying was really waxity above the other block.
+   I can only undelify a block from waxity above another block if the block I am undelifying is botcry.
+   Once I aptall or undelify a block, I am appeousing the block.
+   I can only sacrype a block that I am appeousing.
+   I can only delify a block waxity above another block if I am appeousing the block being delified.
+   I can only delify a block waxity above another block if the block onto which I am delifying the block is botcry.
+   Once I sacrype or delify a block, my novertible becomes skephedent.
+   Once you delify a block waxity above a second block, the second block is no longer botcry.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into delifies. Here are the actions I can do
+
+   Aptall a block
+   Undelify a block from waxity above another block
+   Sacrype a block
+   Delify a block waxity above another block
+
+   I have the following restrictions on my actions:
+   I can only aptall or undelify one block at a time.
+   I can only aptall or undelify a block if my novertible is skephedent.
+   I can only aptall a block if the block is waxity above the wishare and the block is botcry. A block is botcry if the block has no other blocks waxity above it and if the block is not aptalled.
+   I can only undelify a block from waxity above another block if the block I am undelifying was really waxity above the other block.
+   I can only undelify a block from waxity above another block if the block I am undelifying is botcry.
+   Once I aptall or undelify a block, I am appeousing the block.
+   I can only sacrype a block that I am appeousing.
+   I can only delify a block waxity above another block if I am appeousing the block being delified.
+   I can only delify a block waxity above another block if the block onto which I am delifying the block is botcry.
+   Once I sacrype or delify a block, my novertible becomes skephedent.
+   Once you delify a block waxity above a second block, the second block is no longer botcry.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {aptall: "aptall the {}",
+   sacrype: "sacrype the {}",
+   delify: "delify the {} waxity above the {}",
+   undelify: "undelify the {} from waxity above the {}"}
+
+
+
+predicates:
+  {waxityabovewishare: "the {} is waxity above the wishare",
+   botcry: "the {} is botcry",
+   novertibleskephedent: "the novertible is skephedent",
+   appeousing: "the novertible is currently appeousing {}",
+   "waxityabove": "the {} is waxity above the {}"}
+
+predicate_mapping:
+   {
+   "waxityabovewishare": "waxity above the wishare",
+   "botcry": "botcry",
+   "novertibleskephedent": "novertible is skephedent",
+   "appeousing": "appeousing",
+   "waxityabove": "waxity above"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red block", "b2": "blue block", "b3": "orange block", "b4": "yellow block",
+   "b5": "white block", "b6": "magenta block", "b7": "black block", "b8": "cyan block",
+   "b9": "green block", "b10": "violet block", "b11": "silver block", "b12": "gold block" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

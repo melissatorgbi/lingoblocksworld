@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/hard/blocksworld_hard_actions_objects_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/hard/blocksworld_hard_actions_objects_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/hard_row3/generated_domain_hard_actions_objects_names.pddl
+domain_name: blocksworld_hard_actions_objects_names_row3
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of cleadimers where I need to arrange the cleadimers into barnialls. Here are the actions I can do
+
+   Projum a cleadimer
+   Unbarniall a cleadimer from on top of another cleadimer
+   Dizer a cleadimer
+   Barniall a cleadimer on top of another cleadimer
+
+   I have the following restrictions on my actions:
+   I can only projum or unbarniall one cleadimer at a time.
+   I can only projum or unbarniall a cleadimer if my hand is empty.
+   I can only projum a cleadimer if the cleadimer is on the table and the cleadimer is clear. A cleadimer is clear if the cleadimer has no other cleadimers on top of it and if the cleadimer is not projummed.
+   I can only unbarniall a cleadimer from on top of another cleadimer if the cleadimer I am unbarnialling was really on top of the other cleadimer.
+   I can only unbarniall a cleadimer from on top of another cleadimer if the cleadimer I am unbarnialling is clear.
+   Once I projum or unbarniall a cleadimer, I am holding the cleadimer.
+   I can only dizer a cleadimer that I am holding.
+   I can only barniall a cleadimer on top of another cleadimer if I am holding the cleadimer being barnialled.
+   I can only barniall a cleadimer on top of another cleadimer if the cleadimer onto which I am barnialling the cleadimer is clear.
+   Once I dizer or barniall a cleadimer, my hand becomes empty.
+   Once you barniall a cleadimer on top of a second cleadimer, the second cleadimer is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of cleadimers where I need to arrange the cleadimers into barnialls. Here are the actions I can do
+
+   Projum a cleadimer
+   Unbarniall a cleadimer from on top of another cleadimer
+   Dizer a cleadimer
+   Barniall a cleadimer on top of another cleadimer
+
+   I have the following restrictions on my actions:
+   I can only projum or unbarniall one cleadimer at a time.
+   I can only projum or unbarniall a cleadimer if my hand is empty.
+   I can only projum a cleadimer if the cleadimer is on the table and the cleadimer is clear. A cleadimer is clear if the cleadimer has no other cleadimers on top of it and if the cleadimer is not projummed.
+   I can only unbarniall a cleadimer from on top of another cleadimer if the cleadimer I am unbarnialling was really on top of the other cleadimer.
+   I can only unbarniall a cleadimer from on top of another cleadimer if the cleadimer I am unbarnialling is clear.
+   Once I projum or unbarniall a cleadimer, I am holding the cleadimer.
+   I can only dizer a cleadimer that I am holding.
+   I can only barniall a cleadimer on top of another cleadimer if I am holding the cleadimer being barnialled.
+   I can only barniall a cleadimer on top of another cleadimer if the cleadimer onto which I am barnialling the cleadimer is clear.
+   Once I dizer or barniall a cleadimer, my hand becomes empty.
+   Once you barniall a cleadimer on top of a second cleadimer, the second cleadimer is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {projum: "projum the {}",
+   dizer: "dizer the {}",
+   barniall: "barniall the {} on top of the {}",
+   unbarniall: "unbarniall the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "apription cleadimer", "b2": "nooklawful cleadimer", "b3": "adminebo cleadimer", "b4": "gravaisal cleadimer",
+   "b5": "serichee cleadimer", "b6": "unitess cleadimer", "b7": "ilegation cleadimer", "b8": "repefusell cleadimer",
+   "b9": "muhang cleadimer", "b10": "whator cleadimer", "b11": "scringent cleadimer", "b12": "flipel cleadimer" }
+encoded_objects_compact:
+  {"b1": "apription", "b2": "nooklawful", "b3": "adminebo", "b4": "gravaisal",
+   "b5": "serichee", "b6": "unitess", "b7": "ilegation", "b8": "repefusell",
+   "b9": "muhang", "b10": "whator", "b11": "scringent", "b12": "flipel" }
+
+
+callbacks:
+   - t1_gen_goal_directed_instances

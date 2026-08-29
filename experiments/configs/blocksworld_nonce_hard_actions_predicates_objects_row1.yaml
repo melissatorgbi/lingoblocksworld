@@ -1,0 +1,93 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/hard/blocksworld_hard_actions_predicates_objects/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/hard/blocksworld_hard_actions_predicates_objects/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/hard/generated_domain_hard_actions_predicates_objects.pddl
+domain_name: blocksworld_hard_actions_predicates_objects_row1
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of tegusts where I need to arrange the tegusts into busillisks. Here are the actions I can do
+
+   Jillerate a tegust
+   Unbusillisk a tegust from faratived onto another tegust
+   Astent a tegust
+   Busillisk a tegust faratived onto another tegust
+
+   I have the following restrictions on my actions:
+   I can only jillerate or unbusillisk one tegust at a time.
+   I can only jillerate or unbusillisk a tegust if my michime is tuentsal.
+   I can only jillerate a tegust if the tegust is faratived onto the facizer and the tegust is paradomic. A tegust is paradomic if the tegust has no other tegusts faratived onto it and if the tegust is not jillerated.
+   I can only unbusillisk a tegust from faratived onto another tegust if the tegust I am unbusillisking was really faratived onto the other tegust.
+   I can only unbusillisk a tegust from faratived onto another tegust if the tegust I am unbusillisking is paradomic.
+   Once I jillerate or unbusillisk a tegust, I am curleading the tegust.
+   I can only astent a tegust that I am curleading.
+   I can only busillisk a tegust faratived onto another tegust if I am curleading the tegust being busillisked.
+   I can only busillisk a tegust faratived onto another tegust if the tegust onto which I am busillisking the tegust is paradomic.
+   Once I astent or busillisk a tegust, my michime becomes tuentsal.
+   Once you busillisk a tegust faratived onto a second tegust, the second tegust is no longer paradomic.
+
+domain_intro_state_tracking: |
+   I am playing with a set of tegusts where I need to arrange the tegusts into busillisks. Here are the actions I can do
+
+   Jillerate a tegust
+   Unbusillisk a tegust from faratived onto another tegust
+   Astent a tegust
+   Busillisk a tegust faratived onto another tegust
+
+   I have the following restrictions on my actions:
+   I can only jillerate or unbusillisk one tegust at a time.
+   I can only jillerate or unbusillisk a tegust if my michime is tuentsal.
+   I can only jillerate a tegust if the tegust is faratived onto the facizer and the tegust is paradomic. A tegust is paradomic if the tegust has no other tegusts faratived onto it and if the tegust is not jillerated.
+   I can only unbusillisk a tegust from faratived onto another tegust if the tegust I am unbusillisking was really faratived onto the other tegust.
+   I can only unbusillisk a tegust from faratived onto another tegust if the tegust I am unbusillisking is paradomic.
+   Once I jillerate or unbusillisk a tegust, I am curleading the tegust.
+   I can only astent a tegust that I am curleading.
+   I can only busillisk a tegust faratived onto another tegust if I am curleading the tegust being busillisked.
+   I can only busillisk a tegust faratived onto another tegust if the tegust onto which I am busillisking the tegust is paradomic.
+   Once I astent or busillisk a tegust, my michime becomes tuentsal.
+   Once you busillisk a tegust faratived onto a second tegust, the second tegust is no longer paradomic.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {jillerate: "jillerate the {}",
+   astent: "astent the {}",
+   busillisk: "busillisk the {} faratived onto the {}",
+   unbusillisk: "unbusillisk the {} from faratived onto the {}"}
+
+
+
+predicates:
+  {farativedontofacizer: "the {} is faratived onto the facizer",
+   paradomic: "the {} is paradomic",
+   michimetuentsal: "the michime is tuentsal",
+   curleading: "the michime is currently curleading {}",
+   "farativedonto": "the {} is faratived onto the {}"}
+
+predicate_mapping:
+   {
+   "farativedontofacizer": "faratived onto the facizer",
+   "paradomic": "paradomic",
+   "michimetuentsal": "michime is tuentsal",
+   "curleading": "curleading",
+   "farativedonto": "faratived onto"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red tegust", "b2": "blue tegust", "b3": "orange tegust", "b4": "yellow tegust",
+   "b5": "white tegust", "b6": "magenta tegust", "b7": "black tegust", "b8": "cyan tegust",
+   "b9": "green tegust", "b10": "violet tegust", "b11": "silver tegust", "b12": "gold tegust" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

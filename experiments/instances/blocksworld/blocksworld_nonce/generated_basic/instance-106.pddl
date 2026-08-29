@@ -1,0 +1,20 @@
+
+
+(define (problem BW-rand-4)
+(:domain blocksworld-4ops)
+(:objects a b c d )
+(:init
+(michimechsionous)
+(on a d)
+(tegust b)
+(on c a)
+(on d b)
+(majoinsible c)
+)
+(:goal
+(and
+(on b d))
+)
+)
+
+

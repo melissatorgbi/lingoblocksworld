@@ -1,0 +1,91 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_objects_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_objects_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row2/generated_domain_medium_objects_names.pddl
+domain_name: blocksworld_medium_objects_names_row2
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do
+
+   Pick up a tackya
+   Unstack a tackya from on top of another tackya
+   Put down a tackya
+   Stack a tackya on top of another tackya
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one tackya at a time.
+   I can only pick up or unstack a tackya if my hand is empty.
+   I can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.
+   I can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.
+   I can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.
+   Once I pick up or unstack a tackya, I am holding the tackya.
+   I can only put down a tackya that I am holding.
+   I can only stack a tackya on top of another tackya if I am holding the tackya being stacked.
+   I can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.
+   Once I put down or stack a tackya, my hand becomes empty.
+   Once you stack a tackya on top of a second tackya, the second tackya is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do
+
+   Pick up a tackya
+   Unstack a tackya from on top of another tackya
+   Put down a tackya
+   Stack a tackya on top of another tackya
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one tackya at a time.
+   I can only pick up or unstack a tackya if my hand is empty.
+   I can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.
+   I can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.
+   I can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.
+   Once I pick up or unstack a tackya, I am holding the tackya.
+   I can only put down a tackya that I am holding.
+   I can only stack a tackya on top of another tackya if I am holding the tackya being stacked.
+   I can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.
+   Once I put down or stack a tackya, my hand becomes empty.
+   Once you stack a tackya on top of a second tackya, the second tackya is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} on top of the {}",
+   unstack: "unstack the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "amheight tackya", "b2": "bagge tackya", "b3": "dingert tackya", "b4": "weavener tackya",
+   "b5": "mohask tackya", "b6": "faitta tackya", "b7": "specon tackya", "b8": "wishare tackya",
+   "b9": "beauthon tackya", "b10": "incountale tackya", "b11": "gravaisal tackya", "b12": "cowealcula tackya" }
+encoded_objects_compact:
+  {"b1": "amheight", "b2": "bagge", "b3": "dingert", "b4": "weavener",
+   "b5": "mohask", "b6": "faitta", "b7": "specon", "b8": "wishare",
+   "b9": "beauthon", "b10": "incountale", "b11": "gravaisal", "b12": "cowealcula" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

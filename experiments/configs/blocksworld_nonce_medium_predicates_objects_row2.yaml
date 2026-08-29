@@ -1,0 +1,91 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_predicates_objects/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/medium/blocksworld_medium_predicates_objects/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row2/generated_domain_medium_predicates_objects.pddl
+domain_name: blocksworld_medium_predicates_objects_row2
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of dragnoses where I need to arrange the dragnoses into stacks. Here are the actions I can do
+
+   Pick up a dragnos
+   Unstack a dragnos from inhiggledwards another dragnos
+   Put down a dragnos
+   Stack a dragnos inhiggledwards another dragnos
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one dragnos at a time.
+   I can only pick up or unstack a dragnos if my compation is scoundable.
+   I can only pick up a dragnos if the dragnos is inhiggledwards the correcip and the dragnos is gineurate. A dragnos is gineurate if the dragnos has no other dragnoses inhiggledwards it and if the dragnos is not picked up.
+   I can only unstack a dragnos from inhiggledwards another dragnos if the dragnos I am unstacking was really inhiggledwards the other dragnos.
+   I can only unstack a dragnos from inhiggledwards another dragnos if the dragnos I am unstacking is gineurate.
+   Once I pick up or unstack a dragnos, I am lianizing the dragnos.
+   I can only put down a dragnos that I am lianizing.
+   I can only stack a dragnos inhiggledwards another dragnos if I am lianizing the dragnos being stacked.
+   I can only stack a dragnos inhiggledwards another dragnos if the dragnos onto which I am stacking the dragnos is gineurate.
+   Once I put down or stack a dragnos, my compation becomes scoundable.
+   Once you stack a dragnos inhiggledwards a second dragnos, the second dragnos is no longer gineurate.
+
+domain_intro_state_tracking: |
+   I am playing with a set of dragnoses where I need to arrange the dragnoses into stacks. Here are the actions I can do
+
+   Pick up a dragnos
+   Unstack a dragnos from inhiggledwards another dragnos
+   Put down a dragnos
+   Stack a dragnos inhiggledwards another dragnos
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one dragnos at a time.
+   I can only pick up or unstack a dragnos if my compation is scoundable.
+   I can only pick up a dragnos if the dragnos is inhiggledwards the correcip and the dragnos is gineurate. A dragnos is gineurate if the dragnos has no other dragnoses inhiggledwards it and if the dragnos is not picked up.
+   I can only unstack a dragnos from inhiggledwards another dragnos if the dragnos I am unstacking was really inhiggledwards the other dragnos.
+   I can only unstack a dragnos from inhiggledwards another dragnos if the dragnos I am unstacking is gineurate.
+   Once I pick up or unstack a dragnos, I am lianizing the dragnos.
+   I can only put down a dragnos that I am lianizing.
+   I can only stack a dragnos inhiggledwards another dragnos if I am lianizing the dragnos being stacked.
+   I can only stack a dragnos inhiggledwards another dragnos if the dragnos onto which I am stacking the dragnos is gineurate.
+   Once I put down or stack a dragnos, my compation becomes scoundable.
+   Once you stack a dragnos inhiggledwards a second dragnos, the second dragnos is no longer gineurate.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} inhiggledwards the {}",
+   unstack: "unstack the {} from inhiggledwards the {}"}
+
+
+predicates:
+  {inhiggledwardscorrecip: "the {} is inhiggledwards the correcip",
+   gineurate: "the {} is gineurate",
+   compationscoundable: "the compation is scoundable",
+   lianizing: "the compation is currently lianizing {}",
+   "inhiggledwards": "the {} is inhiggledwards the {}"}
+
+predicate_mapping:
+   {
+   "inhiggledwardscorrecip": "inhiggledwards the correcip",
+   "gineurate": "gineurate",
+   "compationscoundable": "compation is scoundable",
+   "lianizing": "lianizing",
+   "inhiggledwards": "inhiggledwards"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red dragnos", "b2": "blue dragnos", "b3": "orange dragnos", "b4": "yellow dragnos",
+   "b5": "white dragnos", "b6": "magenta dragnos", "b7": "black dragnos", "b8": "cyan dragnos",
+   "b9": "green dragnos", "b10": "violet dragnos", "b11": "silver dragnos", "b12": "gold dragnos" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

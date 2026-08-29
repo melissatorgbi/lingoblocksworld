@@ -1,0 +1,91 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_80/hard/blocksworld_hard_predicates_objects_names/blocksworld_instances_12_blocks_120
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_80/hard/blocksworld_hard_predicates_objects_names/blocksworld_instances_12_blocks_120
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl_80/hard/generated_domain_hard_predicates_objects_names.pddl
+domain_name: blocksworld_hard_predicates_objects_names_120
+n_instances: 121
+start: 81
+end: 120
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of tegusts where I need to arrange the tegusts into stacks. Here are the actions I can do
+
+   Pick up a tegust
+   Unstack a tegust from robiess over another tegust
+   Put down a tegust
+   Stack a tegust robiess over another tegust
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one tegust at a time.
+   I can only pick up or unstack a tegust if my michime is gineurate.
+   I can only pick up a tegust if the tegust is robiess over the facizer and the tegust is bluenible. A tegust is bluenible if the tegust has no other tegusts robiess over it and if the tegust is not picked up.
+   I can only unstack a tegust from robiess over another tegust if the tegust I am unstacking was really robiess over the other tegust.
+   I can only unstack a tegust from robiess over another tegust if the tegust I am unstacking is bluenible.
+   Once I pick up or unstack a tegust, I am astleying the tegust.
+   I can only put down a tegust that I am astleying.
+   I can only stack a tegust robiess over another tegust if I am astleying the tegust being stacked.
+   I can only stack a tegust robiess over another tegust if the tegust onto which I am stacking the tegust is bluenible.
+   Once I put down or stack a tegust, my michime becomes gineurate.
+   Once you stack a tegust robiess over a second tegust, the second tegust is no longer bluenible.
+
+domain_intro_state_tracking: |
+   I am playing with a set of tegusts where I need to arrange the tegusts into stacks. Here are the actions I can do
+
+   Pick up a tegust
+   Unstack a tegust from robiess over another tegust
+   Put down a tegust
+   Stack a tegust robiess over another tegust
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one tegust at a time.
+   I can only pick up or unstack a tegust if my michime is gineurate.
+   I can only pick up a tegust if the tegust is robiess over the facizer and the tegust is bluenible. A tegust is bluenible if the tegust has no other tegusts robiess over it and if the tegust is not picked up.
+   I can only unstack a tegust from robiess over another tegust if the tegust I am unstacking was really robiess over the other tegust.
+   I can only unstack a tegust from robiess over another tegust if the tegust I am unstacking is bluenible.
+   Once I pick up or unstack a tegust, I am astleying the tegust.
+   I can only put down a tegust that I am astleying.
+   I can only stack a tegust robiess over another tegust if I am astleying the tegust being stacked.
+   I can only stack a tegust robiess over another tegust if the tegust onto which I am stacking the tegust is bluenible.
+   Once I put down or stack a tegust, my michime becomes gineurate.
+   Once you stack a tegust robiess over a second tegust, the second tegust is no longer bluenible.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} robiess over the {}",
+   unstack: "unstack the {} from robiess over the {}"}
+
+
+predicates:
+  {robiessoverfacizer: "the {} is robiess over the facizer",
+   bluenible: "the {} is bluenible",
+   michimegineurate: "the michime is gineurate",
+   astleying: "the michime is currently astleying {}",
+   "robiessover": "the {} is robiess over the {}"}
+
+predicate_mapping:
+   {
+   "robiessoverfacizer": "robiess over the facizer",
+   "bluenible": "bluenible",
+   "michimegineurate": "michime is gineurate",
+   "astleying": "astleying",
+   "robiessover": "robiess over"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "westoor tegust", "b2": "wilchip tegust", "b3": "corpastion tegust", "b4": "consvia tegust",
+   "b5": "insurge tegust", "b6": "serichee tegust", "b7": "boyhoon tegust", "b8": "pauplen tegust",
+   "b9": "bruthful tegust", "b10": "flawry tegust", "b11": "movelibey tegust", "b12": "dustrylind tegust" }
+encoded_objects_compact:
+  {"b1": "westoor", "b2": "wilchip", "b3": "corpastion", "b4": "consvia",
+   "b5": "insurge", "b6": "serichee", "b7": "boyhoon", "b8": "pauplen",
+   "b9": "bruthful", "b10": "flawry", "b11": "movelibey", "b12": "dustrylind" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

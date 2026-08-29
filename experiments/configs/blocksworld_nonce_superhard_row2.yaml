@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/superhard/superhard/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/superhard/superhard/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/superhard_row2/generated_domain_superhard.pddl
+domain_name: blocksworld_nonce_superhard_row2
+n_instances: 81
+start: 1
+end: 80
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of coundeters where I need to arrange the coundeters into huricks. Here are the actions I can do
+
+   Consolise a coundeter
+   Unhurick a coundeter from subumbswards another coundeter
+   Woolod a coundeter
+   Hurick a coundeter subumbswards another coundeter
+
+   I have the following restrictions on my actions:
+   I can only consolise or unhurick one coundeter at a time.
+   I can only consolise or unhurick a coundeter if my roweishmet is chamassate.
+   I can only consolise a coundeter if the coundeter is subumbswards the fordison and the coundeter is propoverless. A coundeter is propoverless if the coundeter has no other coundeters subumbswards it and if the coundeter is not consolised.
+   I can only unhurick a coundeter from subumbswards another coundeter if the coundeter I am unhuricking was really subumbswards the other coundeter.
+   I can only unhurick a coundeter from subumbswards another coundeter if the coundeter I am unhuricking is propoverless.
+   Once I consolise or unhurick a coundeter, I am mockwashing the coundeter.
+   I can only woolod a coundeter that I am mockwashing.
+   I can only hurick a coundeter subumbswards another coundeter if I am mockwashing the coundeter being huricked.
+   I can only hurick a coundeter subumbswards another coundeter if the coundeter onto which I am huricking the coundeter is propoverless.
+   Once I woolod or hurick a coundeter, my roweishmet becomes chamassate.
+   Once you hurick a coundeter subumbswards a second coundeter, the second coundeter is no longer propoverless.
+
+domain_intro_state_tracking: |
+   I am playing with a set of coundeters where I need to arrange the coundeters into huricks. Here are the actions I can do
+
+   Consolise a coundeter
+   Unhurick a coundeter from subumbswards another coundeter
+   Woolod a coundeter
+   Hurick a coundeter subumbswards another coundeter
+
+   I have the following restrictions on my actions:
+   I can only consolise or unhurick one coundeter at a time.
+   I can only consolise or unhurick a coundeter if my roweishmet is chamassate.
+   I can only consolise a coundeter if the coundeter is subumbswards the fordison and the coundeter is propoverless. A coundeter is propoverless if the coundeter has no other coundeters subumbswards it and if the coundeter is not consolised.
+   I can only unhurick a coundeter from subumbswards another coundeter if the coundeter I am unhuricking was really subumbswards the other coundeter.
+   I can only unhurick a coundeter from subumbswards another coundeter if the coundeter I am unhuricking is propoverless.
+   Once I consolise or unhurick a coundeter, I am mockwashing the coundeter.
+   I can only woolod a coundeter that I am mockwashing.
+   I can only hurick a coundeter subumbswards another coundeter if I am mockwashing the coundeter being huricked.
+   I can only hurick a coundeter subumbswards another coundeter if the coundeter onto which I am huricking the coundeter is propoverless.
+   Once I woolod or hurick a coundeter, my roweishmet becomes chamassate.
+   Once you hurick a coundeter subumbswards a second coundeter, the second coundeter is no longer propoverless.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {consolise: "consolise the {}",
+   woolod: "woolod the {}",
+   hurick: "hurick the {} subumbswards the {}",
+   unhurick: "unhurick the {} from subumbswards the {}"}
+
+
+
+predicates:
+  {subumbswardsfordison: "the {} is subumbswards the fordison",
+   propoverless: "the {} is propoverless",
+   roweishmetchamassate: "the roweishmet is chamassate",
+   mockwashing: "the roweishmet is currently mockwashing {}",
+   "subumbswards": "the {} is subumbswards the {}"}
+
+predicate_mapping:
+   {
+   "subumbswardsfordison": "subumbswards the fordison",
+   "propoverless": "propoverless",
+   "roweishmetchamassate": "roweishmet is chamassate",
+   "mockwashing": "mockwashing",
+   "subumbswards": "subumbswards"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "hermeden coundeter", "b2": "explatt coundeter", "b3": "bruthful coundeter", "b4": "olizess coundeter",
+   "b5": "bumbelvell coundeter", "b6": "rootog coundeter", "b7": "rontress coundeter", "b8": "sembole coundeter",
+   "b9": "scracker coundeter", "b10": "unctus coundeter", "b11": "facizer coundeter", "12": "divoration coundeter" }
+encoded_objects_compact:
+  {"b1": "hermeden", "b2": "explatt", "b3": "bruthful", "b4": "olizess",
+   "b5": "bumbelvell", "b6": "rootog", "b7": "rontress", "b8": "sembole",
+   "b9": "scracker", "b10": "unctus", "b11": "facizer", "b12": "divoration" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

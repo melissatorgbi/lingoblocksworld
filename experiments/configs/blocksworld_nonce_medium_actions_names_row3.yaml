@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/medium/blocksworld_medium_actions_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/medium/blocksworld_medium_actions_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row3/generated_domain_medium_actions_names.pddl
+domain_name: blocksworld_medium_actions_names_row3
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do
+
+   Gregate a block
+   Unvadelinde a block from on top of another block
+   Hesir a block
+   Vadelinde a block on top of another block
+
+   I have the following restrictions on my actions:
+   I can only gregate or unvadelinde one block at a time.
+   I can only gregate or unvadelinde a block if my hand is empty.
+   I can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.
+   I can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.
+   I can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.
+   Once I gregate or unvadelinde a block, I am holding the block.
+   I can only hesir a block that I am holding.
+   I can only vadelinde a block on top of another block if I am holding the block being vadelinded.
+   I can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.
+   Once I hesir or vadelinde a block, my hand becomes empty.
+   Once you vadelinde a block on top of a second block, the second block is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do
+
+   Gregate a block
+   Unvadelinde a block from on top of another block
+   Hesir a block
+   Vadelinde a block on top of another block
+
+   I have the following restrictions on my actions:
+   I can only gregate or unvadelinde one block at a time.
+   I can only gregate or unvadelinde a block if my hand is empty.
+   I can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.
+   I can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.
+   I can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.
+   Once I gregate or unvadelinde a block, I am holding the block.
+   I can only hesir a block that I am holding.
+   I can only vadelinde a block on top of another block if I am holding the block being vadelinded.
+   I can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.
+   Once I hesir or vadelinde a block, my hand becomes empty.
+   Once you vadelinde a block on top of a second block, the second block is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {gregate: "gregate the {}",
+   hesir: "hesir the {}",
+   vadelinde: "vadelinde the {} on top of the {}",
+   unvadelinde: "unvadelinde the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "nessest block", "b2": "meten block", "b3": "nianize block", "b4": "uniciple block",
+   "b5": "dowmen block", "b6": "unctus block", "b7": "boyhoon block", "b8": "bruthful block",
+   "b9": "minal block", "b10": "incountale block", "b11": "salvand block", "b12": "michime block" }
+encoded_objects_compact:
+  {"b1": "nessest", "b2": "meten", "b3": "nianize", "b4": "uniciple",
+   "b5": "dowmen", "b6": "unctus", "b7": "boyhoon", "b8": "bruthful",
+   "b9": "minal", "b10": "incountale", "b11": "salvand", "b12": "michime" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

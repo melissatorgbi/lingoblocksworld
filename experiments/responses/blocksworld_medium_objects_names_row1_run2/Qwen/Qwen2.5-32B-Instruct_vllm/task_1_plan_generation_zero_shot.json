@@ -1,0 +1,1808 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_objects_names_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the wilchip facizer, the wilchip facizer is on top of the michime facizer and the michime facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-0cf386f9faf848fdb3256edf285e5d63",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the tegust facizer on top of the michime facizer, you can follow these steps:\n\n1. Unstack tegust from westoor.\n2. Put down tegust.\n3. Unstack westoor from wilchip.\n4. Put down westoor.\n5. Unstack wilchip from michime.\n6. Put down wilchip.\n7. Pick up tegust.\n8. Stack tegust on michime.\n\nThis sequence of actions will clear the way for the tegust facizer to be placed directly on top of the michime facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779714971,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 125,
+                    "prompt_tokens": 483,
+                    "total_tokens": 608,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.099153995513916,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the tegust facizer on top of the michime facizer, you can follow these steps:\n\n1. Unstack tegust from westoor.\n2. Put down tegust.\n3. Unstack westoor from wilchip.\n4. Put down westoor.\n5. Unstack wilchip from michime.\n6. Put down wilchip.\n7. Pick up tegust.\n8. Stack tegust on michime.\n\nThis sequence of actions will clear the way for the tegust facizer to be placed directly on top of the michime facizer, achieving your goal."
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the michime facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the westoor facizer and the westoor facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-1909acde613c46378acbde8f3c19867e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack michime from wilchip.\n4. Stack michime on tegust.\n5. Pick up westoor.\n6. Put down westoor on wilchip.\n7. Pick up tegust.\n8. Stack tegust on westoor.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, the tegust facizer on top of the westoor facizer, and the westoor facizer on top of the wilchip facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779714986,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 133,
+                    "prompt_tokens": 516,
+                    "total_tokens": 649,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.262876749038696,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack michime from wilchip.\n4. Stack michime on tegust.\n5. Pick up westoor.\n6. Put down westoor on wilchip.\n7. Pick up tegust.\n8. Stack tegust on westoor.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, the tegust facizer on top of the westoor facizer, and the westoor facizer on top of the wilchip facizer, as required."
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the wilchip facizer, the michime facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the tegust facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-890950aafdda457abd470c6886fd1993",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack tegust from westoor.\n2. Put down tegust.\n3. Unstack westoor from wilchip.\n4. Put down westoor.\n5. Pick up wilchip.\n6. Stack wilchip on michime.\n7. Pick up tegust.\n8. Stack tegust on wilchip.\n9. Pick up westoor.\n10. Stack westoor on tegust.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer, the westoor facizer on top of the tegust facizer, and the wilchip facizer on top of the michime facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715001,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 169,
+                    "prompt_tokens": 516,
+                    "total_tokens": 685,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.55232071876526,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack tegust from westoor.\n2. Put down tegust.\n3. Unstack westoor from wilchip.\n4. Put down westoor.\n5. Pick up wilchip.\n6. Stack wilchip on michime.\n7. Pick up tegust.\n8. Stack tegust on wilchip.\n9. Pick up westoor.\n10. Stack westoor on tegust.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer, the westoor facizer on top of the tegust facizer, and the wilchip facizer on top of the michime facizer, as required."
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the westoor facizer is on top of the wilchip facizer, the michime facizer is on the table, the tegust facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-fd0790849bb342fbaf3591bce94859a8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the tegust facizer.\n2. Stack the tegust facizer on top of the michime facizer.\n3. Pick up the michime facizer.\n4. Stack the michime facizer on top of the westoor facizer.\n5. Pick up the tegust facizer.\n6. Stack the tegust facizer on top of the michime facizer.\n7. Pick up the wilchip facizer.\n8. Stack the wilchip facizer on top of the tegust facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer, the tegust facizer on top of the michime facizer, and the wilchip facizer on top of the tegust facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715018,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 173,
+                    "prompt_tokens": 519,
+                    "total_tokens": 692,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.717079401016235,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the tegust facizer.\n2. Stack the tegust facizer on top of the michime facizer.\n3. Pick up the michime facizer.\n4. Stack the michime facizer on top of the westoor facizer.\n5. Pick up the tegust facizer.\n6. Stack the tegust facizer on top of the michime facizer.\n7. Pick up the wilchip facizer.\n8. Stack the wilchip facizer on top of the tegust facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer, the tegust facizer on top of the michime facizer, and the wilchip facizer on top of the tegust facizer, achieving your goal."
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the wilchip facizer is on top of the tegust facizer, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-541e5608bf384ab18cf7f4539d16fea3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the westoor facizer and the wilchip facizer is on top of the michime facizer. Here is the plan to achieve this:\n\n1. Unstack michime from westoor.\n2. Put down michime.\n3. Unstack wilchip from tegust.\n4. Stack wilchip on michime.\n5. Pick up michime.\n6. Stack michime on westoor.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer and the wilchip facizer being on top of the michime facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715036,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 146,
+                    "prompt_tokens": 501,
+                    "total_tokens": 647,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.962237119674683,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the westoor facizer and the wilchip facizer is on top of the michime facizer. Here is the plan to achieve this:\n\n1. Unstack michime from westoor.\n2. Put down michime.\n3. Unstack wilchip from tegust.\n4. Stack wilchip on michime.\n5. Pick up michime.\n6. Stack michime on westoor.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer and the wilchip facizer being on top of the michime facizer, as required."
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer, the michime facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the michime facizer and the wilchip facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-b91bcaa5c90a4b9e90c501a295fd42f2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up wilchip\n2. Stack wilchip on westoor\n3. Pick up tegust\n4. Stack tegust on wilchip\n5. Pick up westoor\n6. Stack westoor on michime\n\nThis sequence of actions will result in the desired configuration of facizers.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715051,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 72,
+                    "prompt_tokens": 516,
+                    "total_tokens": 588,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 8.080694675445557,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up wilchip\n2. Stack wilchip on westoor\n3. Pick up tegust\n4. Stack tegust on wilchip\n5. Pick up westoor\n6. Stack westoor on michime\n\nThis sequence of actions will result in the desired configuration of facizers."
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the wilchip facizer is on top of the westoor facizer, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the michime facizer and the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-00b5c839005043eb92239c5733c18608",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack michime from wilchip.\n2. Put down michime.\n3. Unstack wilchip from westoor.\n4. Put down wilchip.\n5. Pick up tegust.\n6. Stack tegust on michime.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n\nThis sequence of actions will result in the tegust facizer being on top of the michime facizer and the westoor facizer being on top of the tegust facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715059,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 116,
+                    "prompt_tokens": 501,
+                    "total_tokens": 617,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.792819738388062,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack michime from wilchip.\n2. Put down michime.\n3. Unstack wilchip from westoor.\n4. Put down wilchip.\n5. Pick up tegust.\n6. Stack tegust on michime.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n\nThis sequence of actions will result in the tegust facizer being on top of the michime facizer and the westoor facizer being on top of the tegust facizer, as required."
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the michime facizer and the michime facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-bd93193d68fb49b0aeb0ecb70abb5a9c",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the tegust facizer, and the tegust facizer is on top of the westoor facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack westoor from tegust.\n2. Unstack tegust from wilchip.\n3. Unstack wilchip from michime.\n4. Stack wilchip on westoor.\n5. Stack tegust on westoor.\n6. Stack michime on tegust.\n\nThis sequence of actions will result in the desired configuration.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715071,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 126,
+                    "prompt_tokens": 498,
+                    "total_tokens": 624,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.34087324142456,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the tegust facizer, and the tegust facizer is on top of the westoor facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack westoor from tegust.\n2. Unstack tegust from wilchip.\n3. Unstack wilchip from michime.\n4. Stack wilchip on westoor.\n5. Stack tegust on westoor.\n6. Stack michime on tegust.\n\nThis sequence of actions will result in the desired configuration."
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the wilchip facizer is on top of the westoor facizer, the michime facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-39ceecea30e44753b07091dc714c9bf3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from wilchip.\n2. Put down tegust.\n3. Unstack wilchip from westoor.\n4. Put down wilchip.\n5. Stack tegust on westoor.\n6. Stack wilchip on tegust.\n\nThis sequence of actions will result in the tegust facizer being on top of the westoor facizer and the wilchip facizer being on top of the tegust facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715089,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 149,
+                    "prompt_tokens": 501,
+                    "total_tokens": 650,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.91800093650818,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from wilchip.\n2. Put down tegust.\n3. Unstack wilchip from westoor.\n4. Put down wilchip.\n5. Stack tegust on westoor.\n6. Stack wilchip on tegust.\n\nThis sequence of actions will result in the tegust facizer being on top of the westoor facizer and the wilchip facizer being on top of the tegust facizer, as required."
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-99999467e144433597985dac420f9fc2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack wilchip from tegust.\n2. Put down wilchip.\n3. Unstack tegust from michime.\n4. Put down tegust.\n5. Unstack michime from westoor.\n6. Stack tegust on michime.\n7. Stack wilchip on westoor.\n8. Stack michime on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, the westoor facizer on top of the wilchip facizer, and the wilchip facizer on top of the michime facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715107,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 135,
+                    "prompt_tokens": 513,
+                    "total_tokens": 648,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.15977907180786,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack wilchip from tegust.\n2. Put down wilchip.\n3. Unstack tegust from michime.\n4. Put down tegust.\n5. Unstack michime from westoor.\n6. Stack tegust on michime.\n7. Stack wilchip on westoor.\n8. Stack michime on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, the westoor facizer on top of the wilchip facizer, and the wilchip facizer on top of the michime facizer, as required."
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer and the michime facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer and the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-d2efd12e60e64526a5829f609e09b7b7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the wilchip facizer and the westoor facizer is on top of the tegust facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the wilchip facizer from on top of the tegust facizer.\n2. Put down the wilchip facizer.\n3. Unstack the tegust facizer from on top of the westoor facizer.\n4. Stack the tegust facizer on top of the wilchip facizer.\n5. Unstack the westoor facizer from on top of the michime facizer.\n6. Stack the westoor facizer on top of the tegust facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer and the westoor facizer being on top of the tegust facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715123,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 199,
+                    "prompt_tokens": 498,
+                    "total_tokens": 697,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.533067226409912,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the wilchip facizer and the westoor facizer is on top of the tegust facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the wilchip facizer from on top of the tegust facizer.\n2. Put down the wilchip facizer.\n3. Unstack the tegust facizer from on top of the westoor facizer.\n4. Stack the tegust facizer on top of the wilchip facizer.\n5. Unstack the westoor facizer from on top of the michime facizer.\n6. Stack the westoor facizer on top of the tegust facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer and the westoor facizer being on top of the tegust facizer, achieving your goal."
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on the table, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-76e1cfdeb17f445d93e3b171d77de2a1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack michime from wilchip.\n2. Stack michime on westoor.\n3. Pick up tegust.\n4. Stack tegust on michime.\n5. Pick up wilchip.\n6. Stack wilchip on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer, the tegust facizer on top of the michime facizer, and the wilchip facizer on top of the tegust facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715141,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 115,
+                    "prompt_tokens": 519,
+                    "total_tokens": 634,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.562899589538574,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack michime from wilchip.\n2. Stack michime on westoor.\n3. Pick up tegust.\n4. Stack tegust on michime.\n5. Pick up wilchip.\n6. Stack wilchip on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer, the tegust facizer on top of the michime facizer, and the wilchip facizer on top of the tegust facizer, as required."
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the westoor facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-ea961b3d4efc4707853527274c902497",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the michime facizer from the tegust facizer.\n2. Put down the michime facizer.\n3. Unstack the tegust facizer from the westoor facizer.\n4. Stack the tegust facizer on top of the westoor facizer.\n5. Pick up the wilchip facizer.\n6. Stack the wilchip facizer on top of the tegust facizer.\n7. Pick up the michime facizer.\n8. Put down the michime facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the westoor facizer and the wilchip facizer being on top of the tegust facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715168,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 157,
+                    "prompt_tokens": 501,
+                    "total_tokens": 658,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.106447458267212,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the michime facizer from the tegust facizer.\n2. Put down the michime facizer.\n3. Unstack the tegust facizer from the westoor facizer.\n4. Stack the tegust facizer on top of the westoor facizer.\n5. Pick up the wilchip facizer.\n6. Stack the wilchip facizer on top of the tegust facizer.\n7. Pick up the michime facizer.\n8. Put down the michime facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the westoor facizer and the wilchip facizer being on top of the tegust facizer, achieving your goal."
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer and the westoor facizer is on the table.\nMy goal is to have that the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-5a73af25025446bc8e15158d2ee846e4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the westoor facizer on top of the tegust facizer, follow these steps:\n\n1. Unstack wilchip from tegust.\n2. Unstack tegust from michime.\n3. Unstack michime from westoor.\n4. Stack tegust on westoor.\n5. Stack michime on tegust.\n6. Stack wilchip on michime.\n7. Pick up westoor.\n8. Unstack michime from tegust.\n9. Unstack tegust from westoor.\n10. Stack westoor on tegust.\n11. Stack tegust on michime.\n12. Stack michime on wilchip.\n\nThis sequence of actions will result in the westoor facizer being on top of the tegust facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715188,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 165,
+                    "prompt_tokens": 483,
+                    "total_tokens": 648,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 20.94125723838806,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the westoor facizer on top of the tegust facizer, follow these steps:\n\n1. Unstack wilchip from tegust.\n2. Unstack tegust from michime.\n3. Unstack michime from westoor.\n4. Stack tegust on westoor.\n5. Stack michime on tegust.\n6. Stack wilchip on michime.\n7. Pick up westoor.\n8. Unstack michime from tegust.\n9. Unstack tegust from westoor.\n10. Stack westoor on tegust.\n11. Stack tegust on michime.\n12. Stack michime on wilchip.\n\nThis sequence of actions will result in the westoor facizer being on top of the tegust facizer, achieving your goal."
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the michime facizer, the wilchip facizer is on top of the westoor facizer, the michime facizer is on the table and the tegust facizer is on the table.\nMy goal is to have that the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-efbfe246b6d3439cb0a15687241059be",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Stack the wilchip facizer on top of the michime facizer.\n3. Pick up the tegust facizer.\n4. Stack the tegust facizer on top of the westoor facizer.\n5. Pick up the wilchip facizer from the michime facizer.\n6. Stack the wilchip facizer on top of the tegust facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the wilchip facizer, the tegust facizer being on top of the westoor facizer, and the wilchip facizer being on top of the tegust facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715209,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 153,
+                    "prompt_tokens": 516,
+                    "total_tokens": 669,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.394809246063232,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Stack the wilchip facizer on top of the michime facizer.\n3. Pick up the tegust facizer.\n4. Stack the tegust facizer on top of the westoor facizer.\n5. Pick up the wilchip facizer from the michime facizer.\n6. Stack the wilchip facizer on top of the tegust facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the wilchip facizer, the tegust facizer being on top of the westoor facizer, and the wilchip facizer being on top of the tegust facizer, as required."
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the wilchip facizer, the wilchip facizer is on top of the michime facizer and the tegust facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the michime facizer and the westoor facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-0102b2dbe1454464be9fbbc58ed15d2b",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the michime facizer and the westoor facizer is on top of the wilchip facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from tegust.\n2. Put down michime.\n3. Unstack westoor from wilchip.\n4. Put down westoor.\n5. Unstack wilchip from tegust.\n6. Stack wilchip on michime.\n7. Pick up tegust.\n8. Stack tegust on michime.\n9. Pick up westoor.\n10. Stack westoor on wilchip.\n\nThis sequence of actions will result in the tegust facizer being on top of the michime facizer and the westoor facizer being on top of the wilchip facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715227,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 184,
+                    "prompt_tokens": 498,
+                    "total_tokens": 682,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 19.364818334579468,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the michime facizer and the westoor facizer is on top of the wilchip facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from tegust.\n2. Put down michime.\n3. Unstack westoor from wilchip.\n4. Put down westoor.\n5. Unstack wilchip from tegust.\n6. Stack wilchip on michime.\n7. Pick up tegust.\n8. Stack tegust on michime.\n9. Pick up westoor.\n10. Stack westoor on wilchip.\n\nThis sequence of actions will result in the tegust facizer being on top of the michime facizer and the westoor facizer being on top of the wilchip facizer, achieving your goal."
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the tegust facizer, the michime facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the michime facizer and the wilchip facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-6da9b642204b46f7ae638779fddc4477",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the westoor facizer from the tegust facizer.\n2. Put down the westoor facizer.\n3. Unstack the tegust facizer from the wilchip facizer.\n4. Put down the tegust facizer.\n5. Pick up the westoor facizer.\n6. Stack the westoor facizer on top of the michime facizer.\n7. Pick up the tegust facizer.\n8. Stack the tegust facizer on top of the wilchip facizer.\n9. Pick up the wilchip facizer.\n10. Stack the wilchip facizer on top of the westoor facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer, the westoor facizer on top of the michime facizer, and the wilchip facizer on top of the westoor facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715246,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 199,
+                    "prompt_tokens": 516,
+                    "total_tokens": 715,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 20.95425820350647,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the westoor facizer from the tegust facizer.\n2. Put down the westoor facizer.\n3. Unstack the tegust facizer from the wilchip facizer.\n4. Put down the tegust facizer.\n5. Pick up the westoor facizer.\n6. Stack the westoor facizer on top of the michime facizer.\n7. Pick up the tegust facizer.\n8. Stack the tegust facizer on top of the wilchip facizer.\n9. Pick up the wilchip facizer.\n10. Stack the wilchip facizer on top of the westoor facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer, the westoor facizer on top of the michime facizer, and the wilchip facizer on top of the westoor facizer, achieving your goal."
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the tegust facizer, the michime facizer is on the table, the tegust facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-ea0ad6fe189c4772a5be6a7d4f60eca5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Stack the wilchip facizer on top of the tegust facizer.\n3. Pick up the westoor facizer.\n4. Unstack the westoor facizer from the tegust facizer.\n5. Pick up the michime facizer.\n6. Stack the michime facizer on top of the westoor facizer.\n7. Pick up the tegust facizer.\n8. Stack the tegust facizer on top of the michime facizer.\n\nThis sequence of actions will result in the wilchip facizer being on top of the tegust facizer, the tegust facizer on top of the michime facizer, and the michime facizer on top of the westoor facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715267,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 172,
+                    "prompt_tokens": 519,
+                    "total_tokens": 691,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 18.66340470314026,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Stack the wilchip facizer on top of the tegust facizer.\n3. Pick up the westoor facizer.\n4. Unstack the westoor facizer from the tegust facizer.\n5. Pick up the michime facizer.\n6. Stack the michime facizer on top of the westoor facizer.\n7. Pick up the tegust facizer.\n8. Stack the tegust facizer on top of the michime facizer.\n\nThis sequence of actions will result in the wilchip facizer being on top of the tegust facizer, the tegust facizer on top of the michime facizer, and the michime facizer on top of the westoor facizer, achieving your goal."
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the wilchip facizer is on top of the michime facizer, the michime facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the wilchip facizer and the wilchip facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-9238650fc6de4a5b8e07af7b0e910f27",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the wilchip facizer, and the wilchip facizer is on top of the westoor facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from wilchip.\n2. Put down tegust.\n3. Unstack wilchip from michime.\n4. Put down wilchip.\n5. Pick up michime.\n6. Stack michime on tegust.\n7. Pick up tegust.\n8. Stack tegust on wilchip.\n9. Pick up wilchip.\n10. Stack wilchip on westoor.\n\nThis sequence of actions will result in the desired arrangement of facizers.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715286,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 170,
+                    "prompt_tokens": 516,
+                    "total_tokens": 686,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.533096313476562,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the wilchip facizer, and the wilchip facizer is on top of the westoor facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from wilchip.\n2. Put down tegust.\n3. Unstack wilchip from michime.\n4. Put down wilchip.\n5. Pick up michime.\n6. Stack michime on tegust.\n7. Pick up tegust.\n8. Stack tegust on wilchip.\n9. Pick up wilchip.\n10. Stack wilchip on westoor.\n\nThis sequence of actions will result in the desired arrangement of facizers."
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the michime facizer, the michime facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the wilchip facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-806a432ecc68438e897b814e2c47a772",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the wilchip facizer, and the wilchip facizer is on top of the michime facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from westoor.\n2. Put down tegust.\n3. Unstack westoor from michime.\n4. Put down westoor.\n5. Pick up wilchip.\n6. Stack wilchip on michime.\n7. Pick up tegust.\n8. Stack tegust on wilchip.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer, and the wilchip facizer being on top of the michime facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715305,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 165,
+                    "prompt_tokens": 501,
+                    "total_tokens": 666,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 18.584623336791992,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the wilchip facizer, and the wilchip facizer is on top of the michime facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from westoor.\n2. Put down tegust.\n3. Unstack westoor from michime.\n4. Put down westoor.\n5. Pick up wilchip.\n6. Stack wilchip on michime.\n7. Pick up tegust.\n8. Stack tegust on wilchip.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer, and the wilchip facizer being on top of the michime facizer, as required."
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the westoor facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the michime facizer and the westoor facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-9c08ad10f4774f85b32368fdfc6bb1c6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack michime from wilchip.\n2. Pick up westoor.\n3. Stack westoor on wilchip.\n4. Put down michime on westoor.\n5. Pick up tegust.\n6. Stack tegust on michime.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer, the tegust facizer on top of the michime facizer, and the westoor facizer on top of the wilchip facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715324,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 116,
+                    "prompt_tokens": 516,
+                    "total_tokens": 632,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.08142876625061,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack michime from wilchip.\n2. Pick up westoor.\n3. Stack westoor on wilchip.\n4. Put down michime on westoor.\n5. Pick up tegust.\n6. Stack tegust on michime.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer, the tegust facizer on top of the michime facizer, and the westoor facizer on top of the wilchip facizer, as required."
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the michime facizer, the michime facizer is on the table, the tegust facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-a324bc890d204c2eb307ceda684b1635",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the michime facizer on top of the tegust facizer, and the tegust facizer on top of the westoor facizer, you can follow these steps:\n\n1. Unstack the westoor facizer from the michime facizer.\n2. Pick up the tegust facizer.\n3. Stack the tegust facizer on top of the westoor facizer.\n4. Pick up the michime facizer.\n5. Stack the michime facizer on top of the tegust facizer.\n\nThis sequence of actions will result in the desired stack configuration.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715337,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 124,
+                    "prompt_tokens": 504,
+                    "total_tokens": 628,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.107516050338745,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the michime facizer on top of the tegust facizer, and the tegust facizer on top of the westoor facizer, you can follow these steps:\n\n1. Unstack the westoor facizer from the michime facizer.\n2. Pick up the tegust facizer.\n3. Stack the tegust facizer on top of the westoor facizer.\n4. Pick up the michime facizer.\n5. Stack the michime facizer on top of the tegust facizer.\n\nThis sequence of actions will result in the desired stack configuration."
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the westoor facizer, the michime facizer is on the table and the tegust facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-4db128e851f4426e9449736ff2fdb8ca",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Stack the wilchip facizer on top of the westoor facizer.\n3. Pick up the westoor facizer.\n4. Stack the westoor facizer on top of the wilchip facizer.\n5. Pick up the michime facizer.\n6. Stack the michime facizer on top of the tegust facizer.\n7. Pick up the wilchip facizer.\n8. Stack the wilchip facizer on top of the michime facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, the westoor facizer on top of the wilchip facizer, and the wilchip facizer on top of the michime facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715349,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 172,
+                    "prompt_tokens": 516,
+                    "total_tokens": 688,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.729761600494385,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Stack the wilchip facizer on top of the westoor facizer.\n3. Pick up the westoor facizer.\n4. Stack the westoor facizer on top of the wilchip facizer.\n5. Pick up the michime facizer.\n6. Stack the michime facizer on top of the tegust facizer.\n7. Pick up the wilchip facizer.\n8. Stack the wilchip facizer on top of the michime facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, the westoor facizer on top of the wilchip facizer, and the wilchip facizer on top of the michime facizer, as required."
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the westoor facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-f318f40720504b05a682c7ce569e4e3b",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the michime facizer.\n2. Stack the michime facizer on top of the wilchip facizer.\n3. Unstack the tegust facizer from the westoor facizer.\n4. Pick up the westoor facizer.\n5. Stack the westoor facizer on top of the wilchip facizer.\n6. Pick up the tegust facizer.\n7. Stack the tegust facizer on top of the westoor facizer.\n\nThis sequence of actions will result in the westoor facizer being on top of the wilchip facizer, and the wilchip facizer being on top of the tegust facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715366,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 148,
+                    "prompt_tokens": 501,
+                    "total_tokens": 649,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.90198016166687,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the michime facizer.\n2. Stack the michime facizer on top of the wilchip facizer.\n3. Unstack the tegust facizer from the westoor facizer.\n4. Pick up the westoor facizer.\n5. Stack the westoor facizer on top of the wilchip facizer.\n6. Pick up the tegust facizer.\n7. Stack the tegust facizer on top of the westoor facizer.\n\nThis sequence of actions will result in the westoor facizer being on top of the wilchip facizer, and the wilchip facizer being on top of the tegust facizer, as required."
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the tegust facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the tegust facizer is on the table, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-41130d690a61457d83b4901475e8a1f7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack michime from westoor.\n2. Stack michime on wilchip.\n3. Pick up tegust.\n4. Stack tegust on westoor.\n5. Pick up wilchip.\n6. Stack wilchip on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the wilchip facizer, the tegust facizer being on top of the westoor facizer, and the wilchip facizer being on top of the tegust facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715383,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 117,
+                    "prompt_tokens": 519,
+                    "total_tokens": 636,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.628873586654663,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack michime from westoor.\n2. Stack michime on wilchip.\n3. Pick up tegust.\n4. Stack tegust on westoor.\n5. Pick up wilchip.\n6. Stack wilchip on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the wilchip facizer, the tegust facizer being on top of the westoor facizer, and the wilchip facizer being on top of the tegust facizer, as required."
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the michime facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-ecc4c72514e04da8aa677c35883ab9f3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the tegust facizer, and the tegust facizer is on top of the wilchip facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack michime from wilchip.\n4. Stack michime on tegust.\n5. Pick up tegust.\n6. Stack tegust on wilchip.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, and the tegust facizer being on top of the wilchip facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715397,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 151,
+                    "prompt_tokens": 501,
+                    "total_tokens": 652,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.527864456176758,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the tegust facizer, and the tegust facizer is on top of the wilchip facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack michime from wilchip.\n4. Stack michime on tegust.\n5. Pick up tegust.\n6. Stack tegust on wilchip.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, and the tegust facizer being on top of the wilchip facizer, as required."
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the wilchip facizer is on top of the michime facizer, the michime facizer is on the table, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-f608295b1c9343ac9761ec771782d9a6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Stack the wilchip facizer on top of the tegust facizer.\n3. Pick up the michime facizer.\n4. Stack the michime facizer on top of the tegust facizer.\n5. Unstack the wilchip facizer from the tegust facizer.\n6. Stack the wilchip facizer on top of the michime facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer and the wilchip facizer being on top of the michime facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715415,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 138,
+                    "prompt_tokens": 504,
+                    "total_tokens": 642,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.150208234786987,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Stack the wilchip facizer on top of the tegust facizer.\n3. Pick up the michime facizer.\n4. Stack the michime facizer on top of the tegust facizer.\n5. Unstack the wilchip facizer from the tegust facizer.\n6. Stack the wilchip facizer on top of the michime facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer and the wilchip facizer being on top of the michime facizer, achieving your goal."
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the michime facizer, the westoor facizer is on top of the wilchip facizer, the wilchip facizer is on top of the tegust facizer and the michime facizer is on the table.\nMy goal is to have that the michime facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-f35c921b1299420b9b56de67768b87fa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the michime facizer on top of the wilchip facizer, follow these steps:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack westoor from wilchip.\n4. Put down westoor.\n5. Unstack wilchip from tegust.\n6. Put down wilchip.\n7. Stack michime on wilchip.\n8. Pick up tegust.\n9. Stack tegust on michime.\n10. Pick up westoor.\n11. Stack westoor on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the wilchip facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715430,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 144,
+                    "prompt_tokens": 483,
+                    "total_tokens": 627,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.909040451049805,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the michime facizer on top of the wilchip facizer, follow these steps:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack westoor from wilchip.\n4. Put down westoor.\n5. Unstack wilchip from tegust.\n6. Put down wilchip.\n7. Stack michime on wilchip.\n8. Pick up tegust.\n9. Stack tegust on michime.\n10. Pick up westoor.\n11. Stack westoor on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the wilchip facizer, as required."
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the michime facizer, the wilchip facizer is on top of the westoor facizer and the tegust facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the wilchip facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-9ff8b7c62abb4e2681163b96e714ee1a",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the tegust facizer, and the tegust facizer is on top of the wilchip facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the wilchip facizer from the westoor facizer.\n2. Unstack the westoor facizer from the michime facizer.\n3. Unstack the michime facizer from the tegust facizer.\n4. Stack the wilchip facizer on the tegust facizer.\n5. Stack the michime facizer on the tegust facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer, and the michime facizer being on top of the tegust facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715446,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 178,
+                    "prompt_tokens": 498,
+                    "total_tokens": 676,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 21.317177057266235,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the tegust facizer, and the tegust facizer is on top of the wilchip facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the wilchip facizer from the westoor facizer.\n2. Unstack the westoor facizer from the michime facizer.\n3. Unstack the michime facizer from the tegust facizer.\n4. Stack the wilchip facizer on the tegust facizer.\n5. Stack the michime facizer on the tegust facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the wilchip facizer, and the michime facizer being on top of the tegust facizer, achieving your goal."
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the tegust facizer is on top of the wilchip facizer, the wilchip facizer is on top of the michime facizer and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer and the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chat-7b0c2b2b481542c4924da5498c37b435",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack michime from westoor.\n2. Put down michime.\n3. Unstack tegust from wilchip.\n4. Put down tegust.\n5. Unstack wilchip from michime.\n6. Stack wilchip on tegust.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n9. Pick up michime.\n10. Stack michime on westoor.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer, and the westoor facizer being on top of the tegust facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715468,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 137,
+                    "prompt_tokens": 498,
+                    "total_tokens": 635,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.348842859268188,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack michime from westoor.\n2. Put down michime.\n3. Unstack tegust from wilchip.\n4. Put down tegust.\n5. Unstack wilchip from michime.\n6. Stack wilchip on tegust.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n9. Pick up michime.\n10. Stack michime on westoor.\n\nThis sequence of actions will result in the michime facizer being on top of the westoor facizer, and the westoor facizer being on top of the tegust facizer, as required."
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the westoor facizer, the westoor facizer is on top of the michime facizer, the wilchip facizer is on top of the tegust facizer and the michime facizer is on the table.\nMy goal is to have that the michime facizer is on top of the westoor facizer and the westoor facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chat-62fdcf394a4b4e879b0437d9a830b296",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the westoor facizer, and the westoor facizer is on top of the tegust facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack wilchip from tegust.\n2. Put down wilchip.\n3. Unstack tegust from westoor.\n4. Put down tegust.\n5. Unstack westoor from michime.\n6. Stack westoor on tegust.\n7. Stack michime on westoor.\n\nThis sequence of actions will result in the desired arrangement of facizers.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715482,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 134,
+                    "prompt_tokens": 498,
+                    "total_tokens": 632,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.62690544128418,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the michime facizer is on top of the westoor facizer, and the westoor facizer is on top of the tegust facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack wilchip from tegust.\n2. Put down wilchip.\n3. Unstack tegust from westoor.\n4. Put down tegust.\n5. Unstack westoor from michime.\n6. Stack westoor on tegust.\n7. Stack michime on westoor.\n\nThis sequence of actions will result in the desired arrangement of facizers."
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the michime facizer, the tegust facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the westoor facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chat-0556f701cecd4a1fa91ba4ce6092e350",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Given the initial conditions, the goal is already achieved. The westoor facizer is on top of the michime facizer, and the michime facizer is on top of the tegust facizer, with the tegust facizer on the table. The wilchip facizer is clear and on the table, and your hand is empty. Since no changes are needed to meet the goal, no actions are required. \n\nTherefore, the plan to achieve the goal is:\n\nNo actions needed.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715498,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 101,
+                    "prompt_tokens": 486,
+                    "total_tokens": 587,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 9.745949983596802,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Given the initial conditions, the goal is already achieved. The westoor facizer is on top of the michime facizer, and the michime facizer is on top of the tegust facizer, with the tegust facizer on the table. The wilchip facizer is clear and on the table, and your hand is empty. Since no changes are needed to meet the goal, no actions are required. \n\nTherefore, the plan to achieve the goal is:\n\nNo actions needed."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the wilchip facizer is clear, the hand is empty, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the westoor facizer, the michime facizer is on the table and the tegust facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the westoor facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chat-c13458165dcb4a3d98788b95e39bffc1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack wilchip from westoor.\n2. Unstack westoor from tegust.\n3. Stack tegust on westoor.\n4. Put down wilchip.\n5. Pick up michime.\n6. Put down michime.\n7. Pick up wilchip.\n8. Stack wilchip on michime.\n\nThis sequence of actions will result in the tegust facizer being on top of the westoor facizer and the wilchip facizer being on top of the michime facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715507,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 116,
+                    "prompt_tokens": 501,
+                    "total_tokens": 617,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 10.868486404418945,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack wilchip from westoor.\n2. Unstack westoor from tegust.\n3. Stack tegust on westoor.\n4. Put down wilchip.\n5. Pick up michime.\n6. Put down michime.\n7. Pick up wilchip.\n8. Stack wilchip on michime.\n\nThis sequence of actions will result in the tegust facizer being on top of the westoor facizer and the wilchip facizer being on top of the michime facizer, as required."
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust facizer is clear, the wilchip facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the wilchip facizer is on top of the michime facizer, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the tegust facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-c71b63d66a3d478895b1d3d4f4edece6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Put down the wilchip facizer.\n3. Unstack the michime facizer from the westoor facizer.\n4. Stack the michime facizer on top of the tegust facizer.\n5. Pick up the tegust facizer.\n6. Put down the tegust facizer.\n7. Stack the tegust facizer on top of the westoor facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, and the tegust facizer being on top of the westoor facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715518,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 141,
+                    "prompt_tokens": 501,
+                    "total_tokens": 642,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.43259310722351,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Put down the wilchip facizer.\n3. Unstack the michime facizer from the westoor facizer.\n4. Stack the michime facizer on top of the tegust facizer.\n5. Pick up the tegust facizer.\n6. Put down the tegust facizer.\n7. Stack the tegust facizer on top of the westoor facizer.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, and the tegust facizer being on top of the westoor facizer, as required."
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the westoor facizer is clear, the hand is empty, the michime facizer is on top of the tegust facizer, the tegust facizer is on top of the wilchip facizer, the westoor facizer is on the table and the wilchip facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the michime facizer, the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the tegust facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-43bfd019f17343f6affff90302aa4cf7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack michime from tegust.\n2. Put down michime.\n3. Unstack tegust from wilchip.\n4. Put down tegust.\n5. Pick up wilchip.\n6. Stack wilchip on tegust.\n7. Pick up westoor.\n8. Stack westoor on wilchip.\n9. Pick up tegust.\n10. Stack tegust on michime.\n\nThis sequence of actions will result in the desired configuration of facizers.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715535,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 107,
+                    "prompt_tokens": 516,
+                    "total_tokens": 623,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.49619197845459,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack michime from tegust.\n2. Put down michime.\n3. Unstack tegust from wilchip.\n4. Put down tegust.\n5. Pick up wilchip.\n6. Stack wilchip on tegust.\n7. Pick up westoor.\n8. Stack westoor on wilchip.\n9. Pick up tegust.\n10. Stack tegust on michime.\n\nThis sequence of actions will result in the desired configuration of facizers."
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the hand is empty, the michime facizer is on top of the westoor facizer, the westoor facizer is on top of the wilchip facizer, the wilchip facizer is on top of the tegust facizer and the tegust facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer, the westoor facizer is on top of the wilchip facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-049b91c92f40450dbfa2b89c234ab404",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack michime from westoor.\n2. Stack michime on tegust.\n3. Unstack westoor from wilchip.\n4. Stack westoor on wilchip.\n5. Unstack wilchip from tegust.\n6. Stack wilchip on michime.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, the westoor facizer on top of the wilchip facizer, and the wilchip facizer on top of the michime facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715546,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 143,
+                    "prompt_tokens": 513,
+                    "total_tokens": 656,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.476929187774658,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack michime from westoor.\n2. Stack michime on tegust.\n3. Unstack westoor from wilchip.\n4. Stack westoor on wilchip.\n5. Unstack wilchip from tegust.\n6. Stack wilchip on michime.\n\nThis sequence of actions will result in the michime facizer being on top of the tegust facizer, the westoor facizer on top of the wilchip facizer, and the wilchip facizer on top of the michime facizer, as required."
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the wilchip facizer is clear, the hand is empty, the tegust facizer is on top of the michime facizer, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the westoor facizer and the michime facizer is on the table.\nMy goal is to have that the michime facizer is on top of the wilchip facizer and the tegust facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-3ca3991cbbc344f6bcc63476857c61d3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack wilchip from westoor.\n2. Unstack westoor from tegust.\n3. Unstack tegust from michime.\n4. Stack tegust on westoor.\n5. Stack michime on wilchip.\n6. Stack wilchip on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the wilchip facizer and the tegust facizer being on top of the westoor facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715560,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 129,
+                    "prompt_tokens": 498,
+                    "total_tokens": 627,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.323486328125,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack wilchip from westoor.\n2. Unstack westoor from tegust.\n3. Unstack tegust from michime.\n4. Stack tegust on westoor.\n5. Stack michime on wilchip.\n6. Stack wilchip on tegust.\n\nThis sequence of actions will result in the michime facizer being on top of the wilchip facizer and the tegust facizer being on top of the westoor facizer, as required."
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor facizer is clear, the hand is empty, the tegust facizer is on top of the wilchip facizer, the westoor facizer is on top of the tegust facizer, the wilchip facizer is on top of the michime facizer and the michime facizer is on the table.\nMy goal is to have that the tegust facizer is on top of the westoor facizer and the westoor facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chat-698c0937e23a480dbdce1f43619b46a2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the westoor facizer, and the westoor facizer is on top of the michime facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the westoor facizer from on top of the tegust facizer.\n2. Put down the westoor facizer.\n3. Unstack the tegust facizer from on top of the wilchip facizer.\n4. Stack the tegust facizer on top of the westoor facizer.\n5. Pick up the westoor facizer.\n6. Unstack the wilchip facizer from on top of the michime facizer.\n7. Put down the wilchip facizer.\n8. Stack the westoor facizer on top of the michime facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the westoor facizer, and the westoor facizer being on top of the michime facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715574,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 221,
+                    "prompt_tokens": 498,
+                    "total_tokens": 719,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 22.44728708267212,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the tegust facizer is on top of the westoor facizer, and the westoor facizer is on top of the michime facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the westoor facizer from on top of the tegust facizer.\n2. Put down the westoor facizer.\n3. Unstack the tegust facizer from on top of the wilchip facizer.\n4. Stack the tegust facizer on top of the westoor facizer.\n5. Pick up the westoor facizer.\n6. Unstack the wilchip facizer from on top of the michime facizer.\n7. Put down the wilchip facizer.\n8. Stack the westoor facizer on top of the michime facizer.\n\nThis sequence of actions will result in the tegust facizer being on top of the westoor facizer, and the westoor facizer being on top of the michime facizer, achieving your goal."
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the westoor facizer is clear, the wilchip facizer is clear, the hand is empty, the wilchip facizer is on top of the tegust facizer, the michime facizer is on the table, the tegust facizer is on the table and the westoor facizer is on the table.\nMy goal is to have that the michime facizer is on top of the tegust facizer and the wilchip facizer is on top of the michime facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-d699e265c0694a66829518760f326923",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Put down the wilchip facizer.\n3. Pick up the michime facizer.\n4. Stack the michime facizer on top of the tegust facizer.\n5. Pick up the wilchip facizer.\n6. Stack the wilchip facizer on top of the michime facizer.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715597,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 84,
+                    "prompt_tokens": 504,
+                    "total_tokens": 588,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 10.01628565788269,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the wilchip facizer.\n2. Put down the wilchip facizer.\n3. Pick up the michime facizer.\n4. Stack the michime facizer on top of the tegust facizer.\n5. Pick up the wilchip facizer.\n6. Stack the wilchip facizer on top of the michime facizer."
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime facizer is clear, the hand is empty, the michime facizer is on top of the wilchip facizer, the tegust facizer is on top of the westoor facizer, the wilchip facizer is on top of the tegust facizer and the westoor facizer is on the table.\nMy goal is to have that the wilchip facizer is on top of the westoor facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chat-7a7d3622e22244bc87489fa4e4a2b264",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the wilchip facizer on top of the westoor facizer, follow these steps:\n\n1. Unstack michime from wilchip.\n2. Put down michime.\n3. Unstack wilchip from tegust.\n4. Put down tegust.\n5. Stack wilchip on westoor.\n6. Put down tegust (if needed, to ensure the sequence of actions is clear, though tegust's position is not specified as part of the goal).\n\nThis sequence ensures that the wilchip facizer ends up on top of the westoor facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779715607,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 124,
+                    "prompt_tokens": 483,
+                    "total_tokens": 607,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.208064079284668,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the wilchip facizer on top of the westoor facizer, follow these steps:\n\n1. Unstack michime from wilchip.\n2. Put down michime.\n3. Unstack wilchip from tegust.\n4. Put down tegust.\n5. Stack wilchip on westoor.\n6. Put down tegust (if needed, to ensure the sequence of actions is clear, though tegust's position is not specified as part of the goal).\n\nThis sequence ensures that the wilchip facizer ends up on top of the westoor facizer, as required."
+        }
+    ],
+    "engine": "Qwen/Qwen2.5-32B-Instruct_vllm"
+}

@@ -1,0 +1,93 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/hard/blocksworld_hard_actions_predicates_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/hard/blocksworld_hard_actions_predicates_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/hard_row2/generated_domain_hard_actions_predicates_names.pddl
+domain_name: blocksworld_hard_actions_predicates_names_row2
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into chorches. Here are the actions I can do
+
+   Raystaing a block
+   Unchorch a block from popunce upon another block
+   Scrill a block
+   Chorch a block popunce upon another block
+
+   I have the following restrictions on my actions:
+   I can only raystaing or unchorch one block at a time.
+   I can only raystaing or unchorch a block if my paciter is gineurate.
+   I can only raystaing a block if the block is popunce upon the rogelaid and the block is staflant. A block is staflant if the block has no other blocks popunce upon it and if the block is not raystainged.
+   I can only unchorch a block from popunce upon another block if the block I am unchorching was really popunce upon the other block.
+   I can only unchorch a block from popunce upon another block if the block I am unchorching is staflant.
+   Once I raystaing or unchorch a block, I am joyakking the block.
+   I can only scrill a block that I am joyakking.
+   I can only chorch a block popunce upon another block if I am joyakking the block being chorched.
+   I can only chorch a block popunce upon another block if the block onto which I am chorching the block is staflant.
+   Once I scrill or chorch a block, my paciter becomes gineurate.
+   Once you chorch a block popunce upon a second block, the second block is no longer staflant.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into chorches. Here are the actions I can do
+
+   Raystaing a block
+   Unchorch a block from popunce upon another block
+   Scrill a block
+   Chorch a block popunce upon another block
+
+   I have the following restrictions on my actions:
+   I can only raystaing or unchorch one block at a time.
+   I can only raystaing or unchorch a block if my paciter is gineurate.
+   I can only raystaing a block if the block is popunce upon the rogelaid and the block is staflant. A block is staflant if the block has no other blocks popunce upon it and if the block is not raystainged.
+   I can only unchorch a block from popunce upon another block if the block I am unchorching was really popunce upon the other block.
+   I can only unchorch a block from popunce upon another block if the block I am unchorching is staflant.
+   Once I raystaing or unchorch a block, I am joyakking the block.
+   I can only scrill a block that I am joyakking.
+   I can only chorch a block popunce upon another block if I am joyakking the block being chorched.
+   I can only chorch a block popunce upon another block if the block onto which I am chorching the block is staflant.
+   Once I scrill or chorch a block, my paciter becomes gineurate.
+   Once you chorch a block popunce upon a second block, the second block is no longer staflant.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {raystaing: "raystaing the {}",
+   scrill: "scrill the {}",
+   chorch: "chorch the {} popunce upon the {}",
+   unchorch: "unchorch the {} from popunce upon the {}"}
+
+
+
+predicates:
+  {popunceuponrogelaid: "the {} is popunce upon the rogelaid",
+   staflant: "the {} is staflant",
+   pacitergineurate: "the paciter is gineurate",
+   joyakking: "the paciter is currently joyakking {}",
+   "popunceupon": "the {} is popunce upon the {}"}
+
+predicate_mapping:
+   {
+   "popunceuponrogelaid": "popunce upon the rogelaid",
+   "staflant": "staflant",
+   "pacitergineurate": "paciter is gineurate",
+   "joyakking": "joyakking",
+   "popunceupon": "popunce upon"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "wishare block", "b2": "wintia block", "b3": "amasonie block", "b4": "shinexpil block",
+   "b5": "dingert block", "b6": "excida block", "b7": "scapprome block", "b8": "rootog block",
+   "b9": "avatopter block", "b10": "grospe block", "b11": "equenter block", "b12": "egatity block" }
+encoded_objects_compact:
+  {"b1": "wishare", "b2": "wintia", "b3": "amasonie", "b4": "shinexpil",
+   "b5": "dingert", "b6": "excida", "b7": "scapprome", "b8": "rootog",
+   "b9": "avatopter", "b10": "grospe", "b11": "equenter", "b12": "egatity" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

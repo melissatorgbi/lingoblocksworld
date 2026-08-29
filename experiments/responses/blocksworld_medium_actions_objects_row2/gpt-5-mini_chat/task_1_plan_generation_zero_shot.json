@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_actions_objects_row2",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the hand is empty, the blue adminebo is on top of the orange adminebo, the orange adminebo is on top of the yellow adminebo, the yellow adminebo is on top of the red adminebo and the red adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b3)\n(shague b2)\n(unmanizer b3 b4)\n(shague b3)\n(unmanizer b4 b1)\n(shague b4)\n(approfity b2)\n(manizer b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ98oK2tgqC9VDDdDeDzK2XjWLxPA",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer blue from on top of orange\n2. Shague blue\n3. Unmanizer orange from on top of yellow\n4. Shague orange\n5. Unmanizer yellow from on top of red\n6. Shague yellow\n7. Approfity blue\n8. Manizer blue on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347702,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1423,
+                    "prompt_tokens": 525,
+                    "total_tokens": 1948,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.567501544952393,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer blue from on top of orange\n2. Shague blue\n3. Unmanizer orange from on top of yellow\n4. Shague orange\n5. Unmanizer yellow from on top of red\n6. Shague yellow\n7. Approfity blue\n8. Manizer blue on top of red"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the orange adminebo is clear, the hand is empty, the red adminebo is on top of the yellow adminebo, the blue adminebo is on top of the red adminebo, the orange adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo, the blue adminebo is on top of the orange adminebo and the orange adminebo is on top of the yellow adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b1)\n(shague b2)\n(unmanizer b1 b4)\n(shague b1)\n(approfity b3)\n(manizer b3 b4)\n(approfity b2)\n(manizer b2 b3)\n(approfity b1)\n(manizer b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ999tauZKJG8AiLLYvUp9zUS2lKv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer blue from on top of red\n2. Shague blue\n3. Unmanizer red from on top of yellow\n4. Manizer red on top of blue\n5. Approfity orange\n6. Manizer orange on top of yellow\n7. Unmanizer red from on top of blue\n8. Shague red\n9. Approfity blue\n10. Manizer blue on top of orange\n11. Approfity red\n12. Manizer red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347723,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3573,
+                    "prompt_tokens": 558,
+                    "total_tokens": 4131,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3456,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 49.365036964416504,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer blue from on top of red\n2. Shague blue\n3. Unmanizer red from on top of yellow\n4. Manizer red on top of blue\n5. Approfity orange\n6. Manizer orange on top of yellow\n7. Unmanizer red from on top of blue\n8. Shague red\n9. Approfity blue\n10. Manizer blue on top of orange\n11. Approfity red\n12. Manizer red on top of blue"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the blue adminebo is clear, the hand is empty, the blue adminebo is on top of the orange adminebo, the orange adminebo is on top of the yellow adminebo, the red adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the yellow adminebo, the orange adminebo is on top of the blue adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b3)\n(shague b2)\n(unmanizer b3 b4)\n(shague b3)\n(approfity b4)\n(manizer b4 b1)\n(approfity b2)\n(manizer b2 b4)\n(approfity b3)\n(manizer b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99wVICvgCPyNUoJ8IL4ultPk6bf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer blue from on top of orange\n2. Shague blue\n3. Unmanizer orange from on top of yellow\n4. Shague orange\n5. Approfity yellow\n6. Manizer yellow on top of red\n7. Approfity blue\n8. Manizer blue on top of yellow\n9. Approfity orange\n10. Manizer orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347772,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2528,
+                    "prompt_tokens": 558,
+                    "total_tokens": 3086,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.27444648742676,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer blue from on top of orange\n2. Shague blue\n3. Unmanizer orange from on top of yellow\n4. Shague orange\n5. Approfity yellow\n6. Manizer yellow on top of red\n7. Approfity blue\n8. Manizer blue on top of yellow\n9. Approfity orange\n10. Manizer orange on top of blue"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the blue adminebo is clear, the orange adminebo is clear, the hand is empty, the orange adminebo is on top of the yellow adminebo, the red adminebo is on the table, the blue adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the orange adminebo, the blue adminebo is on top of the red adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b3 b4)\n(shague b3)\n(approfity b1)\n(manizer b1 b3)\n(approfity b2)\n(manizer b2 b1)\n(approfity b4)\n(manizer b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9AbmpNsiIY8KqARIPMPEhzMkGHW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmanizer orange from on top of yellow\nShague orange\nApprofity red\nManizer red on top of orange\nApprofity blue\nManizer blue on top of red\nApprofity yellow\nManizer yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347813,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1597,
+                    "prompt_tokens": 561,
+                    "total_tokens": 2158,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.287102222442627,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmanizer orange from on top of yellow\nShague orange\nApprofity red\nManizer red on top of orange\nApprofity blue\nManizer blue on top of red\nApprofity yellow\nManizer yellow on top of blue"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the orange adminebo, the yellow adminebo is on top of the blue adminebo, the blue adminebo is on the table and the orange adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the orange adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b2)\n(manizer b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9B0iUB1wpagaV5DnpzsRzjfFd2h",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer yellow from on top of blue\n2. Manizer yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347838,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 734,
+                    "prompt_tokens": 543,
+                    "total_tokens": 1277,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.978399991989136,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer yellow from on top of blue\n2. Manizer yellow on top of red"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange adminebo is clear, the yellow adminebo is clear, the hand is empty, the blue adminebo is on top of the red adminebo, the yellow adminebo is on top of the blue adminebo, the red adminebo is on the table and the orange adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the yellow adminebo, the orange adminebo is on top of the red adminebo and the yellow adminebo is on top of the orange adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b2)\n(shague b4)\n(unmanizer b2 b1)\n(shague b2)\n(approfity b3)\n(manizer b3 b1)\n(approfity b4)\n(manizer b4 b3)\n(approfity b2)\n(manizer b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BCZGgAHVHPu0zv1goncoRYl7W0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the yellow adminebo from on top of the blue adminebo\n2. Shague the yellow adminebo\n3. Unmanizer the blue adminebo from on top of the red adminebo\n4. Shague the blue adminebo\n5. Approfity the orange adminebo\n6. Manizer the orange adminebo on top of the red adminebo\n7. Approfity the yellow adminebo\n8. Manizer the yellow adminebo on top of the orange adminebo\n9. Approfity the blue adminebo\n10. Manizer the blue adminebo on top of the yellow adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347850,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2907,
+                    "prompt_tokens": 558,
+                    "total_tokens": 3465,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.63024306297302,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the yellow adminebo from on top of the blue adminebo\n2. Shague the yellow adminebo\n3. Unmanizer the blue adminebo from on top of the red adminebo\n4. Shague the blue adminebo\n5. Approfity the orange adminebo\n6. Manizer the orange adminebo on top of the red adminebo\n7. Approfity the yellow adminebo\n8. Manizer the yellow adminebo on top of the orange adminebo\n9. Approfity the blue adminebo\n10. Manizer the blue adminebo on top of the yellow adminebo"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the blue adminebo is clear, the hand is empty, the red adminebo is on top of the yellow adminebo, the yellow adminebo is on top of the orange adminebo, the blue adminebo is on the table and the orange adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the red adminebo and the orange adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b1 b4)\n(shague b1)\n(approfity b2)\n(manizer b2 b1)\n(unmanizer b4 b3)\n(shague b4)\n(approfity b3)\n(manizer b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BtTA9J12KsM9PQRaf9wLhZJTsC",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer red from on top of yellow\n2. Shague red\n3. Approfity blue\n4. Manizer blue on top of red\n5. Unmanizer yellow from on top of orange\n6. Shague yellow\n7. Approfity orange\n8. Manizer orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347893,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2062,
+                    "prompt_tokens": 543,
+                    "total_tokens": 2605,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.587575912475586,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer red from on top of yellow\n2. Shague red\n3. Approfity blue\n4. Manizer blue on top of red\n5. Unmanizer yellow from on top of orange\n6. Shague yellow\n7. Approfity orange\n8. Manizer orange on top of blue"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange adminebo is clear, the hand is empty, the blue adminebo is on top of the yellow adminebo, the orange adminebo is on top of the blue adminebo, the yellow adminebo is on top of the red adminebo and the red adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo and the blue adminebo is on top of the orange adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b3 b2)\n(shague b3)\n(unmanizer b2 b4)\n(manizer b2 b3)\n(unmanizer b4 b1)\n(shague b4)\n(approfity b1)\n(manizer b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9CMRut8hckvBQfP3FDFSWopbSuJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer orange from on top of blue\n2. Shague orange\n3. Unmanizer blue from on top of yellow\n4. Manizer blue on top of orange\n5. Unmanizer yellow from on top of red\n6. Shague yellow\n7. Approfity red\n8. Manizer red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347922,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1683,
+                    "prompt_tokens": 540,
+                    "total_tokens": 2223,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.120989322662354,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer orange from on top of blue\n2. Shague orange\n3. Unmanizer blue from on top of yellow\n4. Manizer blue on top of orange\n5. Unmanizer yellow from on top of red\n6. Shague yellow\n7. Approfity red\n8. Manizer red on top of blue"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the blue adminebo is clear, the hand is empty, the blue adminebo is on top of the yellow adminebo, the yellow adminebo is on top of the orange adminebo, the red adminebo is on the table and the orange adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the orange adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b4)\n(manizer b2 b1)\n(unmanizer b4 b3)\n(shague b4)\n(unmanizer b2 b1)\n(manizer b2 b3)\n(approfity b4)\n(manizer b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9ClHgKCA4nBlQQ1wDkWmgIKWX0s",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer blue from on top of yellow\n2. Manizer blue on top of red\n3. Unmanizer yellow from on top of orange\n4. Shague yellow\n5. Unmanizer blue from on top of red\n6. Manizer blue on top of orange\n7. Approfity yellow\n8. Manizer yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347947,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2583,
+                    "prompt_tokens": 543,
+                    "total_tokens": 3126,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.22157597541809,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer blue from on top of yellow\n2. Manizer blue on top of red\n3. Unmanizer yellow from on top of orange\n4. Shague yellow\n5. Unmanizer blue from on top of red\n6. Manizer blue on top of orange\n7. Approfity yellow\n8. Manizer yellow on top of blue"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the orange adminebo, the blue adminebo is on top of the red adminebo, the yellow adminebo is on top of the blue adminebo and the orange adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo, the orange adminebo is on top of the yellow adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b2)\n(shague b4)\n(unmanizer b2 b1)\n(shague b2)\n(unmanizer b1 b3)\n(manizer b1 b2)\n(approfity b4)\n(manizer b4 b1)\n(approfity b3)\n(manizer b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DJfBvT43gHSXVKEBdNhGGEcjDH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the yellow adminebo from on top of the blue adminebo\n2. Shague the yellow adminebo\n3. Unmanizer the blue adminebo from on top of the red adminebo\n4. Shague the blue adminebo\n5. Unmanizer the red adminebo from on top of the orange adminebo\n6. Manizer the red adminebo on top of the blue adminebo\n7. Approfity the yellow adminebo\n8. Manizer the yellow adminebo on top of the red adminebo\n9. Approfity the orange adminebo\n10. Manizer the orange adminebo on top of the yellow adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347981,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2340,
+                    "prompt_tokens": 555,
+                    "total_tokens": 2895,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.53127431869507,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the yellow adminebo from on top of the blue adminebo\n2. Shague the yellow adminebo\n3. Unmanizer the blue adminebo from on top of the red adminebo\n4. Shague the blue adminebo\n5. Unmanizer the red adminebo from on top of the orange adminebo\n6. Manizer the red adminebo on top of the blue adminebo\n7. Approfity the yellow adminebo\n8. Manizer the yellow adminebo on top of the red adminebo\n9. Approfity the orange adminebo\n10. Manizer the orange adminebo on top of the yellow adminebo"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow adminebo is clear, the hand is empty, the blue adminebo is on top of the orange adminebo, the orange adminebo is on top of the red adminebo, the yellow adminebo is on top of the blue adminebo and the red adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the yellow adminebo and the orange adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b2)\n(shague b4)\n(unmanizer b2 b3)\n(manizer b2 b4)\n(unmanizer b3 b1)\n(manizer b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DnYoVFnbAh8GPiSSec9JKKROHL",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmanizer the yellow adminebo from on top of the blue adminebo\nShague the yellow adminebo\nUnmanizer the blue adminebo from on top of the orange adminebo\nManizer the blue adminebo on top of the yellow adminebo\nUnmanizer the orange adminebo from on top of the red adminebo\nManizer the orange adminebo on top of the blue adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348011,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2150,
+                    "prompt_tokens": 540,
+                    "total_tokens": 2690,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.62613916397095,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmanizer the yellow adminebo from on top of the blue adminebo\nShague the yellow adminebo\nUnmanizer the blue adminebo from on top of the orange adminebo\nManizer the blue adminebo on top of the yellow adminebo\nUnmanizer the orange adminebo from on top of the red adminebo\nManizer the orange adminebo on top of the blue adminebo"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the blue adminebo is clear, the orange adminebo is clear, the hand is empty, the red adminebo is on top of the yellow adminebo, the blue adminebo is on the table, the orange adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the orange adminebo, the blue adminebo is on top of the red adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b1 b4)\n(manizer b1 b3)\n(approfity b2)\n(manizer b2 b1)\n(approfity b4)\n(manizer b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EMpVp3YF2aKU071bFwzsl3U1pT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer red from on top of yellow\n2. Manizer red on top of orange\n3. Approfity blue\n4. Manizer blue on top of red\n5. Approfity yellow\n6. Manizer yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348046,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1792,
+                    "prompt_tokens": 561,
+                    "total_tokens": 2353,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.840308666229248,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer red from on top of yellow\n2. Manizer red on top of orange\n3. Approfity blue\n4. Manizer blue on top of red\n5. Approfity yellow\n6. Manizer yellow on top of blue"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the blue adminebo, the blue adminebo is on top of the orange adminebo, the orange adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the orange adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b1 b2)\n(shague b1)\n(approfity b4)\n(manizer b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EonhbziPhofSBuc9sfUHx3sMv7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer red from on top of blue\n2. Shague red\n3. Approfity yellow\n4. Manizer yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348074,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1131,
+                    "prompt_tokens": 543,
+                    "total_tokens": 1674,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.919348239898682,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer red from on top of blue\n2. Shague red\n3. Approfity yellow\n4. Manizer yellow on top of blue"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the orange adminebo, the blue adminebo is on top of the red adminebo, the yellow adminebo is on top of the blue adminebo and the orange adminebo is on the table.\nMy goal is to have that the orange adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b2)\n(shague b4)\n(unmanizer b2 b1)\n(shague b2)\n(unmanizer b1 b3)\n(shague b1)\n(approfity b3)\n(manizer b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9F3xKoXeNFerOLLVVXQaiJ5joZD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the yellow adminebo from on top of the blue adminebo\n2. Shague the yellow adminebo\n3. Unmanizer the blue adminebo from on top of the red adminebo\n4. Shague the blue adminebo\n5. Unmanizer the red adminebo from on top of the orange adminebo\n6. Shague the red adminebo\n7. Approfity the orange adminebo\n8. Manizer the orange adminebo on top of the blue adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348089,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1727,
+                    "prompt_tokens": 525,
+                    "total_tokens": 2252,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.82575464248657,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the yellow adminebo from on top of the blue adminebo\n2. Shague the yellow adminebo\n3. Unmanizer the blue adminebo from on top of the red adminebo\n4. Shague the blue adminebo\n5. Unmanizer the red adminebo from on top of the orange adminebo\n6. Shague the red adminebo\n7. Approfity the orange adminebo\n8. Manizer the orange adminebo on top of the blue adminebo"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the yellow adminebo is clear, the hand is empty, the orange adminebo is on top of the red adminebo, the yellow adminebo is on top of the orange adminebo, the red adminebo is on the table and the blue adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the yellow adminebo, the blue adminebo is on top of the orange adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b3)\n(shague b4)\n(unmanizer b3 b1)\n(shague b3)\n(approfity b2)\n(manizer b2 b3)\n(approfity b4)\n(manizer b4 b2)\n(approfity b1)\n(manizer b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Fb3J2nvbWujOe3fYyzHt9TMCUc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer yellow from on top of orange\n2. Shague yellow\n3. Unmanizer orange from on top of red\n4. Shague orange\n5. Approfity blue\n6. Manizer blue on top of orange\n7. Approfity yellow\n8. Manizer yellow on top of blue\n9. Approfity red\n10. Manizer red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348123,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3167,
+                    "prompt_tokens": 558,
+                    "total_tokens": 3725,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.04512977600098,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer yellow from on top of orange\n2. Shague yellow\n3. Unmanizer orange from on top of red\n4. Shague orange\n5. Approfity blue\n6. Manizer blue on top of orange\n7. Approfity yellow\n8. Manizer yellow on top of blue\n9. Approfity red\n10. Manizer red on top of yellow"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange adminebo is clear, the hand is empty, the red adminebo is on top of the blue adminebo, the orange adminebo is on top of the yellow adminebo, the yellow adminebo is on top of the red adminebo and the blue adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the red adminebo and the orange adminebo is on top of the yellow adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b3 b4)\n(shague b3)\n(unmanizer b4 b1)\n(shague b4)\n(approfity b3)\n(manizer b3 b4)\n(unmanizer b1 b2)\n(shague b1)\n(approfity b2)\n(manizer b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9GM5IFv98Crf2RZcKYZmxfkppcC",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer orange from on top of yellow\n2. Shague orange\n3. Unmanizer yellow from on top of red\n4. Shague yellow\n5. Unmanizer red from on top of blue\n6. Shague red\n7. Approfity blue from table\n8. Manizer blue on top of red\n9. Approfity orange from table\n10. Manizer orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348170,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2724,
+                    "prompt_tokens": 540,
+                    "total_tokens": 3264,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.51554465293884,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer orange from on top of yellow\n2. Shague orange\n3. Unmanizer yellow from on top of red\n4. Shague yellow\n5. Unmanizer red from on top of blue\n6. Shague red\n7. Approfity blue from table\n8. Manizer blue on top of red\n9. Approfity orange from table\n10. Manizer orange on top of yellow"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the orange adminebo is clear, the hand is empty, the blue adminebo is on top of the yellow adminebo, the orange adminebo is on top of the blue adminebo, the red adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the yellow adminebo, the orange adminebo is on top of the red adminebo and the yellow adminebo is on top of the orange adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b3 b2)\n(manizer b3 b1)\n(unmanizer b2 b4)\n(shague b2)\n(approfity b4)\n(manizer b4 b3)\n(approfity b2)\n(manizer b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9H2sy0hXOnSkk6RO4hmA1j5LBTI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmanizer orange from on top of blue\nManizer orange on top of red\nUnmanizer blue from on top of yellow\nShague blue\nApprofity yellow\nManizer yellow on top of orange\nApprofity blue\nManizer blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348212,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2370,
+                    "prompt_tokens": 558,
+                    "total_tokens": 2928,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.29036736488342,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmanizer orange from on top of blue\nManizer orange on top of red\nUnmanizer blue from on top of yellow\nShague blue\nApprofity yellow\nManizer yellow on top of orange\nApprofity blue\nManizer blue on top of yellow"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the orange adminebo is clear, the yellow adminebo is clear, the hand is empty, the orange adminebo is on top of the blue adminebo, the red adminebo is on the table, the blue adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the orange adminebo, the blue adminebo is on top of the red adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b3 b2)\n(shague b3)\n(approfity b1)\n(manizer b1 b3)\n(approfity b2)\n(manizer b2 b1)\n(approfity b4)\n(manizer b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HkD5LJpIfj62D3dMN968DdG43i",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the orange adminebo from on top of the blue adminebo\n2. Shague the orange adminebo\n3. Approfity the red adminebo\n4. Manizer the red adminebo on top of the orange adminebo\n5. Approfity the blue adminebo\n6. Manizer the blue adminebo on top of the red adminebo\n7. Approfity the yellow adminebo\n8. Manizer the yellow adminebo on top of the blue adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348256,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1470,
+                    "prompt_tokens": 561,
+                    "total_tokens": 2031,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.9570631980896,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the orange adminebo from on top of the blue adminebo\n2. Shague the orange adminebo\n3. Approfity the red adminebo\n4. Manizer the red adminebo on top of the orange adminebo\n5. Approfity the blue adminebo\n6. Manizer the blue adminebo on top of the red adminebo\n7. Approfity the yellow adminebo\n8. Manizer the yellow adminebo on top of the blue adminebo"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the orange adminebo is clear, the hand is empty, the blue adminebo is on top of the yellow adminebo, the yellow adminebo is on top of the red adminebo, the red adminebo is on the table and the orange adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo, the blue adminebo is on top of the yellow adminebo and the yellow adminebo is on top of the orange adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b4)\n(shague b2)\n(unmanizer b4 b1)\n(manizer b4 b3)\n(approfity b2)\n(manizer b2 b4)\n(approfity b1)\n(manizer b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9I7LuF7qXMbRJdKKzU2R5HMvitg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the blue adminebo from on top of the yellow adminebo\n2. Shague the blue adminebo\n3. Unmanizer the yellow adminebo from on top of the red adminebo\n4. Manizer the yellow adminebo on top of the orange adminebo\n5. Approfity the blue adminebo\n6. Manizer the blue adminebo on top of the yellow adminebo\n7. Approfity the red adminebo\n8. Manizer the red adminebo on top of the blue adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348279,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2438,
+                    "prompt_tokens": 558,
+                    "total_tokens": 2996,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.26852488517761,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the blue adminebo from on top of the yellow adminebo\n2. Shague the blue adminebo\n3. Unmanizer the yellow adminebo from on top of the red adminebo\n4. Manizer the yellow adminebo on top of the orange adminebo\n5. Approfity the blue adminebo\n6. Manizer the blue adminebo on top of the yellow adminebo\n7. Approfity the red adminebo\n8. Manizer the red adminebo on top of the blue adminebo"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the yellow adminebo is clear, the hand is empty, the blue adminebo is on top of the orange adminebo, the orange adminebo is on top of the red adminebo, the red adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the yellow adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b3)\n(shague b2)\n(unmanizer b3 b1)\n(shague b3)\n(approfity b4)\n(manizer b4 b1)\n(approfity b2)\n(manizer b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9IjlXPGCaCFBHqEwRBuk8XZ543u",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer blue from on top of orange\n2. Shague blue\n3. Unmanizer orange from on top of red\n4. Shague orange\n5. Approfity yellow\n6. Manizer yellow on top of red\n7. Approfity blue\n8. Manizer blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348317,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1742,
+                    "prompt_tokens": 543,
+                    "total_tokens": 2285,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.966907739639282,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer blue from on top of orange\n2. Shague blue\n3. Unmanizer orange from on top of red\n4. Shague orange\n5. Approfity yellow\n6. Manizer yellow on top of red\n7. Approfity blue\n8. Manizer blue on top of yellow"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the blue adminebo is clear, the hand is empty, the red adminebo is on top of the yellow adminebo, the blue adminebo is on top of the orange adminebo, the orange adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the orange adminebo, the blue adminebo is on top of the red adminebo and the orange adminebo is on top of the yellow adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b3)\n(shague b2)\n(unmanizer b1 b4)\n(manizer b1 b2)\n(approfity b3)\n(manizer b3 b4)\n(unmanizer b1 b2)\n(manizer b1 b3)\n(approfity b2)\n(manizer b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9JFkgUvHldf8pZQUgTJ1voghl0t",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer blue from on top of orange\n2. Shague blue\n3. Unmanizer red from on top of yellow\n4. Shague red\n5. Approfity orange\n6. Manizer orange on top of yellow\n7. Approfity red\n8. Manizer red on top of orange\n9. Approfity blue\n10. Manizer blue on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348349,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2591,
+                    "prompt_tokens": 558,
+                    "total_tokens": 3149,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.51187610626221,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer blue from on top of orange\n2. Shague blue\n3. Unmanizer red from on top of yellow\n4. Shague red\n5. Approfity orange\n6. Manizer orange on top of yellow\n7. Approfity red\n8. Manizer red on top of orange\n9. Approfity blue\n10. Manizer blue on top of red"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the orange adminebo is clear, the yellow adminebo is clear, the hand is empty, the orange adminebo is on top of the red adminebo, the red adminebo is on the table, the blue adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo and the blue adminebo is on top of the orange adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b3 b1)\n(shague b3)\n(approfity b2)\n(manizer b2 b3)\n(approfity b1)\n(manizer b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9JpKI2B2tQMkOZPjlE27P9LLV27",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmanizer the orange adminebo from on top of the red adminebo\nShague the orange adminebo\nApprofity the blue adminebo\nManizer the blue adminebo on top of the orange adminebo\nApprofity the red adminebo\nManizer the red adminebo on top of the blue adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348385,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1492,
+                    "prompt_tokens": 546,
+                    "total_tokens": 2038,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.49589228630066,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmanizer the orange adminebo from on top of the red adminebo\nShague the orange adminebo\nApprofity the blue adminebo\nManizer the blue adminebo on top of the orange adminebo\nApprofity the red adminebo\nManizer the red adminebo on top of the blue adminebo"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the yellow adminebo is clear, the hand is empty, the orange adminebo is on top of the blue adminebo, the yellow adminebo is on top of the orange adminebo, the red adminebo is on the table and the blue adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo, the orange adminebo is on top of the yellow adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b3)\n(shague b4)\n(unmanizer b3 b2)\n(shague b3)\n(approfity b1)\n(manizer b1 b2)\n(approfity b4)\n(manizer b4 b1)\n(approfity b3)\n(manizer b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9K8WHelu04p8JAK2JkUE7HjgIld",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer yellow from on top of orange\n2. Shague yellow\n3. Unmanizer orange from on top of blue\n4. Shague orange\n5. Approfity red\n6. Manizer red on top of blue\n7. Approfity yellow\n8. Manizer yellow on top of red\n9. Approfity orange\n10. Manizer orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348404,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3295,
+                    "prompt_tokens": 558,
+                    "total_tokens": 3853,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3200,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.18522882461548,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer yellow from on top of orange\n2. Shague yellow\n3. Unmanizer orange from on top of blue\n4. Shague orange\n5. Approfity red\n6. Manizer red on top of blue\n7. Approfity yellow\n8. Manizer yellow on top of red\n9. Approfity orange\n10. Manizer orange on top of yellow"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the blue adminebo, the blue adminebo is on top of the orange adminebo, the orange adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the orange adminebo is on top of the yellow adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b1 b2)\n(shague b1)\n(unmanizer b2 b3)\n(shague b2)\n(approfity b4)\n(manizer b4 b2)\n(approfity b3)\n(manizer b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KpAoziPTZi1GZ1Yuv1ZIwG9jlV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer red from on top of blue\n2. Shague red\n3. Unmanizer blue from on top of orange\n4. Shague blue\n5. Approfity yellow\n6. Manizer yellow on top of blue\n7. Approfity orange\n8. Manizer orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348447,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2062,
+                    "prompt_tokens": 543,
+                    "total_tokens": 2605,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.641457080841064,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer red from on top of blue\n2. Shague red\n3. Unmanizer blue from on top of orange\n4. Shague blue\n5. Approfity yellow\n6. Manizer yellow on top of blue\n7. Approfity orange\n8. Manizer orange on top of yellow"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the blue adminebo is clear, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the orange adminebo, the blue adminebo is on the table, the orange adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the yellow adminebo, the blue adminebo is on top of the orange adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b1 b3)\n(shague b1)\n(approfity b2)\n(manizer b2 b3)\n(approfity b4)\n(manizer b4 b2)\n(approfity b1)\n(manizer b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LIxtlhIfLtEYYzVolzdA1IrQZr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the red adminebo from on top of the orange adminebo\n2. Shague the red adminebo\n3. Approfity the blue adminebo\n4. Manizer the blue adminebo on top of the orange adminebo\n5. Approfity the yellow adminebo\n6. Manizer the yellow adminebo on top of the blue adminebo\n7. Approfity the red adminebo\n8. Manizer the red adminebo on top of the yellow adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348476,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1981,
+                    "prompt_tokens": 561,
+                    "total_tokens": 2542,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 52.28714561462402,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the red adminebo from on top of the orange adminebo\n2. Shague the red adminebo\n3. Approfity the blue adminebo\n4. Manizer the blue adminebo on top of the orange adminebo\n5. Approfity the yellow adminebo\n6. Manizer the yellow adminebo on top of the blue adminebo\n7. Approfity the red adminebo\n8. Manizer the red adminebo on top of the yellow adminebo"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the orange adminebo is clear, the hand is empty, the red adminebo is on top of the yellow adminebo, the blue adminebo is on top of the red adminebo, the orange adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo and the blue adminebo is on top of the yellow adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b1)\n(manizer b2 b3)\n(unmanizer b1 b4)\n(shague b1)\n(unmanizer b2 b3)\n(manizer b2 b4)\n(approfity b1)\n(manizer b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9M8maACIPnhgOMjP2am1PRTZh24",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer blue from on top of red\n2. Manizer blue on top of orange\n3. Unmanizer red from on top of yellow\n4. Manizer red on top of blue\n5. Unmanizer red from on top of blue\n6. Shague red\n7. Unmanizer blue from on top of orange\n8. Manizer blue on top of yellow\n9. Approfity red\n10. Manizer red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348528,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2797,
+                    "prompt_tokens": 543,
+                    "total_tokens": 3340,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.0338237285614,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer blue from on top of red\n2. Manizer blue on top of orange\n3. Unmanizer red from on top of yellow\n4. Manizer red on top of blue\n5. Unmanizer red from on top of blue\n6. Shague red\n7. Unmanizer blue from on top of orange\n8. Manizer blue on top of yellow\n9. Approfity red\n10. Manizer red on top of blue"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the orange adminebo is clear, the yellow adminebo is clear, the hand is empty, the yellow adminebo is on top of the red adminebo, the red adminebo is on the table, the blue adminebo is on the table and the orange adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b1)\n(manizer b4 b3)\n(approfity b1)\n(manizer b1 b2)\n(unmanizer b4 b3)\n(manizer b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9MnGQASsmVSHEeCLaa24KWQTwoW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer yellow from on top of red\n2. Shague yellow\n3. Approfity red\n4. Manizer red on top of blue\n5. Approfity yellow\n6. Manizer yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348569,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1276,
+                    "prompt_tokens": 546,
+                    "total_tokens": 1822,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.106415271759033,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer yellow from on top of red\n2. Shague yellow\n3. Approfity red\n4. Manizer red on top of blue\n5. Approfity yellow\n6. Manizer yellow on top of red"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange adminebo is clear, the hand is empty, the blue adminebo is on top of the red adminebo, the orange adminebo is on top of the yellow adminebo, the yellow adminebo is on top of the blue adminebo and the red adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the yellow adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b3 b4)\n(shague b3)\n(unmanizer b4 b2)\n(shague b4)\n(unmanizer b2 b1)\n(shague b2)\n(approfity b1)\n(manizer b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9N6irQrLNxfUco3vV6kbFOSYfKw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unmanizer orange from on top of yellow\nShague orange\nUnmanizer yellow from on top of blue\nShague yellow\nUnmanizer blue from on top of red\nShague blue\nApprofity red\nManizer red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348588,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1984,
+                    "prompt_tokens": 525,
+                    "total_tokens": 2509,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.803585290908813,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unmanizer orange from on top of yellow\nShague orange\nUnmanizer yellow from on top of blue\nShague yellow\nUnmanizer blue from on top of red\nShague blue\nApprofity red\nManizer red on top of yellow"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the blue adminebo, the orange adminebo is on top of the red adminebo, the yellow adminebo is on top of the orange adminebo and the blue adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo and the blue adminebo is on top of the yellow adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b3)\n(shague b4)\n(unmanizer b3 b1)\n(shague b3)\n(unmanizer b1 b2)\n(manizer b1 b3)\n(approfity b2)\n(manizer b2 b4)\n(unmanizer b1 b3)\n(manizer b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9NZpHiHEOyqCPnkHu1xx47uOovN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the yellow adminebo from on top of the orange adminebo\n2. Shague the yellow adminebo\n3. Unmanizer the orange adminebo from on top of the red adminebo\n4. Shague the orange adminebo\n5. Unmanizer the red adminebo from on top of the blue adminebo\n6. Shague the red adminebo\n7. Approfity the blue adminebo\n8. Manizer the blue adminebo on top of the yellow adminebo\n9. Approfity the red adminebo\n10. Manizer the red adminebo on top of the blue adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348617,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2716,
+                    "prompt_tokens": 540,
+                    "total_tokens": 3256,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.722070932388306,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the yellow adminebo from on top of the orange adminebo\n2. Shague the yellow adminebo\n3. Unmanizer the orange adminebo from on top of the red adminebo\n4. Shague the orange adminebo\n5. Unmanizer the red adminebo from on top of the blue adminebo\n6. Shague the red adminebo\n7. Approfity the blue adminebo\n8. Manizer the blue adminebo on top of the yellow adminebo\n9. Approfity the red adminebo\n10. Manizer the red adminebo on top of the blue adminebo"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the hand is empty, the red adminebo is on top of the orange adminebo, the blue adminebo is on top of the yellow adminebo, the yellow adminebo is on top of the red adminebo and the orange adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the orange adminebo and the orange adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b2 b4)\n(shague b2)\n(unmanizer b4 b1)\n(shague b4)\n(unmanizer b1 b3)\n(manizer b1 b4)\n(approfity b3)\n(manizer b3 b2)\n(unmanizer b1 b4)\n(manizer b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9OILi4KRbP1wgpboHNPUVyldgqV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "unmanizer blue from on top of yellow\nshague blue\nunmanizer yellow from on top of red\nshague yellow\nunmanizer red from on top of orange\nshague red\napprofity orange\nmanizer orange on top of blue\napprofity red\nmanizer red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348662,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2892,
+                    "prompt_tokens": 540,
+                    "total_tokens": 3432,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.897359132766724,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "unmanizer blue from on top of yellow\nshague blue\nunmanizer yellow from on top of red\nshague yellow\nunmanizer red from on top of orange\nshague red\napprofity orange\nmanizer orange on top of blue\napprofity red\nmanizer red on top of orange"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow adminebo is clear, the hand is empty, the blue adminebo is on top of the orange adminebo, the orange adminebo is on top of the red adminebo, the yellow adminebo is on top of the blue adminebo and the red adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the orange adminebo and the orange adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b2)\n(shague b4)\n(unmanizer b2 b3)\n(shague b2)\n(unmanizer b3 b1)\n(manizer b3 b2)\n(approfity b1)\n(manizer b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9P45fYsE06ZOeDJlBPC3un3Xfit",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer yellow from on top of blue\n2. Shague yellow\n3. Unmanizer blue from on top of orange\n4. Shague blue\n5. Unmanizer orange from on top of red\n6. Manizer orange on top of blue\n7. Approfity red\n8. Manizer red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348710,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2259,
+                    "prompt_tokens": 540,
+                    "total_tokens": 2799,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.539334535598755,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer yellow from on top of blue\n2. Shague yellow\n3. Unmanizer blue from on top of orange\n4. Shague blue\n5. Unmanizer orange from on top of red\n6. Manizer orange on top of blue\n7. Approfity red\n8. Manizer red on top of orange"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange adminebo is clear, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the blue adminebo, the orange adminebo is on top of the red adminebo, the blue adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the orange adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ9PbK8WzxzjMbKtIywiNl6s2CrcI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions needed. The goal is already satisfied in the initial state.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348743,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 471,
+                    "prompt_tokens": 528,
+                    "total_tokens": 999,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 448,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.091028451919556,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions needed. The goal is already satisfied in the initial state."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the yellow adminebo is clear, the hand is empty, the orange adminebo is on top of the blue adminebo, the yellow adminebo is on top of the orange adminebo, the red adminebo is on the table and the blue adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the orange adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b3)\n(manizer b4 b1)\n(unmanizer b3 b2)\n(shague b3)\n(approfity b2)\n(manizer b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9PkxmxVbfmy2JVK9QxB0TqOt5OT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer yellow from on top of orange\n2. Manizer yellow on top of red\n3. Unmanizer orange from on top of blue\n4. Shague orange\n5. Approfity blue\n6. Manizer blue on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348752,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1473,
+                    "prompt_tokens": 543,
+                    "total_tokens": 2016,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.746257066726685,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer yellow from on top of orange\n2. Manizer yellow on top of red\n3. Unmanizer orange from on top of blue\n4. Shague orange\n5. Approfity blue\n6. Manizer blue on top of orange"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue adminebo is clear, the yellow adminebo is clear, the hand is empty, the red adminebo is on top of the orange adminebo, the yellow adminebo is on top of the red adminebo, the blue adminebo is on the table and the orange adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo and the blue adminebo is on top of the orange adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b1)\n(shague b4)\n(unmanizer b1 b3)\n(manizer b1 b4)\n(approfity b2)\n(manizer b2 b3)\n(unmanizer b1 b4)\n(manizer b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9QAWqSGdNkVhDOONRP8BKPHEaPI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer yellow from on top of red\n2. Shague yellow\n3. Unmanizer red from on top of orange\n4. Shague red\n5. Approfity blue\n6. Manizer blue on top of orange\n7. Approfity red\n8. Manizer red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348778,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1934,
+                    "prompt_tokens": 543,
+                    "total_tokens": 2477,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.727095127105713,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer yellow from on top of red\n2. Shague yellow\n3. Unmanizer red from on top of orange\n4. Shague red\n5. Approfity blue\n6. Manizer blue on top of orange\n7. Approfity red\n8. Manizer red on top of blue"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the orange adminebo is clear, the hand is empty, the red adminebo is on top of the blue adminebo, the blue adminebo is on top of the yellow adminebo, the orange adminebo is on the table and the yellow adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the red adminebo, the orange adminebo is on top of the yellow adminebo and the yellow adminebo is on top of the blue adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b1 b2)\n(shague b1)\n(unmanizer b2 b4)\n(manizer b2 b1)\n(approfity b4)\n(manizer b4 b2)\n(approfity b3)\n(manizer b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9QZvvOufvVrExUy75h0wrN7g5Og",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the red adminebo from on top of the blue adminebo\n2. Shague the red adminebo\n3. Unmanizer the blue adminebo from on top of the yellow adminebo\n4. Manizer the blue adminebo on top of the red adminebo\n5. Approfity the yellow adminebo\n6. Manizer the yellow adminebo on top of the blue adminebo\n7. Approfity the orange adminebo\n8. Manizer the orange adminebo on top of the yellow adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348803,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1734,
+                    "prompt_tokens": 558,
+                    "total_tokens": 2292,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.76352310180664,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the red adminebo from on top of the blue adminebo\n2. Shague the red adminebo\n3. Unmanizer the blue adminebo from on top of the yellow adminebo\n4. Manizer the blue adminebo on top of the red adminebo\n5. Approfity the yellow adminebo\n6. Manizer the yellow adminebo on top of the blue adminebo\n7. Approfity the orange adminebo\n8. Manizer the orange adminebo on top of the yellow adminebo"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the hand is empty, the red adminebo is on top of the orange adminebo, the orange adminebo is on top of the yellow adminebo, the yellow adminebo is on top of the blue adminebo and the blue adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo, the orange adminebo is on top of the yellow adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b1 b3)\n(shague b1)\n(unmanizer b3 b4)\n(shague b3)\n(unmanizer b4 b2)\n(manizer b4 b3)\n(approfity b1)\n(manizer b1 b2)\n(unmanizer b4 b3)\n(manizer b4 b1)\n(approfity b3)\n(manizer b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9R0D2DbYbCGqQRVKlEJCXftSfld",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer red from on top of orange\n2. Shague red\n3. Unmanizer orange from on top of yellow\n4. Shague orange\n5. Unmanizer yellow from on top of blue\n6. Shague yellow\n7. Approfity red\n8. Manizer red on top of blue\n9. Approfity yellow\n10. Manizer yellow on top of red\n11. Approfity orange\n12. Manizer orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348830,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3378,
+                    "prompt_tokens": 555,
+                    "total_tokens": 3933,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3264,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 48.04980206489563,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer red from on top of orange\n2. Shague red\n3. Unmanizer orange from on top of yellow\n4. Shague orange\n5. Unmanizer yellow from on top of blue\n6. Shague yellow\n7. Approfity red\n8. Manizer red on top of blue\n9. Approfity yellow\n10. Manizer yellow on top of red\n11. Approfity orange\n12. Manizer orange on top of yellow"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow adminebo is clear, the hand is empty, the blue adminebo is on top of the red adminebo, the orange adminebo is on top of the blue adminebo, the yellow adminebo is on top of the orange adminebo and the red adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the yellow adminebo and the blue adminebo is on top of the orange adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b3)\n(shague b4)\n(unmanizer b3 b2)\n(shague b3)\n(unmanizer b2 b1)\n(manizer b2 b3)\n(approfity b1)\n(manizer b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9RmG32MDXYo7STnPa82TtjSd1YZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer yellow from on top of orange\n2. Shague yellow\n3. Unmanizer orange from on top of blue\n4. Shague orange\n5. Unmanizer blue from on top of red\n6. Manizer blue on top of orange\n7. Approfity red\n8. Manizer red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348878,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2067,
+                    "prompt_tokens": 540,
+                    "total_tokens": 2607,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.04566168785095,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer yellow from on top of orange\n2. Shague yellow\n3. Unmanizer orange from on top of blue\n4. Shague orange\n5. Unmanizer blue from on top of red\n6. Manizer blue on top of orange\n7. Approfity red\n8. Manizer red on top of yellow"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange adminebo is clear, the hand is empty, the blue adminebo is on top of the yellow adminebo, the orange adminebo is on top of the blue adminebo, the yellow adminebo is on top of the red adminebo and the red adminebo is on the table.\nMy goal is to have that the blue adminebo is on top of the orange adminebo and the orange adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b3 b2)\n(shague b3)\n(unmanizer b2 b4)\n(shague b2)\n(unmanizer b4 b1)\n(shague b4)\n(approfity b3)\n(manizer b3 b1)\n(approfity b2)\n(manizer b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9SJ4T7LjbcQyOyywKwZUOL0fcwZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the orange adminebo from on top of the blue adminebo\n2. Shague the orange adminebo\n3. Unmanizer the blue adminebo from on top of the yellow adminebo\n4. Shague the blue adminebo\n5. Unmanizer the yellow adminebo from on top of the red adminebo\n6. Shague the yellow adminebo\n7. Approfity the orange adminebo\n8. Manizer the orange adminebo on top of the red adminebo\n9. Approfity the blue adminebo\n10. Manizer the blue adminebo on top of the orange adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348911,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2716,
+                    "prompt_tokens": 540,
+                    "total_tokens": 3256,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.812034368515015,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the orange adminebo from on top of the blue adminebo\n2. Shague the orange adminebo\n3. Unmanizer the blue adminebo from on top of the yellow adminebo\n4. Shague the blue adminebo\n5. Unmanizer the yellow adminebo from on top of the red adminebo\n6. Shague the yellow adminebo\n7. Approfity the orange adminebo\n8. Manizer the orange adminebo on top of the red adminebo\n9. Approfity the blue adminebo\n10. Manizer the blue adminebo on top of the orange adminebo"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the orange adminebo is clear, the yellow adminebo is clear, the hand is empty, the yellow adminebo is on top of the blue adminebo, the red adminebo is on the table, the blue adminebo is on the table and the orange adminebo is on the table.\nMy goal is to have that the red adminebo is on top of the blue adminebo and the yellow adminebo is on top of the red adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b4 b2)\n(manizer b4 b3)\n(approfity b1)\n(manizer b1 b2)\n(unmanizer b4 b3)\n(manizer b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9T1SoeWWFK8iUyfLNrbzO4BXfDR",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer the yellow adminebo from on top of the blue adminebo\n2. Shague the yellow adminebo\n3. Approfity the red adminebo\n4. Manizer the red adminebo on top of the blue adminebo\n5. Approfity the yellow adminebo\n6. Manizer the yellow adminebo on top of the red adminebo",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348955,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1504,
+                    "prompt_tokens": 546,
+                    "total_tokens": 2050,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.829861164093018,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer the yellow adminebo from on top of the blue adminebo\n2. Shague the yellow adminebo\n3. Approfity the red adminebo\n4. Manizer the red adminebo on top of the blue adminebo\n5. Approfity the yellow adminebo\n6. Manizer the yellow adminebo on top of the red adminebo"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of admineboes where I need to arrange the admineboes into manizers. Here are the actions I can do\n\nApprofity a adminebo\nUnmanizer a adminebo from on top of another adminebo\nShague a adminebo\nManizer a adminebo on top of another adminebo\n\nI have the following restrictions on my actions:\nI can only approfity or unmanizer one adminebo at a time.\nI can only approfity or unmanizer a adminebo if my hand is empty.\nI can only approfity a adminebo if the adminebo is on the table and the adminebo is clear. A adminebo is clear if the adminebo has no other admineboes on top of it and if the adminebo is not approfitied.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring was really on top of the other adminebo.\nI can only unmanizer a adminebo from on top of another adminebo if the adminebo I am unmanizerring is clear.\nOnce I approfity or unmanizer a adminebo, I am holding the adminebo.\nI can only shague a adminebo that I am holding.\nI can only manizer a adminebo on top of another adminebo if I am holding the adminebo being manizerred.\nI can only manizer a adminebo on top of another adminebo if the adminebo onto which I am manizerring the adminebo is clear.\nOnce I shague or manizer a adminebo, my hand becomes empty.\nOnce you manizer a adminebo on top of a second adminebo, the second adminebo is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red adminebo is clear, the hand is empty, the red adminebo is on top of the yellow adminebo, the blue adminebo is on top of the orange adminebo, the yellow adminebo is on top of the blue adminebo and the orange adminebo is on the table.\nMy goal is to have that the yellow adminebo is on top of the orange adminebo.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unmanizer b1 b4)\n(shague b1)\n(unmanizer b4 b2)\n(manizer b4 b1)\n(unmanizer b2 b3)\n(shague b2)\n(unmanizer b4 b1)\n(manizer b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9TK4nFnKjTBRdAGHjRv2vhYkkSO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unmanizer red from on top of yellow\n2. Shague red\n3. Unmanizer yellow from on top of blue\n4. Shague yellow\n5. Unmanizer blue from on top of orange\n6. Manizer blue on top of red\n7. Approfity yellow\n8. Manizer yellow on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348974,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2451,
+                    "prompt_tokens": 525,
+                    "total_tokens": 2976,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.39273715019226,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unmanizer red from on top of yellow\n2. Shague red\n3. Unmanizer yellow from on top of blue\n4. Shague yellow\n5. Unmanizer blue from on top of orange\n6. Manizer blue on top of red\n7. Approfity yellow\n8. Manizer yellow on top of orange"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

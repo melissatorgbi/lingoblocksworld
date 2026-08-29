@@ -1,0 +1,1808 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_objects_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-782b3c2ab7bc47d7b6ddb124cb4193ac",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the blue facizer on top of the red facizer, you can follow these steps:\n\n1. Unstack the blue facizer from the orange facizer.\n2. Put down the blue facizer.\n3. Unstack the orange facizer from the yellow facizer.\n4. Put down the orange facizer.\n5. Unstack the yellow facizer from the red facizer.\n6. Put down the yellow facizer.\n7. Pick up the blue facizer.\n8. Stack the blue facizer on top of the red facizer.\n\nThis sequence of actions will clear the way for the blue facizer to be placed directly on the red facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779705927,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 145,
+                    "prompt_tokens": 473,
+                    "total_tokens": 618,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 19.117870330810547,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the blue facizer on top of the red facizer, you can follow these steps:\n\n1. Unstack the blue facizer from the orange facizer.\n2. Put down the blue facizer.\n3. Unstack the orange facizer from the yellow facizer.\n4. Put down the orange facizer.\n5. Unstack the yellow facizer from the red facizer.\n6. Put down the yellow facizer.\n7. Pick up the blue facizer.\n8. Stack the blue facizer on top of the red facizer.\n\nThis sequence of actions will clear the way for the blue facizer to be placed directly on the red facizer, achieving your goal."
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the red facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer and the orange facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-82a4d4d75bc14fffbfdbafd3fcbd0032",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack the blue facizer from the red facizer.\n2. Stack the blue facizer on the orange facizer.\n3. Unstack the red facizer from the yellow facizer.\n4. Stack the red facizer on the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, the blue facizer on top of the orange facizer, and the orange facizer on top of the yellow facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779705945,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 134,
+                    "prompt_tokens": 502,
+                    "total_tokens": 636,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.644546747207642,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack the blue facizer from the red facizer.\n2. Stack the blue facizer on the orange facizer.\n3. Unstack the red facizer from the yellow facizer.\n4. Stack the red facizer on the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, the blue facizer on top of the orange facizer, and the orange facizer on top of the yellow facizer, as required."
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-878da46136bb4a6ba3247a65bd5e1063",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Pick up the blue facizer.\n2. Unstack the blue facizer from the orange facizer.\n3. Stack the blue facizer on top of the yellow facizer.\n4. Pick up the orange facizer.\n5. Unstack the orange facizer from the yellow facizer.\n6. Stack the orange facizer on top of the blue facizer.\n7. Pick up the yellow facizer.\n8. Stack the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer, the orange facizer on top of the blue facizer, and the yellow facizer on top of the red facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779705960,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 180,
+                    "prompt_tokens": 502,
+                    "total_tokens": 682,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.873466968536377,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Pick up the blue facizer.\n2. Unstack the blue facizer from the orange facizer.\n3. Stack the blue facizer on top of the yellow facizer.\n4. Pick up the orange facizer.\n5. Unstack the orange facizer from the yellow facizer.\n6. Stack the orange facizer on top of the blue facizer.\n7. Pick up the yellow facizer.\n8. Stack the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer, the orange facizer on top of the blue facizer, and the yellow facizer on top of the red facizer, as required."
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the orange facizer is clear, the hand is empty, the orange facizer is on top of the yellow facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-23f9f312db28499582f759bd2c511004",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you can follow these steps:\n\n1. Pick up the blue facizer.\n2. Stack the blue facizer on top of the yellow facizer.\n3. Pick up the red facizer.\n4. Stack the red facizer on top of the orange facizer.\n5. Pick up the blue facizer from the yellow facizer.\n6. Stack the blue facizer on top of the red facizer.\n7. Pick up the yellow facizer.\n8. Stack the yellow facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, the blue facizer on top of the red facizer, and the yellow facizer on top of the blue facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779705978,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 162,
+                    "prompt_tokens": 505,
+                    "total_tokens": 667,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.35076642036438,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you can follow these steps:\n\n1. Pick up the blue facizer.\n2. Stack the blue facizer on top of the yellow facizer.\n3. Pick up the red facizer.\n4. Stack the red facizer on top of the orange facizer.\n5. Pick up the blue facizer from the yellow facizer.\n6. Stack the blue facizer on top of the red facizer.\n7. Pick up the yellow facizer.\n8. Stack the yellow facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, the blue facizer on top of the red facizer, and the yellow facizer on top of the blue facizer, achieving your goal."
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the yellow facizer is on top of the blue facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-a7667eaa80e54a5b9e7c5419ac655112",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the red facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the red facizer from the orange facizer.\n2. Put down the red facizer.\n3. Unstack the yellow facizer from the blue facizer.\n4. Stack the yellow facizer on top of the red facizer.\n5. Pick up the red facizer (with the yellow facizer on top).\n6. Stack the red facizer (with the yellow facizer) on top of the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer and the yellow facizer being on top of the red facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779705994,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 181,
+                    "prompt_tokens": 489,
+                    "total_tokens": 670,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 18.468061685562134,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the red facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the red facizer from the orange facizer.\n2. Put down the red facizer.\n3. Unstack the yellow facizer from the blue facizer.\n4. Stack the yellow facizer on top of the red facizer.\n5. Pick up the red facizer (with the yellow facizer on top).\n6. Stack the red facizer (with the yellow facizer) on top of the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer and the yellow facizer being on top of the red facizer, achieving your goal."
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the red facizer and the yellow facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-afe04704f8a543d58f9e2aa7acb971b2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Unstack the blue facizer from the red facizer.\n3. Stack the blue facizer on top of the yellow facizer.\n4. Pick up the orange facizer.\n5. Stack the orange facizer on top of the red facizer.\n6. Pick up the yellow facizer.\n7. Stack the yellow facizer on top of the orange facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer, the orange facizer being on top of the red facizer, and the yellow facizer being on top of the orange facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706013,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 173,
+                    "prompt_tokens": 502,
+                    "total_tokens": 675,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 18.573336601257324,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Unstack the blue facizer from the red facizer.\n3. Stack the blue facizer on top of the yellow facizer.\n4. Pick up the orange facizer.\n5. Stack the orange facizer on top of the red facizer.\n6. Pick up the yellow facizer.\n7. Stack the yellow facizer on top of the orange facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer, the orange facizer being on top of the red facizer, and the yellow facizer being on top of the orange facizer, as required."
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the yellow facizer is on top of the orange facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer and the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-b0935f88efdc47b08f4158e41a13bdd6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the red facizer and the orange facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the red facizer from the yellow facizer.\n2. Stack the red facizer on the blue facizer.\n3. Unstack the yellow facizer from the orange facizer.\n4. Stack the yellow facizer on the table.\n5. Pick up the orange facizer.\n6. Stack the orange facizer on the blue facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the red facizer and the orange facizer being on top of the blue facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706031,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 164,
+                    "prompt_tokens": 489,
+                    "total_tokens": 653,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.824354887008667,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the red facizer and the orange facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the red facizer from the yellow facizer.\n2. Stack the red facizer on the blue facizer.\n3. Unstack the yellow facizer from the orange facizer.\n4. Stack the yellow facizer on the table.\n5. Pick up the orange facizer.\n6. Stack the orange facizer on the blue facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the red facizer and the orange facizer being on top of the blue facizer, achieving your goal."
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-3ab27978dc994e758417acf0db8db616",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the orange facizer from the blue facizer.\n2. Put down the orange facizer.\n3. Unstack the blue facizer from the yellow facizer.\n4. Stack the blue facizer on top of the orange facizer.\n5. Unstack the yellow facizer from the red facizer.\n6. Put down the yellow facizer.\n7. Pick up the red facizer.\n8. Stack the red facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, and the blue facizer being on top of the orange facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706049,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 146,
+                    "prompt_tokens": 486,
+                    "total_tokens": 632,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.689778566360474,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the orange facizer from the blue facizer.\n2. Put down the orange facizer.\n3. Unstack the blue facizer from the yellow facizer.\n4. Stack the blue facizer on top of the orange facizer.\n5. Unstack the yellow facizer from the red facizer.\n6. Put down the yellow facizer.\n7. Pick up the red facizer.\n8. Stack the red facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, and the blue facizer being on top of the orange facizer, as required."
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-3c84b2b4f0534d9a92df1ba7167fab2f",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the blue facizer from the yellow facizer.\n2. Stack the blue facizer on the orange facizer.\n3. Pick up the yellow facizer.\n4. Stack the yellow facizer on the blue facizer.\n5. Pick up the red facizer.\n6. Put down the red facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the orange facizer and the yellow facizer being on top of the blue facizer, with the red facizer on the table.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706062,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 162,
+                    "prompt_tokens": 489,
+                    "total_tokens": 651,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 18.85858464241028,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the blue facizer from the yellow facizer.\n2. Stack the blue facizer on the orange facizer.\n3. Pick up the yellow facizer.\n4. Stack the yellow facizer on the blue facizer.\n5. Pick up the red facizer.\n6. Put down the red facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the orange facizer and the yellow facizer being on top of the blue facizer, with the red facizer on the table."
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-341dc6e633054368990fd54a317d38e2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Unstack the blue facizer from the red facizer.\n3. Unstack the red facizer from the orange facizer.\n4. Stack the red facizer on top of the blue facizer.\n5. Stack the orange facizer on top of the yellow facizer.\n6. Stack the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, the orange facizer on top of the yellow facizer, and the yellow facizer on top of the red facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706081,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 167,
+                    "prompt_tokens": 499,
+                    "total_tokens": 666,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.860907793045044,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Unstack the blue facizer from the red facizer.\n3. Unstack the red facizer from the orange facizer.\n4. Stack the red facizer on top of the blue facizer.\n5. Stack the orange facizer on top of the yellow facizer.\n6. Stack the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, the orange facizer on top of the yellow facizer, and the yellow facizer on top of the red facizer, as required."
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer and the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-058d59c8afe64c459379e7258fb7d5ca",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the yellow facizer and the orange facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Put down the yellow facizer.\n3. Unstack the blue facizer from the orange facizer.\n4. Stack the blue facizer on top of the yellow facizer.\n5. Unstack the orange facizer from the red facizer.\n6. Stack the orange facizer on top of the blue facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer and the orange facizer being on top of the blue facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706099,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 171,
+                    "prompt_tokens": 486,
+                    "total_tokens": 657,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 18.595747709274292,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the yellow facizer and the orange facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Put down the yellow facizer.\n3. Unstack the blue facizer from the orange facizer.\n4. Stack the blue facizer on top of the yellow facizer.\n5. Unstack the orange facizer from the red facizer.\n6. Stack the orange facizer on top of the blue facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer and the orange facizer being on top of the blue facizer, achieving your goal."
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on the table, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-06c5a42d1ab149c7aaf918b72c7e2acc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the red facizer.\n2. Stack the red facizer on top of the orange facizer.\n3. Pick up the blue facizer.\n4. Stack the blue facizer on top of the red facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, the blue facizer on top of the red facizer, and the yellow facizer on top of the blue facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706117,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 130,
+                    "prompt_tokens": 505,
+                    "total_tokens": 635,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.941545248031616,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the red facizer.\n2. Stack the red facizer on top of the orange facizer.\n3. Pick up the blue facizer.\n4. Stack the blue facizer on top of the red facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, the blue facizer on top of the red facizer, and the yellow facizer on top of the blue facizer, as required."
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-d88782f58b5c4f16836259832ae37be7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the red facizer from the blue facizer.\n2. Put down the red facizer.\n3. Unstack the blue facizer from the orange facizer.\n4. Put down the blue facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the blue facizer.\n7. Pick up the blue facizer.\n8. Stack the blue facizer on top of the orange facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the orange facizer and the yellow facizer being on top of the blue facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706131,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 184,
+                    "prompt_tokens": 489,
+                    "total_tokens": 673,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 19.59349226951599,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the red facizer from the blue facizer.\n2. Put down the red facizer.\n3. Unstack the blue facizer from the orange facizer.\n4. Put down the blue facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the blue facizer.\n7. Pick up the blue facizer.\n8. Stack the blue facizer on top of the orange facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the orange facizer and the yellow facizer being on top of the blue facizer, achieving your goal."
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-59b74bc8349f4b7b99905236a6667b77",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the orange facizer on top of the blue facizer, you can follow these steps:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Put down the yellow facizer.\n3. Unstack the blue facizer from the red facizer.\n4. Put down the blue facizer.\n5. Unstack the red facizer from the orange facizer.\n6. Put down the red facizer.\n7. Pick up the orange facizer.\n8. Stack the orange facizer on top of the blue facizer.\n\nThis sequence of actions will result in the orange facizer being on top of the blue facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706152,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 142,
+                    "prompt_tokens": 473,
+                    "total_tokens": 615,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.837224960327148,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the orange facizer on top of the blue facizer, you can follow these steps:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Put down the yellow facizer.\n3. Unstack the blue facizer from the red facizer.\n4. Put down the blue facizer.\n5. Unstack the red facizer from the orange facizer.\n6. Put down the red facizer.\n7. Pick up the orange facizer.\n8. Stack the orange facizer on top of the blue facizer.\n\nThis sequence of actions will result in the orange facizer being on top of the blue facizer, achieving your goal."
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the red facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-5f53b284e47048cfac51192b860a9308",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the yellow facizer from the orange facizer.\n2. Stack the yellow facizer on the red facizer.\n3. Pick up the blue facizer.\n4. Stack the blue facizer on the orange facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the yellow facizer, the blue facizer on top of the orange facizer, and the yellow facizer on top of the blue facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706168,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 129,
+                    "prompt_tokens": 502,
+                    "total_tokens": 631,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.722286939620972,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the yellow facizer from the orange facizer.\n2. Stack the yellow facizer on the red facizer.\n3. Pick up the blue facizer.\n4. Stack the blue facizer on the orange facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the yellow facizer, the blue facizer on top of the orange facizer, and the yellow facizer on top of the blue facizer, as required."
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the blue facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer and the orange facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-5df8771072324da7abdb21fb131d4f10",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the orange facizer from the yellow facizer.\n2. Put down the orange facizer.\n3. Unstack the red facizer from the blue facizer.\n4. Put down the red facizer.\n5. Stack the blue facizer on top of the red facizer.\n6. Pick up the orange facizer.\n7. Stack the orange facizer on top of the yellow facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the red facizer and the orange facizer being on top of the yellow facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706183,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 131,
+                    "prompt_tokens": 486,
+                    "total_tokens": 617,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.729981660842896,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the orange facizer from the yellow facizer.\n2. Put down the orange facizer.\n3. Unstack the red facizer from the blue facizer.\n4. Put down the red facizer.\n5. Stack the blue facizer on top of the red facizer.\n6. Pick up the orange facizer.\n7. Stack the orange facizer on top of the yellow facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the red facizer and the orange facizer being on top of the yellow facizer, as required."
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the red facizer and the yellow facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-abdee200e11e494f861aa00bcd566d11",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the orange facizer.\n2. Stack the orange facizer on top of the red facizer.\n3. Pick up the blue facizer.\n4. Stack the blue facizer on top of the yellow facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the orange facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer, the orange facizer on top of the red facizer, and the yellow facizer on top of the orange facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706198,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 130,
+                    "prompt_tokens": 502,
+                    "total_tokens": 632,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.63537883758545,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the orange facizer.\n2. Stack the orange facizer on top of the red facizer.\n3. Pick up the blue facizer.\n4. Stack the blue facizer on top of the yellow facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the orange facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer, the orange facizer on top of the red facizer, and the yellow facizer on top of the orange facizer, as required."
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-04463b24cb92443ca6dc853c57ed16a5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to follow these steps:\n\n1. Pick up the yellow facizer.\n2. Stack the yellow facizer on top of the blue facizer.\n3. Pick up the orange facizer.\n4. Unstack the orange facizer from the blue facizer.\n5. Stack the orange facizer on top of the yellow facizer.\n6. Pick up the red facizer.\n7. Stack the red facizer on top of the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, the blue facizer on top of the red facizer, and the yellow facizer on top of the blue facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706211,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 148,
+                    "prompt_tokens": 505,
+                    "total_tokens": 653,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.675304889678955,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to follow these steps:\n\n1. Pick up the yellow facizer.\n2. Stack the yellow facizer on top of the blue facizer.\n3. Pick up the orange facizer.\n4. Unstack the orange facizer from the blue facizer.\n5. Stack the orange facizer on top of the yellow facizer.\n6. Pick up the red facizer.\n7. Stack the red facizer on top of the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, the blue facizer on top of the red facizer, and the yellow facizer on top of the blue facizer, achieving your goal."
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer and the yellow facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-81bf4d7e78174a3f9f85db7ec6a5295e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer, and the yellow facizer is on top of the orange facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the blue facizer from the yellow facizer.\n2. Stack the blue facizer on the table.\n3. Pick up the yellow facizer.\n4. Stack the yellow facizer on the orange facizer.\n5. Pick up the blue facizer.\n6. Stack the blue facizer on the yellow facizer.\n7. Pick up the red facizer.\n8. Stack the red facizer on the blue facizer.\n\nThis sequence of actions will result in the desired arrangement of facizers.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706227,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 172,
+                    "prompt_tokens": 502,
+                    "total_tokens": 674,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 19.15155816078186,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer, and the yellow facizer is on top of the orange facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the blue facizer from the yellow facizer.\n2. Stack the blue facizer on the table.\n3. Pick up the yellow facizer.\n4. Stack the yellow facizer on the orange facizer.\n5. Pick up the blue facizer.\n6. Stack the blue facizer on the yellow facizer.\n7. Pick up the red facizer.\n8. Stack the red facizer on the blue facizer.\n\nThis sequence of actions will result in the desired arrangement of facizers."
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-d296245bbfc34edba64028899b5cd2b6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the yellow facizer, and the yellow facizer is on top of the red facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the blue facizer from the orange facizer.\n2. Put down the blue facizer.\n3. Unstack the orange facizer from the red facizer.\n4. Put down the orange facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the red facizer.\n7. Pick up the blue facizer.\n8. Stack the blue facizer on top of the yellow facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer, which is on top of the red facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706246,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 182,
+                    "prompt_tokens": 489,
+                    "total_tokens": 671,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 19.32756543159485,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the yellow facizer, and the yellow facizer is on top of the red facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the blue facizer from the orange facizer.\n2. Put down the blue facizer.\n3. Unstack the orange facizer from the red facizer.\n4. Put down the orange facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the red facizer.\n7. Pick up the blue facizer.\n8. Stack the blue facizer on top of the yellow facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the yellow facizer, which is on top of the red facizer, achieving your goal."
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the orange facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-95c088b0a85548eda003a6db7f25da25",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you can follow these steps:\n\n1. Unstack the red facizer from the yellow facizer.\n2. Stack the red facizer on top of the orange facizer.\n3. Unstack the blue facizer from the orange facizer.\n4. Stack the blue facizer on top of the red facizer.\n5. Pick up the orange facizer.\n6. Put down the orange facizer on top of the yellow facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, the blue facizer on top of the red facizer, and the orange facizer on top of the yellow facizer, as desired.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706267,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 143,
+                    "prompt_tokens": 502,
+                    "total_tokens": 645,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.390822410583496,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you can follow these steps:\n\n1. Unstack the red facizer from the yellow facizer.\n2. Stack the red facizer on top of the orange facizer.\n3. Unstack the blue facizer from the orange facizer.\n4. Stack the blue facizer on top of the red facizer.\n5. Pick up the orange facizer.\n6. Put down the orange facizer on top of the yellow facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, the blue facizer on top of the red facizer, and the orange facizer on top of the yellow facizer, as desired."
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the red facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-914377197ebe45d58b9c3a165a3afc19",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the red facizer on top of the blue facizer and the blue facizer on top of the orange facizer, you can follow these steps:\n\n1. Unstack the orange facizer from the red facizer.\n2. Pick up the blue facizer.\n3. Stack the blue facizer on top of the orange facizer.\n4. Pick up the red facizer.\n5. Stack the red facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, which is on top of the orange facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706283,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 133,
+                    "prompt_tokens": 492,
+                    "total_tokens": 625,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.135345458984375,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the red facizer on top of the blue facizer and the blue facizer on top of the orange facizer, you can follow these steps:\n\n1. Unstack the orange facizer from the red facizer.\n2. Pick up the blue facizer.\n3. Stack the blue facizer on top of the orange facizer.\n4. Pick up the red facizer.\n5. Stack the red facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, which is on top of the orange facizer, achieving your goal."
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-95775499f916410dab91d156e39b9918",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack the yellow facizer from the orange facizer.\n2. Unstack the orange facizer from the blue facizer.\n3. Stack the orange facizer on top of the yellow facizer.\n4. Pick up the red facizer.\n5. Put down the red facizer on top of the blue facizer.\n6. Pick up the yellow facizer.\n7. Put down the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, the orange facizer on top of the yellow facizer, and the yellow facizer on top of the red facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706298,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 173,
+                    "prompt_tokens": 502,
+                    "total_tokens": 675,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 18.926081895828247,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack the yellow facizer from the orange facizer.\n2. Unstack the orange facizer from the blue facizer.\n3. Stack the orange facizer on top of the yellow facizer.\n4. Pick up the red facizer.\n5. Put down the red facizer on top of the blue facizer.\n6. Pick up the yellow facizer.\n7. Put down the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, the orange facizer on top of the yellow facizer, and the yellow facizer on top of the red facizer, as required."
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-f697bb24cb034f3f90e81e626a6eef2e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the red facizer from the blue facizer.\n2. Put down the red facizer.\n3. Unstack the blue facizer from the orange facizer.\n4. Put down the blue facizer.\n5. Pick up the orange facizer.\n6. Stack the orange facizer on top of the yellow facizer.\n7. Pick up the blue facizer.\n8. Stack the blue facizer on top of the yellow facizer.\n\nThis sequence of actions will result in the orange facizer being on top of the yellow facizer, and the yellow facizer being on top of the blue facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706317,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 141,
+                    "prompt_tokens": 489,
+                    "total_tokens": 630,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.880584478378296,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the red facizer from the blue facizer.\n2. Put down the red facizer.\n3. Unstack the blue facizer from the orange facizer.\n4. Put down the blue facizer.\n5. Pick up the orange facizer.\n6. Stack the orange facizer on top of the yellow facizer.\n7. Pick up the blue facizer.\n8. Stack the blue facizer on top of the yellow facizer.\n\nThis sequence of actions will result in the orange facizer being on top of the yellow facizer, and the yellow facizer being on top of the blue facizer, as required."
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on the table, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-033ba5d0686645aeab88ae849ce1974a",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Pick up the red facizer.\n2. Stack the red facizer on top of the yellow facizer.\n3. Pick up the yellow facizer.\n4. Stack the yellow facizer on top of the blue facizer.\n5. Pick up the blue facizer.\n6. Stack the blue facizer on top of the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the yellow facizer, the blue facizer on top of the orange facizer, and the yellow facizer on top of the blue facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706333,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 130,
+                    "prompt_tokens": 505,
+                    "total_tokens": 635,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.58017873764038,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Pick up the red facizer.\n2. Stack the red facizer on top of the yellow facizer.\n3. Pick up the yellow facizer.\n4. Stack the yellow facizer on top of the blue facizer.\n5. Pick up the blue facizer.\n6. Stack the blue facizer on top of the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the yellow facizer, the blue facizer on top of the orange facizer, and the yellow facizer on top of the blue facizer, as required."
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the red facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-6cd5aa890ecb4b31bd8fe02e10337451",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the red facizer on top of the blue facizer and the blue facizer on top of the yellow facizer, you can follow these steps:\n\n1. Unstack the blue facizer from the red facizer.\n2. Stack the blue facizer on the yellow facizer.\n3. Pick up the red facizer.\n4. Stack the red facizer on the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, which is on top of the yellow facizer, as desired.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706347,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 119,
+                    "prompt_tokens": 489,
+                    "total_tokens": 608,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.74243712425232,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the red facizer on top of the blue facizer and the blue facizer on top of the yellow facizer, you can follow these steps:\n\n1. Unstack the blue facizer from the red facizer.\n2. Stack the blue facizer on the yellow facizer.\n3. Pick up the red facizer.\n4. Stack the red facizer on the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, which is on top of the yellow facizer, as desired."
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the yellow facizer is on top of the red facizer, the red facizer is on the table, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-7306717b289e45a4bd467638377d0b0c",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the red facizer on top of the blue facizer and the yellow facizer on top of the red facizer, you can follow these steps:\n\n1. Pick up the yellow facizer\n2. Unstack the yellow facizer from the red facizer\n3. Pick up the red facizer\n4. Stack the red facizer on top of the blue facizer\n5. Pick up the yellow facizer\n6. Stack the yellow facizer on top of the red facizer\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer and the yellow facizer being on top of the red facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706361,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 145,
+                    "prompt_tokens": 492,
+                    "total_tokens": 637,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.146800756454468,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the red facizer on top of the blue facizer and the yellow facizer on top of the red facizer, you can follow these steps:\n\n1. Pick up the yellow facizer\n2. Unstack the yellow facizer from the red facizer\n3. Pick up the red facizer\n4. Stack the red facizer on top of the blue facizer\n5. Pick up the yellow facizer\n6. Stack the yellow facizer on top of the red facizer\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer and the yellow facizer being on top of the red facizer, achieving your goal."
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-5ac803fa226b4872af2d48f99da95864",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the red facizer on top of the yellow facizer, follow these steps:\n\n1. Unstack the blue facizer from the red facizer.\n2. Put down the blue facizer.\n3. Unstack the orange facizer from the yellow facizer.\n4. Put down the orange facizer.\n5. Unstack the yellow facizer from the blue facizer.\n6. Put down the yellow facizer.\n7. Stack the red facizer on top of the yellow facizer.\n\nThis sequence of actions will clear the way to move the red facizer onto the yellow facizer as desired.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706377,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 129,
+                    "prompt_tokens": 473,
+                    "total_tokens": 602,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.603235483169556,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the red facizer on top of the yellow facizer, follow these steps:\n\n1. Unstack the blue facizer from the red facizer.\n2. Put down the blue facizer.\n3. Unstack the orange facizer from the yellow facizer.\n4. Put down the orange facizer.\n5. Unstack the yellow facizer from the blue facizer.\n6. Put down the yellow facizer.\n7. Stack the red facizer on top of the yellow facizer.\n\nThis sequence of actions will clear the way to move the red facizer onto the yellow facizer as desired."
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the orange facizer and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-509b946bf78744c094e820fea6d5075c",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the red facizer is on top of the blue facizer, and the blue facizer is on top of the yellow facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the yellow facizer from on top of the orange facizer.\n2. Put down the yellow facizer.\n3. Unstack the orange facizer from on top of the red facizer.\n4. Put down the orange facizer.\n5. Unstack the red facizer from on top of the blue facizer.\n6. Pick up the yellow facizer.\n7. Stack the yellow facizer on top of the blue facizer.\n8. Pick up the red facizer.\n9. Stack the red facizer on top of the blue facizer.\n\nAfter these steps, the red facizer will be on top of the blue facizer, and the blue facizer will be on top of the yellow facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706390,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 208,
+                    "prompt_tokens": 486,
+                    "total_tokens": 694,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 21.6480655670166,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the red facizer is on top of the blue facizer, and the blue facizer is on top of the yellow facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the yellow facizer from on top of the orange facizer.\n2. Put down the yellow facizer.\n3. Unstack the orange facizer from on top of the red facizer.\n4. Put down the orange facizer.\n5. Unstack the red facizer from on top of the blue facizer.\n6. Pick up the yellow facizer.\n7. Stack the yellow facizer on top of the blue facizer.\n8. Pick up the red facizer.\n9. Stack the red facizer on top of the blue facizer.\n\nAfter these steps, the red facizer will be on top of the blue facizer, and the blue facizer will be on top of the yellow facizer, achieving your goal."
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chat-5d85ae3a279b4ae2bb6552c92ab95144",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the red facizer from on top of the orange facizer.\n2. Put down the red facizer.\n3. Unstack the blue facizer from on top of the yellow facizer.\n4. Stack the blue facizer on top of the orange facizer.\n5. Pick up the red facizer.\n6. Stack the red facizer on top of the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, and the orange facizer being on top of the blue facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706412,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 129,
+                    "prompt_tokens": 486,
+                    "total_tokens": 615,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.150508642196655,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the red facizer from on top of the orange facizer.\n2. Put down the red facizer.\n3. Unstack the blue facizer from on top of the yellow facizer.\n4. Stack the blue facizer on top of the orange facizer.\n5. Pick up the red facizer.\n6. Stack the red facizer on top of the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, and the orange facizer being on top of the blue facizer, as required."
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chat-7262d424158f46f2b99ee4422125d2b2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the red facizer is on top of the orange facizer, and the orange facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Stack the yellow facizer on the table.\n3. Unstack the blue facizer from the orange facizer.\n4. Stack the blue facizer on the table.\n5. Unstack the orange facizer from the red facizer.\n6. Stack the orange facizer on the blue facizer.\n7. Stack the red facizer on the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, and the orange facizer being on top of the blue facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706427,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 181,
+                    "prompt_tokens": 486,
+                    "total_tokens": 667,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 20.65836763381958,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the red facizer is on top of the orange facizer, and the orange facizer is on top of the blue facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the yellow facizer from the blue facizer.\n2. Stack the yellow facizer on the table.\n3. Unstack the blue facizer from the orange facizer.\n4. Stack the blue facizer on the table.\n5. Unstack the orange facizer from the red facizer.\n6. Stack the orange facizer on the blue facizer.\n7. Stack the red facizer on the orange facizer.\n\nThis sequence of actions will result in the red facizer being on top of the orange facizer, and the orange facizer being on top of the blue facizer, as required."
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the red facizer, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the orange facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chat-9ca75dc0115745eb892ee0e056a8e542",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Given the initial conditions and the goal, the current state already satisfies the goal: the orange facizer is on top of the red facizer. Therefore, no actions are needed to achieve the goal. \n\nHowever, if the goal was to rearrange the facizers in a different configuration, such as having the orange facizer on top of the yellow facizer, the plan would involve a series of actions to unstack and stack the facizers accordingly. Since the current state already meets the goal, the plan is:\n\n- No actions needed.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706448,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 110,
+                    "prompt_tokens": 476,
+                    "total_tokens": 586,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.956826210021973,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Given the initial conditions and the goal, the current state already satisfies the goal: the orange facizer is on top of the red facizer. Therefore, no actions are needed to achieve the goal. \n\nHowever, if the goal was to rearrange the facizers in a different configuration, such as having the orange facizer on top of the yellow facizer, the plan would involve a series of actions to unstack and stack the facizers accordingly. Since the current state already meets the goal, the plan is:\n\n- No actions needed."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chat-760d659463714427b6b0e8334bfd14f7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the yellow facizer from the orange facizer.\n2. Put down the yellow facizer.\n3. Unstack the orange facizer from the blue facizer.\n4. Stack the orange facizer on the blue facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on the red facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the orange facizer and the yellow facizer being on top of the red facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706460,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 118,
+                    "prompt_tokens": 489,
+                    "total_tokens": 607,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.901216983795166,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the yellow facizer from the orange facizer.\n2. Put down the yellow facizer.\n3. Unstack the orange facizer from the blue facizer.\n4. Stack the orange facizer on the blue facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on the red facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the orange facizer and the yellow facizer being on top of the red facizer, as required."
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the yellow facizer is on top of the red facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-e5d3419879bd41659ffe6b867cf7cc5e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the red facizer on top of the blue facizer and the blue facizer on top of the orange facizer, you can follow these steps:\n\n1. Unstack the yellow facizer from the red facizer.\n2. Put down the yellow facizer.\n3. Unstack the red facizer from the orange facizer.\n4. Put down the red facizer.\n5. Pick up the blue facizer.\n6. Stack the blue facizer on top of the orange facizer.\n7. Pick up the red facizer.\n8. Stack the red facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, which is on top of the orange facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706472,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 165,
+                    "prompt_tokens": 489,
+                    "total_tokens": 654,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 19.797218322753906,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the red facizer on top of the blue facizer and the blue facizer on top of the orange facizer, you can follow these steps:\n\n1. Unstack the yellow facizer from the red facizer.\n2. Put down the yellow facizer.\n3. Unstack the red facizer from the orange facizer.\n4. Put down the red facizer.\n5. Pick up the blue facizer.\n6. Stack the blue facizer on top of the orange facizer.\n7. Pick up the red facizer.\n8. Stack the red facizer on top of the blue facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, which is on top of the orange facizer, achieving your goal."
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-c6e045503c484678bbc8a6bc5fd36912",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the red facizer from the blue facizer.\n2. Stack the red facizer on the table.\n3. Unstack the blue facizer from the yellow facizer.\n4. Stack the blue facizer on the red facizer.\n5. Pick up the orange facizer.\n6. Stack the orange facizer on the yellow facizer.\n7. Pick up the yellow facizer.\n8. Stack the yellow facizer on the blue facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the red facizer, the orange facizer on top of the yellow facizer, and the yellow facizer on top of the blue facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706492,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 154,
+                    "prompt_tokens": 502,
+                    "total_tokens": 656,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.041228294372559,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the red facizer from the blue facizer.\n2. Stack the red facizer on the table.\n3. Unstack the blue facizer from the yellow facizer.\n4. Stack the blue facizer on the red facizer.\n5. Pick up the orange facizer.\n6. Stack the orange facizer on the yellow facizer.\n7. Pick up the yellow facizer.\n8. Stack the yellow facizer on the blue facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the red facizer, the orange facizer on top of the yellow facizer, and the yellow facizer on top of the blue facizer, as required."
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the blue facizer and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-edd85d7314c646f3842ccd4387ec2bfe",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers from their initial state to the desired state. Here is a step-by-step plan to achieve this:\n\n1. Unstack the red facizer from the orange facizer.\n2. Stack the red facizer on top of the blue facizer.\n3. Unstack the orange facizer from the yellow facizer.\n4. Stack the orange facizer on top of the yellow facizer.\n5. Unstack the yellow facizer from the blue facizer.\n6. Stack the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, the orange facizer on top of the yellow facizer, and the yellow facizer on top of the red facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706507,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 169,
+                    "prompt_tokens": 499,
+                    "total_tokens": 668,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 18.74651598930359,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers from their initial state to the desired state. Here is a step-by-step plan to achieve this:\n\n1. Unstack the red facizer from the orange facizer.\n2. Stack the red facizer on top of the blue facizer.\n3. Unstack the orange facizer from the yellow facizer.\n4. Stack the orange facizer on top of the yellow facizer.\n5. Unstack the yellow facizer from the blue facizer.\n6. Stack the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer, the orange facizer on top of the yellow facizer, and the yellow facizer on top of the red facizer, as required."
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer and the blue facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-3bef3aee342347f388c28be3f66717c9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the yellow facizer from the orange facizer.\n2. Stack the yellow facizer on the table.\n3. Unstack the orange facizer from the blue facizer.\n4. Stack the orange facizer on the table.\n5. Unstack the blue facizer from the red facizer.\n6. Stack the blue facizer on the orange facizer.\n7. Pick up the red facizer.\n8. Stack the red facizer on the yellow facizer.\n\nThis sequence of actions will result in the red facizer being on top of the yellow facizer and the blue facizer being on top of the orange facizer, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706525,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 145,
+                    "prompt_tokens": 486,
+                    "total_tokens": 631,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.291828155517578,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the yellow facizer from the orange facizer.\n2. Stack the yellow facizer on the table.\n3. Unstack the orange facizer from the blue facizer.\n4. Stack the orange facizer on the table.\n5. Unstack the blue facizer from the red facizer.\n6. Stack the blue facizer on the orange facizer.\n7. Pick up the red facizer.\n8. Stack the red facizer on the yellow facizer.\n\nThis sequence of actions will result in the red facizer being on top of the yellow facizer and the blue facizer being on top of the orange facizer, as required."
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the orange facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chat-6481a17156424cccac00e28232cf133e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the orange facizer, and the orange facizer is on top of the red facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the orange facizer from the blue facizer.\n2. Put down the orange facizer.\n3. Unstack the blue facizer from the yellow facizer.\n4. Put down the blue facizer.\n5. Unstack the yellow facizer from the red facizer.\n6. Put down the yellow facizer.\n7. Pick up the orange facizer.\n8. Stack the orange facizer on top of the red facizer.\n9. Pick up the blue facizer.\n10. Stack the blue facizer on top of the orange facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the orange facizer, and the orange facizer being on top of the red facizer, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706543,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 210,
+                    "prompt_tokens": 486,
+                    "total_tokens": 696,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 20.344624280929565,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the facizers so that the blue facizer is on top of the orange facizer, and the orange facizer is on top of the red facizer. Here is a step-by-step plan to achieve this:\n\n1. Unstack the orange facizer from the blue facizer.\n2. Put down the orange facizer.\n3. Unstack the blue facizer from the yellow facizer.\n4. Put down the blue facizer.\n5. Unstack the yellow facizer from the red facizer.\n6. Put down the yellow facizer.\n7. Pick up the orange facizer.\n8. Stack the orange facizer on top of the red facizer.\n9. Pick up the blue facizer.\n10. Stack the blue facizer on top of the orange facizer.\n\nThis sequence of actions will result in the blue facizer being on top of the orange facizer, and the orange facizer being on top of the red facizer, achieving your goal."
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the yellow facizer is on top of the blue facizer, the red facizer is on the table, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-785c13a75fe24e4b862a6db908e85897",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you can follow these steps:\n\n1. Pick up the yellow facizer.\n2. Put down the yellow facizer.\n3. Pick up the red facizer.\n4. Stack the red facizer on top of the blue facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer and the yellow facizer being on top of the red facizer, as desired.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706563,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 114,
+                    "prompt_tokens": 492,
+                    "total_tokens": 606,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.235119342803955,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you can follow these steps:\n\n1. Pick up the yellow facizer.\n2. Put down the yellow facizer.\n3. Pick up the red facizer.\n4. Stack the red facizer on top of the blue facizer.\n5. Pick up the yellow facizer.\n6. Stack the yellow facizer on top of the red facizer.\n\nThis sequence of actions will result in the red facizer being on top of the blue facizer and the yellow facizer being on top of the red facizer, as desired."
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the yellow facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chat-1351fee4851042cda10c593a27520f1e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the yellow facizer on top of the orange facizer, you can follow these steps:\n\n1. Unstack the red facizer from the yellow facizer.\n2. Put down the red facizer.\n3. Unstack the yellow facizer from the blue facizer.\n4. Put down the yellow facizer.\n5. Unstack the blue facizer from the orange facizer.\n6. Put down the blue facizer.\n7. Pick up the yellow facizer.\n8. Stack the yellow facizer on top of the orange facizer.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779706576,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 118,
+                    "prompt_tokens": 473,
+                    "total_tokens": 591,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.661478996276855,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the yellow facizer on top of the orange facizer, you can follow these steps:\n\n1. Unstack the red facizer from the yellow facizer.\n2. Put down the red facizer.\n3. Unstack the yellow facizer from the blue facizer.\n4. Put down the yellow facizer.\n5. Unstack the blue facizer from the orange facizer.\n6. Put down the blue facizer.\n7. Pick up the yellow facizer.\n8. Stack the yellow facizer on top of the orange facizer."
+        }
+    ],
+    "engine": "Qwen/Qwen2.5-32B-Instruct_vllm"
+}

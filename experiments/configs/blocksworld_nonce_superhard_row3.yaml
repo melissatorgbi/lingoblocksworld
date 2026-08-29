@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/superhard/superhard/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/superhard/superhard/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/superhard_row3/generated_domain_superhard.pddl
+domain_name: blocksworld_nonce_superhard_row3
+n_instances: 81
+start: 1
+end: 80
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of propories where I need to arrange the propories into meritows. Here are the actions I can do
+
+   Egate a propory
+   Unmeritow a propory from wealluck above another propory
+   Apeat a propory
+   Meritow a propory wealluck above another propory
+
+   I have the following restrictions on my actions:
+   I can only egate or unmeritow one propory at a time.
+   I can only egate or unmeritow a propory if my fordison is afficiusable.
+   I can only egate a propory if the propory is wealluck above the equenter and the propory is motimicsy. A propory is motimicsy if the propory has no other propories wealluck above it and if the propory is not egated.
+   I can only unmeritow a propory from wealluck above another propory if the propory I am unmeritowing was really wealluck above the other propory.
+   I can only unmeritow a propory from wealluck above another propory if the propory I am unmeritowing is motimicsy.
+   Once I egate or unmeritow a propory, I am aplonging the propory.
+   I can only apeat a propory that I am aplonging.
+   I can only meritow a propory wealluck above another propory if I am aplonging the propory being meritowed.
+   I can only meritow a propory wealluck above another propory if the propory onto which I am meritowing the propory is motimicsy.
+   Once I apeat or meritow a propory, my fordison becomes afficiusable.
+   Once you meritow a propory wealluck above a second propory, the second propory is no longer motimicsy.
+
+domain_intro_state_tracking: |
+   I am playing with a set of propories where I need to arrange the propories into meritows. Here are the actions I can do
+
+   Egate a propory
+   Unmeritow a propory from wealluck above another propory
+   Apeat a propory
+   Meritow a propory wealluck above another propory
+
+   I have the following restrictions on my actions:
+   I can only egate or unmeritow one propory at a time.
+   I can only egate or unmeritow a propory if my fordison is afficiusable.
+   I can only egate a propory if the propory is wealluck above the equenter and the propory is motimicsy. A propory is motimicsy if the propory has no other propories wealluck above it and if the propory is not egated.
+   I can only unmeritow a propory from wealluck above another propory if the propory I am unmeritowing was really wealluck above the other propory.
+   I can only unmeritow a propory from wealluck above another propory if the propory I am unmeritowing is motimicsy.
+   Once I egate or unmeritow a propory, I am aplonging the propory.
+   I can only apeat a propory that I am aplonging.
+   I can only meritow a propory wealluck above another propory if I am aplonging the propory being meritowed.
+   I can only meritow a propory wealluck above another propory if the propory onto which I am meritowing the propory is motimicsy.
+   Once I apeat or meritow a propory, my fordison becomes afficiusable.
+   Once you meritow a propory wealluck above a second propory, the second propory is no longer motimicsy.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {egate: "egate the {}",
+   apeat: "apeat the {}",
+   meritow: "meritow the {} wealluck above the {}",
+   unmeritow: "unmeritow the {} from wealluck above the {}"}
+
+
+
+predicates:
+  {wealluckaboveequenter: "the {} is wealluck above the equenter",
+   motimicsy: "the {} is motimicsy",
+   fordisonafficiusable: "the fordison is afficiusable",
+   aplonging: "the fordison is currently aplonging {}",
+   "wealluckabove": "the {} is wealluck above the {}"}
+
+predicate_mapping:
+   {
+   "wealluckaboveequenter": "wealluck above the equenter",
+   "motimicsy": "motimicsy",
+   "fordisonafficiusable": "fordison is afficiusable",
+   "aplonging": "aplonging",
+   "wealluckabove": "wealluck above"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "posidele propory", "b2": "porth propory", "b3": "falsion propory", "b4": "emislate propory",
+   "b5": "olizess propory", "b6": "corposer propory", "b7": "willet propory", "b8": "nianize propory",
+   "b9": "sment propory", "b10": "delemetart propory", "b11": "scringent propory", "b12": "mursang propory" }
+encoded_objects_compact:
+  {"b1": "posidele", "b2": "porth", "b3": "falsion", "b4": "emislate",
+   "b5": "olizess", "b6": "corposer", "b7": "willet", "b8": "nianize",
+   "b9": "sment", "b10": "delemetart", "b11": "scringent", "b12": "mursang" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

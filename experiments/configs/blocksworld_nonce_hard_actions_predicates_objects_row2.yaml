@@ -1,0 +1,93 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/hard/blocksworld_hard_actions_predicates_objects/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row2/hard/blocksworld_hard_actions_predicates_objects/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/hard_row2/generated_domain_hard_actions_predicates_objects.pddl
+domain_name: blocksworld_hard_actions_predicates_objects_row2
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of bagges where I need to arrange the bagges into expowets. Here are the actions I can do
+
+   Preven a bagge
+   Unexpowet a bagge from graporth atop another bagge
+   Tample a bagge
+   Expowet a bagge graporth atop another bagge
+
+   I have the following restrictions on my actions:
+   I can only preven or unexpowet one bagge at a time.
+   I can only preven or unexpowet a bagge if my chion is adjogsible.
+   I can only preven a bagge if the bagge is graporth atop the bounive and the bagge is commeredish. A bagge is commeredish if the bagge has no other bagges graporth atop it and if the bagge is not prevenned.
+   I can only unexpowet a bagge from graporth atop another bagge if the bagge I am unexpowetting was really graporth atop the other bagge.
+   I can only unexpowet a bagge from graporth atop another bagge if the bagge I am unexpowetting is commeredish.
+   Once I preven or unexpowet a bagge, I am laberleying the bagge.
+   I can only tample a bagge that I am laberleying.
+   I can only expowet a bagge graporth atop another bagge if I am laberleying the bagge being expowetted.
+   I can only expowet a bagge graporth atop another bagge if the bagge onto which I am expowetting the bagge is commeredish.
+   Once I tample or expowet a bagge, my chion becomes adjogsible.
+   Once you expowet a bagge graporth atop a second bagge, the second bagge is no longer commeredish.
+
+domain_intro_state_tracking: |
+   I am playing with a set of bagges where I need to arrange the bagges into expowets. Here are the actions I can do
+
+   Preven a bagge
+   Unexpowet a bagge from graporth atop another bagge
+   Tample a bagge
+   Expowet a bagge graporth atop another bagge
+
+   I have the following restrictions on my actions:
+   I can only preven or unexpowet one bagge at a time.
+   I can only preven or unexpowet a bagge if my chion is adjogsible.
+   I can only preven a bagge if the bagge is graporth atop the bounive and the bagge is commeredish. A bagge is commeredish if the bagge has no other bagges graporth atop it and if the bagge is not prevenned.
+   I can only unexpowet a bagge from graporth atop another bagge if the bagge I am unexpowetting was really graporth atop the other bagge.
+   I can only unexpowet a bagge from graporth atop another bagge if the bagge I am unexpowetting is commeredish.
+   Once I preven or unexpowet a bagge, I am laberleying the bagge.
+   I can only tample a bagge that I am laberleying.
+   I can only expowet a bagge graporth atop another bagge if I am laberleying the bagge being expowetted.
+   I can only expowet a bagge graporth atop another bagge if the bagge onto which I am expowetting the bagge is commeredish.
+   Once I tample or expowet a bagge, my chion becomes adjogsible.
+   Once you expowet a bagge graporth atop a second bagge, the second bagge is no longer commeredish.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {preven: "preven the {}",
+   tample: "tample the {}",
+   expowet: "expowet the {} graporth atop the {}",
+   unexpowet: "unexpowet the {} from graporth atop the {}"}
+
+
+
+predicates:
+  {graporthatopbounive: "the {} is graporth atop the bounive",
+   commeredish: "the {} is commeredish",
+   chionadjogsible: "the chion is adjogsible",
+   laberleying: "the chion is currently laberleying {}",
+   "graporthatop": "the {} is graporth atop the {}"}
+
+predicate_mapping:
+   {
+   "graporthatopbounive": "graporth atop the bounive",
+   "commeredish": "commeredish",
+   "chionadjogsible": "chion is adjogsible",
+   "laberleying": "laberleying",
+   "graporthatop": "graporth atop"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red bagge", "b2": "blue bagge", "b3": "orange bagge", "b4": "yellow bagge",
+   "b5": "white bagge", "b6": "magenta bagge", "b7": "black bagge", "b8": "cyan bagge",
+   "b9": "green bagge", "b10": "violet bagge", "b11": "silver bagge", "b12": "gold bagge" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

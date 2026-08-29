@@ -1,0 +1,1808 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_names_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-cfaa52d50aec471a97005eaefd59f82d",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the michime block on top of the facizer block, you need to follow these steps:\n\n1. Unstack michime from tegust.\n2. Put down michime.\n3. Unstack tegust from westoor.\n4. Put down tegust.\n5. Unstack westoor from facizer.\n6. Put down westoor.\n7. Pick up michime.\n8. Stack michime on facizer.\n\nThis sequence of actions will clear the way for the michime block to be placed directly on the facizer block, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721278,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 120,
+                    "prompt_tokens": 435,
+                    "total_tokens": 555,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.96151852607727,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the michime block on top of the facizer block, you need to follow these steps:\n\n1. Unstack michime from tegust.\n2. Put down michime.\n3. Unstack tegust from westoor.\n4. Put down tegust.\n5. Unstack westoor from facizer.\n6. Put down westoor.\n7. Pick up michime.\n8. Stack michime on facizer.\n\nThis sequence of actions will clear the way for the michime block to be placed directly on the facizer block, achieving your goal."
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the tegust block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-b4eb5b431f0549d09c8866abd2d3b914",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack michime from facizer.\n2. Stack michime on tegust.\n3. Pick up facizer.\n4. Unstack tegust from westoor.\n5. Stack tegust on westoor.\n6. Stack facizer on michime.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, the michime block on top of the tegust block, and the tegust block on top of the westoor block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721293,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 112,
+                    "prompt_tokens": 464,
+                    "total_tokens": 576,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.865653038024902,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack michime from facizer.\n2. Stack michime on tegust.\n3. Pick up facizer.\n4. Unstack tegust from westoor.\n5. Stack tegust on westoor.\n6. Stack facizer on michime.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, the michime block on top of the tegust block, and the tegust block on top of the westoor block, as required."
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-f0ff097a87b8496093f9d4a9a3dae477",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack michime from tegust.\n2. Stack michime on westoor.\n3. Unstack tegust from westoor.\n4. Stack tegust on michime.\n5. Pick up westoor.\n6. Unstack westoor from facizer.\n7. Stack westoor on facizer.\n\nThis sequence of actions will result in the michime block being on top of the westoor block, the tegust block on top of the michime block, and the westoor block on top of the facizer block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721306,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 143,
+                    "prompt_tokens": 464,
+                    "total_tokens": 607,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.861356019973755,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack michime from tegust.\n2. Stack michime on westoor.\n3. Unstack tegust from westoor.\n4. Stack tegust on michime.\n5. Pick up westoor.\n6. Unstack westoor from facizer.\n7. Stack westoor on facizer.\n\nThis sequence of actions will result in the michime block being on top of the westoor block, the tegust block on top of the michime block, and the westoor block on top of the facizer block, as required."
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the tegust block is on top of the westoor block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-5566a3505a5a4e69ae63d66a43a075b0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to follow these steps:\n\n1. Unstack tegust from westoor.\n2. Pick up facizer.\n3. Stack facizer on tegust.\n4. Pick up michime.\n5. Stack michime on facizer.\n6. Pick up westoor.\n7. Stack westoor on michime.\n\nThis sequence of actions will result in the blocks being arranged as desired: facizer on top of tegust, michime on top of facizer, and westoor on top of michime.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721320,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 110,
+                    "prompt_tokens": 467,
+                    "total_tokens": 577,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.286428451538086,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to follow these steps:\n\n1. Unstack tegust from westoor.\n2. Pick up facizer.\n3. Stack facizer on tegust.\n4. Pick up michime.\n5. Stack michime on facizer.\n6. Pick up westoor.\n7. Stack westoor on michime.\n\nThis sequence of actions will result in the blocks being arranged as desired: facizer on top of tegust, michime on top of facizer, and westoor on top of michime."
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the michime block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-3e6f76c708c54cfe87dd083b5a0e4ff1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the tegust block and the westoor block is on top of the facizer block. Here is a step-by-step plan to achieve this:\n\n1. Unstack facizer from tegust.\n2. Pick up westoor.\n3. Stack westoor on tegust.\n4. Pick up facizer.\n5. Stack facizer on westoor.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block and the westoor block being on top of the facizer block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721332,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 130,
+                    "prompt_tokens": 451,
+                    "total_tokens": 581,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.632644891738892,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the tegust block and the westoor block is on top of the facizer block. Here is a step-by-step plan to achieve this:\n\n1. Unstack facizer from tegust.\n2. Pick up westoor.\n3. Stack westoor on tegust.\n4. Pick up facizer.\n5. Stack facizer on westoor.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block and the westoor block being on top of the facizer block, as required."
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the westoor block is on top of the michime block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-9607cd23c30c45879cb19edd63a38df6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from michime.\n2. Put down westoor.\n3. Unstack michime from facizer.\n4. Stack michime on westoor.\n5. Pick up tegust.\n6. Stack tegust on facizer.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n\nThis sequence of actions will result in the michime block being on top of the westoor block, the tegust block on top of the facizer block, and the westoor block on top of the tegust block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721344,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 126,
+                    "prompt_tokens": 464,
+                    "total_tokens": 590,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.09371280670166,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from michime.\n2. Put down westoor.\n3. Unstack michime from facizer.\n4. Stack michime on westoor.\n5. Pick up tegust.\n6. Stack tegust on facizer.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n\nThis sequence of actions will result in the michime block being on top of the westoor block, the tegust block on top of the facizer block, and the westoor block on top of the tegust block, as required."
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the westoor block is on top of the tegust block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-41015873395743e4b698631d1360afa4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the facizer block and the tegust block is on top of the michime block. Here is a step-by-step plan to achieve this:\n\n1. Unstack facizer from westoor.\n2. Stack facizer on michime.\n3. Unstack westoor from tegust.\n4. Stack tegust on michime.\n5. Stack westoor on facizer.\n\nThis sequence of actions will result in the desired configuration where the michime block is on top of the facizer block and the tegust block is on top of the michime block.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721357,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 136,
+                    "prompt_tokens": 451,
+                    "total_tokens": 587,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 15.048171758651733,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the facizer block and the tegust block is on top of the michime block. Here is a step-by-step plan to achieve this:\n\n1. Unstack facizer from westoor.\n2. Stack facizer on michime.\n3. Unstack westoor from tegust.\n4. Stack tegust on michime.\n5. Stack westoor on facizer.\n\nThis sequence of actions will result in the desired configuration where the michime block is on top of the facizer block and the tegust block is on top of the michime block."
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-2a689a1b58dd4726973e4e807bef62c1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack tegust from on top of michime.\n2. Unstack michime from on top of westoor.\n3. Unstack westoor from on top of facizer.\n4. Stack facizer on top of michime.\n5. Stack michime on top of tegust.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, and the michime block being on top of the tegust block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721372,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 108,
+                    "prompt_tokens": 448,
+                    "total_tokens": 556,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.518090009689331,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack tegust from on top of michime.\n2. Unstack michime from on top of westoor.\n3. Unstack westoor from on top of facizer.\n4. Stack facizer on top of michime.\n5. Stack michime on top of tegust.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, and the michime block being on top of the tegust block, as required."
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the tegust block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-993ccb0df1e14f16aa974bc96a310860",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the tegust block and the westoor block is on top of the michime block. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from westoor.\n2. Stack westoor on tegust.\n3. Stack michime on tegust.\n\nThis sequence of actions will result in the desired configuration where the michime block is on top of the tegust block and the westoor block is on top of the michime block.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721385,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 117,
+                    "prompt_tokens": 451,
+                    "total_tokens": 568,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.316485404968262,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the tegust block and the westoor block is on top of the michime block. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from westoor.\n2. Stack westoor on tegust.\n3. Stack michime on tegust.\n\nThis sequence of actions will result in the desired configuration where the michime block is on top of the tegust block and the westoor block is on top of the michime block."
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-cb63bd71a1d24675a080fc259a08ce6e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack westoor from michime.\n2. Unstack michime from facizer.\n3. Unstack facizer from tegust.\n4. Stack facizer on tegust.\n5. Stack michime on facizer.\n6. Stack westoor on michime.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, the tegust block on top of the westoor block, and the westoor block on top of the facizer block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721397,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 136,
+                    "prompt_tokens": 461,
+                    "total_tokens": 597,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.205295085906982,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack westoor from michime.\n2. Unstack michime from facizer.\n3. Unstack facizer from tegust.\n4. Stack facizer on tegust.\n5. Stack michime on facizer.\n6. Stack westoor on michime.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, the tegust block on top of the westoor block, and the westoor block on top of the facizer block, as required."
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-37464075fb5a4d98b7743871dee36445",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the westoor block and the tegust block is on top of the michime block. Here is a sequence of actions that will achieve this:\n\n1. Unstack westoor from michime.\n2. Stack westoor on facizer.\n3. Unstack michime from tegust.\n4. Stack michime on westoor.\n5. Stack tegust on michime.\n\nThis sequence will result in the desired configuration where michime is on top of westoor and tegust is on top of michime.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721412,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 126,
+                    "prompt_tokens": 448,
+                    "total_tokens": 574,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.982630491256714,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the westoor block and the tegust block is on top of the michime block. Here is a sequence of actions that will achieve this:\n\n1. Unstack westoor from michime.\n2. Stack westoor on facizer.\n3. Unstack michime from tegust.\n4. Stack michime on westoor.\n5. Stack tegust on michime.\n\nThis sequence will result in the desired configuration where michime is on top of westoor and tegust is on top of michime."
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-dcc3ad0bdb854c69b618dcc9b977180f",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack facizer from westoor.\n2. Stack facizer on tegust.\n3. Pick up michime.\n4. Stack michime on facizer.\n5. Pick up westoor.\n6. Stack westoor on michime.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, the michime block on top of the facizer block, and the westoor block on top of the michime block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721424,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 109,
+                    "prompt_tokens": 467,
+                    "total_tokens": 576,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.430558204650879,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack facizer from westoor.\n2. Stack facizer on tegust.\n3. Pick up michime.\n4. Stack michime on facizer.\n5. Pick up westoor.\n6. Stack westoor on michime.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, the michime block on top of the facizer block, and the westoor block on top of the michime block, as required."
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-946a576a89ec4e8eaed95e6c7cc47c3f",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the tegust block and the westoor block is on top of the michime block. Here is a step-by-step plan to achieve this:\n\n1. Unstack the facizer block from the michime block.\n2. Put down the facizer block.\n3. Unstack the michime block from the tegust block.\n4. Put down the michime block.\n5. Pick up the westoor block.\n6. Stack the westoor block on top of the tegust block.\n7. Pick up the michime block.\n8. Stack the michime block on top of the westoor block.\n\nThis sequence of actions will result in the michime block being on top of the tegust block and the westoor block being on top of the michime block, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721436,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 183,
+                    "prompt_tokens": 451,
+                    "total_tokens": 634,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 19.21757435798645,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the tegust block and the westoor block is on top of the michime block. Here is a step-by-step plan to achieve this:\n\n1. Unstack the facizer block from the michime block.\n2. Put down the facizer block.\n3. Unstack the michime block from the tegust block.\n4. Put down the michime block.\n5. Pick up the westoor block.\n6. Stack the westoor block on top of the tegust block.\n7. Pick up the michime block.\n8. Stack the michime block on top of the westoor block.\n\nThis sequence of actions will result in the michime block being on top of the tegust block and the westoor block being on top of the michime block, achieving your goal."
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chat-bb6c14d5edf14106b5b004a4fe1a306c",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from on top of michime.\n2. Unstack michime from on top of facizer.\n3. Put down michime.\n4. Unstack facizer from on top of tegust.\n5. Stack tegust on top of michime.\n6. Stack facizer on top of tegust.\n7. Stack westoor on top of facizer.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721455,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 80,
+                    "prompt_tokens": 435,
+                    "total_tokens": 515,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 8.776843547821045,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from on top of michime.\n2. Unstack michime from on top of facizer.\n3. Put down michime.\n4. Unstack facizer from on top of tegust.\n5. Stack tegust on top of michime.\n6. Stack facizer on top of tegust.\n7. Stack westoor on top of facizer."
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-161cd86b44b344f897412e894d803891",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from tegust.\n2. Put down westoor.\n3. Unstack tegust from facizer.\n4. Put down tegust.\n5. Pick up facizer.\n6. Stack facizer on westoor.\n7. Pick up tegust.\n8. Stack tegust on michime.\n9. Pick up westoor.\n10. Stack westoor on michime.\n\nThis sequence of actions will result in the facizer block being on top of the westoor block, the michime block on top of the tegust block, and the westoor block on top of the michime block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721464,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 141,
+                    "prompt_tokens": 464,
+                    "total_tokens": 605,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.199415922164917,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from tegust.\n2. Put down westoor.\n3. Unstack tegust from facizer.\n4. Put down tegust.\n5. Pick up facizer.\n6. Stack facizer on westoor.\n7. Pick up tegust.\n8. Stack tegust on michime.\n9. Pick up westoor.\n10. Stack westoor on michime.\n\nThis sequence of actions will result in the facizer block being on top of the westoor block, the michime block on top of the tegust block, and the westoor block on top of the michime block, as required."
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the michime block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-a2fe56d2b26e4212b85dcdad94d05397",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack tegust from westoor.\n2. Stack tegust on westoor.\n3. Unstack westoor from facizer.\n4. Put down westoor.\n5. Unstack facizer from michime.\n6. Stack facizer on michime.\n7. Pick up westoor.\n8. Stack westoor on facizer.\n\nThis sequence of actions will result in the michime block being on top of the facizer block and the tegust block being on top of the westoor block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721480,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 117,
+                    "prompt_tokens": 448,
+                    "total_tokens": 565,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.79552674293518,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack tegust from westoor.\n2. Stack tegust on westoor.\n3. Unstack westoor from facizer.\n4. Put down westoor.\n5. Unstack facizer from michime.\n6. Stack facizer on michime.\n7. Pick up westoor.\n8. Stack westoor on facizer.\n\nThis sequence of actions will result in the michime block being on top of the facizer block and the tegust block being on top of the westoor block, as required."
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-509d804ed2d541c38f089af37d52ed53",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack michime from westoor.\n4. Stack michime on westoor.\n5. Pick up tegust.\n6. Stack tegust on facizer.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n\nThis sequence of actions will result in the michime block being on top of the westoor block, the tegust block on top of the facizer block, and the westoor block on top of the tegust block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721493,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 126,
+                    "prompt_tokens": 464,
+                    "total_tokens": 590,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.602391004562378,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack michime from westoor.\n4. Stack michime on westoor.\n5. Pick up tegust.\n6. Stack tegust on facizer.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n\nThis sequence of actions will result in the michime block being on top of the westoor block, the tegust block on top of the facizer block, and the westoor block on top of the tegust block, as required."
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chat-bc6693595b5247f885ddc47f579e9e57",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to follow these steps:\n\n1. Unstack tegust from michime.\n2. Pick up michime.\n3. Stack michime on facizer.\n4. Pick up tegust.\n5. Stack tegust on michime.\n6. Pick up westoor.\n7. Stack westoor on tegust.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, the michime block on top of the facizer block, and the westoor block on top of the tegust block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721506,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 119,
+                    "prompt_tokens": 467,
+                    "total_tokens": 586,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.98371434211731,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to follow these steps:\n\n1. Unstack tegust from michime.\n2. Pick up michime.\n3. Stack michime on facizer.\n4. Pick up tegust.\n5. Stack tegust on michime.\n6. Pick up westoor.\n7. Stack westoor on tegust.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, the michime block on top of the facizer block, and the westoor block on top of the tegust block, as required."
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the facizer block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the westoor block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-ab94094fa84e4763810b5cf57ce44437",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the michime block, the michime block is on top of the westoor block, and the westoor block is on top of the tegust block. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from westoor.\n2. Put down michime.\n3. Unstack westoor from facizer.\n4. Put down westoor.\n5. Pick up facizer.\n6. Stack facizer on michime.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n9. Pick up michime.\n10. Stack michime on westoor.\n\nThis sequence of actions will result in the desired configuration of blocks.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721520,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 162,
+                    "prompt_tokens": 464,
+                    "total_tokens": 626,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.356292963027954,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the michime block, the michime block is on top of the westoor block, and the westoor block is on top of the tegust block. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from westoor.\n2. Put down michime.\n3. Unstack westoor from facizer.\n4. Put down westoor.\n5. Pick up facizer.\n6. Stack facizer on michime.\n7. Pick up westoor.\n8. Stack westoor on tegust.\n9. Pick up michime.\n10. Stack michime on westoor.\n\nThis sequence of actions will result in the desired configuration of blocks."
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chat-8aede524e4044db692bfb77e8947c44e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the westoor block, and the westoor block is on top of the facizer block. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from tegust.\n2. Put down michime.\n3. Unstack tegust from facizer.\n4. Put down tegust.\n5. Pick up westoor.\n6. Stack westoor on facizer.\n7. Pick up michime.\n8. Stack michime on westoor.\n\nThis sequence of actions will result in the michime block being on top of the westoor block, and the westoor block being on top of the facizer block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721536,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 156,
+                    "prompt_tokens": 451,
+                    "total_tokens": 607,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.194305658340454,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the westoor block, and the westoor block is on top of the facizer block. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from tegust.\n2. Put down michime.\n3. Unstack tegust from facizer.\n4. Put down tegust.\n5. Pick up westoor.\n6. Stack westoor on facizer.\n7. Pick up michime.\n8. Stack michime on westoor.\n\nThis sequence of actions will result in the michime block being on top of the westoor block, and the westoor block being on top of the facizer block, as required."
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chat-580ef9dea37446ff88b975cc56d621a5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack facizer from westoor.\n2. Pick up tegust.\n3. Stack tegust on westoor.\n4. Put down facizer.\n5. Pick up michime from tegust.\n6. Stack michime on facizer.\n7. Pick up facizer.\n8. Stack facizer on tegust.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, the michime block on top of the facizer block, and the tegust block on top of the westoor block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721553,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 126,
+                    "prompt_tokens": 464,
+                    "total_tokens": 590,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.908607482910156,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack facizer from westoor.\n2. Pick up tegust.\n3. Stack tegust on westoor.\n4. Put down facizer.\n5. Pick up michime from tegust.\n6. Stack michime on facizer.\n7. Pick up facizer.\n8. Stack facizer on tegust.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, the michime block on top of the facizer block, and the tegust block on top of the westoor block, as required."
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-940b166716b54fbab540411d25d33ab7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the facizer block on top of the michime block, and the michime block on top of the tegust block, you can follow these steps:\n\n1. Unstack tegust from facizer.\n2. Pick up michime.\n3. Stack michime on tegust.\n4. Pick up facizer.\n5. Stack facizer on michime.\n\nThis sequence of actions will result in the desired configuration of blocks.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721567,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 93,
+                    "prompt_tokens": 454,
+                    "total_tokens": 547,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 10.063832998275757,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the facizer block on top of the michime block, and the michime block on top of the tegust block, you can follow these steps:\n\n1. Unstack tegust from facizer.\n2. Pick up michime.\n3. Stack michime on tegust.\n4. Pick up facizer.\n5. Stack facizer on michime.\n\nThis sequence of actions will result in the desired configuration of blocks."
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-b7b2e33ff12e4a40b0c85eee299fac0c",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from tegust.\n2. Unstack tegust from michime.\n3. Pick up facizer.\n4. Stack facizer on michime.\n5. Pick up tegust.\n6. Stack tegust on westoor.\n7. Pick up westoor.\n8. Stack westoor on facizer.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, the tegust block on top of the westoor block, and the westoor block on top of the facizer block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721577,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 126,
+                    "prompt_tokens": 464,
+                    "total_tokens": 590,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.546859741210938,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from tegust.\n2. Unstack tegust from michime.\n3. Pick up facizer.\n4. Stack facizer on michime.\n5. Pick up tegust.\n6. Stack tegust on westoor.\n7. Pick up westoor.\n8. Stack westoor on facizer.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, the tegust block on top of the westoor block, and the westoor block on top of the facizer block, as required."
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-432f29243cad4a48bbc8349686f173ac",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the `tegust` block is on top of the `westoor` block, and the `westoor` block is on top of the `michime` block. Here is a step-by-step plan to achieve this:\n\n1. Unstack `facizer` from `michime`.\n2. Put down `facizer`.\n3. Unstack `michime` from `tegust`.\n4. Pick up `westoor`.\n5. Stack `westoor` on `michime`.\n6. Pick up `tegust`.\n7. Stack `tegust` on `westoor`.\n\nThis sequence of actions will result in the `tegust` block being on top of the `westoor` block, and the `westoor` block being on top of the `michime` block, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721591,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 191,
+                    "prompt_tokens": 451,
+                    "total_tokens": 642,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 20.096511363983154,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the `tegust` block is on top of the `westoor` block, and the `westoor` block is on top of the `michime` block. Here is a step-by-step plan to achieve this:\n\n1. Unstack `facizer` from `michime`.\n2. Put down `facizer`.\n3. Unstack `michime` from `tegust`.\n4. Pick up `westoor`.\n5. Stack `westoor` on `michime`.\n6. Pick up `tegust`.\n7. Stack `tegust` on `westoor`.\n\nThis sequence of actions will result in the `tegust` block being on top of the `westoor` block, and the `westoor` block being on top of the `michime` block, achieving your goal."
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-9005cd0e7ddc40d3acaaf96d41f9647c",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack facizer from tegust.\n2. Pick up westoor.\n3. Stack westoor on tegust.\n4. Put down facizer.\n5. Pick up michime.\n6. Stack michime on tegust.\n7. Pick up facizer.\n8. Stack facizer on westoor.\n\nThis sequence of actions will result in the facizer block being on top of the westoor block, the michime block on top of the tegust block, and the westoor block on top of the michime block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721611,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 123,
+                    "prompt_tokens": 467,
+                    "total_tokens": 590,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 14.35122299194336,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack facizer from tegust.\n2. Pick up westoor.\n3. Stack westoor on tegust.\n4. Put down facizer.\n5. Pick up michime.\n6. Stack michime on tegust.\n7. Pick up facizer.\n8. Stack facizer on westoor.\n\nThis sequence of actions will result in the facizer block being on top of the westoor block, the michime block on top of the tegust block, and the westoor block on top of the michime block, as required."
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-8e06d457a4b94a8095d853f17d595bfd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the michime block, and the michime block is on top of the westoor block. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from facizer.\n2. Stack michime on westoor.\n3. Pick up facizer.\n4. Stack facizer on michime.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, which is on top of the westoor block, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721625,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 122,
+                    "prompt_tokens": 451,
+                    "total_tokens": 573,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.36091685295105,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the michime block, and the michime block is on top of the westoor block. Here is a step-by-step plan to achieve this:\n\n1. Unstack michime from facizer.\n2. Stack michime on westoor.\n3. Pick up facizer.\n4. Stack facizer on michime.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, which is on top of the westoor block, achieving your goal."
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-edf9118f2fc7433aa136a08a0cd76394",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the michime block and the westoor block is on top of the facizer block. Here is a step-by-step plan to achieve this:\n\n1. Unstack westoor from facizer.\n2. Stack facizer on michime.\n3. Stack westoor on facizer.\n\nThis sequence of actions will result in the desired configuration of blocks.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721639,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 93,
+                    "prompt_tokens": 454,
+                    "total_tokens": 547,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 10.553063154220581,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the michime block and the westoor block is on top of the facizer block. Here is a step-by-step plan to achieve this:\n\n1. Unstack westoor from facizer.\n2. Stack facizer on michime.\n3. Stack westoor on facizer.\n\nThis sequence of actions will result in the desired configuration of blocks."
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-80b69f74661147978eb885078b283d09",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal of having the facizer block on top of the westoor block, follow these steps:\n\n1. Unstack tegust from westoor.\n2. Stack tegust on facizer.\n3. Unstack westoor from michime.\n4. Stack westoor on facizer.\n5. Pick up michime.\n6. Stack michime on westoor.\n\nThis sequence of actions will result in the facizer block being on top of the westoor block, as desired.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721649,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 100,
+                    "prompt_tokens": 435,
+                    "total_tokens": 535,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 11.573076486587524,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal of having the facizer block on top of the westoor block, follow these steps:\n\n1. Unstack tegust from westoor.\n2. Stack tegust on facizer.\n3. Unstack westoor from michime.\n4. Stack westoor on facizer.\n5. Pick up michime.\n6. Stack michime on westoor.\n\nThis sequence of actions will result in the facizer block being on top of the westoor block, as desired."
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-d2c012089dc6428fba8c784eaeaf9d6a",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack westoor from on top of tegust.\n2. Unstack tegust from on top of facizer.\n3. Put down tegust.\n4. Unstack facizer from on top of michime.\n5. Stack michime on top of westoor.\n6. Stack facizer on top of michime.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721661,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 69,
+                    "prompt_tokens": 448,
+                    "total_tokens": 517,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 6.95554780960083,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack westoor from on top of tegust.\n2. Unstack tegust from on top of facizer.\n3. Put down tegust.\n4. Unstack facizer from on top of michime.\n5. Stack michime on top of westoor.\n6. Stack facizer on top of michime."
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the westoor block, the westoor block is on top of the facizer block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chat-26b585ab53834ea7b064c4d177324715",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack facizer from tegust.\n2. Put down facizer.\n3. Unstack michime from westoor.\n4. Put down michime.\n5. Unstack westoor from facizer.\n6. Put down westoor.\n7. Stack tegust on michime.\n8. Stack facizer on tegust.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, and the tegust block being on top of the michime block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721668,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 116,
+                    "prompt_tokens": 448,
+                    "total_tokens": 564,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 13.10214352607727,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack facizer from tegust.\n2. Put down facizer.\n3. Unstack michime from westoor.\n4. Put down michime.\n5. Unstack westoor from facizer.\n6. Put down westoor.\n7. Stack tegust on michime.\n8. Stack facizer on tegust.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, and the tegust block being on top of the michime block, as required."
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chat-4c307e3ce43c421194a041743bb116e7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from michime.\n2. Stack westoor on facizer.\n3. Unstack tegust from facizer.\n4. Stack tegust on michime.\n5. Pick up facizer.\n6. Stack facizer on tegust.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, and the tegust block being on top of the michime block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721681,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 101,
+                    "prompt_tokens": 448,
+                    "total_tokens": 549,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 9.821753978729248,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from michime.\n2. Stack westoor on facizer.\n3. Unstack tegust from facizer.\n4. Stack tegust on michime.\n5. Pick up facizer.\n6. Stack facizer on tegust.\n\nThis sequence of actions will result in the facizer block being on top of the tegust block, and the tegust block being on top of the michime block, as required."
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chat-e22127065ba94603ab18c0efb3c35df9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Given the initial conditions and the goal, the current state already satisfies the goal: the tegust block is on top of the facizer block. Therefore, no actions are needed to achieve the goal. \n\nHowever, if the goal was to ensure that the tegust block is on top of the facizer block and both are on the table (implying that the facizer block is not on top of the michime block), the following actions would be needed:\n\n1. Unstack facizer from michime.\n2. Stack tegust on facizer.\n\nBut since the goal is simply to have the tegust block on top of the facizer block, and this is already the case, no actions are required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721691,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 146,
+                    "prompt_tokens": 438,
+                    "total_tokens": 584,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.0268452167511,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Given the initial conditions and the goal, the current state already satisfies the goal: the tegust block is on top of the facizer block. Therefore, no actions are needed to achieve the goal. \n\nHowever, if the goal was to ensure that the tegust block is on top of the facizer block and both are on the table (implying that the facizer block is not on top of the michime block), the following actions would be needed:\n\n1. Unstack facizer from michime.\n2. Stack tegust on facizer.\n\nBut since the goal is simply to have the tegust block on top of the facizer block, and this is already the case, no actions are required."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chat-24337a4c1d56433789320baecdeff80e",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the westoor block from the tegust block.\n2. Put down the westoor block.\n3. Unstack the tegust block from the michime block.\n4. Stack the tegust block on the michime block.\n5. Pick up the westoor block.\n6. Stack the westoor block on the facizer block.\n\nThis sequence of actions will result in the michime block being on top of the tegust block and the westoor block being on top of the facizer block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721708,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 118,
+                    "prompt_tokens": 451,
+                    "total_tokens": 569,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.990015983581543,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the westoor block from the tegust block.\n2. Put down the westoor block.\n3. Unstack the tegust block from the michime block.\n4. Stack the tegust block on the michime block.\n5. Pick up the westoor block.\n6. Stack the westoor block on the facizer block.\n\nThis sequence of actions will result in the michime block being on top of the tegust block and the westoor block being on top of the facizer block, as required."
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the facizer block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chat-a8509c91d1a54064a3319151e7e450af",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the michime block, and the michime block is on top of the tegust block. Here is a step-by-step plan to achieve this:\n\n1. Unstack the westoor block from the facizer block.\n2. Put down the westoor block.\n3. Unstack the facizer block from the tegust block.\n4. Stack the facizer block on top of the michime block.\n5. Pick up the tegust block.\n6. Put down the tegust block.\n7. Pick up the michime block.\n8. Stack the michime block on top of the tegust block.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, and the michime block being on top of the tegust block, achieving your goal.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721721,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 185,
+                    "prompt_tokens": 451,
+                    "total_tokens": 636,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 19.513577222824097,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the facizer block is on top of the michime block, and the michime block is on top of the tegust block. Here is a step-by-step plan to achieve this:\n\n1. Unstack the westoor block from the facizer block.\n2. Put down the westoor block.\n3. Unstack the facizer block from the tegust block.\n4. Stack the facizer block on top of the michime block.\n5. Pick up the tegust block.\n6. Put down the tegust block.\n7. Pick up the michime block.\n8. Stack the michime block on top of the tegust block.\n\nThis sequence of actions will result in the facizer block being on top of the michime block, and the michime block being on top of the tegust block, achieving your goal."
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the westoor block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the facizer block, the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-83458687c25b43daa49a5801d81a5cfe",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack facizer from michime.\n2. Put down facizer.\n3. Unstack michime from westoor.\n4. Put down michime.\n5. Pick up westoor.\n6. Stack westoor on michime.\n7. Pick up tegust.\n8. Stack tegust on westoor.\n9. Pick up facizer.\n10. Stack facizer on michime.\n\nThis sequence of actions will result in the michime block being on top of the facizer block, the tegust block on top of the westoor block, and the westoor block on top of the michime block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721741,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 162,
+                    "prompt_tokens": 464,
+                    "total_tokens": 626,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 16.84120512008667,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks in a specific order. Here is a step-by-step plan to achieve the desired configuration:\n\n1. Unstack facizer from michime.\n2. Put down facizer.\n3. Unstack michime from westoor.\n4. Put down michime.\n5. Pick up westoor.\n6. Stack westoor on michime.\n7. Pick up tegust.\n8. Stack tegust on westoor.\n9. Pick up facizer.\n10. Stack facizer on michime.\n\nThis sequence of actions will result in the michime block being on top of the facizer block, the tegust block on top of the westoor block, and the westoor block on top of the michime block, as required."
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chat-a7e9547d1d8847b1873b1dfc06f88a33",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks from their initial state to the desired final state. Here is a step-by-step plan to achieve this:\n\n1. Unstack facizer from tegust.\n2. Stack facizer on michime.\n3. Unstack tegust from westoor.\n4. Stack tegust on westoor.\n5. Pick up westoor.\n6. Unstack facizer from michime.\n7. Stack westoor on facizer.\n8. Stack facizer on michime.\n\nThis sequence of actions will rearrange the blocks as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721757,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 119,
+                    "prompt_tokens": 461,
+                    "total_tokens": 580,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.320088148117065,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks from their initial state to the desired final state. Here is a step-by-step plan to achieve this:\n\n1. Unstack facizer from tegust.\n2. Stack facizer on michime.\n3. Unstack tegust from westoor.\n4. Stack tegust on westoor.\n5. Pick up westoor.\n6. Unstack facizer from michime.\n7. Stack westoor on facizer.\n8. Stack facizer on michime.\n\nThis sequence of actions will rearrange the blocks as required."
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the michime block, the westoor block is on top of the tegust block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chat-34f1526e29aa4ba9bc578483f259bd25",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from tegust.\n2. Unstack tegust from michime.\n3. Unstack michime from facizer.\n4. Stack tegust on michime.\n5. Pick up facizer.\n6. Put down facizer.\n7. Stack westoor on facizer.\n\nThis sequence of actions will result in the facizer block being on top of the westoor block and the michime block being on top of the tegust block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721770,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 108,
+                    "prompt_tokens": 448,
+                    "total_tokens": 556,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 12.518567085266113,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack westoor from tegust.\n2. Unstack tegust from michime.\n3. Unstack michime from facizer.\n4. Stack tegust on michime.\n5. Pick up facizer.\n6. Put down facizer.\n7. Stack westoor on facizer.\n\nThis sequence of actions will result in the facizer block being on top of the westoor block and the michime block being on top of the tegust block, as required."
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the tegust block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chat-06d4e1127b624246a50648a484d6e2dd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the tegust block, and the tegust block is on top of the facizer block. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack michime from westoor.\n4. Stack michime on tegust.\n5. Unstack westoor from facizer.\n6. Put down westoor.\n7. Stack tegust on facizer.\n\nThis sequence of actions will result in the michime block being on top of the tegust block, and the tegust block being on top of the facizer block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721782,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 152,
+                    "prompt_tokens": 448,
+                    "total_tokens": 600,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 17.027114152908325,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, you need to rearrange the blocks so that the michime block is on top of the tegust block, and the tegust block is on top of the facizer block. Here is a step-by-step plan to achieve this:\n\n1. Unstack tegust from michime.\n2. Put down tegust.\n3. Unstack michime from westoor.\n4. Stack michime on tegust.\n5. Unstack westoor from facizer.\n6. Put down westoor.\n7. Stack tegust on facizer.\n\nThis sequence of actions will result in the michime block being on top of the tegust block, and the tegust block being on top of the facizer block, as required."
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chat-fe56d23d89924ff8840687dd05cab2a0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "To achieve your goal, follow these steps:\n\n1. Unstack the westoor block from the michime block.\n2. Pick up the facizer block.\n3. Stack the facizer block on top of the michime block.\n4. Pick up the westoor block.\n5. Stack the westoor block on top of the facizer block.\n\nThis sequence of actions will result in the facizer block being on top of the michime block and the westoor block being on top of the facizer block, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721800,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 108,
+                    "prompt_tokens": 454,
+                    "total_tokens": 562,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 9.554950475692749,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "To achieve your goal, follow these steps:\n\n1. Unstack the westoor block from the michime block.\n2. Pick up the facizer block.\n3. Stack the facizer block on top of the michime block.\n4. Pick up the westoor block.\n5. Stack the westoor block on top of the facizer block.\n\nThis sequence of actions will result in the facizer block being on top of the michime block and the westoor block being on top of the facizer block, as required."
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chat-c6931c67ca324c15a0a02a314deb76aa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack facizer from westoor.\n2. Stack facizer on tegust.\n3. Unstack westoor from michime.\n4. Stack westoor on tegust.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": null,
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": []
+                        },
+                        "stop_reason": null
+                    }
+                ],
+                "created": 1779721811,
+                "model": "Qwen/Qwen2.5-32B-Instruct",
+                "object": "chat.completion",
+                "service_tier": null,
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 39,
+                    "prompt_tokens": 435,
+                    "total_tokens": 474,
+                    "completion_tokens_details": null,
+                    "prompt_tokens_details": null
+                },
+                "prompt_logprobs": null,
+                "time_taken": 5.200984716415405,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack facizer from westoor.\n2. Stack facizer on tegust.\n3. Unstack westoor from michime.\n4. Stack westoor on tegust."
+        }
+    ],
+    "engine": "Qwen/Qwen2.5-32B-Instruct_vllm"
+}

@@ -1,0 +1,727 @@
+{
+    "task": "task_1_plan_generation",
+    "prompt_type": "oneshot",
+    "domain": "blocksworld_nonce_easy_objects_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "example_instance_ids": [
+                0
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the red facizer from on top of the blue facizer\nput down the red facizer\nunstack the blue facizer from on top of the orange facizer\nstack the blue facizer on top of the red facizer\nunstack the orange facizer from on top of the yellow facizer\nput down the orange facizer\nunstack the blue facizer from on top of the red facizer\nstack the blue facizer on top of the orange facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\npick up the red facizer\nstack the red facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 5,
+                    "evaluated": 8,
+                    "generated": 11,
+                    "search_time (in secs)": 0.000608
+                },
+                "readable_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n"
+            }
+        },
+        {
+            "instance_id": 2,
+            "example_instance_ids": [
+                1
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the orange facizer\nput down the blue facizer\nunstack the orange facizer from on top of the yellow facizer\nput down the orange facizer\nunstack the yellow facizer from on top of the red facizer\nput down the yellow facizer\npick up the blue facizer\nstack the blue facizer on top of the red facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the red facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer and the orange facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 14,
+                    "evaluated": 24,
+                    "generated": 36,
+                    "search_time (in secs)": 0.000897
+                },
+                "readable_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 3,
+            "example_instance_ids": [
+                2
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the red facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer and the orange facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the red facizer\nput down the blue facizer\nunstack the red facizer from on top of the yellow facizer\nput down the red facizer\npick up the orange facizer\nstack the orange facizer on top of the yellow facizer\npick up the blue facizer\nstack the blue facizer on top of the orange facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 12,
+                    "evaluated": 20,
+                    "generated": 30,
+                    "search_time (in secs)": 0.00088
+                },
+                "readable_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n"
+            }
+        },
+        {
+            "instance_id": 4,
+            "example_instance_ids": [
+                3
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the orange facizer\nput down the blue facizer\nunstack the orange facizer from on top of the yellow facizer\nput down the orange facizer\npick up the yellow facizer\nstack the yellow facizer on top of the red facizer\npick up the blue facizer\nstack the blue facizer on top of the yellow facizer\npick up the orange facizer\nstack the orange facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the orange facizer is clear, the hand is empty, the orange facizer is on top of the yellow facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 8,
+                    "generated": 9,
+                    "search_time (in secs)": 0.000741
+                },
+                "readable_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 5,
+            "example_instance_ids": [
+                4
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the orange facizer is clear, the hand is empty, the orange facizer is on top of the yellow facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the orange facizer from on top of the yellow facizer\nput down the orange facizer\npick up the red facizer\nstack the red facizer on top of the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the red facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the yellow facizer is on top of the blue facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(stack b4 b1)",
+                "length": 2,
+                "states_info": {
+                    "expanded": 0,
+                    "evaluated": 1,
+                    "generated": 0,
+                    "search_time (in secs)": 0.000368
+                },
+                "readable_plan": "(unstack b4 b2)\n(stack b4 b1)\n"
+            }
+        },
+        {
+            "instance_id": 6,
+            "example_instance_ids": [
+                5
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the yellow facizer is on top of the blue facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the blue facizer\nstack the yellow facizer on top of the red facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the red facizer and the yellow facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 14,
+                    "evaluated": 24,
+                    "generated": 36,
+                    "search_time (in secs)": 0.000921
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n"
+            }
+        },
+        {
+            "instance_id": 7,
+            "example_instance_ids": [
+                6
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the red facizer and the yellow facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the blue facizer\nput down the yellow facizer\nunstack the blue facizer from on top of the red facizer\nput down the blue facizer\npick up the orange facizer\nstack the orange facizer on top of the red facizer\npick up the yellow facizer\nstack the yellow facizer on top of the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the yellow facizer is on top of the orange facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer and the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 7,
+                    "evaluated": 11,
+                    "generated": 16,
+                    "search_time (in secs)": 0.000677
+                },
+                "readable_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n"
+            }
+        },
+        {
+            "instance_id": 8,
+            "example_instance_ids": [
+                7
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the yellow facizer is on top of the orange facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer and the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the red facizer from on top of the yellow facizer\nput down the red facizer\npick up the blue facizer\nstack the blue facizer on top of the red facizer\nunstack the yellow facizer from on top of the orange facizer\nput down the yellow facizer\npick up the orange facizer\nstack the orange facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 5,
+                    "evaluated": 7,
+                    "generated": 10,
+                    "search_time (in secs)": 0.000648
+                },
+                "readable_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 9,
+            "example_instance_ids": [
+                8
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the orange facizer from on top of the blue facizer\nput down the orange facizer\nunstack the blue facizer from on top of the yellow facizer\nstack the blue facizer on top of the orange facizer\nunstack the yellow facizer from on top of the red facizer\nput down the yellow facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000666
+                },
+                "readable_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 10,
+            "example_instance_ids": [
+                9
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the yellow facizer\nstack the blue facizer on top of the red facizer\nunstack the yellow facizer from on top of the orange facizer\nput down the yellow facizer\nunstack the blue facizer from on top of the red facizer\nstack the blue facizer on top of the orange facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 4,
+                    "generated": 5,
+                    "search_time (in secs)": 0.000775
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 11,
+            "example_instance_ids": [
+                10
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the blue facizer\nput down the yellow facizer\nunstack the blue facizer from on top of the red facizer\nput down the blue facizer\nunstack the red facizer from on top of the orange facizer\nstack the red facizer on top of the blue facizer\npick up the yellow facizer\nstack the yellow facizer on top of the red facizer\npick up the orange facizer\nstack the orange facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer and the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 1,
+                    "evaluated": 2,
+                    "generated": 1,
+                    "search_time (in secs)": 0.000557
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n"
+            }
+        },
+        {
+            "instance_id": 12,
+            "example_instance_ids": [
+                11
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer and the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the blue facizer\nput down the yellow facizer\nunstack the blue facizer from on top of the orange facizer\nstack the blue facizer on top of the yellow facizer\nunstack the orange facizer from on top of the red facizer\nstack the orange facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on the table, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 0,
+                    "evaluated": 1,
+                    "generated": 0,
+                    "search_time (in secs)": 0.000628
+                },
+                "readable_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 13,
+            "example_instance_ids": [
+                12
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on the table, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the red facizer from on top of the yellow facizer\nstack the red facizer on top of the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the red facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 4,
+                "states_info": {
+                    "expanded": 1,
+                    "evaluated": 3,
+                    "generated": 2,
+                    "search_time (in secs)": 0.000455
+                },
+                "readable_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 14,
+            "example_instance_ids": [
+                13
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the red facizer from on top of the blue facizer\nput down the red facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 6,
+                    "evaluated": 9,
+                    "generated": 13,
+                    "search_time (in secs)": 0.00068
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n"
+            }
+        },
+        {
+            "instance_id": 15,
+            "example_instance_ids": [
+                14
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the blue facizer\nput down the yellow facizer\nunstack the blue facizer from on top of the red facizer\nput down the blue facizer\nunstack the red facizer from on top of the orange facizer\nput down the red facizer\npick up the orange facizer\nstack the orange facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the red facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000895
+                },
+                "readable_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n"
+            }
+        },
+        {
+            "instance_id": 16,
+            "example_instance_ids": [
+                15
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the red facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the orange facizer\nput down the yellow facizer\nunstack the orange facizer from on top of the red facizer\nput down the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the orange facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\npick up the red facizer\nstack the red facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the blue facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer and the orange facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 7,
+                    "evaluated": 11,
+                    "generated": 16,
+                    "search_time (in secs)": 0.00068
+                },
+                "readable_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n"
+            }
+        },
+        {
+            "instance_id": 17,
+            "example_instance_ids": [
+                16
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the blue facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer and the orange facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the orange facizer from on top of the yellow facizer\nput down the orange facizer\nunstack the yellow facizer from on top of the red facizer\nput down the yellow facizer\npick up the orange facizer\nstack the orange facizer on top of the yellow facizer\nunstack the red facizer from on top of the blue facizer\nput down the red facizer\npick up the blue facizer\nstack the blue facizer on top of the red facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the red facizer and the yellow facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 6,
+                    "evaluated": 11,
+                    "generated": 15,
+                    "search_time (in secs)": 0.000657
+                },
+                "readable_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n"
+            }
+        },
+        {
+            "instance_id": 18,
+            "example_instance_ids": [
+                17
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the red facizer and the yellow facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the orange facizer from on top of the blue facizer\nstack the orange facizer on top of the red facizer\nunstack the blue facizer from on top of the yellow facizer\nput down the blue facizer\npick up the yellow facizer\nstack the yellow facizer on top of the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 2,
+                    "evaluated": 6,
+                    "generated": 6,
+                    "search_time (in secs)": 0.000738
+                },
+                "readable_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n"
+            }
+        },
+        {
+            "instance_id": 19,
+            "example_instance_ids": [
+                18
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the orange facizer from on top of the blue facizer\nput down the orange facizer\npick up the red facizer\nstack the red facizer on top of the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the red facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer and the yellow facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 6,
+                    "generated": 7,
+                    "search_time (in secs)": 0.000664
+                },
+                "readable_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 20,
+            "example_instance_ids": [
+                19
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer and the yellow facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the yellow facizer\nput down the blue facizer\nunstack the yellow facizer from on top of the red facizer\nstack the yellow facizer on top of the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the yellow facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 8,
+                    "evaluated": 13,
+                    "generated": 19,
+                    "search_time (in secs)": 0.000702
+                },
+                "readable_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n"
+            }
+        },
+        {
+            "instance_id": 21,
+            "example_instance_ids": [
+                20
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the orange facizer\nput down the blue facizer\nunstack the orange facizer from on top of the red facizer\nput down the orange facizer\npick up the yellow facizer\nstack the yellow facizer on top of the red facizer\npick up the blue facizer\nstack the blue facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the orange facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 17,
+                    "evaluated": 30,
+                    "generated": 46,
+                    "search_time (in secs)": 0.00089
+                },
+                "readable_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n"
+            }
+        },
+        {
+            "instance_id": 22,
+            "example_instance_ids": [
+                21
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the orange facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the orange facizer\nput down the blue facizer\nunstack the red facizer from on top of the yellow facizer\nstack the red facizer on top of the blue facizer\npick up the orange facizer\nstack the orange facizer on top of the yellow facizer\nunstack the red facizer from on top of the blue facizer\nstack the red facizer on top of the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the red facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the red facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 2,
+                    "evaluated": 6,
+                    "generated": 6,
+                    "search_time (in secs)": 0.000627
+                },
+                "readable_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 23,
+            "example_instance_ids": [
+                22
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the red facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the orange facizer from on top of the red facizer\nput down the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the orange facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 14,
+                    "evaluated": 24,
+                    "generated": 36,
+                    "search_time (in secs)": 0.000857
+                },
+                "readable_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 24,
+            "example_instance_ids": [
+                23
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the orange facizer\nput down the yellow facizer\nunstack the orange facizer from on top of the blue facizer\nput down the orange facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\npick up the yellow facizer\nstack the yellow facizer on top of the red facizer\npick up the orange facizer\nstack the orange facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 5,
+                    "evaluated": 10,
+                    "generated": 13,
+                    "search_time (in secs)": 0.000745
+                },
+                "readable_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 25,
+            "example_instance_ids": [
+                24
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the red facizer from on top of the blue facizer\nput down the red facizer\nunstack the blue facizer from on top of the orange facizer\nput down the blue facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\npick up the orange facizer\nstack the orange facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on the table, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 9,
+                    "evaluated": 19,
+                    "generated": 26,
+                    "search_time (in secs)": 0.000782
+                },
+                "readable_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n"
+            }
+        },
+        {
+            "instance_id": 26,
+            "example_instance_ids": [
+                25
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on the table, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the red facizer from on top of the orange facizer\nput down the red facizer\npick up the blue facizer\nstack the blue facizer on top of the orange facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\npick up the red facizer\nstack the red facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the red facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000659
+                },
+                "readable_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 27,
+            "example_instance_ids": [
+                26
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the red facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the red facizer\nstack the blue facizer on top of the orange facizer\nunstack the red facizer from on top of the yellow facizer\nput down the red facizer\nunstack the blue facizer from on top of the orange facizer\nstack the blue facizer on top of the yellow facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the yellow facizer is on top of the red facizer, the red facizer is on the table, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 5,
+                    "evaluated": 12,
+                    "generated": 15,
+                    "search_time (in secs)": 0.00057
+                },
+                "readable_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n"
+            }
+        },
+        {
+            "instance_id": 28,
+            "example_instance_ids": [
+                27
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the yellow facizer is on top of the red facizer, the red facizer is on the table, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the red facizer\nstack the yellow facizer on top of the orange facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\nunstack the yellow facizer from on top of the orange facizer\nstack the yellow facizer on top of the red facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 6,
+                    "evaluated": 9,
+                    "generated": 13,
+                    "search_time (in secs)": 0.00064
+                },
+                "readable_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n"
+            }
+        },
+        {
+            "instance_id": 29,
+            "example_instance_ids": [
+                28
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the orange facizer from on top of the yellow facizer\nput down the orange facizer\nunstack the yellow facizer from on top of the blue facizer\nput down the yellow facizer\nunstack the blue facizer from on top of the red facizer\nput down the blue facizer\npick up the red facizer\nstack the red facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the orange facizer and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000787
+                },
+                "readable_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 30,
+            "example_instance_ids": [
+                29
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the orange facizer and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the yellow facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the orange facizer\nput down the yellow facizer\nunstack the orange facizer from on top of the red facizer\nput down the orange facizer\nunstack the red facizer from on top of the blue facizer\nstack the red facizer on top of the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the yellow facizer\nunstack the red facizer from on top of the orange facizer\nstack the red facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 10,
+                    "evaluated": 17,
+                    "generated": 25,
+                    "search_time (in secs)": 0.000771
+                },
+                "readable_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n"
+            }
+        },
+        {
+            "instance_id": 31,
+            "example_instance_ids": [
+                30
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the blue facizer from on top of the yellow facizer\nput down the blue facizer\nunstack the yellow facizer from on top of the red facizer\nput down the yellow facizer\nunstack the red facizer from on top of the orange facizer\nstack the red facizer on top of the yellow facizer\npick up the orange facizer\nstack the orange facizer on top of the blue facizer\nunstack the red facizer from on top of the yellow facizer\nstack the red facizer on top of the orange facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 4,
+                    "generated": 5,
+                    "search_time (in secs)": 0.000656
+                },
+                "readable_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n"
+            }
+        },
+        {
+            "instance_id": 32,
+            "example_instance_ids": [
+                31
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the orange facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the blue facizer\nput down the yellow facizer\nunstack the blue facizer from on top of the orange facizer\nput down the blue facizer\nunstack the orange facizer from on top of the red facizer\nstack the orange facizer on top of the blue facizer\npick up the red facizer\nstack the red facizer on top of the orange facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the red facizer, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the orange facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "",
+                "length": 0,
+                "states_info": {
+                    "expanded": 0,
+                    "evaluated": 1,
+                    "generated": 0,
+                    "search_time (in secs)": 0.000239
+                },
+                "readable_plan": ""
+            }
+        },
+        {
+            "instance_id": 33,
+            "example_instance_ids": [
+                32
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the red facizer, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the orange facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 6,
+                    "generated": 7,
+                    "search_time (in secs)": 0.000585
+                },
+                "readable_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n"
+            }
+        },
+        {
+            "instance_id": 34,
+            "example_instance_ids": [
+                33
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the orange facizer\nstack the yellow facizer on top of the red facizer\nunstack the orange facizer from on top of the blue facizer\nput down the orange facizer\npick up the blue facizer\nstack the blue facizer on top of the orange facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the yellow facizer is on top of the red facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 9,
+                    "evaluated": 16,
+                    "generated": 23,
+                    "search_time (in secs)": 0.00072
+                },
+                "readable_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n"
+            }
+        },
+        {
+            "instance_id": 35,
+            "example_instance_ids": [
+                34
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the yellow facizer is on top of the red facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the red facizer\nput down the yellow facizer\nunstack the red facizer from on top of the orange facizer\nstack the red facizer on top of the yellow facizer\npick up the blue facizer\nstack the blue facizer on top of the orange facizer\nunstack the red facizer from on top of the yellow facizer\nstack the red facizer on top of the blue facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 1,
+                    "evaluated": 3,
+                    "generated": 2,
+                    "search_time (in secs)": 0.000709
+                },
+                "readable_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 36,
+            "example_instance_ids": [
+                35
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the blue facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the red facizer from on top of the blue facizer\nput down the red facizer\nunstack the blue facizer from on top of the yellow facizer\nstack the blue facizer on top of the red facizer\npick up the yellow facizer\nstack the yellow facizer on top of the blue facizer\npick up the orange facizer\nstack the orange facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the blue facizer and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+                "length": 12,
+                "states_info": {
+                    "expanded": 11,
+                    "evaluated": 20,
+                    "generated": 29,
+                    "search_time (in secs)": 0.000808
+                },
+                "readable_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n"
+            }
+        },
+        {
+            "instance_id": 37,
+            "example_instance_ids": [
+                36
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the blue facizer and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the red facizer from on top of the orange facizer\nput down the red facizer\nunstack the orange facizer from on top of the yellow facizer\nput down the orange facizer\nunstack the yellow facizer from on top of the blue facizer\nstack the yellow facizer on top of the orange facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\nunstack the yellow facizer from on top of the orange facizer\nstack the yellow facizer on top of the red facizer\npick up the orange facizer\nstack the orange facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer and the blue facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 3,
+                    "evaluated": 4,
+                    "generated": 5,
+                    "search_time (in secs)": 0.000658
+                },
+                "readable_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n"
+            }
+        },
+        {
+            "instance_id": 38,
+            "example_instance_ids": [
+                37
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer and the blue facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the orange facizer\nput down the yellow facizer\nunstack the orange facizer from on top of the blue facizer\nput down the orange facizer\nunstack the blue facizer from on top of the red facizer\nstack the blue facizer on top of the orange facizer\npick up the red facizer\nstack the red facizer on top of the yellow facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the orange facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)",
+                "length": 10,
+                "states_info": {
+                    "expanded": 8,
+                    "evaluated": 13,
+                    "generated": 19,
+                    "search_time (in secs)": 0.00078
+                },
+                "readable_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n"
+            }
+        },
+        {
+            "instance_id": 39,
+            "example_instance_ids": [
+                38
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the orange facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the orange facizer from on top of the blue facizer\nput down the orange facizer\nunstack the blue facizer from on top of the yellow facizer\nput down the blue facizer\nunstack the yellow facizer from on top of the red facizer\nput down the yellow facizer\npick up the orange facizer\nstack the orange facizer on top of the red facizer\npick up the blue facizer\nstack the blue facizer on top of the orange facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the yellow facizer is on top of the blue facizer, the red facizer is on the table, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)",
+                "length": 6,
+                "states_info": {
+                    "expanded": 4,
+                    "evaluated": 11,
+                    "generated": 13,
+                    "search_time (in secs)": 0.00062
+                },
+                "readable_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n"
+            }
+        },
+        {
+            "instance_id": 40,
+            "example_instance_ids": [
+                39
+            ],
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into stacks. Here are the actions I can do\n\nPick up a facizer\nUnstack a facizer from on top of another facizer\nPut down a facizer\nStack a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one facizer at a time.\nI can only pick up or unstack a facizer if my hand is empty.\nI can only pick up a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not picked up.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking was really on top of the other facizer.\nI can only unstack a facizer from on top of another facizer if the facizer I am unstacking is clear.\nOnce I pick up or unstack a facizer, I am holding the facizer.\nI can only put down a facizer that I am holding.\nI can only stack a facizer on top of another facizer if I am holding the facizer being stacked.\nI can only stack a facizer on top of another facizer if the facizer onto which I am stacking the facizer is clear.\nOnce I put down or stack a facizer, my hand becomes empty.\nOnce you stack a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the yellow facizer is on top of the blue facizer, the red facizer is on the table, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nMy plan is as follows:\n\n[PLAN]\nunstack the yellow facizer from on top of the blue facizer\nstack the yellow facizer on top of the orange facizer\npick up the red facizer\nstack the red facizer on top of the blue facizer\nunstack the yellow facizer from on top of the orange facizer\nstack the yellow facizer on top of the red facizer\n[PLAN END]\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the yellow facizer is on top of the orange facizer.\n\nMy plan is as follows:\n\n[PLAN]",
+            "ground_truth_plan": {
+                "plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)",
+                "length": 8,
+                "states_info": {
+                    "expanded": 6,
+                    "evaluated": 9,
+                    "generated": 13,
+                    "search_time (in secs)": 0.000608
+                },
+                "readable_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n"
+            }
+        }
+    ]
+}

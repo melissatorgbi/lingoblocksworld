@@ -1,0 +1,2248 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_names_row3",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the hand is empty, the promittial block is on top of the voucid block, the voucid block is on top of the masterric block, the masterric block is on top of the nessest block and the nessest block is on the table.\nMy goal is to have that the promittial block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQA98GnRq7LHTx5X08ABj2B7PvJfT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack promittial from voucid\n2. Put down promittial\n3. Unstack voucid from masterric\n4. Put down voucid\n5. Unstack masterric from nessest\n6. Put down masterric\n7. Pick up promittial\n8. Stack promittial on nessest",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351566,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1296,
+                    "prompt_tokens": 415,
+                    "total_tokens": 1711,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.7096426486969,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack promittial from voucid\n2. Put down promittial\n3. Unstack voucid from masterric\n4. Put down voucid\n5. Unstack masterric from nessest\n6. Put down masterric\n7. Pick up promittial\n8. Stack promittial on nessest",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)",
+            "raw_translation": "[RAW TEXT]\n1. Unstack promittial from voucid\n2. Put down promittial\n3. Unstack voucid from masterric\n4. Put down voucid\n5. Unstack masterric from nessest\n6. Put down masterric\n7. Pick up promittial\n8. Stack promittial on nessest\n\n[PDDL PLAN]\n(unstack promittial voucid)\n(put-down promittial)\n(unstack voucid masterric)\n(put-down voucid)\n(unstack masterric nessest)\n(put-down masterric)\n(pick-up promittial)\n(stack promittial nessest)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the voucid block is clear, the hand is empty, the nessest block is on top of the masterric block, the promittial block is on top of the nessest block, the voucid block is on the table and the masterric block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block, the promittial block is on top of the voucid block and the voucid block is on top of the masterric block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQA9VKRqh8SaZjlUgluOV9BFBP4A6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack promittial from nessest\n2. Put down promittial\n3. Unstack nessest from masterric\n4. Put down nessest\n5. Pick up voucid\n6. Stack voucid on masterric\n7. Pick up promittial\n8. Stack promittial on voucid\n9. Pick up nessest\n10. Stack nessest on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351589,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2528,
+                    "prompt_tokens": 445,
+                    "total_tokens": 2973,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.9261200428009,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack promittial from nessest\n2. Put down promittial\n3. Unstack nessest from masterric\n4. Put down nessest\n5. Pick up voucid\n6. Stack voucid on masterric\n7. Pick up promittial\n8. Stack promittial on voucid\n9. Pick up nessest\n10. Stack nessest on promittial",
+            "extracted_llm_plan": "```plaintext)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "```plaintext\n(unstack promittial nessest)\n(put-down promittial)\n(unstack nessest masterric)\n(put-down nessest)\n(pick-up voucid)\n(stack voucid masterric)\n(pick-up promittial)\n(stack promittial voucid)\n(pick-up nessest)\n(stack nessest promittial)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the promittial block is clear, the hand is empty, the promittial block is on top of the voucid block, the voucid block is on top of the masterric block, the nessest block is on the table and the masterric block is on the table.\nMy goal is to have that the promittial block is on top of the masterric block, the voucid block is on top of the promittial block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAAEbm56mjh0CFPGPxLap234iIls",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack promittial from voucid\nPut down promittial\nUnstack voucid from masterric\nStack voucid on promittial\nPick up masterric\nStack masterric on nessest\nUnstack voucid from promittial\nPut down voucid\nPick up promittial\nStack promittial on masterric\nPick up voucid\nStack voucid on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351634,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3302,
+                    "prompt_tokens": 445,
+                    "total_tokens": 3747,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3200,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.06292748451233,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack promittial from voucid\nPut down promittial\nUnstack voucid from masterric\nStack voucid on promittial\nPick up masterric\nStack masterric on nessest\nUnstack voucid from promittial\nPut down voucid\nPick up promittial\nStack promittial on masterric\nPick up voucid\nStack voucid on promittial",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(stack b3 b2)\n(pick-up b4)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack promittial voucid)\n(put-down promittial)\n(unstack voucid masterric)\n(stack voucid promittial)\n(pick-up masterric)\n(stack masterric nessest)\n(unstack voucid promittial)\n(put-down voucid)\n(pick-up promittial)\n(stack promittial masterric)\n(pick-up voucid)\n(stack voucid promittial)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(stack b3 b2)\n(pick-up b4)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the promittial block is clear, the voucid block is clear, the hand is empty, the voucid block is on top of the masterric block, the nessest block is on the table, the promittial block is on the table and the masterric block is on the table.\nMy goal is to have that the nessest block is on top of the voucid block, the promittial block is on top of the nessest block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAAwmaHO2RNezBlEKxjhuhyK88yJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(voucid, masterric)\n2. PutDown(voucid)\n3. PickUp(nessest)\n4. Stack(nessest, voucid)\n5. PickUp(promittial)\n6. Stack(promittial, nessest)\n7. PickUp(masterric)\n8. Stack(masterric, promittial)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351678,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1425,
+                    "prompt_tokens": 448,
+                    "total_tokens": 1873,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.68534016609192,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(voucid, masterric)\n2. PutDown(voucid)\n3. PickUp(nessest)\n4. Stack(nessest, voucid)\n5. PickUp(promittial)\n6. Stack(promittial, nessest)\n7. PickUp(masterric)\n8. Stack(masterric, promittial)",
+            "extracted_llm_plan": "```)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n```)",
+            "raw_translation": "```\n(unstack voucid masterric)\n(put-down voucid)\n(pick-up nessest)\n(stack nessest voucid)\n(pick-up promittial)\n(stack promittial nessest)\n(pick-up masterric)\n(stack masterric promittial)\n```  \n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the masterric block is clear, the hand is empty, the nessest block is on top of the voucid block, the masterric block is on top of the promittial block, the promittial block is on the table and the voucid block is on the table.\nMy goal is to have that the nessest block is on top of the voucid block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABK0Wm7E381CWdAyWLgBsa38aZB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(masterric, promittial)\n2. Stack(masterric, nessest)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351702,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 541,
+                    "prompt_tokens": 430,
+                    "total_tokens": 971,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 512,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 8.964203119277954,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(masterric, promittial)\n2. Stack(masterric, nessest)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(stack b4 b1)",
+            "raw_translation": "[PDDL PLAN]\n(unstack masterric promittial)\n(stack masterric nessest)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the voucid block is clear, the masterric block is clear, the hand is empty, the promittial block is on top of the nessest block, the masterric block is on top of the promittial block, the nessest block is on the table and the voucid block is on the table.\nMy goal is to have that the promittial block is on top of the masterric block, the voucid block is on top of the nessest block and the masterric block is on top of the voucid block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABTxxTsKtJ9SiHbUfiN4Tk1yR0r",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack masterric from promittial\n2. Put down masterric\n3. Unstack promittial from nessest\n4. Put down promittial\n5. Pick up voucid\n6. Stack voucid on nessest\n7. Pick up masterric\n8. Stack masterric on voucid\n9. Pick up promittial\n10. Stack promittial on masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351711,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2143,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2587,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.944591999053955,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack masterric from promittial\n2. Put down masterric\n3. Unstack promittial from nessest\n4. Put down promittial\n5. Pick up voucid\n6. Stack voucid on nessest\n7. Pick up masterric\n8. Stack masterric on voucid\n9. Pick up promittial\n10. Stack promittial on masterric",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "[PDDL PLAN]  \n(unstack masterric promittial)  \n(put-down masterric)  \n(unstack promittial nessest)  \n(put-down promittial)  \n(pick-up voucid)  \n(stack voucid nessest)  \n(pick-up masterric)  \n(stack masterric voucid)  \n(pick-up promittial)  \n(stack promittial masterric)  \n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the promittial block is clear, the hand is empty, the nessest block is on top of the masterric block, the masterric block is on top of the voucid block, the promittial block is on the table and the voucid block is on the table.\nMy goal is to have that the promittial block is on top of the nessest block and the voucid block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAC157pXkmEhMpb1nhjWZzMspOgK",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack nessest from masterric\n2. Put down nessest\n3. Pick up promittial\n4. Stack promittial on nessest\n5. Unstack masterric from voucid\n6. Put down masterric\n7. Pick up voucid\n8. Stack voucid on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351745,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2832,
+                    "prompt_tokens": 432,
+                    "total_tokens": 3264,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 46.207582235336304,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack nessest from masterric\n2. Put down nessest\n3. Pick up promittial\n4. Stack promittial on nessest\n5. Unstack masterric from voucid\n6. Put down masterric\n7. Pick up voucid\n8. Stack voucid on promittial",
+            "extracted_llm_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack nessest masterric)\n(put-down nessest)\n(pick-up promittial)\n(stack promittial nessest)\n(unstack masterric voucid)\n(put-down masterric)\n(pick-up voucid)\n(stack voucid promittial)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the voucid block is clear, the hand is empty, the promittial block is on top of the masterric block, the voucid block is on top of the promittial block, the masterric block is on top of the nessest block and the nessest block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block and the promittial block is on top of the voucid block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACldk8sGzvDw9CO4t3WOIUaD6fM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(voucid, promittial)\n2. Put down(voucid)\n3. Unstack(promittial, masterric)\n4. Stack(promittial, voucid)\n5. Unstack(masterric, nessest)\n6. Put down(masterric)\n7. Pick up(nessest)\n8. Stack(nessest, promittial)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351791,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2199,
+                    "prompt_tokens": 429,
+                    "total_tokens": 2628,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.83917474746704,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(voucid, promittial)\n2. Put down(voucid)\n3. Unstack(promittial, masterric)\n4. Stack(promittial, voucid)\n5. Unstack(masterric, nessest)\n6. Put down(masterric)\n7. Pick up(nessest)\n8. Stack(nessest, promittial)",
+            "extracted_llm_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack voucid promittial)\n(put-down voucid)\n(unstack promittial masterric)\n(stack promittial voucid)\n(unstack masterric nessest)\n(put-down masterric)\n(pick-up nessest)\n(stack nessest promittial)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the promittial block is clear, the hand is empty, the promittial block is on top of the masterric block, the masterric block is on top of the voucid block, the nessest block is on the table and the voucid block is on the table.\nMy goal is to have that the promittial block is on top of the voucid block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQADL2yNwxIBB9Yhmi2YfftkDWari",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack promittial from masterric\n2. Put down promittial\n3. Unstack masterric from voucid\n4. Put down masterric\n5. Pick up promittial\n6. Stack promittial on voucid\n7. Pick up masterric\n8. Stack masterric on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351827,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2640,
+                    "prompt_tokens": 432,
+                    "total_tokens": 3072,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 45.23003435134888,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack promittial from masterric\n2. Put down promittial\n3. Unstack masterric from voucid\n4. Put down masterric\n5. Pick up promittial\n6. Stack promittial on voucid\n7. Pick up masterric\n8. Stack masterric on promittial",
+            "extracted_llm_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack promittial masterric)\n(put-down promittial)\n(unstack masterric voucid)\n(put-down masterric)\n(pick-up promittial)\n(stack promittial voucid)\n(pick-up masterric)\n(stack masterric promittial)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the masterric block is clear, the hand is empty, the nessest block is on top of the voucid block, the promittial block is on top of the nessest block, the masterric block is on top of the promittial block and the voucid block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block, the voucid block is on top of the masterric block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAE47chqjAquNy86ZgFr5D2KoxX6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(masterric, promittial)\nPutDown(masterric)\nUnstack(promittial, nessest)\nPutDown(promittial)\nUnstack(nessest, voucid)\nStack(nessest, promittial)\nPickUp(masterric)\nStack(masterric, nessest)\nPickUp(voucid)\nStack(voucid, masterric)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351872,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2259,
+                    "prompt_tokens": 441,
+                    "total_tokens": 2700,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 42.0027813911438,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(masterric, promittial)\nPutDown(masterric)\nUnstack(promittial, nessest)\nPutDown(promittial)\nUnstack(nessest, voucid)\nStack(nessest, promittial)\nPickUp(masterric)\nStack(masterric, nessest)\nPickUp(voucid)\nStack(voucid, masterric)",
+            "extracted_llm_plan": "```)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "```\n(unstack masterric promittial)\n(put-down masterric)\n(unstack promittial nessest)\n(put-down promittial)\n(unstack nessest voucid)\n(stack nessest promittial)\n(pick-up masterric)\n(stack masterric nessest)\n(pick-up voucid)\n(stack voucid masterric)\n[PDDL PLAN END]\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the masterric block is clear, the hand is empty, the promittial block is on top of the voucid block, the voucid block is on top of the nessest block, the masterric block is on top of the promittial block and the nessest block is on the table.\nMy goal is to have that the promittial block is on top of the masterric block and the voucid block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEkyVT2T5imdQ2aMgt1RDdYRBJ4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(masterric, promittial)\n2. Putdown(masterric)\n3. Unstack(promittial, voucid)\n4. Stack(promittial, masterric)\n5. Unstack(voucid, nessest)\n6. Stack(voucid, promittial)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351914,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1479,
+                    "prompt_tokens": 429,
+                    "total_tokens": 1908,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.433236837387085,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(masterric, promittial)\n2. Putdown(masterric)\n3. Unstack(promittial, voucid)\n4. Stack(promittial, masterric)\n5. Unstack(voucid, nessest)\n6. Stack(voucid, promittial)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(putdown b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack masterric promittial)\n(putdown masterric)\n(unstack promittial voucid)\n(stack promittial masterric)\n(unstack voucid nessest)\n(stack voucid promittial)\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(putdown b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)",
+            "cleaned_llm_correct": false
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the promittial block is clear, the voucid block is clear, the hand is empty, the nessest block is on top of the masterric block, the promittial block is on the table, the voucid block is on the table and the masterric block is on the table.\nMy goal is to have that the nessest block is on top of the voucid block, the promittial block is on top of the nessest block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFRls6t4OusbdJxeTEMTLsjxVHP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack nessest from masterric\n2. Stack nessest on voucid\n3. Pick up promittial\n4. Stack promittial on nessest\n5. Pick up masterric\n6. Stack masterric on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351957,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1598,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2046,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.0816011428833,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack nessest from masterric\n2. Stack nessest on voucid\n3. Pick up promittial\n4. Stack promittial on nessest\n5. Pick up masterric\n6. Stack masterric on promittial",
+            "extracted_llm_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack nessest masterric)\n(stack nessest voucid)\n(pick-up promittial)\n(stack promittial nessest)\n(pick-up masterric)\n(stack masterric promittial)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the masterric block is clear, the hand is empty, the nessest block is on top of the promittial block, the promittial block is on top of the voucid block, the voucid block is on the table and the masterric block is on the table.\nMy goal is to have that the promittial block is on top of the voucid block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFxACRU7bMti30Q2tAnLvJMSjGf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack nessest from promittial\n2. Put down nessest\n3. Pick up masterric\n4. Stack masterric on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351989,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 941,
+                    "prompt_tokens": 432,
+                    "total_tokens": 1373,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.755847454071045,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack nessest from promittial\n2. Put down nessest\n3. Pick up masterric\n4. Stack masterric on promittial",
+            "extracted_llm_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack nessest promittial)\n(put-down nessest)\n(pick-up masterric)\n(stack masterric promittial)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the masterric block is clear, the hand is empty, the nessest block is on top of the voucid block, the promittial block is on top of the nessest block, the masterric block is on top of the promittial block and the voucid block is on the table.\nMy goal is to have that the voucid block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGBcwPyCw1KCYwuYHKs1uSW8PNZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack masterric from promittial\n2. Put down masterric\n3. Unstack promittial from nessest\n4. Put down promittial\n5. Unstack nessest from voucid\n6. Put down nessest\n7. Pick up voucid\n8. Stack voucid on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352003,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1424,
+                    "prompt_tokens": 415,
+                    "total_tokens": 1839,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.803151845932007,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack masterric from promittial\n2. Put down masterric\n3. Unstack promittial from nessest\n4. Put down promittial\n5. Unstack nessest from voucid\n6. Put down nessest\n7. Pick up voucid\n8. Stack voucid on promittial",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack masterric promittial)\n(put-down masterric)\n(unstack promittial nessest)\n(put-down promittial)\n(unstack nessest voucid)\n(put-down nessest)\n(pick-up voucid)\n(stack voucid promittial)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the masterric block is clear, the hand is empty, the voucid block is on top of the nessest block, the masterric block is on top of the voucid block, the nessest block is on the table and the promittial block is on the table.\nMy goal is to have that the nessest block is on top of the masterric block, the promittial block is on top of the voucid block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGZN7kjRNk7dZyz0cvSGkQYhpju",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the masterric block from on top of the voucid block\n2. Put down the masterric block\n3. Unstack the voucid block from on top of the nessest block\n4. Put down the voucid block\n5. Pick up the promittial block\n6. Stack the promittial block on top of the voucid block\n7. Pick up the masterric block\n8. Stack the masterric block on top of the promittial block\n9. Pick up the nessest block\n10. Stack the nessest block on top of the masterric block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352027,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2759,
+                    "prompt_tokens": 445,
+                    "total_tokens": 3204,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.211092948913574,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the masterric block from on top of the voucid block\n2. Put down the masterric block\n3. Unstack the voucid block from on top of the nessest block\n4. Put down the voucid block\n5. Pick up the promittial block\n6. Stack the promittial block on top of the voucid block\n7. Pick up the masterric block\n8. Stack the masterric block on top of the promittial block\n9. Pick up the nessest block\n10. Stack the nessest block on top of the masterric block",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "(unstack masterric voucid)\n(put-down masterric)\n(unstack voucid nessest)\n(put-down voucid)\n(pick-up promittial)\n(stack promittial voucid)\n(pick-up masterric)\n(stack masterric promittial)\n(pick-up nessest)\n(stack nessest masterric)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the voucid block is clear, the hand is empty, the nessest block is on top of the promittial block, the voucid block is on top of the masterric block, the masterric block is on top of the nessest block and the promittial block is on the table.\nMy goal is to have that the promittial block is on top of the nessest block and the voucid block is on top of the masterric block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHDZd1TKhnNiXB3raQCSP1mytDf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(voucid, masterric)\n2. PutDown(voucid)\n3. Unstack(masterric, nessest)\n4. PutDown(masterric)\n5. Unstack(nessest, promittial)\n6. PutDown(nessest)\n7. PickUp(promittial)\n8. Stack(promittial, nessest)\n9. PickUp(voucid)\n10. Stack(voucid, masterric)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352067,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3111,
+                    "prompt_tokens": 428,
+                    "total_tokens": 3539,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 42.51602387428284,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(voucid, masterric)\n2. PutDown(voucid)\n3. Unstack(masterric, nessest)\n4. PutDown(masterric)\n5. Unstack(nessest, promittial)\n6. PutDown(nessest)\n7. PickUp(promittial)\n8. Stack(promittial, nessest)\n9. PickUp(voucid)\n10. Stack(voucid, masterric)",
+            "extracted_llm_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "```\n[RAW TEXT]\n1. Unstack(voucid, masterric)\n2. PutDown(voucid)\n3. Unstack(masterric, nessest)\n4. PutDown(masterric)\n5. Unstack(nessest, promittial)\n6. PutDown(nessest)\n7. PickUp(promittial)\n8. Stack(promittial, nessest)\n9. PickUp(voucid)\n10. Stack(voucid, masterric)\n\n[PDDL PLAN]\n(unstack voucid masterric)\n(put-down voucid)\n(unstack masterric nessest)\n(put-down masterric)\n(unstack nessest promittial)\n(put-down nessest)\n(pick-up promittial)\n(stack promittial nessest)\n(pick-up voucid)\n(stack voucid masterric)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the voucid block is clear, the hand is empty, the promittial block is on top of the masterric block, the voucid block is on top of the promittial block, the nessest block is on the table and the masterric block is on the table.\nMy goal is to have that the promittial block is on top of the masterric block, the voucid block is on top of the nessest block and the masterric block is on top of the voucid block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHuZh4gM6gpWVAYflvpjKZL3nWZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack voucid from promittial\nStack voucid on nessest\nUnstack promittial from masterric\nPut down promittial\nPick up masterric\nStack masterric on voucid\nPick up promittial\nStack promittial on masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352110,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2185,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2629,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.421064376831055,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack voucid from promittial\nStack voucid on nessest\nUnstack promittial from masterric\nPut down promittial\nPick up masterric\nStack masterric on voucid\nPick up promittial\nStack promittial on masterric",
+            "extracted_llm_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "(unstack voucid promittial)\n(stack voucid nessest)\n(unstack promittial masterric)\n(put-down promittial)\n(pick-up masterric)\n(stack masterric voucid)\n(pick-up promittial)\n(stack promittial masterric)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the voucid block is clear, the masterric block is clear, the hand is empty, the voucid block is on top of the promittial block, the nessest block is on the table, the promittial block is on the table and the masterric block is on the table.\nMy goal is to have that the nessest block is on top of the voucid block, the promittial block is on top of the nessest block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIUF0SZxzI12RogXwAT4bcyTdVQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack voucid from promittial\n2. Put down voucid\n3. Pick up nessest\n4. Stack nessest on voucid\n5. Pick up promittial\n6. Stack promittial on nessest\n7. Pick up masterric\n8. Stack masterric on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352146,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1935,
+                    "prompt_tokens": 448,
+                    "total_tokens": 2383,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.136609315872192,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack voucid from promittial\n2. Put down voucid\n3. Pick up nessest\n4. Stack nessest on voucid\n5. Pick up promittial\n6. Stack promittial on nessest\n7. Pick up masterric\n8. Stack masterric on promittial",
+            "extracted_llm_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack voucid promittial)\n(put-down voucid)\n(pick-up nessest)\n(stack nessest voucid)\n(pick-up promittial)\n(stack promittial nessest)\n(pick-up masterric)\n(stack masterric promittial)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the voucid block is clear, the hand is empty, the promittial block is on top of the masterric block, the masterric block is on top of the nessest block, the nessest block is on the table and the voucid block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block, the promittial block is on top of the masterric block and the masterric block is on top of the voucid block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIyDMRUgz7ASxkqbNJHpxvIlwSY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack promittial from masterric\n2. Put down promittial\n3. Unstack masterric from nessest\n4. Stack masterric on voucid\n5. Pick up promittial\n6. Stack promittial on masterric\n7. Pick up nessest\n8. Stack nessest on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352176,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1809,
+                    "prompt_tokens": 445,
+                    "total_tokens": 2254,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.923853158950806,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack promittial from masterric\n2. Put down promittial\n3. Unstack masterric from nessest\n4. Stack masterric on voucid\n5. Pick up promittial\n6. Stack promittial on masterric\n7. Pick up nessest\n8. Stack nessest on promittial",
+            "extracted_llm_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack promittial masterric)\n(put-down promittial)\n(unstack masterric nessest)\n(stack masterric voucid)\n(pick-up promittial)\n(stack promittial masterric)\n(pick-up nessest)\n(stack nessest promittial)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the masterric block is clear, the hand is empty, the promittial block is on top of the voucid block, the voucid block is on top of the nessest block, the nessest block is on the table and the masterric block is on the table.\nMy goal is to have that the promittial block is on top of the masterric block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJPygusG3XSkUQrJGWvwUDgJbUc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack promittial from on top of voucid\n2. Put down promittial\n3. Unstack voucid from on top of nessest\n4. Put down voucid\n5. Pick up masterric\n6. Stack masterric on top of nessest\n7. Pick up promittial\n8. Stack promittial on top of masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352203,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1560,
+                    "prompt_tokens": 431,
+                    "total_tokens": 1991,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.106051445007324,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack promittial from on top of voucid\n2. Put down promittial\n3. Unstack voucid from on top of nessest\n4. Put down voucid\n5. Pick up masterric\n6. Stack masterric on top of nessest\n7. Pick up promittial\n8. Stack promittial on top of masterric",
+            "extracted_llm_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)",
+            "raw_translation": "(unstack promittial voucid)\n(put-down promittial)\n(unstack voucid nessest)\n(put-down voucid)\n(pick-up masterric)\n(stack masterric nessest)\n(pick-up promittial)\n(stack promittial masterric)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the promittial block is clear, the hand is empty, the nessest block is on top of the masterric block, the promittial block is on top of the voucid block, the voucid block is on the table and the masterric block is on the table.\nMy goal is to have that the nessest block is on top of the voucid block, the promittial block is on top of the nessest block and the voucid block is on top of the masterric block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJrgKipIKvbnQyflEa2cxqpmuIi",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack nessest from masterric\n2. Put down nessest\n3. Unstack promittial from voucid\n4. Stack promittial on nessest\n5. Pick up voucid\n6. Stack voucid on masterric\n7. Unstack promittial from nessest\n8. Put down promittial\n9. Pick up nessest\n10. Stack nessest on voucid\n11. Pick up promittial\n12. Stack promittial on nessest",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352231,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2488,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2932,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 58.469456911087036,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack nessest from masterric\n2. Put down nessest\n3. Unstack promittial from voucid\n4. Stack promittial on nessest\n5. Pick up voucid\n6. Stack voucid on masterric\n7. Unstack promittial from nessest\n8. Put down promittial\n9. Pick up nessest\n10. Stack nessest on voucid\n11. Pick up promittial\n12. Stack promittial on nessest",
+            "extracted_llm_plan": "```)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n```)",
+            "raw_translation": "```\n(unstack nessest masterric)\n(put-down nessest)\n(unstack promittial voucid)\n(stack promittial nessest)\n(pick-up voucid)\n(stack voucid masterric)\n(unstack promittial nessest)\n(put-down promittial)\n(pick-up nessest)\n(stack nessest voucid)\n(pick-up promittial)\n(stack promittial nessest)\n``` \n\n[PDDL PLAN END]",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b1)\n(pick-up b3)\n(stack b3 b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the voucid block is clear, the masterric block is clear, the hand is empty, the voucid block is on top of the nessest block, the nessest block is on the table, the promittial block is on the table and the masterric block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block and the promittial block is on top of the voucid block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKk2VOD9WcWgbYR255zSxG2viSH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(voucid, nessest)\n2. Put down(voucid)\n3. Pick up(promittial)\n4. Stack(promittial, voucid)\n5. Pick up(nessest)\n6. Stack(nessest, promittial)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352286,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1668,
+                    "prompt_tokens": 435,
+                    "total_tokens": 2103,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.902445554733276,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(voucid, nessest)\n2. Put down(voucid)\n3. Pick up(promittial)\n4. Stack(promittial, voucid)\n5. Pick up(nessest)\n6. Stack(nessest, promittial)",
+            "extracted_llm_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "(unstack voucid nessest)\n(put-down voucid)\n(pick-up promittial)\n(stack promittial voucid)\n(pick-up nessest)\n(stack nessest promittial)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the masterric block is clear, the hand is empty, the voucid block is on top of the promittial block, the masterric block is on top of the voucid block, the nessest block is on the table and the promittial block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block, the voucid block is on top of the masterric block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAL73PeEIw4kzaJuYuD27keVQvDx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack masterric from voucid\n2. Put down masterric\n3. Unstack voucid from promittial\n4. Put down voucid\n5. Pick up nessest\n6. Stack nessest on promittial\n7. Pick up masterric\n8. Stack masterric on nessest\n9. Pick up voucid\n10. Stack voucid on masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352309,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2333,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2777,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.72783899307251,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack masterric from voucid\n2. Put down masterric\n3. Unstack voucid from promittial\n4. Put down voucid\n5. Pick up nessest\n6. Stack nessest on promittial\n7. Pick up masterric\n8. Stack masterric on nessest\n9. Pick up voucid\n10. Stack voucid on masterric",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "[RAW TEXT]\n1. Unstack masterric from voucid\n2. Put down masterric\n3. Unstack voucid from promittial\n4. Put down voucid\n5. Pick up nessest\n6. Stack nessest on promittial\n7. Pick up masterric\n8. Stack masterric on nessest\n9. Pick up voucid\n10. Stack voucid on masterric\n\n**Plan of Actions:**\n\n1. Unstack masterric from voucid\n2. Put down masterric\n3. Unstack voucid from promittial\n4. Put down voucid\n5. Pick up nessest\n6. Stack nessest on promittial\n7. Pick up masterric\n8. Stack masterric on nessest\n9. Pick up voucid\n10. Stack voucid on masterric\n\n[PDDL PLAN]\n(unstack masterric voucid)\n(put-down masterric)\n(unstack voucid promittial)\n(put-down voucid)\n(pick-up nessest)\n(stack nessest promittial)\n(pick-up masterric)\n(stack masterric nessest)\n(pick-up voucid)\n(stack voucid masterric)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the masterric block is clear, the hand is empty, the nessest block is on top of the promittial block, the promittial block is on top of the voucid block, the voucid block is on the table and the masterric block is on the table.\nMy goal is to have that the voucid block is on top of the masterric block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQALkIJA7k7eedH0dJbsXEeNIBsKG",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack nessest from promittial\n2. Put down nessest\n3. Unstack promittial from voucid\n4. Put down promittial\n5. Pick up masterric\n6. Stack masterric on promittial\n7. Pick up voucid\n8. Stack voucid on masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352348,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1744,
+                    "prompt_tokens": 431,
+                    "total_tokens": 2175,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.19127607345581,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack nessest from promittial\n2. Put down nessest\n3. Unstack promittial from voucid\n4. Put down promittial\n5. Pick up masterric\n6. Stack masterric on promittial\n7. Pick up voucid\n8. Stack voucid on masterric",
+            "extracted_llm_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "(unstack nessest promittial)\n(put-down nessest)\n(unstack promittial voucid)\n(put-down promittial)\n(pick-up masterric)\n(stack masterric promittial)\n(pick-up voucid)\n(stack voucid masterric)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the promittial block is clear, the masterric block is clear, the hand is empty, the nessest block is on top of the voucid block, the promittial block is on the table, the voucid block is on the table and the masterric block is on the table.\nMy goal is to have that the nessest block is on top of the masterric block, the promittial block is on top of the voucid block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMJCFuBM5HrLLDmOwVaB0uIU3wI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack nessest from on top of voucid\n2. Put down nessest\n3. Pick up promittial\n4. Stack promittial on top of voucid\n5. Pick up masterric\n6. Stack masterric on top of promittial\n7. Pick up nessest\n8. Stack nessest on top of masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352383,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1237,
+                    "prompt_tokens": 448,
+                    "total_tokens": 1685,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.130192041397095,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack nessest from on top of voucid\n2. Put down nessest\n3. Pick up promittial\n4. Stack promittial on top of voucid\n5. Pick up masterric\n6. Stack masterric on top of promittial\n7. Pick up nessest\n8. Stack nessest on top of masterric",
+            "extracted_llm_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "(unstack nessest voucid)\n(put-down nessest)\n(pick-up promittial)\n(stack promittial voucid)\n(pick-up masterric)\n(stack masterric promittial)\n(pick-up nessest)\n(stack nessest masterric)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the voucid block is clear, the hand is empty, the nessest block is on top of the masterric block, the promittial block is on top of the nessest block, the voucid block is on the table and the masterric block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block and the promittial block is on top of the masterric block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMbonm8hZlf4IICOGiEl0S3wHTf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack promittial from nessest\n2. Put down promittial\n3. Unstack nessest from masterric\n4. Stack nessest on voucid\n5. Pick up promittial\n6. Stack promittial on masterric\n7. Unstack nessest from voucid\n8. Stack nessest on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352401,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2521,
+                    "prompt_tokens": 432,
+                    "total_tokens": 2953,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.59042692184448,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack promittial from nessest\n2. Put down promittial\n3. Unstack nessest from masterric\n4. Stack nessest on voucid\n5. Pick up promittial\n6. Stack promittial on masterric\n7. Unstack nessest from voucid\n8. Stack nessest on promittial",
+            "extracted_llm_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)",
+            "raw_translation": "[PDDL PLAN]\n(unstack promittial nessest)\n(put-down promittial)\n(unstack nessest masterric)\n(stack nessest voucid)\n(pick-up promittial)\n(stack promittial masterric)\n(unstack nessest voucid)\n(stack nessest promittial)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the voucid block is clear, the masterric block is clear, the hand is empty, the masterric block is on top of the nessest block, the nessest block is on the table, the promittial block is on the table and the voucid block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANJKy3li3q4JVNi4vh1VgYevsLa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(masterric, nessest)\nPut down(masterric)\nPick up(nessest)\nStack(nessest, promittial)\nPick up(masterric)\nStack(masterric, nessest)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352445,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1202,
+                    "prompt_tokens": 434,
+                    "total_tokens": 1636,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.428013801574707,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(masterric, nessest)\nPut down(masterric)\nPick up(nessest)\nStack(nessest, promittial)\nPick up(masterric)\nStack(masterric, nessest)",
+            "extracted_llm_plan": "(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "raw_translation": "(unstack masterric nessest)\n(put-down masterric)\n(pick-up nessest)\n(stack nessest promittial)\n(pick-up masterric)\n(stack masterric nessest)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the voucid block is clear, the hand is empty, the promittial block is on top of the nessest block, the voucid block is on top of the masterric block, the masterric block is on top of the promittial block and the nessest block is on the table.\nMy goal is to have that the nessest block is on top of the masterric block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANc6U34m8wJWn9jQiA0YKApcOzQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack voucid from masterric\nPut down voucid\nUnstack masterric from promittial\nStack masterric on voucid\nUnstack promittial from nessest\nPut down promittial\nPick up nessest\nStack nessest on masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352464,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2179,
+                    "prompt_tokens": 414,
+                    "total_tokens": 2593,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.090147733688354,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack voucid from masterric\nPut down voucid\nUnstack masterric from promittial\nStack masterric on voucid\nUnstack promittial from nessest\nPut down promittial\nPick up nessest\nStack nessest on masterric",
+            "extracted_llm_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "(unstack voucid masterric)  \n(put-down voucid)  \n(unstack masterric promittial)  \n(stack masterric voucid)  \n(unstack promittial nessest)  \n(put-down promittial)  \n(pick-up nessest)  \n(stack nessest masterric)  \n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the masterric block is clear, the hand is empty, the nessest block is on top of the promittial block, the voucid block is on top of the nessest block, the masterric block is on top of the voucid block and the promittial block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block and the promittial block is on top of the masterric block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAO8rhgaAgrIY08WdKxpezSTYog1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack masterric from voucid\n2. Put down masterric\n3. Unstack voucid from nessest\n4. Put down voucid\n5. Unstack nessest from promittial\n6. Put down nessest\n7. Pick up promittial\n8. Stack promittial on masterric\n9. Pick up nessest\n10. Stack nessest on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352496,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1632,
+                    "prompt_tokens": 429,
+                    "total_tokens": 2061,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.847323894500732,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack masterric from voucid\n2. Put down masterric\n3. Unstack voucid from nessest\n4. Put down voucid\n5. Unstack nessest from promittial\n6. Put down nessest\n7. Pick up promittial\n8. Stack promittial on masterric\n9. Pick up nessest\n10. Stack nessest on promittial",
+            "extracted_llm_plan": "```plaintext)\n(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n```)",
+            "raw_translation": "```plaintext\n(unstack masterric voucid)\n(put-down masterric)\n(unstack voucid nessest)\n(put-down voucid)\n(unstack nessest promittial)\n(put-down nessest)\n(pick-up promittial)\n(stack promittial masterric)\n(pick-up nessest)\n(stack nessest promittial)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the hand is empty, the nessest block is on top of the voucid block, the promittial block is on top of the masterric block, the masterric block is on top of the nessest block and the voucid block is on the table.\nMy goal is to have that the nessest block is on top of the voucid block and the voucid block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOaIYEaGNn2xRX7TFuce82vaEaS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(promittial, masterric)\nPutDown(promittial)\nUnstack(masterric, nessest)\nPutDown(masterric)\nUnstack(nessest, voucid)\nPutDown(nessest)\nPickUp(voucid)\nStack(voucid, promittial)\nPickUp(nessest)\nStack(nessest, voucid)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352524,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2197,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2625,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.42444396018982,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(promittial, masterric)\nPutDown(promittial)\nUnstack(masterric, nessest)\nPutDown(masterric)\nUnstack(nessest, voucid)\nPutDown(nessest)\nPickUp(voucid)\nStack(voucid, promittial)\nPickUp(nessest)\nStack(nessest, voucid)",
+            "extracted_llm_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack promittial masterric)\n(put-down promittial)\n(unstack masterric nessest)\n(put-down masterric)\n(unstack nessest voucid)\n(put-down nessest)\n(pick-up voucid)\n(stack voucid promittial)\n(pick-up nessest)\n(stack nessest voucid)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the masterric block is clear, the hand is empty, the promittial block is on top of the voucid block, the voucid block is on top of the nessest block, the masterric block is on top of the promittial block and the nessest block is on the table.\nMy goal is to have that the nessest block is on top of the voucid block and the voucid block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPBSA88IVkiE3ALRUN0blw4kGYh",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(masterric, promittial)\n2. PutDown(masterric)\n3. Unstack(promittial, voucid)\n4. PutDown(promittial)\n5. Unstack(voucid, nessest)\n6. Stack(voucid, promittial)\n7. Pickup(nessest)\n8. Stack(nessest, voucid)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352561,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2524,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2952,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.90250825881958,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(masterric, promittial)\n2. PutDown(masterric)\n3. Unstack(promittial, voucid)\n4. PutDown(promittial)\n5. Unstack(voucid, nessest)\n6. Stack(voucid, promittial)\n7. Pickup(nessest)\n8. Stack(nessest, voucid)",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack masterric promittial)\n(put-down masterric)\n(unstack promittial voucid)\n(put-down promittial)\n(unstack voucid nessest)\n(stack voucid promittial)\n(pick-up nessest)\n(stack nessest voucid)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the voucid block is clear, the masterric block is clear, the hand is empty, the nessest block is on top of the promittial block, the voucid block is on top of the nessest block, the promittial block is on the table and the masterric block is on the table.\nMy goal is to have that the voucid block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQAPlWPoiCpy3YqQM1gFirCvIp7tb",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions needed.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352597,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 333,
+                    "prompt_tokens": 417,
+                    "total_tokens": 750,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 320,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 6.660973072052002,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions needed.",
+            "extracted_llm_plan": ";)",
+            "raw_translation": "[PDDL PLAN]\n; No actions needed\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": ";)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the masterric block is clear, the hand is empty, the voucid block is on top of the promittial block, the masterric block is on top of the voucid block, the nessest block is on the table and the promittial block is on the table.\nMy goal is to have that the promittial block is on top of the voucid block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPs0H12AjsSGcNvZaezJWE5ISxq",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack masterric from voucid\n2. Stack masterric on nessest\n3. Unstack voucid from promittial\n4. Put down voucid\n5. Pick up promittial\n6. Stack promittial on voucid",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352604,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1794,
+                    "prompt_tokens": 431,
+                    "total_tokens": 2225,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.617186307907104,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack masterric from voucid\n2. Stack masterric on nessest\n3. Unstack voucid from promittial\n4. Put down voucid\n5. Pick up promittial\n6. Stack promittial on voucid",
+            "extracted_llm_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)",
+            "raw_translation": "[PDDL PLAN]\n(unstack masterric voucid)\n(stack masterric nessest)\n(unstack voucid promittial)\n(put-down voucid)\n(pick-up promittial)\n(stack promittial voucid)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the promittial block is clear, the masterric block is clear, the hand is empty, the nessest block is on top of the voucid block, the masterric block is on top of the nessest block, the promittial block is on the table and the voucid block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block and the promittial block is on top of the voucid block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQJLUo1Mp9JhOV72b1Hx16EskiS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack masterric from nessest\n2. Put down masterric\n3. Unstack nessest from voucid\n4. Put down nessest\n5. Pick up promittial\n6. Stack promittial on voucid\n7. Pick up nessest\n8. Stack nessest on promittial",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352631,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2449,
+                    "prompt_tokens": 432,
+                    "total_tokens": 2881,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 63.7694787979126,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack masterric from nessest\n2. Put down masterric\n3. Unstack nessest from voucid\n4. Put down nessest\n5. Pick up promittial\n6. Stack promittial on voucid\n7. Pick up nessest\n8. Stack nessest on promittial",
+            "extracted_llm_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "raw_translation": "(unstack masterric nessest)\n(put-down masterric)\n(unstack nessest voucid)\n(put-down nessest)\n(pick-up promittial)\n(stack promittial voucid)\n(pick-up nessest)\n(stack nessest promittial)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the voucid block is clear, the hand is empty, the nessest block is on top of the promittial block, the promittial block is on top of the masterric block, the voucid block is on the table and the masterric block is on the table.\nMy goal is to have that the promittial block is on top of the nessest block, the voucid block is on top of the masterric block and the masterric block is on top of the promittial block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARKLGQ2YMV18Jnr2OrYh0Ob1h9T",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack nessest from promittial\nPut down nessest\nUnstack promittial from masterric\nStack promittial on nessest\nPick up masterric\nStack masterric on promittial\nPick up voucid\nStack voucid on masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352694,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1730,
+                    "prompt_tokens": 445,
+                    "total_tokens": 2175,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.419954776763916,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack nessest from promittial\nPut down nessest\nUnstack promittial from masterric\nStack promittial on nessest\nPick up masterric\nStack masterric on promittial\nPick up voucid\nStack voucid on masterric",
+            "extracted_llm_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "raw_translation": "(unstack nessest promittial)   \n(put-down nessest)   \n(unstack promittial masterric)   \n(stack promittial nessest)   \n(pick-up masterric)   \n(stack masterric promittial)   \n(pick-up voucid)   \n(stack voucid masterric)   \n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the hand is empty, the nessest block is on top of the voucid block, the voucid block is on top of the masterric block, the masterric block is on top of the promittial block and the promittial block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block, the voucid block is on top of the masterric block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARwW0UmFpElnCn5J3LlsoHhnVAJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack nessest from voucid\n2. Put down nessest\n3. Unstack voucid from masterric\n4. Put down voucid\n5. Unstack masterric from promittial\n6. Put down masterric\n7. Pick up nessest\n8. Stack nessest on promittial\n9. Pick up masterric\n10. Stack masterric on nessest\n11. Pick up voucid\n12. Stack voucid on masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352732,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2350,
+                    "prompt_tokens": 441,
+                    "total_tokens": 2791,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.83453726768494,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack nessest from voucid\n2. Put down nessest\n3. Unstack voucid from masterric\n4. Put down voucid\n5. Unstack masterric from promittial\n6. Put down masterric\n7. Pick up nessest\n8. Stack nessest on promittial\n9. Pick up masterric\n10. Stack masterric on nessest\n11. Pick up voucid\n12. Stack voucid on masterric",
+            "extracted_llm_plan": "```plaintext)\n(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n```)",
+            "raw_translation": "```plaintext\n(unstack nessest voucid)\n(put-down nessest)\n(unstack voucid masterric)\n(put-down voucid)\n(unstack masterric promittial)\n(put-down masterric)\n(pick-up nessest)\n(stack nessest promittial)\n(pick-up masterric)\n(stack masterric nessest)\n(pick-up voucid)\n(stack voucid masterric)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the masterric block is clear, the hand is empty, the promittial block is on top of the nessest block, the voucid block is on top of the promittial block, the masterric block is on top of the voucid block and the nessest block is on the table.\nMy goal is to have that the nessest block is on top of the masterric block and the promittial block is on top of the voucid block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQASY7gKOjrNgoGmhsqsNAfohkLpQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack masterric from voucid\nPut down masterric\nUnstack voucid from promittial\nPut down voucid\nUnstack promittial from nessest\nStack promittial on voucid\nPick up nessest\nStack nessest on masterric",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352770,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1985,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2413,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.364744901657104,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack masterric from voucid\nPut down masterric\nUnstack voucid from promittial\nPut down voucid\nUnstack promittial from nessest\nStack promittial on voucid\nPick up nessest\nStack nessest on masterric",
+            "extracted_llm_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)",
+            "raw_translation": "[PDDL PLAN]\n(unstack masterric voucid)\n(put-down masterric)\n(unstack voucid promittial)\n(put-down voucid)\n(unstack promittial nessest)\n(stack promittial voucid)\n(pick-up nessest)\n(stack nessest masterric)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the voucid block is clear, the hand is empty, the promittial block is on top of the masterric block, the voucid block is on top of the promittial block, the masterric block is on top of the nessest block and the nessest block is on the table.\nMy goal is to have that the promittial block is on top of the voucid block and the voucid block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAT1kjsFmdHMklzNr7hZNZzStsT6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack(voucid, promittial)\nPut down(voucid)\nUnstack(promittial, masterric)\nPut down(promittial)\nUnstack(masterric, nessest)\nPut down(masterric)\nPick up(voucid)\nStack(voucid, nessest)\nPick up(promittial)\nStack(promittial, voucid)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352799,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2068,
+                    "prompt_tokens": 428,
+                    "total_tokens": 2496,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.261672496795654,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack(voucid, promittial)\nPut down(voucid)\nUnstack(promittial, masterric)\nPut down(promittial)\nUnstack(masterric, nessest)\nPut down(masterric)\nPick up(voucid)\nStack(voucid, nessest)\nPick up(promittial)\nStack(promittial, voucid)",
+            "extracted_llm_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)",
+            "raw_translation": "(unstack voucid promittial)\n(put-down voucid)\n(unstack promittial masterric)\n(put-down promittial)\n(unstack masterric nessest)\n(put-down masterric)\n(pick-up voucid)\n(stack voucid nessest)\n(pick-up promittial)\n(stack promittial voucid)\n[PDDL PLAN END]",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the voucid block is clear, the masterric block is clear, the hand is empty, the masterric block is on top of the promittial block, the nessest block is on the table, the promittial block is on the table and the voucid block is on the table.\nMy goal is to have that the nessest block is on top of the promittial block and the masterric block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQATYD8BQHqllle56P8WC6z4X4Zta",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack masterric from promittial\n2. Put down masterric\n3. Pick up nessest\n4. Stack nessest on promittial\n5. Pick up masterric\n6. Stack masterric on nessest",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352832,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1339,
+                    "prompt_tokens": 434,
+                    "total_tokens": 1773,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.307313680648804,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack masterric from promittial\n2. Put down masterric\n3. Pick up nessest\n4. Stack nessest on promittial\n5. Pick up masterric\n6. Stack masterric on nessest",
+            "extracted_llm_plan": "(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "raw_translation": "```\n[PDDL PLAN]\n(unstack masterric promittial)\n(put-down masterric)\n(pick-up nessest)\n(stack nessest promittial)\n(pick-up masterric)\n(stack masterric nessest)\n[PDDL PLAN END]\n```",
+            "llm_correct": true,
+            "cleaned_extracted_plan": "(unstack b4 b2)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)",
+            "cleaned_llm_correct": true
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from on top of another block\nPut down a block\nStack a block on top of another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my hand is empty.\nI can only pick up a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not picked up.\nI can only unstack a block from on top of another block if the block I am unstacking was really on top of the other block.\nI can only unstack a block from on top of another block if the block I am unstacking is clear.\nOnce I pick up or unstack a block, I am holding the block.\nI can only put down a block that I am holding.\nI can only stack a block on top of another block if I am holding the block being stacked.\nI can only stack a block on top of another block if the block onto which I am stacking the block is clear.\nOnce I put down or stack a block, my hand becomes empty.\nOnce you stack a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the hand is empty, the nessest block is on top of the masterric block, the promittial block is on top of the voucid block, the masterric block is on top of the promittial block and the voucid block is on the table.\nMy goal is to have that the masterric block is on top of the voucid block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQATpG8nAyInsevWPyuGVJQYOZZ5r",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack nessest from masterric\n2. Put down nessest\n3. Unstack masterric from promittial\n4. Put down masterric\n5. Unstack promittial from voucid\n6. Stack promittial on nessest\n7. Pick up masterric\n8. Stack masterric on voucid",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352849,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2002,
+                    "prompt_tokens": 414,
+                    "total_tokens": 2416,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.1529643535614,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack nessest from masterric\n2. Put down nessest\n3. Unstack masterric from promittial\n4. Put down masterric\n5. Unstack promittial from voucid\n6. Stack promittial on nessest\n7. Pick up masterric\n8. Stack masterric on voucid",
+            "extracted_llm_plan": "```)\n(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b3)\n```)",
+            "raw_translation": "```\n(unstack nessest masterric)\n(put-down nessest)\n(unstack masterric promittial)\n(put-down masterric)\n(unstack promittial voucid)\n(stack promittial nessest)\n(pick-up masterric)\n(stack masterric voucid)\n```",
+            "llm_correct": false,
+            "cleaned_extracted_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b3)",
+            "cleaned_llm_correct": true
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_actions_names_row3",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the hand is empty, the meten block is on top of the nianize block, the nianize block is on top of the uniciple block, the uniciple block is on top of the nessest block and the nessest block is on the table.\nMy goal is to have that the meten block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b3)\n(hesir b2)\n(unvadelinde b3 b4)\n(hesir b3)\n(unvadelinde b4 b1)\n(hesir b4)\n(gregate b2)\n(vadelinde b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQA9u6W6RDzL4cPvhJ6CXvmJOlBGI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde meten from nianize\n2. Hesir meten\n3. Unvadelinde nianize from uniciple\n4. Hesir nianize\n5. Unvadelinde uniciple from nessest\n6. Hesir uniciple\n7. Gregate meten\n8. Vadelinde meten on top of nessest",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351614,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1876,
+                    "prompt_tokens": 443,
+                    "total_tokens": 2319,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.889164686203,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde meten from nianize\n2. Hesir meten\n3. Unvadelinde nianize from uniciple\n4. Hesir nianize\n5. Unvadelinde uniciple from nessest\n6. Hesir uniciple\n7. Gregate meten\n8. Vadelinde meten on top of nessest"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the nianize block is clear, the hand is empty, the nessest block is on top of the uniciple block, the meten block is on top of the nessest block, the nianize block is on the table and the uniciple block is on the table.\nMy goal is to have that the nessest block is on top of the meten block, the meten block is on top of the nianize block and the nianize block is on top of the uniciple block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b1)\n(hesir b2)\n(unvadelinde b1 b4)\n(hesir b1)\n(gregate b3)\n(vadelinde b3 b4)\n(gregate b2)\n(vadelinde b2 b3)\n(gregate b1)\n(vadelinde b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAAWISA2eLwwzUld142lnb7ppPri",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde the meten block from on top of the nessest block\n2. Vadelinde the meten block on top of the nianize block\n3. Unvadelinde the nessest block from on top of the uniciple block\n4. Vadelinde the nessest block on top of the meten block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351652,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1230,
+                    "prompt_tokens": 473,
+                    "total_tokens": 1703,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.0996413230896,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde the meten block from on top of the nessest block\n2. Vadelinde the meten block on top of the nianize block\n3. Unvadelinde the nessest block from on top of the uniciple block\n4. Vadelinde the nessest block on top of the meten block"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the meten block is clear, the hand is empty, the meten block is on top of the nianize block, the nianize block is on top of the uniciple block, the nessest block is on the table and the uniciple block is on the table.\nMy goal is to have that the meten block is on top of the uniciple block, the nianize block is on top of the meten block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b3)\n(hesir b2)\n(unvadelinde b3 b4)\n(hesir b3)\n(gregate b4)\n(vadelinde b4 b1)\n(gregate b2)\n(vadelinde b2 b4)\n(gregate b3)\n(vadelinde b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAAmAb2X6vhqrKdEdK6Dm5EHPTNU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde the meten block from on top of the nianize block\n2. Hesir the meten block\n3. Unvadelinde the nianize block from on top of the uniciple block\n4. Hesir the nianize block\n5. Gregate the uniciple block\n6. Vadelinde the uniciple block on top of the nessest block\n7. Gregate the meten block\n8. Vadelinde the meten block on top of the uniciple block\n9. Gregate the nianize block\n10. Vadelinde the nianize block on top of the meten block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351668,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3086,
+                    "prompt_tokens": 472,
+                    "total_tokens": 3558,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2944,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.42625665664673,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde the meten block from on top of the nianize block\n2. Hesir the meten block\n3. Unvadelinde the nianize block from on top of the uniciple block\n4. Hesir the nianize block\n5. Gregate the uniciple block\n6. Vadelinde the uniciple block on top of the nessest block\n7. Gregate the meten block\n8. Vadelinde the meten block on top of the uniciple block\n9. Gregate the nianize block\n10. Vadelinde the nianize block on top of the meten block"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the meten block is clear, the nianize block is clear, the hand is empty, the nianize block is on top of the uniciple block, the nessest block is on the table, the meten block is on the table and the uniciple block is on the table.\nMy goal is to have that the nessest block is on top of the nianize block, the meten block is on top of the nessest block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b3 b4)\n(hesir b3)\n(gregate b1)\n(vadelinde b1 b3)\n(gregate b2)\n(vadelinde b2 b1)\n(gregate b4)\n(vadelinde b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABUFwTVkOJ1GqLEsWdAzyYLrwGf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unvadelinde nianize from on top of uniciple\n2. hesir nianize\n3. gregate nessest\n4. vadelinde nessest on top of nianize\n5. gregate meten\n6. vadelinde meten on top of nessest\n7. gregate uniciple\n8. vadelinde uniciple on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351712,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1690,
+                    "prompt_tokens": 475,
+                    "total_tokens": 2165,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.623811960220337,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unvadelinde nianize from on top of uniciple\n2. hesir nianize\n3. gregate nessest\n4. vadelinde nessest on top of nianize\n5. gregate meten\n6. vadelinde meten on top of nessest\n7. gregate uniciple\n8. vadelinde uniciple on top of meten"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the uniciple block is clear, the hand is empty, the nessest block is on top of the nianize block, the uniciple block is on top of the meten block, the meten block is on the table and the nianize block is on the table.\nMy goal is to have that the nessest block is on top of the nianize block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b2)\n(vadelinde b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABszN9VhOIBszSzgRSpRfs8PVU7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde(uniciple, meten)\n2. Vadelinde(uniciple, nessest)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351736,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 929,
+                    "prompt_tokens": 461,
+                    "total_tokens": 1390,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.6406991481781,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde(uniciple, meten)\n2. Vadelinde(uniciple, nessest)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nianize block is clear, the uniciple block is clear, the hand is empty, the meten block is on top of the nessest block, the uniciple block is on top of the meten block, the nessest block is on the table and the nianize block is on the table.\nMy goal is to have that the meten block is on top of the uniciple block, the nianize block is on top of the nessest block and the uniciple block is on top of the nianize block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b2)\n(hesir b4)\n(unvadelinde b2 b1)\n(hesir b2)\n(gregate b3)\n(vadelinde b3 b1)\n(gregate b4)\n(vadelinde b4 b3)\n(gregate b2)\n(vadelinde b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAC7pofIAHqUuOuqUgLdoGGFaMX2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unvadelinde uniciple from meten\n2. vadelinde uniciple on nianize\n3. unvadelinde meten from nessest\n4. vadelinde meten on uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351751,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1524,
+                    "prompt_tokens": 474,
+                    "total_tokens": 1998,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.596271753311157,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unvadelinde uniciple from meten\n2. vadelinde uniciple on nianize\n3. unvadelinde meten from nessest\n4. vadelinde meten on uniciple"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the meten block is clear, the hand is empty, the nessest block is on top of the uniciple block, the uniciple block is on top of the nianize block, the meten block is on the table and the nianize block is on the table.\nMy goal is to have that the meten block is on top of the nessest block and the nianize block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b1 b4)\n(hesir b1)\n(gregate b2)\n(vadelinde b2 b1)\n(unvadelinde b4 b3)\n(hesir b4)\n(gregate b3)\n(vadelinde b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACTINnCwh08IBIodubmfUI0XkWF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "unvadelinde(nessest, uniciple)\nhesir(nessest)\nunvadelinde(uniciple, nianize)\nhesir(uniciple)\ngregate(meten)\nvadelinde(meten, nessest)\ngregate(nianize)\nvadelinde(nianize, meten)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351773,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2697,
+                    "prompt_tokens": 459,
+                    "total_tokens": 3156,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.18658208847046,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "unvadelinde(nessest, uniciple)\nhesir(nessest)\nunvadelinde(uniciple, nianize)\nhesir(uniciple)\ngregate(meten)\nvadelinde(meten, nessest)\ngregate(nianize)\nvadelinde(nianize, meten)"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nianize block is clear, the hand is empty, the meten block is on top of the uniciple block, the nianize block is on top of the meten block, the uniciple block is on top of the nessest block and the nessest block is on the table.\nMy goal is to have that the nessest block is on top of the meten block and the meten block is on top of the nianize block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b3 b2)\n(hesir b3)\n(unvadelinde b2 b4)\n(vadelinde b2 b3)\n(unvadelinde b4 b1)\n(hesir b4)\n(gregate b1)\n(vadelinde b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAD7PrxYL6olzxq2tERgvan40qBt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unvadelinde(nianize, meten)\n2. hesir(nianize)\n3. unvadelinde(meten, uniciple)\n4. vadelinde(meten, nianize)\n5. unvadelinde(uniciple, nessest)\n6. hesir(uniciple)\n7. gregate(nessest)\n8. vadelinde(nessest, meten)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351813,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2589,
+                    "prompt_tokens": 456,
+                    "total_tokens": 3045,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.00147986412048,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unvadelinde(nianize, meten)\n2. hesir(nianize)\n3. unvadelinde(meten, uniciple)\n4. vadelinde(meten, nianize)\n5. unvadelinde(uniciple, nessest)\n6. hesir(uniciple)\n7. gregate(nessest)\n8. vadelinde(nessest, meten)"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the meten block is clear, the hand is empty, the meten block is on top of the uniciple block, the uniciple block is on top of the nianize block, the nessest block is on the table and the nianize block is on the table.\nMy goal is to have that the meten block is on top of the nianize block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b4)\n(vadelinde b2 b1)\n(unvadelinde b4 b3)\n(hesir b4)\n(unvadelinde b2 b1)\n(vadelinde b2 b3)\n(gregate b4)\n(vadelinde b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQADpeqnTT1njIOra3lKDmOIF32nu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde meten from on top of uniciple\n2. Hesir meten\n3. Unvadelinde uniciple from on top of nianize\n4. Hesir uniciple\n5. Gregate meten\n6. Vadelinde meten on top of nianize\n7. Gregate uniciple\n8. Vadelinde uniciple on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351857,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2521,
+                    "prompt_tokens": 459,
+                    "total_tokens": 2980,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.422630548477173,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde meten from on top of uniciple\n2. Hesir meten\n3. Unvadelinde uniciple from on top of nianize\n4. Hesir uniciple\n5. Gregate meten\n6. Vadelinde meten on top of nianize\n7. Gregate uniciple\n8. Vadelinde uniciple on top of meten"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the uniciple block is clear, the hand is empty, the nessest block is on top of the nianize block, the meten block is on top of the nessest block, the uniciple block is on top of the meten block and the nianize block is on the table.\nMy goal is to have that the nessest block is on top of the meten block, the nianize block is on top of the uniciple block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b2)\n(hesir b4)\n(unvadelinde b2 b1)\n(hesir b2)\n(unvadelinde b1 b3)\n(vadelinde b1 b2)\n(gregate b4)\n(vadelinde b4 b1)\n(gregate b3)\n(vadelinde b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEJCrevxPsZLfnzy9G3hJnYDGfx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde uniciple from meten\n2. Hesir uniciple\n3. Unvadelinde meten from nessest\n4. Hesir meten\n5. Unvadelinde nessest from nianize\n6. Vadelinde nessest on meten\n7. Gregate uniciple\n8. Vadelinde uniciple on nessest\n9. Gregate nianize\n10. Vadelinde nianize on uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351887,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2920,
+                    "prompt_tokens": 470,
+                    "total_tokens": 3390,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.530659198760986,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde uniciple from meten\n2. Hesir uniciple\n3. Unvadelinde meten from nessest\n4. Hesir meten\n5. Unvadelinde nessest from nianize\n6. Vadelinde nessest on meten\n7. Gregate uniciple\n8. Vadelinde uniciple on nessest\n9. Gregate nianize\n10. Vadelinde nianize on uniciple"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the uniciple block is clear, the hand is empty, the meten block is on top of the nianize block, the nianize block is on top of the nessest block, the uniciple block is on top of the meten block and the nessest block is on the table.\nMy goal is to have that the meten block is on top of the uniciple block and the nianize block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b2)\n(hesir b4)\n(unvadelinde b2 b3)\n(vadelinde b2 b4)\n(unvadelinde b3 b1)\n(vadelinde b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAF1Da0ewmD76UzaZMF7vtFRLW1C",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde uniciple from on top of meten\n2. Hesir uniciple\n3. Unvadelinde meten from on top of nianize\n4. Vadelinde meten on top of uniciple\n5. Unvadelinde nianize from on top of nessest\n6. Vadelinde nianize on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351931,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2646,
+                    "prompt_tokens": 456,
+                    "total_tokens": 3102,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.81199049949646,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde uniciple from on top of meten\n2. Hesir uniciple\n3. Unvadelinde meten from on top of nianize\n4. Vadelinde meten on top of uniciple\n5. Unvadelinde nianize from on top of nessest\n6. Vadelinde nianize on top of meten"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the meten block is clear, the nianize block is clear, the hand is empty, the nessest block is on top of the uniciple block, the meten block is on the table, the nianize block is on the table and the uniciple block is on the table.\nMy goal is to have that the nessest block is on top of the nianize block, the meten block is on top of the nessest block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b1 b4)\n(vadelinde b1 b3)\n(gregate b2)\n(vadelinde b2 b1)\n(gregate b4)\n(vadelinde b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFdOqrNjBy3OhwJRKTQbLiRgb9Q",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nessest from on top of uniciple\n2. Vadelinde nessest on top of nianize\n3. Gregate meten\n4. Vadelinde meten on top of nessest\n5. Gregate uniciple\n6. Vadelinde uniciple on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351969,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1482,
+                    "prompt_tokens": 475,
+                    "total_tokens": 1957,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.39134383201599,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nessest from on top of uniciple\n2. Vadelinde nessest on top of nianize\n3. Gregate meten\n4. Vadelinde meten on top of nessest\n5. Gregate uniciple\n6. Vadelinde uniciple on top of meten"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the uniciple block is clear, the hand is empty, the nessest block is on top of the meten block, the meten block is on top of the nianize block, the nianize block is on the table and the uniciple block is on the table.\nMy goal is to have that the meten block is on top of the nianize block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b1 b2)\n(hesir b1)\n(gregate b4)\n(vadelinde b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAG1v7pzaylM6mduAYKYdQtrqqSx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nessest from on top of meten\n2. Hesir nessest\n3. Gregate uniciple\n4. Vadelinde uniciple on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351993,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1136,
+                    "prompt_tokens": 459,
+                    "total_tokens": 1595,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.53878617286682,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nessest from on top of meten\n2. Hesir nessest\n3. Gregate uniciple\n4. Vadelinde uniciple on top of meten"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the uniciple block is clear, the hand is empty, the nessest block is on top of the nianize block, the meten block is on top of the nessest block, the uniciple block is on top of the meten block and the nianize block is on the table.\nMy goal is to have that the nianize block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b2)\n(hesir b4)\n(unvadelinde b2 b1)\n(hesir b2)\n(unvadelinde b1 b3)\n(hesir b1)\n(gregate b3)\n(vadelinde b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGHnmdfDXvB87U07O5gyeDQEKfv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde uniciple from on top of meten\n2. Hesir uniciple\n3. Unvadelinde meten from on top of nessest\n4. Hesir meten\n5. Unvadelinde nessest from on top of nianize\n6. Hesir nessest\n7. Gregate nianize\n8. Vadelinde nianize on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352009,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1693,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2137,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.162348747253418,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde uniciple from on top of meten\n2. Hesir uniciple\n3. Unvadelinde meten from on top of nessest\n4. Hesir meten\n5. Unvadelinde nessest from on top of nianize\n6. Hesir nessest\n7. Gregate nianize\n8. Vadelinde nianize on top of meten"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the uniciple block is clear, the hand is empty, the nianize block is on top of the nessest block, the uniciple block is on top of the nianize block, the nessest block is on the table and the meten block is on the table.\nMy goal is to have that the nessest block is on top of the uniciple block, the meten block is on top of the nianize block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b3)\n(hesir b4)\n(unvadelinde b3 b1)\n(hesir b3)\n(gregate b2)\n(vadelinde b2 b3)\n(gregate b4)\n(vadelinde b4 b2)\n(gregate b1)\n(vadelinde b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGhEN4zBOeY4dXFYwDjIzFcN8TG",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde the uniciple block from on top of the nianize block\n2. Hesir the uniciple block\n3. Gregate the meten block\n4. Vadelinde the meten block on top of the nianize block\n5. Gregate the uniciple block\n6. Vadelinde the uniciple block on top of the meten block\n7. Gregate the nessest block\n8. Vadelinde the nessest block on top of the uniciple block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352035,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1905,
+                    "prompt_tokens": 472,
+                    "total_tokens": 2377,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.11681079864502,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde the uniciple block from on top of the nianize block\n2. Hesir the uniciple block\n3. Gregate the meten block\n4. Vadelinde the meten block on top of the nianize block\n5. Gregate the uniciple block\n6. Vadelinde the uniciple block on top of the meten block\n7. Gregate the nessest block\n8. Vadelinde the nessest block on top of the uniciple block"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nianize block is clear, the hand is empty, the nessest block is on top of the meten block, the nianize block is on top of the uniciple block, the uniciple block is on top of the nessest block and the meten block is on the table.\nMy goal is to have that the meten block is on top of the nessest block and the nianize block is on top of the uniciple block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b3 b4)\n(hesir b3)\n(unvadelinde b4 b1)\n(hesir b4)\n(gregate b3)\n(vadelinde b3 b4)\n(unvadelinde b1 b2)\n(hesir b1)\n(gregate b2)\n(vadelinde b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHBW413gmtYqbsZm5an7UZ6BPT6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nianize from on top of uniciple\n2. Hesir nianize\n3. Unvadelinde uniciple from on top of nessest\n4. Hesir uniciple\n5. Unvadelinde nessest from on top of meten\n6. Hesir nessest\n7. Gregate meten\n8. Vadelinde meten on top of nessest\n9. Gregate nianize\n10. Vadelinde nianize on top of uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352065,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2867,
+                    "prompt_tokens": 457,
+                    "total_tokens": 3324,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 46.923216342926025,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nianize from on top of uniciple\n2. Hesir nianize\n3. Unvadelinde uniciple from on top of nessest\n4. Hesir uniciple\n5. Unvadelinde nessest from on top of meten\n6. Hesir nessest\n7. Gregate meten\n8. Vadelinde meten on top of nessest\n9. Gregate nianize\n10. Vadelinde nianize on top of uniciple"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the nianize block is clear, the hand is empty, the meten block is on top of the uniciple block, the nianize block is on top of the meten block, the nessest block is on the table and the uniciple block is on the table.\nMy goal is to have that the meten block is on top of the uniciple block, the nianize block is on top of the nessest block and the uniciple block is on top of the nianize block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b3 b2)\n(vadelinde b3 b1)\n(unvadelinde b2 b4)\n(hesir b2)\n(gregate b4)\n(vadelinde b4 b3)\n(gregate b2)\n(vadelinde b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHwiipgGkUF5IdjAj7BeB7JWkGH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nianize from on top of meten\n2. Vadelinde nianize on top of nessest\n3. Unvadelinde meten from on top of uniciple\n4. Hesir meten\n5. Gregate uniciple\n6. Vadelinde uniciple on top of nianize\n7. Gregate meten\n8. Vadelinde meten on top of uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352112,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2208,
+                    "prompt_tokens": 474,
+                    "total_tokens": 2682,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.84715747833252,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nianize from on top of meten\n2. Vadelinde nianize on top of nessest\n3. Unvadelinde meten from on top of uniciple\n4. Hesir meten\n5. Gregate uniciple\n6. Vadelinde uniciple on top of nianize\n7. Gregate meten\n8. Vadelinde meten on top of uniciple"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the nianize block is clear, the uniciple block is clear, the hand is empty, the nianize block is on top of the meten block, the nessest block is on the table, the meten block is on the table and the uniciple block is on the table.\nMy goal is to have that the nessest block is on top of the nianize block, the meten block is on top of the nessest block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b3 b2)\n(hesir b3)\n(gregate b1)\n(vadelinde b1 b3)\n(gregate b2)\n(vadelinde b2 b1)\n(gregate b4)\n(vadelinde b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIUoq77GtfmDViDdGWXkFhP8EuQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nianize from on top of meten\n2. Hesir nianize\n3. Gregate nessest\n4. Vadelinde nessest on nianize\n5. Gregate meten\n6. Vadelinde meten on nessest\n7. Gregate uniciple\n8. Vadelinde uniciple on meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352146,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1555,
+                    "prompt_tokens": 475,
+                    "total_tokens": 2030,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.70082139968872,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nianize from on top of meten\n2. Hesir nianize\n3. Gregate nessest\n4. Vadelinde nessest on nianize\n5. Gregate meten\n6. Vadelinde meten on nessest\n7. Gregate uniciple\n8. Vadelinde uniciple on meten"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the nianize block is clear, the hand is empty, the meten block is on top of the uniciple block, the uniciple block is on top of the nessest block, the nessest block is on the table and the nianize block is on the table.\nMy goal is to have that the nessest block is on top of the meten block, the meten block is on top of the uniciple block and the uniciple block is on top of the nianize block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b4)\n(hesir b2)\n(unvadelinde b4 b1)\n(vadelinde b4 b3)\n(gregate b2)\n(vadelinde b2 b4)\n(gregate b1)\n(vadelinde b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIqZ1MUj4mxRN3a0NJtT3duT2L5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde meten from uniciple\n2. Hesir meten\n3. Unvadelinde uniciple from nessest\n4. Vadelinde uniciple on nianize\n5. Gregate meten\n6. Vadelinde meten on uniciple\n7. Gregate nessest\n8. Vadelinde nessest on meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352168,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2066,
+                    "prompt_tokens": 472,
+                    "total_tokens": 2538,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.167851209640503,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde meten from uniciple\n2. Hesir meten\n3. Unvadelinde uniciple from nessest\n4. Vadelinde uniciple on nianize\n5. Gregate meten\n6. Vadelinde meten on uniciple\n7. Gregate nessest\n8. Vadelinde nessest on meten"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the uniciple block is clear, the hand is empty, the meten block is on top of the nianize block, the nianize block is on top of the nessest block, the nessest block is on the table and the uniciple block is on the table.\nMy goal is to have that the meten block is on top of the uniciple block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b3)\n(hesir b2)\n(unvadelinde b3 b1)\n(hesir b3)\n(gregate b4)\n(vadelinde b4 b1)\n(gregate b2)\n(vadelinde b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJHSCPVFBlvnriSV1jzeehEpyAr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unvadelinde the meten block from on top of the nianize block\nHesir the meten block\nUnvadelinde the nianize block from on top of the nessest block\nHesir the nianize block\nGregate the uniciple block\nVadelinde the uniciple block on top of the nessest block\nGregate the meten block\nVadelinde the meten block on top of the uniciple block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352195,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1637,
+                    "prompt_tokens": 459,
+                    "total_tokens": 2096,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.220612287521362,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unvadelinde the meten block from on top of the nianize block\nHesir the meten block\nUnvadelinde the nianize block from on top of the nessest block\nHesir the nianize block\nGregate the uniciple block\nVadelinde the uniciple block on top of the nessest block\nGregate the meten block\nVadelinde the meten block on top of the uniciple block"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the meten block is clear, the hand is empty, the nessest block is on top of the uniciple block, the meten block is on top of the nianize block, the nianize block is on the table and the uniciple block is on the table.\nMy goal is to have that the nessest block is on top of the nianize block, the meten block is on top of the nessest block and the nianize block is on top of the uniciple block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b3)\n(hesir b2)\n(unvadelinde b1 b4)\n(vadelinde b1 b2)\n(gregate b3)\n(vadelinde b3 b4)\n(unvadelinde b1 b2)\n(vadelinde b1 b3)\n(gregate b2)\n(vadelinde b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJhM8uE27DjVGMo7RWxWogeL0X7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nessest from uniciple\n2. Hesir nessest\n3. Unvadelinde meten from nianize\n4. Hesir meten\n5. Gregate nianize\n6. Vadelinde nianize on top of uniciple\n7. Gregate nessest\n8. Vadelinde nessest on top of nianize\n9. Gregate meten\n10. Vadelinde meten on top of nessest",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352221,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2154,
+                    "prompt_tokens": 474,
+                    "total_tokens": 2628,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.317728996276855,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nessest from uniciple\n2. Hesir nessest\n3. Unvadelinde meten from nianize\n4. Hesir meten\n5. Gregate nianize\n6. Vadelinde nianize on top of uniciple\n7. Gregate nessest\n8. Vadelinde nessest on top of nianize\n9. Gregate meten\n10. Vadelinde meten on top of nessest"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the nianize block is clear, the uniciple block is clear, the hand is empty, the nianize block is on top of the nessest block, the nessest block is on the table, the meten block is on the table and the uniciple block is on the table.\nMy goal is to have that the nessest block is on top of the meten block and the meten block is on top of the nianize block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b3 b1)\n(hesir b3)\n(gregate b2)\n(vadelinde b2 b3)\n(gregate b1)\n(vadelinde b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKDEwZonWiQzF50gvBXk3szisLn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nianize from on top of nessest\n2. Hesir nianize\n3. Gregate meten\n4. Vadelinde meten on top of nianize\n5. Gregate nessest\n6. Vadelinde nessest on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352253,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1670,
+                    "prompt_tokens": 462,
+                    "total_tokens": 2132,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.470544815063477,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nianize from on top of nessest\n2. Hesir nianize\n3. Gregate meten\n4. Vadelinde meten on top of nianize\n5. Gregate nessest\n6. Vadelinde nessest on top of meten"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the uniciple block is clear, the hand is empty, the nianize block is on top of the meten block, the uniciple block is on top of the nianize block, the nessest block is on the table and the meten block is on the table.\nMy goal is to have that the nessest block is on top of the meten block, the nianize block is on top of the uniciple block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b3)\n(hesir b4)\n(unvadelinde b3 b2)\n(hesir b3)\n(gregate b1)\n(vadelinde b1 b2)\n(gregate b4)\n(vadelinde b4 b1)\n(gregate b3)\n(vadelinde b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKbu9e6p1O71BbtUCeMMGRSn4VP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde uniciple from on top of nianize\n2. Hesir uniciple\n3. Unvadelinde nianize from on top of meten\n4. Hesir nianize\n5. Gregate nessest\n6. Vadelinde nessest on top of meten\n7. Gregate uniciple\n8. Vadelinde uniciple on top of nessest\n9. Gregate nianize\n10. Vadelinde nianize on top of uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352277,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2803,
+                    "prompt_tokens": 473,
+                    "total_tokens": 3276,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 42.269999980926514,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde uniciple from on top of nianize\n2. Hesir uniciple\n3. Unvadelinde nianize from on top of meten\n4. Hesir nianize\n5. Gregate nessest\n6. Vadelinde nessest on top of meten\n7. Gregate uniciple\n8. Vadelinde uniciple on top of nessest\n9. Gregate nianize\n10. Vadelinde nianize on top of uniciple"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the uniciple block is clear, the hand is empty, the nessest block is on top of the meten block, the meten block is on top of the nianize block, the nianize block is on the table and the uniciple block is on the table.\nMy goal is to have that the nianize block is on top of the uniciple block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b1 b2)\n(hesir b1)\n(unvadelinde b2 b3)\n(hesir b2)\n(gregate b4)\n(vadelinde b4 b2)\n(gregate b3)\n(vadelinde b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQALIdfXcJ59xntGIX5NsP5kgzKsu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nessest from on top of meten\n2. Hesir nessest\n3. Unvadelinde meten from on top of nianize\n4. Hesir meten\n5. Gregate uniciple\n6. Vadelinde uniciple on top of meten\n7. Gregate nianize\n8. Vadelinde nianize on top of uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352320,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1627,
+                    "prompt_tokens": 460,
+                    "total_tokens": 2087,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.789245128631592,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nessest from on top of meten\n2. Hesir nessest\n3. Unvadelinde meten from on top of nianize\n4. Hesir meten\n5. Gregate uniciple\n6. Vadelinde uniciple on top of meten\n7. Gregate nianize\n8. Vadelinde nianize on top of uniciple"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the meten block is clear, the uniciple block is clear, the hand is empty, the nessest block is on top of the nianize block, the meten block is on the table, the nianize block is on the table and the uniciple block is on the table.\nMy goal is to have that the nessest block is on top of the uniciple block, the meten block is on top of the nianize block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b1 b3)\n(hesir b1)\n(gregate b2)\n(vadelinde b2 b3)\n(gregate b4)\n(vadelinde b4 b2)\n(gregate b1)\n(vadelinde b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQALm2tZsJbfXzplxhpPT5fLyElm9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nessest from on top of nianize\n2. Hesir nessest\n3. Gregate meten\n4. Vadelinde meten on top of nianize\n5. Gregate uniciple\n6. Vadelinde uniciple on top of meten\n7. Gregate nessest\n8. Vadelinde nessest on top of uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352350,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1689,
+                    "prompt_tokens": 475,
+                    "total_tokens": 2164,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.27753973007202,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nessest from on top of nianize\n2. Hesir nessest\n3. Gregate meten\n4. Vadelinde meten on top of nianize\n5. Gregate uniciple\n6. Vadelinde uniciple on top of meten\n7. Gregate nessest\n8. Vadelinde nessest on top of uniciple"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the nianize block is clear, the hand is empty, the nessest block is on top of the uniciple block, the meten block is on top of the nessest block, the nianize block is on the table and the uniciple block is on the table.\nMy goal is to have that the nessest block is on top of the meten block and the meten block is on top of the uniciple block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b1)\n(vadelinde b2 b3)\n(unvadelinde b1 b4)\n(hesir b1)\n(unvadelinde b2 b3)\n(vadelinde b2 b4)\n(gregate b1)\n(vadelinde b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMDmBSWJnvWFkIiQJggm0UWVLbS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unvadelinde the meten block from on top of the nessest block\n2. vadelinde the meten block on top of the nianize block\n3. unvadelinde the nessest block from on top of the uniciple block\n4. vadelinde the nessest block on top of the meten block\n5. unvadelinde the nessest block from on top of the meten block\n6. hesir the nessest block\n7. unvadelinde the meten block from on top of the nianize block\n8. vadelinde the meten block on top of the uniciple block\n9. gregate the nessest block\n10. vadelinde the nessest block on top of the meten block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352377,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3685,
+                    "prompt_tokens": 458,
+                    "total_tokens": 4143,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3520,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 55.99252796173096,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unvadelinde the meten block from on top of the nessest block\n2. vadelinde the meten block on top of the nianize block\n3. unvadelinde the nessest block from on top of the uniciple block\n4. vadelinde the nessest block on top of the meten block\n5. unvadelinde the nessest block from on top of the meten block\n6. hesir the nessest block\n7. unvadelinde the meten block from on top of the nianize block\n8. vadelinde the meten block on top of the uniciple block\n9. gregate the nessest block\n10. vadelinde the nessest block on top of the meten block"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the nianize block is clear, the uniciple block is clear, the hand is empty, the uniciple block is on top of the nessest block, the nessest block is on the table, the meten block is on the table and the nianize block is on the table.\nMy goal is to have that the nessest block is on top of the meten block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b1)\n(vadelinde b4 b3)\n(gregate b1)\n(vadelinde b1 b2)\n(unvadelinde b4 b3)\n(vadelinde b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAN7LyuO4yQHYB8gzdIqRupVFcIX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde(uniciple, nessest)\n2. Hesir(uniciple)\n3. Gregate(nessest)\n4. Vadelinde(nessest, meten)\n5. Gregate(uniciple)\n6. Vadelinde(uniciple, nessest)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352433,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1541,
+                    "prompt_tokens": 462,
+                    "total_tokens": 2003,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.1947181224823,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde(uniciple, nessest)\n2. Hesir(uniciple)\n3. Gregate(nessest)\n4. Vadelinde(nessest, meten)\n5. Gregate(uniciple)\n6. Vadelinde(uniciple, nessest)"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nianize block is clear, the hand is empty, the meten block is on top of the nessest block, the nianize block is on top of the uniciple block, the uniciple block is on top of the meten block and the nessest block is on the table.\nMy goal is to have that the nessest block is on top of the uniciple block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b3 b4)\n(hesir b3)\n(unvadelinde b4 b2)\n(hesir b4)\n(unvadelinde b2 b1)\n(hesir b2)\n(gregate b1)\n(vadelinde b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANKYU8bHfhnefA5NdYV2w3p7XKg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "unvadelinde nianize from uniciple\nhesir nianize\nunvadelinde uniciple from meten\nhesir uniciple\nunvadelinde meten from nessest\nhesir meten\ngregate nessest\nvadelinde nessest on top of uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352446,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2116,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2560,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.41279149055481,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "unvadelinde nianize from uniciple\nhesir nianize\nunvadelinde uniciple from meten\nhesir uniciple\nunvadelinde meten from nessest\nhesir meten\ngregate nessest\nvadelinde nessest on top of uniciple"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the uniciple block is clear, the hand is empty, the nessest block is on top of the meten block, the nianize block is on top of the nessest block, the uniciple block is on top of the nianize block and the meten block is on the table.\nMy goal is to have that the nessest block is on top of the meten block and the meten block is on top of the uniciple block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b3)\n(hesir b4)\n(unvadelinde b3 b1)\n(hesir b3)\n(unvadelinde b1 b2)\n(vadelinde b1 b3)\n(gregate b2)\n(vadelinde b2 b4)\n(unvadelinde b1 b3)\n(vadelinde b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANq9Y3WaSmk4AOjO3da2Z18aEv6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde uniciple from on top of nianize\n2. Hesir uniciple\n3. Unvadelinde nianize from on top of nessest\n4. Hesir nianize\n5. Unvadelinde nessest from on top of meten\n6. Hesir nessest\n7. Gregate meten\n8. Vadelinde meten on top of uniciple\n9. Gregate nessest\n10. Vadelinde nessest on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352478,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2545,
+                    "prompt_tokens": 455,
+                    "total_tokens": 3000,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.89105534553528,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde uniciple from on top of nianize\n2. Hesir uniciple\n3. Unvadelinde nianize from on top of nessest\n4. Hesir nianize\n5. Unvadelinde nessest from on top of meten\n6. Hesir nessest\n7. Gregate meten\n8. Vadelinde meten on top of uniciple\n9. Gregate nessest\n10. Vadelinde nessest on top of meten"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the hand is empty, the nessest block is on top of the nianize block, the meten block is on top of the uniciple block, the uniciple block is on top of the nessest block and the nianize block is on the table.\nMy goal is to have that the nessest block is on top of the nianize block and the nianize block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b2 b4)\n(hesir b2)\n(unvadelinde b4 b1)\n(hesir b4)\n(unvadelinde b1 b3)\n(vadelinde b1 b4)\n(gregate b3)\n(vadelinde b3 b2)\n(unvadelinde b1 b4)\n(vadelinde b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOVCS1a7dapg835KVe92X02tzAq",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "unvadelinde meten from uniciple\nhesir meten\nunvadelinde uniciple from nessest\nhesir uniciple\nunvadelinde nessest from nianize\nhesir nessest\ngregate nianize\nvadelinde nianize on meten\ngregate nessest\nvadelinde nessest on nianize",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352519,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3218,
+                    "prompt_tokens": 458,
+                    "total_tokens": 3676,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.825255155563354,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "unvadelinde meten from uniciple\nhesir meten\nunvadelinde uniciple from nessest\nhesir uniciple\nunvadelinde nessest from nianize\nhesir nessest\ngregate nianize\nvadelinde nianize on meten\ngregate nessest\nvadelinde nessest on nianize"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the uniciple block is clear, the hand is empty, the meten block is on top of the nianize block, the nianize block is on top of the nessest block, the uniciple block is on top of the meten block and the nessest block is on the table.\nMy goal is to have that the nessest block is on top of the nianize block and the nianize block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b2)\n(hesir b4)\n(unvadelinde b2 b3)\n(hesir b2)\n(unvadelinde b3 b1)\n(vadelinde b3 b2)\n(gregate b1)\n(vadelinde b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPHc0ANXK3xcpDvPEsPQtZPF8aD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde uniciple from on top of meten\n2. Hesir uniciple\n3. Unvadelinde meten from on top of nianize\n4. Hesir meten\n5. Unvadelinde nianize from on top of nessest\n6. Vadelinde nianize on top of meten\n7. Gregate nessest\n8. Vadelinde nessest on top of nianize",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352567,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2404,
+                    "prompt_tokens": 458,
+                    "total_tokens": 2862,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.539867877960205,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde uniciple from on top of meten\n2. Hesir uniciple\n3. Unvadelinde meten from on top of nianize\n4. Hesir meten\n5. Unvadelinde nianize from on top of nessest\n6. Vadelinde nianize on top of meten\n7. Gregate nessest\n8. Vadelinde nessest on top of nianize"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nianize block is clear, the uniciple block is clear, the hand is empty, the nessest block is on top of the meten block, the nianize block is on top of the nessest block, the meten block is on the table and the uniciple block is on the table.\nMy goal is to have that the nianize block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQAPwiZWEmsZlgOQmtz55rjbCUZeX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions (goal already satisfied).",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352608,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 592,
+                    "prompt_tokens": 448,
+                    "total_tokens": 1040,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 576,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 10.013317823410034,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions (goal already satisfied)."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the uniciple block is clear, the hand is empty, the nianize block is on top of the meten block, the uniciple block is on top of the nianize block, the nessest block is on the table and the meten block is on the table.\nMy goal is to have that the meten block is on top of the nianize block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b3)\n(vadelinde b4 b1)\n(unvadelinde b3 b2)\n(hesir b3)\n(gregate b2)\n(vadelinde b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQ6daxWjfhYZCMUk6oErlGjXpmy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unvadelinde uniciple from on top of nianize\nVadelinde uniciple on top of nessest\nUnvadelinde nianize from on top of meten\nHesir nianize\nGregate meten\nVadelinde meten on top of nianize",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352618,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2372,
+                    "prompt_tokens": 460,
+                    "total_tokens": 2832,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.32486343383789,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unvadelinde uniciple from on top of nianize\nVadelinde uniciple on top of nessest\nUnvadelinde nianize from on top of meten\nHesir nianize\nGregate meten\nVadelinde meten on top of nianize"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the meten block is clear, the uniciple block is clear, the hand is empty, the nessest block is on top of the nianize block, the uniciple block is on top of the nessest block, the meten block is on the table and the nianize block is on the table.\nMy goal is to have that the nessest block is on top of the meten block and the meten block is on top of the nianize block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b1)\n(hesir b4)\n(unvadelinde b1 b3)\n(vadelinde b1 b4)\n(gregate b2)\n(vadelinde b2 b3)\n(unvadelinde b1 b4)\n(vadelinde b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQfqosdKlEF5oHI7VzKq91ZZZmA",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde uniciple from on top of nessest\n2. Hesir uniciple\n3. Unvadelinde nessest from on top of nianize\n4. Hesir nessest\n5. Gregate meten\n6. Vadelinde meten on top of nianize\n7. Gregate nessest\n8. Vadelinde nessest on top of meten",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352653,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1755,
+                    "prompt_tokens": 459,
+                    "total_tokens": 2214,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.535348415374756,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde uniciple from on top of nessest\n2. Hesir uniciple\n3. Unvadelinde nessest from on top of nianize\n4. Hesir nessest\n5. Gregate meten\n6. Vadelinde meten on top of nianize\n7. Gregate nessest\n8. Vadelinde nessest on top of meten"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the nianize block is clear, the hand is empty, the nessest block is on top of the meten block, the meten block is on top of the uniciple block, the nianize block is on the table and the uniciple block is on the table.\nMy goal is to have that the meten block is on top of the nessest block, the nianize block is on top of the uniciple block and the uniciple block is on top of the meten block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b1 b2)\n(hesir b1)\n(unvadelinde b2 b4)\n(vadelinde b2 b1)\n(gregate b4)\n(vadelinde b4 b2)\n(gregate b3)\n(vadelinde b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARHr2OwqXdqYQ7RmkYvJzBFGtNK",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nessest from meten\n2. Hesir nessest\n3. Unvadelinde meten from uniciple\n4. Vadelinde meten on nessest\n5. Gregate uniciple\n6. Vadelinde uniciple on meten\n7. Gregate nianize\n8. Vadelinde nianize on uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352691,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2452,
+                    "prompt_tokens": 472,
+                    "total_tokens": 2924,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 57.29422998428345,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nessest from meten\n2. Hesir nessest\n3. Unvadelinde meten from uniciple\n4. Vadelinde meten on nessest\n5. Gregate uniciple\n6. Vadelinde uniciple on meten\n7. Gregate nianize\n8. Vadelinde nianize on uniciple"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the hand is empty, the nessest block is on top of the nianize block, the nianize block is on top of the uniciple block, the uniciple block is on top of the meten block and the meten block is on the table.\nMy goal is to have that the nessest block is on top of the meten block, the nianize block is on top of the uniciple block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b1 b3)\n(hesir b1)\n(unvadelinde b3 b4)\n(hesir b3)\n(unvadelinde b4 b2)\n(vadelinde b4 b3)\n(gregate b1)\n(vadelinde b1 b2)\n(unvadelinde b4 b3)\n(vadelinde b4 b1)\n(gregate b3)\n(vadelinde b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQASCzrZFKrRBRSGL5apnhjcDX97h",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unvadelinde nessest from nianize\n2. hesir nessest\n3. unvadelinde nianize from uniciple\n4. hesir nianize\n5. unvadelinde uniciple from meten\n6. hesir uniciple\n7. gregate nessest\n8. vadelinde nessest on meten\n9. gregate uniciple\n10. vadelinde uniciple on nessest\n11. gregate nianize\n12. vadelinde nianize on uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352748,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2810,
+                    "prompt_tokens": 470,
+                    "total_tokens": 3280,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 54.53746438026428,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unvadelinde nessest from nianize\n2. hesir nessest\n3. unvadelinde nianize from uniciple\n4. hesir nianize\n5. unvadelinde uniciple from meten\n6. hesir uniciple\n7. gregate nessest\n8. vadelinde nessest on meten\n9. gregate uniciple\n10. vadelinde uniciple on nessest\n11. gregate nianize\n12. vadelinde nianize on uniciple"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the uniciple block is clear, the hand is empty, the meten block is on top of the nessest block, the nianize block is on top of the meten block, the uniciple block is on top of the nianize block and the nessest block is on the table.\nMy goal is to have that the nessest block is on top of the uniciple block and the meten block is on top of the nianize block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b3)\n(hesir b4)\n(unvadelinde b3 b2)\n(hesir b3)\n(unvadelinde b2 b1)\n(vadelinde b2 b3)\n(gregate b1)\n(vadelinde b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAT4qX2I5nDnjlmeOiYfAcYF7rwb",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde uniciple from on top of nianize\n2. Hesir uniciple\n3. Unvadelinde nianize from on top of meten\n4. Hesir nianize\n5. Unvadelinde meten from on top of nessest\n6. Vadelinde meten on top of nianize\n7. Gregate nessest\n8. Vadelinde nessest on top of uniciple",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352802,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2469,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2926,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.83550763130188,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde uniciple from on top of nianize\n2. Hesir uniciple\n3. Unvadelinde nianize from on top of meten\n4. Hesir nianize\n5. Unvadelinde meten from on top of nessest\n6. Vadelinde meten on top of nianize\n7. Gregate nessest\n8. Vadelinde nessest on top of uniciple"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nianize block is clear, the hand is empty, the meten block is on top of the uniciple block, the nianize block is on top of the meten block, the uniciple block is on top of the nessest block and the nessest block is on the table.\nMy goal is to have that the meten block is on top of the nianize block and the nianize block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b3 b2)\n(hesir b3)\n(unvadelinde b2 b4)\n(hesir b2)\n(unvadelinde b4 b1)\n(hesir b4)\n(gregate b3)\n(vadelinde b3 b1)\n(gregate b2)\n(vadelinde b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAThgSsLRKJcXDmpwtMPqNN5oKhW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nianize from on top of meten\n2. Hesir nianize\n3. Unvadelinde meten from on top of uniciple\n4. Hesir meten\n5. Unvadelinde uniciple from on top of nessest\n6. Hesir uniciple\n7. Gregate nianize\n8. Vadelinde nianize on top of nessest\n9. Gregate meten\n10. Vadelinde meten on top of nianize",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352841,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2418,
+                    "prompt_tokens": 458,
+                    "total_tokens": 2876,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.99064612388611,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nianize from on top of meten\n2. Hesir nianize\n3. Unvadelinde meten from on top of uniciple\n4. Hesir meten\n5. Unvadelinde uniciple from on top of nessest\n6. Hesir uniciple\n7. Gregate nianize\n8. Vadelinde nianize on top of nessest\n9. Gregate meten\n10. Vadelinde meten on top of nianize"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the nianize block is clear, the uniciple block is clear, the hand is empty, the uniciple block is on top of the meten block, the nessest block is on the table, the meten block is on the table and the nianize block is on the table.\nMy goal is to have that the nessest block is on top of the meten block and the uniciple block is on top of the nessest block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b4 b2)\n(vadelinde b4 b3)\n(gregate b1)\n(vadelinde b1 b2)\n(unvadelinde b4 b3)\n(vadelinde b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAUG7onUEwBkxOC3iQIZzCVOcieN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde the uniciple block from on top of the meten block\n2. Hesir the uniciple block\n3. Gregate the nessest block\n4. Vadelinde the nessest block on top of the meten block\n5. Gregate the uniciple block\n6. Vadelinde the uniciple block on top of the nessest block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352876,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1494,
+                    "prompt_tokens": 462,
+                    "total_tokens": 1956,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.093528747558594,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde the uniciple block from on top of the meten block\n2. Hesir the uniciple block\n3. Gregate the nessest block\n4. Vadelinde the nessest block on top of the meten block\n5. Gregate the uniciple block\n6. Vadelinde the uniciple block on top of the nessest block"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into vadelindes. Here are the actions I can do\n\nGregate a block\nUnvadelinde a block from on top of another block\nHesir a block\nVadelinde a block on top of another block\n\nI have the following restrictions on my actions:\nI can only gregate or unvadelinde one block at a time.\nI can only gregate or unvadelinde a block if my hand is empty.\nI can only gregate a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not gregated.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding was really on top of the other block.\nI can only unvadelinde a block from on top of another block if the block I am unvadelinding is clear.\nOnce I gregate or unvadelinde a block, I am holding the block.\nI can only hesir a block that I am holding.\nI can only vadelinde a block on top of another block if I am holding the block being vadelinded.\nI can only vadelinde a block on top of another block if the block onto which I am vadelinding the block is clear.\nOnce I hesir or vadelinde a block, my hand becomes empty.\nOnce you vadelinde a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the nessest block is clear, the hand is empty, the nessest block is on top of the uniciple block, the meten block is on top of the nianize block, the uniciple block is on top of the meten block and the nianize block is on the table.\nMy goal is to have that the uniciple block is on top of the nianize block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unvadelinde b1 b4)\n(hesir b1)\n(unvadelinde b4 b2)\n(vadelinde b4 b1)\n(unvadelinde b2 b3)\n(hesir b2)\n(unvadelinde b4 b1)\n(vadelinde b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAUatg70IbH4FeGlBBYXl2P6XLZm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unvadelinde nessest from on top of uniciple\n2. Hesir nessest\n3. Unvadelinde uniciple from on top of meten\n4. Hesir uniciple\n5. Unvadelinde meten from on top of nianize\n6. Vadelinde meten on top of nessest\n7. Gregate uniciple\n8. Vadelinde uniciple on top of nianize",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352896,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2595,
+                    "prompt_tokens": 445,
+                    "total_tokens": 3040,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.594459295272827,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unvadelinde nessest from on top of uniciple\n2. Hesir nessest\n3. Unvadelinde uniciple from on top of meten\n4. Hesir uniciple\n5. Unvadelinde meten from on top of nianize\n6. Vadelinde meten on top of nessest\n7. Gregate uniciple\n8. Vadelinde uniciple on top of nianize"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

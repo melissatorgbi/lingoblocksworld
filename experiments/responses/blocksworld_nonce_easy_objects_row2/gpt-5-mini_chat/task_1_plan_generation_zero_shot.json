@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_objects_row2",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the hand is empty, the blue consvia is on top of the orange consvia, the orange consvia is on top of the yellow consvia, the yellow consvia is on top of the red consvia and the red consvia is on the table.\nMy goal is to have that the blue consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ975JRXy6eGzZiYeGBBZLQOpN4ZZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from yellow\n4. Put down orange\n5. Unstack yellow from red\n6. Put down yellow\n7. Pick up blue\n8. Stack blue on red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347595,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1278,
+                    "prompt_tokens": 450,
+                    "total_tokens": 1728,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.251118421554565,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from yellow\n4. Put down orange\n5. Unstack yellow from red\n6. Put down yellow\n7. Pick up blue\n8. Stack blue on red"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the orange consvia is clear, the hand is empty, the red consvia is on top of the yellow consvia, the blue consvia is on top of the red consvia, the orange consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia, the blue consvia is on top of the orange consvia and the orange consvia is on top of the yellow consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ97SsK0cGdDFC4zTr0a2TKXqvhMN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from on top of red\n2. Put down blue\n3. Unstack red from on top of yellow\n4. Put down red\n5. Pick up orange\n6. Stack orange on top of yellow\n7. Pick up blue\n8. Stack blue on top of orange\n9. Pick up red\n10. Stack red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347618,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2327,
+                    "prompt_tokens": 479,
+                    "total_tokens": 2806,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.47723698616028,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from on top of red\n2. Put down blue\n3. Unstack red from on top of yellow\n4. Put down red\n5. Pick up orange\n6. Stack orange on top of yellow\n7. Pick up blue\n8. Stack blue on top of orange\n9. Pick up red\n10. Stack red on top of blue"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the blue consvia is clear, the hand is empty, the blue consvia is on top of the orange consvia, the orange consvia is on top of the yellow consvia, the red consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the blue consvia is on top of the yellow consvia, the orange consvia is on top of the blue consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ988YERNLW1UJvRDJ0PesKUZuYuh",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack blue from on top of orange\nPut down blue\nUnstack orange from on top of yellow\nPut down orange\nPick up yellow\nStack yellow on top of red\nPick up blue\nStack blue on top of yellow\nPick up orange\nStack orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347660,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1667,
+                    "prompt_tokens": 479,
+                    "total_tokens": 2146,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.188360452651978,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack blue from on top of orange\nPut down blue\nUnstack orange from on top of yellow\nPut down orange\nPick up yellow\nStack yellow on top of red\nPick up blue\nStack blue on top of yellow\nPick up orange\nStack orange on top of blue"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the blue consvia is clear, the orange consvia is clear, the hand is empty, the orange consvia is on top of the yellow consvia, the red consvia is on the table, the blue consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the red consvia is on top of the orange consvia, the blue consvia is on top of the red consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ98Y4eOrAjIaU4J8q9tmqQtkNDS2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from yellow\n2. Put down orange\n3. Pick up red\n4. Stack red on orange\n5. Pick up blue\n6. Stack blue on red\n7. Pick up yellow\n8. Stack yellow on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347686,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1468,
+                    "prompt_tokens": 482,
+                    "total_tokens": 1950,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.12116289138794,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from yellow\n2. Put down orange\n3. Pick up red\n4. Stack red on orange\n5. Pick up blue\n6. Stack blue on red\n7. Pick up yellow\n8. Stack yellow on blue"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the yellow consvia is clear, the hand is empty, the red consvia is on top of the orange consvia, the yellow consvia is on top of the blue consvia, the blue consvia is on the table and the orange consvia is on the table.\nMy goal is to have that the red consvia is on top of the orange consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ98ufXrRx57j03lfS9yYZVZdFQtq",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(yellow, blue)\n2. Stack(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347708,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 602,
+                    "prompt_tokens": 466,
+                    "total_tokens": 1068,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 576,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.135457277297974,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(yellow, blue)\n2. Stack(yellow, red)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange consvia is clear, the yellow consvia is clear, the hand is empty, the blue consvia is on top of the red consvia, the yellow consvia is on top of the blue consvia, the red consvia is on the table and the orange consvia is on the table.\nMy goal is to have that the blue consvia is on top of the yellow consvia, the orange consvia is on top of the red consvia and the yellow consvia is on top of the orange consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ993gSPPwbaNrf7uBnDZs3K0PZGF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Pick up orange\n6. Stack orange on red\n7. Pick up yellow\n8. Stack yellow on orange\n9. Pick up blue\n10. Stack blue on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347717,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1738,
+                    "prompt_tokens": 479,
+                    "total_tokens": 2217,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.983877658843994,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Pick up orange\n6. Stack orange on red\n7. Pick up yellow\n8. Stack yellow on orange\n9. Pick up blue\n10. Stack blue on yellow"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the blue consvia is clear, the hand is empty, the red consvia is on top of the yellow consvia, the yellow consvia is on top of the orange consvia, the blue consvia is on the table and the orange consvia is on the table.\nMy goal is to have that the blue consvia is on top of the red consvia and the orange consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99Uw1sBZpYNu81afIzGOMT799RF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from yellow\n2. Put down red\n3. Unstack yellow from orange\n4. Put down yellow\n5. Pick up blue\n6. Stack blue on red\n7. Pick up orange\n8. Stack orange on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347744,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1598,
+                    "prompt_tokens": 466,
+                    "total_tokens": 2064,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.80837392807007,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from yellow\n2. Put down red\n3. Unstack yellow from orange\n4. Put down yellow\n5. Pick up blue\n6. Stack blue on red\n7. Pick up orange\n8. Stack orange on blue"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange consvia is clear, the hand is empty, the blue consvia is on top of the yellow consvia, the orange consvia is on top of the blue consvia, the yellow consvia is on top of the red consvia and the red consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia and the blue consvia is on top of the orange consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99ru0vwlXmykfu5N04so37Vb2cg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(orange, blue)\n2. PutDown(orange)\n3. Unstack(blue, yellow)\n4. Stack(blue, orange)\n5. Unstack(yellow, red)\n6. PutDown(yellow)\n7. PickUp(red)\n8. Stack(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347767,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1990,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2453,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.260565757751465,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(orange, blue)\n2. PutDown(orange)\n3. Unstack(blue, yellow)\n4. Stack(blue, orange)\n5. Unstack(yellow, red)\n6. PutDown(yellow)\n7. PickUp(red)\n8. Stack(red, blue)"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the blue consvia is clear, the hand is empty, the blue consvia is on top of the yellow consvia, the yellow consvia is on top of the orange consvia, the red consvia is on the table and the orange consvia is on the table.\nMy goal is to have that the blue consvia is on top of the orange consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9AKMi9or8uA1uPf6dXl6UXlE4Au",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the blue consvia from on top of the yellow consvia\n2. Stack the blue consvia on top of the red consvia\n3. Unstack the yellow consvia from on top of the orange consvia\n4. Put down the yellow consvia\n5. Unstack the blue consvia from on top of the red consvia\n6. Stack the blue consvia on top of the orange consvia\n7. Pick up the yellow consvia\n8. Stack the yellow consvia on top of the blue consvia",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347796,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2170,
+                    "prompt_tokens": 466,
+                    "total_tokens": 2636,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.57472324371338,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the blue consvia from on top of the yellow consvia\n2. Stack the blue consvia on top of the red consvia\n3. Unstack the yellow consvia from on top of the orange consvia\n4. Put down the yellow consvia\n5. Unstack the blue consvia from on top of the red consvia\n6. Stack the blue consvia on top of the orange consvia\n7. Pick up the yellow consvia\n8. Stack the yellow consvia on top of the blue consvia"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow consvia is clear, the hand is empty, the red consvia is on top of the orange consvia, the blue consvia is on top of the red consvia, the yellow consvia is on top of the blue consvia and the orange consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia, the orange consvia is on top of the yellow consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Auwb8HRWScFDfsAhDWGsTY1SOb",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Unstack red from orange\n6. Stack red on blue\n7. Pick up yellow\n8. Stack yellow on red\n9. Pick up orange\n10. Stack orange on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347832,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1996,
+                    "prompt_tokens": 476,
+                    "total_tokens": 2472,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.783709287643433,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from blue\n2. Put down yellow\n3. Unstack blue from red\n4. Put down blue\n5. Unstack red from orange\n6. Stack red on blue\n7. Pick up yellow\n8. Stack yellow on red\n9. Pick up orange\n10. Stack orange on yellow"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow consvia is clear, the hand is empty, the blue consvia is on top of the orange consvia, the orange consvia is on top of the red consvia, the yellow consvia is on top of the blue consvia and the red consvia is on the table.\nMy goal is to have that the blue consvia is on top of the yellow consvia and the orange consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BOWAxcblhKJpWAjBL9EaZKjeS1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(yellow, blue)\n2. PutDown(yellow)\n3. Unstack(blue, orange)\n4. Stack(blue, yellow)\n5. Unstack(orange, red)\n6. Stack(orange, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347862,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1147,
+                    "prompt_tokens": 463,
+                    "total_tokens": 1610,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.039600372314453,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(yellow, blue)\n2. PutDown(yellow)\n3. Unstack(blue, orange)\n4. Stack(blue, yellow)\n5. Unstack(orange, red)\n6. Stack(orange, blue)"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the blue consvia is clear, the orange consvia is clear, the hand is empty, the red consvia is on top of the yellow consvia, the blue consvia is on the table, the orange consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the red consvia is on top of the orange consvia, the blue consvia is on top of the red consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BdjXqyzg9rKTWcmEzgKC7duDsS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red consvia from on top of the yellow consvia\n2. Stack the red consvia on top of the orange consvia\n3. Pick up the blue consvia\n4. Stack the blue consvia on top of the red consvia\n5. Pick up the yellow consvia\n6. Stack the yellow consvia on top of the blue consvia",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347877,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1111,
+                    "prompt_tokens": 482,
+                    "total_tokens": 1593,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.594243049621582,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red consvia from on top of the yellow consvia\n2. Stack the red consvia on top of the orange consvia\n3. Pick up the blue consvia\n4. Stack the blue consvia on top of the red consvia\n5. Pick up the yellow consvia\n6. Stack the yellow consvia on top of the blue consvia"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the yellow consvia is clear, the hand is empty, the red consvia is on top of the blue consvia, the blue consvia is on top of the orange consvia, the orange consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the blue consvia is on top of the orange consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BuO59YUkxeOY21OsDF90RVrGKk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from blue\n2. Put down red\n3. Pick up yellow\n4. Stack yellow on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347894,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 675,
+                    "prompt_tokens": 466,
+                    "total_tokens": 1141,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 640,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.848148584365845,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from blue\n2. Put down red\n3. Pick up yellow\n4. Stack yellow on blue"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow consvia is clear, the hand is empty, the red consvia is on top of the orange consvia, the blue consvia is on top of the red consvia, the yellow consvia is on top of the blue consvia and the orange consvia is on the table.\nMy goal is to have that the orange consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9C4jDf7su0aLY8kLRBPU3F58lNw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow consvia from on top of the blue consvia.\n2. Put down the yellow consvia.\n3. Unstack the blue consvia from on top of the red consvia.\n4. Put down the blue consvia.\n5. Unstack the red consvia from on top of the orange consvia.\n6. Put down the red consvia.\n7. Pick up the orange consvia.\n8. Stack the orange consvia on top of the blue consvia.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347904,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1647,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2097,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.901569366455078,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow consvia from on top of the blue consvia.\n2. Put down the yellow consvia.\n3. Unstack the blue consvia from on top of the red consvia.\n4. Put down the blue consvia.\n5. Unstack the red consvia from on top of the orange consvia.\n6. Put down the red consvia.\n7. Pick up the orange consvia.\n8. Stack the orange consvia on top of the blue consvia."
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the yellow consvia is clear, the hand is empty, the orange consvia is on top of the red consvia, the yellow consvia is on top of the orange consvia, the red consvia is on the table and the blue consvia is on the table.\nMy goal is to have that the red consvia is on top of the yellow consvia, the blue consvia is on top of the orange consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9CY2uhoIRKY5YaOkZs5qdy52eZS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from orange\n2. Put down yellow\n3. Unstack orange from red\n4. Put down orange\n5. Pick up blue\n6. Stack blue on orange\n7. Pick up yellow\n8. Stack yellow on blue\n9. Pick up red\n10. Stack red on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347934,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1611,
+                    "prompt_tokens": 479,
+                    "total_tokens": 2090,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.295924425125122,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from orange\n2. Put down yellow\n3. Unstack orange from red\n4. Put down orange\n5. Pick up blue\n6. Stack blue on orange\n7. Pick up yellow\n8. Stack yellow on blue\n9. Pick up red\n10. Stack red on yellow"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange consvia is clear, the hand is empty, the red consvia is on top of the blue consvia, the orange consvia is on top of the yellow consvia, the yellow consvia is on top of the red consvia and the blue consvia is on the table.\nMy goal is to have that the blue consvia is on top of the red consvia and the orange consvia is on top of the yellow consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9CyZqSJZTrJbHPeJdEZVSDoIxQM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Pick up orange\n2. Put down orange\n3. Unstack yellow from red\n4. Put down yellow\n5. Unstack red from blue\n6. Put down red\n7. Pick up blue\n8. Stack blue on red\n9. Pick up orange\n10. Stack orange on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347960,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1737,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2200,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.2905592918396,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Pick up orange\n2. Put down orange\n3. Unstack yellow from red\n4. Put down yellow\n5. Unstack red from blue\n6. Put down red\n7. Pick up blue\n8. Stack blue on red\n9. Pick up orange\n10. Stack orange on yellow"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the orange consvia is clear, the hand is empty, the blue consvia is on top of the yellow consvia, the orange consvia is on top of the blue consvia, the red consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the blue consvia is on top of the yellow consvia, the orange consvia is on top of the red consvia and the yellow consvia is on top of the orange consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DUKaxwrjiPc5wkQFsIsi3ZTX8L",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from blue\n2. Stack orange on red\n3. Unstack blue from yellow\n4. Put down blue\n5. Pick up yellow\n6. Stack yellow on orange\n7. Pick up blue\n8. Stack blue on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347992,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1407,
+                    "prompt_tokens": 479,
+                    "total_tokens": 1886,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.75215983390808,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from blue\n2. Stack orange on red\n3. Unstack blue from yellow\n4. Put down blue\n5. Pick up yellow\n6. Stack yellow on orange\n7. Pick up blue\n8. Stack blue on yellow"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the orange consvia is clear, the yellow consvia is clear, the hand is empty, the orange consvia is on top of the blue consvia, the red consvia is on the table, the blue consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the red consvia is on top of the orange consvia, the blue consvia is on top of the red consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DpXHx1qGbnbSW1ncdUuXAAjJB7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from blue\n2. Put down orange\n3. Pick up red\n4. Stack red on orange\n5. Pick up blue\n6. Stack blue on red\n7. Pick up yellow\n8. Stack yellow on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348013,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1213,
+                    "prompt_tokens": 482,
+                    "total_tokens": 1695,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.245108366012573,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from blue\n2. Put down orange\n3. Pick up red\n4. Stack red on orange\n5. Pick up blue\n6. Stack blue on red\n7. Pick up yellow\n8. Stack yellow on blue"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the orange consvia is clear, the hand is empty, the blue consvia is on top of the yellow consvia, the yellow consvia is on top of the red consvia, the red consvia is on the table and the orange consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia, the blue consvia is on top of the yellow consvia and the yellow consvia is on top of the orange consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EAOD7tthCH9hqLmpBYhg2xm5yU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from on top of yellow\n2. Put down blue\n3. Unstack yellow from on top of red\n4. Stack yellow on top of orange\n5. Pick up blue\n6. Stack blue on top of yellow\n7. Pick up red\n8. Stack red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348034,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1482,
+                    "prompt_tokens": 479,
+                    "total_tokens": 1961,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.282798051834106,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from on top of yellow\n2. Put down blue\n3. Unstack yellow from on top of red\n4. Stack yellow on top of orange\n5. Pick up blue\n6. Stack blue on top of yellow\n7. Pick up red\n8. Stack red on top of blue"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the yellow consvia is clear, the hand is empty, the blue consvia is on top of the orange consvia, the orange consvia is on top of the red consvia, the red consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the blue consvia is on top of the yellow consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EcQsfW49EjUUWRguQsoeR1AcNM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from red\n4. Put down orange\n5. Pick up yellow\n6. Stack yellow on red\n7. Pick up blue\n8. Stack blue on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348062,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 958,
+                    "prompt_tokens": 466,
+                    "total_tokens": 1424,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.062721252441406,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from orange\n2. Put down blue\n3. Unstack orange from red\n4. Put down orange\n5. Pick up yellow\n6. Stack yellow on red\n7. Pick up blue\n8. Stack blue on yellow"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the blue consvia is clear, the hand is empty, the red consvia is on top of the yellow consvia, the blue consvia is on top of the orange consvia, the orange consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the red consvia is on top of the orange consvia, the blue consvia is on top of the red consvia and the orange consvia is on top of the yellow consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EpGpa5Pkr4Noado4EKupfr4psM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(blue, orange)\n2. PutDown(blue)\n3. Unstack(red, yellow)\n4. PutDown(red)\n5. PickUp(orange)\n6. Stack(orange, yellow)\n7. PickUp(red)\n8. Stack(red, orange)\n9. PickUp(blue)\n10. Stack(blue, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348075,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1617,
+                    "prompt_tokens": 479,
+                    "total_tokens": 2096,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.430134773254395,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(blue, orange)\n2. PutDown(blue)\n3. Unstack(red, yellow)\n4. PutDown(red)\n5. PickUp(orange)\n6. Stack(orange, yellow)\n7. PickUp(red)\n8. Stack(red, orange)\n9. PickUp(blue)\n10. Stack(blue, red)"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the orange consvia is clear, the yellow consvia is clear, the hand is empty, the orange consvia is on top of the red consvia, the red consvia is on the table, the blue consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia and the blue consvia is on top of the orange consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9FFmMOTAJZ1Xh87qG4CYyp33XSm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from red\n2. Put down orange\n3. Pick up blue\n4. Stack blue on orange\n5. Pick up red\n6. Stack red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348101,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1648,
+                    "prompt_tokens": 469,
+                    "total_tokens": 2117,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.719024181365967,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from red\n2. Put down orange\n3. Pick up blue\n4. Stack blue on orange\n5. Pick up red\n6. Stack red on blue"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the yellow consvia is clear, the hand is empty, the orange consvia is on top of the blue consvia, the yellow consvia is on top of the orange consvia, the red consvia is on the table and the blue consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia, the orange consvia is on top of the yellow consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9FfIWDaJdXhIhe4QJ1kwrFzxSar",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow consvia from on top of the orange consvia\n2. Put down the yellow consvia\n3. Unstack the orange consvia from on top of the blue consvia\n4. Put down the orange consvia\n5. Pick up the red consvia\n6. Stack the red consvia on top of the blue consvia\n7. Pick up the yellow consvia\n8. Stack the yellow consvia on top of the red consvia\n9. Pick up the orange consvia\n10. Stack the orange consvia on top of the yellow consvia",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348127,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1348,
+                    "prompt_tokens": 479,
+                    "total_tokens": 1827,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.967729330062866,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow consvia from on top of the orange consvia\n2. Put down the yellow consvia\n3. Unstack the orange consvia from on top of the blue consvia\n4. Put down the orange consvia\n5. Pick up the red consvia\n6. Stack the red consvia on top of the blue consvia\n7. Pick up the yellow consvia\n8. Stack the yellow consvia on top of the red consvia\n9. Pick up the orange consvia\n10. Stack the orange consvia on top of the yellow consvia"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the yellow consvia is clear, the hand is empty, the red consvia is on top of the blue consvia, the blue consvia is on top of the orange consvia, the orange consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the orange consvia is on top of the yellow consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9G0nKlsAWkmO8c7w6L7SKS2skmL",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red consvia from on top of the blue consvia\n2. Put down the red consvia\n3. Unstack the blue consvia from on top of the orange consvia\n4. Put down the blue consvia\n5. Pick up the yellow consvia\n6. Stack the yellow consvia on top of the blue consvia\n7. Pick up the orange consvia\n8. Stack the orange consvia on top of the yellow consvia",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348148,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1964,
+                    "prompt_tokens": 466,
+                    "total_tokens": 2430,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.10384249687195,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red consvia from on top of the blue consvia\n2. Put down the red consvia\n3. Unstack the blue consvia from on top of the orange consvia\n4. Put down the blue consvia\n5. Pick up the yellow consvia\n6. Stack the yellow consvia on top of the blue consvia\n7. Pick up the orange consvia\n8. Stack the orange consvia on top of the yellow consvia"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the blue consvia is clear, the yellow consvia is clear, the hand is empty, the red consvia is on top of the orange consvia, the blue consvia is on the table, the orange consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the red consvia is on top of the yellow consvia, the blue consvia is on top of the orange consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9GWD5W4LuJyq70rip5UCp99OA3W",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from orange\n2. Put down red\n3. Pick up blue\n4. Stack blue on orange\n5. Pick up yellow\n6. Stack yellow on blue\n7. Pick up red\n8. Stack red on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348180,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1917,
+                    "prompt_tokens": 482,
+                    "total_tokens": 2399,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.74197030067444,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from orange\n2. Put down red\n3. Pick up blue\n4. Stack blue on orange\n5. Pick up yellow\n6. Stack yellow on blue\n7. Pick up red\n8. Stack red on yellow"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the orange consvia is clear, the hand is empty, the red consvia is on top of the yellow consvia, the blue consvia is on top of the red consvia, the orange consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia and the blue consvia is on top of the yellow consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9GzpJrYjiQBJ3wmV4bKYsaLe3e6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack blue from red\nPut down blue\nUnstack red from yellow\nPut down red\nPick up blue\nStack blue on top of yellow\nPick up red\nStack red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348209,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1970,
+                    "prompt_tokens": 466,
+                    "total_tokens": 2436,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.21950888633728,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack blue from red\nPut down blue\nUnstack red from yellow\nPut down red\nPick up blue\nStack blue on top of yellow\nPick up red\nStack red on top of blue"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the orange consvia is clear, the yellow consvia is clear, the hand is empty, the yellow consvia is on top of the red consvia, the red consvia is on the table, the blue consvia is on the table and the orange consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HSUrJd2lsAVh3LgDeIVfZPPaTs",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from red\n2. Put down yellow\n3. Pick up red\n4. Stack red on blue\n5. Pick up yellow\n6. Stack yellow on red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348238,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1328,
+                    "prompt_tokens": 469,
+                    "total_tokens": 1797,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.19605326652527,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from red\n2. Put down yellow\n3. Pick up red\n4. Stack red on blue\n5. Pick up yellow\n6. Stack yellow on red"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange consvia is clear, the hand is empty, the blue consvia is on top of the red consvia, the orange consvia is on top of the yellow consvia, the yellow consvia is on top of the blue consvia and the red consvia is on the table.\nMy goal is to have that the red consvia is on top of the yellow consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Hn37OPewhHdAW2LJT4dv7iArBV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from yellow\n2. Put down orange\n3. Unstack yellow from blue\n4. Stack yellow on orange\n5. Unstack blue from red\n6. Put down blue\n7. Pick up red\n8. Stack red on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348259,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2240,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2690,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.401196241378784,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from yellow\n2. Put down orange\n3. Unstack yellow from blue\n4. Stack yellow on orange\n5. Unstack blue from red\n6. Put down blue\n7. Pick up red\n8. Stack red on yellow"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow consvia is clear, the hand is empty, the red consvia is on top of the blue consvia, the orange consvia is on top of the red consvia, the yellow consvia is on top of the orange consvia and the blue consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia and the blue consvia is on top of the yellow consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9IC8JiGm5MYkt8H0C3tisFHrtVh",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from orange\n2. Put down yellow\n3. Unstack orange from red\n4. Put down orange\n5. Unstack red from blue\n6. Stack red on orange\n7. Pick up blue\n8. Stack blue on yellow\n9. Unstack red from orange\n10. Stack red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348284,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2383,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2846,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.67069864273071,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from orange\n2. Put down yellow\n3. Unstack orange from red\n4. Put down orange\n5. Unstack red from blue\n6. Stack red on orange\n7. Pick up blue\n8. Stack blue on yellow\n9. Unstack red from orange\n10. Stack red on blue"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the hand is empty, the red consvia is on top of the orange consvia, the blue consvia is on top of the yellow consvia, the yellow consvia is on top of the red consvia and the orange consvia is on the table.\nMy goal is to have that the red consvia is on top of the orange consvia and the orange consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Ipw5O7xYta2f4f77IWYiY2oiNQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack blue from on top of yellow\n2. Put down blue\n3. Unstack yellow from on top of red\n4. Put down yellow\n5. Unstack red from on top of orange\n6. Put down red\n7. Pick up orange\n8. Stack orange on top of blue\n9. Pick up red\n10. Stack red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348323,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2073,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2536,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.675835847854614,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack blue from on top of yellow\n2. Put down blue\n3. Unstack yellow from on top of red\n4. Put down yellow\n5. Unstack red from on top of orange\n6. Put down red\n7. Pick up orange\n8. Stack orange on top of blue\n9. Pick up red\n10. Stack red on top of orange"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow consvia is clear, the hand is empty, the blue consvia is on top of the orange consvia, the orange consvia is on top of the red consvia, the yellow consvia is on top of the blue consvia and the red consvia is on the table.\nMy goal is to have that the red consvia is on top of the orange consvia and the orange consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9JHimCyFmMcNLGezoe1BrPTmPML",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack yellow from on top of blue\nPut down yellow\nUnstack blue from on top of orange\nPut down blue\nUnstack orange from on top of red\nStack orange on top of blue\nPick up red\nStack red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348351,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1853,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2316,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.513524770736694,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack yellow from on top of blue\nPut down yellow\nUnstack blue from on top of orange\nPut down blue\nUnstack orange from on top of red\nStack orange on top of blue\nPick up red\nStack red on top of orange"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange consvia is clear, the yellow consvia is clear, the hand is empty, the red consvia is on top of the blue consvia, the orange consvia is on top of the red consvia, the blue consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the orange consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ9JhRdsya6wSO3KAg7LUATKPZPfU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions (goal already satisfied).",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348377,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 272,
+                    "prompt_tokens": 453,
+                    "total_tokens": 725,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 256,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 5.637373208999634,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions (goal already satisfied)."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the yellow consvia is clear, the hand is empty, the orange consvia is on top of the blue consvia, the yellow consvia is on top of the orange consvia, the red consvia is on the table and the blue consvia is on the table.\nMy goal is to have that the blue consvia is on top of the orange consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Jmex8qROKMoWkuYDp3qSG7iKrL",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from orange\n2. Stack yellow on red\n3. Unstack orange from blue\n4. Put down orange\n5. Pick up blue\n6. Stack blue on orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348382,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1394,
+                    "prompt_tokens": 466,
+                    "total_tokens": 1860,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.720455169677734,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from orange\n2. Stack yellow on red\n3. Unstack orange from blue\n4. Put down orange\n5. Pick up blue\n6. Stack blue on orange"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue consvia is clear, the yellow consvia is clear, the hand is empty, the red consvia is on top of the orange consvia, the yellow consvia is on top of the red consvia, the blue consvia is on the table and the orange consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia and the blue consvia is on top of the orange consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9K5ECiMWWDTjMnI6wHNqPVcGnVQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from red\n2. Put down yellow\n3. Unstack red from orange\n4. Put down red\n5. Pick up blue\n6. Stack blue on orange\n7. Pick up red\n8. Stack red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348401,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1533,
+                    "prompt_tokens": 466,
+                    "total_tokens": 1999,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.62209391593933,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from red\n2. Put down yellow\n3. Unstack red from orange\n4. Put down red\n5. Pick up blue\n6. Stack blue on orange\n7. Pick up red\n8. Stack red on blue"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the orange consvia is clear, the hand is empty, the red consvia is on top of the blue consvia, the blue consvia is on top of the yellow consvia, the orange consvia is on the table and the yellow consvia is on the table.\nMy goal is to have that the blue consvia is on top of the red consvia, the orange consvia is on top of the yellow consvia and the yellow consvia is on top of the blue consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KTR6ZvOGhlYN0lxPio9jM8BuNI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from blue\n2. Put down red\n3. Unstack blue from yellow\n4. Stack blue on red\n5. Pick up yellow\n6. Stack yellow on blue\n7. Pick up orange\n8. Stack orange on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348425,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1279,
+                    "prompt_tokens": 479,
+                    "total_tokens": 1758,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.877651929855347,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from blue\n2. Put down red\n3. Unstack blue from yellow\n4. Stack blue on red\n5. Pick up yellow\n6. Stack yellow on blue\n7. Pick up orange\n8. Stack orange on yellow"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the hand is empty, the red consvia is on top of the orange consvia, the orange consvia is on top of the yellow consvia, the yellow consvia is on top of the blue consvia and the blue consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia, the orange consvia is on top of the yellow consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Kk1H8SwG4od1inUUtAbAXMJ6cH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from orange\n2. Put down red\n3. Unstack orange from yellow\n4. Put down orange\n5. Unstack yellow from blue\n6. Put down yellow\n7. Pick up red\n8. Stack red on blue\n9. Pick up yellow\n10. Stack yellow on red\n11. Pick up orange\n12. Stack orange on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348442,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2329,
+                    "prompt_tokens": 476,
+                    "total_tokens": 2805,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.840566873550415,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from orange\n2. Put down red\n3. Unstack orange from yellow\n4. Put down orange\n5. Unstack yellow from blue\n6. Put down yellow\n7. Pick up red\n8. Stack red on blue\n9. Pick up yellow\n10. Stack yellow on red\n11. Pick up orange\n12. Stack orange on yellow"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow consvia is clear, the hand is empty, the blue consvia is on top of the red consvia, the orange consvia is on top of the blue consvia, the yellow consvia is on top of the orange consvia and the red consvia is on the table.\nMy goal is to have that the red consvia is on top of the yellow consvia and the blue consvia is on top of the orange consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LNQYYcrJN0EaAwRzcvN3oKfT6i",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack yellow from orange\nPut down yellow\nUnstack orange from blue\nPut down orange\nUnstack blue from red\nStack blue on orange\nPick up red\nStack red on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348481,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1392,
+                    "prompt_tokens": 463,
+                    "total_tokens": 1855,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.59944796562195,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack yellow from orange\nPut down yellow\nUnstack orange from blue\nPut down orange\nUnstack blue from red\nStack blue on orange\nPick up red\nStack red on yellow"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange consvia is clear, the hand is empty, the blue consvia is on top of the yellow consvia, the orange consvia is on top of the blue consvia, the yellow consvia is on top of the red consvia and the red consvia is on the table.\nMy goal is to have that the blue consvia is on top of the orange consvia and the orange consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LgaRWUipspWkFTgyEOFIOsT5fx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from on top of blue\n2. Put down orange\n3. Unstack blue from on top of yellow\n4. Put down blue\n5. Unstack yellow from on top of red\n6. Put down yellow\n7. Pick up orange\n8. Stack orange on top of red\n9. Pick up blue\n10. Stack blue on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348500,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2264,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2727,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.70581007003784,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from on top of blue\n2. Put down orange\n3. Unstack blue from on top of yellow\n4. Put down blue\n5. Unstack yellow from on top of red\n6. Put down yellow\n7. Pick up orange\n8. Stack orange on top of red\n9. Pick up blue\n10. Stack blue on top of orange"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the orange consvia is clear, the yellow consvia is clear, the hand is empty, the yellow consvia is on top of the blue consvia, the red consvia is on the table, the blue consvia is on the table and the orange consvia is on the table.\nMy goal is to have that the red consvia is on top of the blue consvia and the yellow consvia is on top of the red consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9MDgzIOlkdYnZ1u4tbyZejlXIA9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack yellow from on top of blue\n2. Put down yellow\n3. Pick up red\n4. Stack red on top of blue\n5. Pick up yellow\n6. Stack yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348533,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1143,
+                    "prompt_tokens": 469,
+                    "total_tokens": 1612,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.07724571228027,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack yellow from on top of blue\n2. Put down yellow\n3. Pick up red\n4. Stack red on top of blue\n5. Pick up yellow\n6. Stack yellow on top of red"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of consvias where I need to arrange the consvias into stacks. Here are the actions I can do\n\nPick up a consvia\nUnstack a consvia from on top of another consvia\nPut down a consvia\nStack a consvia on top of another consvia\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one consvia at a time.\nI can only pick up or unstack a consvia if my hand is empty.\nI can only pick up a consvia if the consvia is on the table and the consvia is clear. A consvia is clear if the consvia has no other consvias on top of it and if the consvia is not picked up.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking was really on top of the other consvia.\nI can only unstack a consvia from on top of another consvia if the consvia I am unstacking is clear.\nOnce I pick up or unstack a consvia, I am holding the consvia.\nI can only put down a consvia that I am holding.\nI can only stack a consvia on top of another consvia if I am holding the consvia being stacked.\nI can only stack a consvia on top of another consvia if the consvia onto which I am stacking the consvia is clear.\nOnce I put down or stack a consvia, my hand becomes empty.\nOnce you stack a consvia on top of a second consvia, the second consvia is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red consvia is clear, the hand is empty, the red consvia is on top of the yellow consvia, the blue consvia is on top of the orange consvia, the yellow consvia is on top of the blue consvia and the orange consvia is on the table.\nMy goal is to have that the yellow consvia is on top of the orange consvia.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9MjhRt0CUGQZBQJytK59g4PZmVE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack red from yellow\n2. Put down red\n3. Unstack yellow from blue\n4. Stack yellow on red\n5. Unstack blue from orange\n6. Put down blue\n7. Unstack yellow from red\n8. Stack yellow on orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348565,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1986,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2436,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.507879495620728,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack red from yellow\n2. Put down red\n3. Unstack yellow from blue\n4. Stack yellow on red\n5. Unstack blue from orange\n6. Put down blue\n7. Unstack yellow from red\n8. Stack yellow on orange"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

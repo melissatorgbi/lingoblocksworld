@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_objects_names_row2",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the hand is empty, the bagge tackya is on top of the dingert tackya, the dingert tackya is on top of the weavener tackya, the weavener tackya is on top of the amheight tackya and the amheight tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ99rixCmkJTex5Q2fglhCqFprKPU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bagge from dingert\n2. Put down bagge\n3. Unstack dingert from weavener\n4. Put down dingert\n5. Unstack weavener from amheight\n6. Put down weavener\n7. Pick up bagge\n8. Stack bagge on top of amheight",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347767,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1168,
+                    "prompt_tokens": 462,
+                    "total_tokens": 1630,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.24003791809082,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bagge from dingert\n2. Put down bagge\n3. Unstack dingert from weavener\n4. Put down dingert\n5. Unstack weavener from amheight\n6. Put down weavener\n7. Pick up bagge\n8. Stack bagge on top of amheight"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the dingert tackya is clear, the hand is empty, the amheight tackya is on top of the weavener tackya, the bagge tackya is on top of the amheight tackya, the dingert tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya, the bagge tackya is on top of the dingert tackya and the dingert tackya is on top of the weavener tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9A8zFrPNiNxDnpRIFkgplCn0jUu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bagge from amheight\n2. Put down bagge\n3. Unstack amheight from weavener\n4. Put down amheight\n5. Pick up dingert\n6. Stack dingert on weavener\n7. Pick up bagge\n8. Stack bagge on dingert\n9. Pick up amheight\n10. Stack amheight on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347784,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2716,
+                    "prompt_tokens": 496,
+                    "total_tokens": 3212,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.13053321838379,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bagge from amheight\n2. Put down bagge\n3. Unstack amheight from weavener\n4. Put down amheight\n5. Pick up dingert\n6. Stack dingert on weavener\n7. Pick up bagge\n8. Stack bagge on dingert\n9. Pick up amheight\n10. Stack amheight on bagge"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the bagge tackya is clear, the hand is empty, the bagge tackya is on top of the dingert tackya, the dingert tackya is on top of the weavener tackya, the amheight tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the weavener tackya, the dingert tackya is on top of the bagge tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9AgCIHoJJEZbjvQU4K9o6RRCefW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack bagge from dingert\nPut down bagge\nUnstack dingert from weavener\nPut down dingert\nPick up weavener\nStack weavener on amheight\nPick up bagge\nStack bagge on weavener\nPick up dingert\nStack dingert on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347818,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1546,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2043,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.625160217285156,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack bagge from dingert\nPut down bagge\nUnstack dingert from weavener\nPut down dingert\nPick up weavener\nStack weavener on amheight\nPick up bagge\nStack bagge on weavener\nPick up dingert\nStack dingert on bagge"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the bagge tackya is clear, the dingert tackya is clear, the hand is empty, the dingert tackya is on top of the weavener tackya, the amheight tackya is on the table, the bagge tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the dingert tackya, the bagge tackya is on top of the amheight tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9B73NFxb3LT4zJwCyT3cSJyDSuP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack dingert from on top of weavener\nPut down dingert\nPick up amheight\nStack amheight on top of dingert\nPick up bagge\nStack bagge on top of amheight\nPick up weavener\nStack weavener on top of bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347845,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1733,
+                    "prompt_tokens": 499,
+                    "total_tokens": 2232,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.829115390777588,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack dingert from on top of weavener\nPut down dingert\nPick up amheight\nStack amheight on top of dingert\nPick up bagge\nStack bagge on top of amheight\nPick up weavener\nStack weavener on top of bagge"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the dingert tackya, the weavener tackya is on top of the bagge tackya, the bagge tackya is on the table and the dingert tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the dingert tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9BZumqbbrrI8vzftewZMnS1uK16",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(weavener, bagge)\n2. Stack(weavener, amheight)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347873,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 608,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1089,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 576,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 8.782451152801514,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(weavener, bagge)\n2. Stack(weavener, amheight)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dingert tackya is clear, the weavener tackya is clear, the hand is empty, the bagge tackya is on top of the amheight tackya, the weavener tackya is on top of the bagge tackya, the amheight tackya is on the table and the dingert tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the weavener tackya, the dingert tackya is on top of the amheight tackya and the weavener tackya is on top of the dingert tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Bi1W4alWfLiH7eJRn3EEDb5iF3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack weavener from bagge\nPut down weavener\nUnstack bagge from amheight\nPut down bagge\nPick up dingert\nStack dingert on amheight\nPick up weavener\nStack weavener on dingert\nPick up bagge\nStack bagge on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347882,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1867,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2364,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.029415130615234,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack weavener from bagge\nPut down weavener\nUnstack bagge from amheight\nPut down bagge\nPick up dingert\nStack dingert on amheight\nPick up weavener\nStack weavener on dingert\nPick up bagge\nStack bagge on weavener"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the bagge tackya is clear, the hand is empty, the amheight tackya is on top of the weavener tackya, the weavener tackya is on top of the dingert tackya, the bagge tackya is on the table and the dingert tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the amheight tackya and the dingert tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9C7J97ZLG7HS7ob6FY1UmzefRU6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack amheight from weavener\n2. Put down amheight\n3. Unstack weavener from dingert\n4. Put down weavener\n5. Pick up bagge\n6. Stack bagge on amheight\n7. Pick up dingert\n8. Stack dingert on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347907,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1805,
+                    "prompt_tokens": 480,
+                    "total_tokens": 2285,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.067521810531616,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack amheight from weavener\n2. Put down amheight\n3. Unstack weavener from dingert\n4. Put down weavener\n5. Pick up bagge\n6. Stack bagge on amheight\n7. Pick up dingert\n8. Stack dingert on bagge"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dingert tackya is clear, the hand is empty, the bagge tackya is on top of the weavener tackya, the dingert tackya is on top of the bagge tackya, the weavener tackya is on top of the amheight tackya and the amheight tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya and the bagge tackya is on top of the dingert tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9CaBXcs9PJSrQWBSxPUyb8x6jj2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dingert from bagge\n2. Put down dingert\n3. Unstack bagge from weavener\n4. Stack bagge on dingert\n5. Unstack weavener from amheight\n6. Put down weavener\n7. Pick up amheight\n8. Stack amheight on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347936,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1616,
+                    "prompt_tokens": 477,
+                    "total_tokens": 2093,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.263959646224976,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dingert from bagge\n2. Put down dingert\n3. Unstack bagge from weavener\n4. Stack bagge on dingert\n5. Unstack weavener from amheight\n6. Put down weavener\n7. Pick up amheight\n8. Stack amheight on bagge"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the bagge tackya is clear, the hand is empty, the bagge tackya is on top of the weavener tackya, the weavener tackya is on top of the dingert tackya, the amheight tackya is on the table and the dingert tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the dingert tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Cy1E9HHLGHCIoivr7Z1hYGcZuF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bagge from weavener\n2. Put down bagge\n3. Unstack weavener from dingert\n4. Put down weavener\n5. Pick up bagge\n6. Stack bagge on dingert\n7. Pick up weavener\n8. Stack weavener on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347960,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2127,
+                    "prompt_tokens": 481,
+                    "total_tokens": 2608,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.377886295318604,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bagge from weavener\n2. Put down bagge\n3. Unstack weavener from dingert\n4. Put down weavener\n5. Pick up bagge\n6. Stack bagge on dingert\n7. Pick up weavener\n8. Stack weavener on bagge"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the dingert tackya, the bagge tackya is on top of the amheight tackya, the weavener tackya is on top of the bagge tackya and the dingert tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya, the dingert tackya is on top of the weavener tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DTA69Xe6wHhPAjBvxYhesVJOpe",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack weavener from bagge\n2. Put down weavener\n3. Unstack bagge from amheight\n4. Put down bagge\n5. Unstack amheight from dingert\n6. Stack amheight on bagge\n7. Pick up weavener\n8. Stack weavener on amheight\n9. Pick up dingert\n10. Stack dingert on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760347991,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1954,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2448,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.2711501121521,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack weavener from bagge\n2. Put down weavener\n3. Unstack bagge from amheight\n4. Put down bagge\n5. Unstack amheight from dingert\n6. Stack amheight on bagge\n7. Pick up weavener\n8. Stack weavener on amheight\n9. Pick up dingert\n10. Stack dingert on weavener"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the weavener tackya is clear, the hand is empty, the bagge tackya is on top of the dingert tackya, the dingert tackya is on top of the amheight tackya, the weavener tackya is on top of the bagge tackya and the amheight tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the weavener tackya and the dingert tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9DsuRMRbhiYRMKh2J6RpXlNo3FF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack weavener from bagge\n2. Put down weavener\n3. Unstack bagge from dingert\n4. Stack bagge on weavener\n5. Unstack dingert from amheight\n6. Stack dingert on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348016,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1730,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2208,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.404707670211792,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack weavener from bagge\n2. Put down weavener\n3. Unstack bagge from dingert\n4. Stack bagge on weavener\n5. Unstack dingert from amheight\n6. Stack dingert on bagge"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the bagge tackya is clear, the dingert tackya is clear, the hand is empty, the amheight tackya is on top of the weavener tackya, the bagge tackya is on the table, the dingert tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the dingert tackya, the bagge tackya is on top of the amheight tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EIuhAH8w8AsO6gD8skb06NyPgU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack amheight from weavener\nStack amheight on dingert\nPick up bagge\nStack bagge on amheight\nPick up weavener\nStack weavener on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348042,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 946,
+                    "prompt_tokens": 499,
+                    "total_tokens": 1445,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.235622644424438,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack amheight from weavener\nStack amheight on dingert\nPick up bagge\nStack bagge on amheight\nPick up weavener\nStack weavener on bagge"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the bagge tackya, the bagge tackya is on top of the dingert tackya, the dingert tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the dingert tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EX6Nh2B6i46MvgsvQcn3Dp7wSx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack amheight from on top of bagge\n2. Put down amheight\n3. Pick up weavener\n4. Stack weavener on top of bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348057,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 752,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1233,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 10.613573551177979,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack amheight from on top of bagge\n2. Put down amheight\n3. Pick up weavener\n4. Stack weavener on top of bagge"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the dingert tackya, the bagge tackya is on top of the amheight tackya, the weavener tackya is on top of the bagge tackya and the dingert tackya is on the table.\nMy goal is to have that the dingert tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9EheDdqmpvsxyYHfytMKZmrNS4L",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack weavener from bagge\nPut down weavener\nUnstack bagge from amheight\nPut down bagge\nUnstack amheight from dingert\nPut down amheight\nPick up dingert\nStack dingert on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348067,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1341,
+                    "prompt_tokens": 462,
+                    "total_tokens": 1803,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.86812114715576,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack weavener from bagge\nPut down weavener\nUnstack bagge from amheight\nPut down bagge\nUnstack amheight from dingert\nPut down amheight\nPick up dingert\nStack dingert on bagge"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the weavener tackya is clear, the hand is empty, the dingert tackya is on top of the amheight tackya, the weavener tackya is on top of the dingert tackya, the amheight tackya is on the table and the bagge tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the weavener tackya, the bagge tackya is on top of the dingert tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9F14i03NEQx1FqV8VjiPZpIAnUi",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack weavener from dingert\n2. Put down weavener\n3. Unstack dingert from amheight\n4. Put down dingert\n5. Pick up bagge\n6. Stack bagge on dingert\n7. Pick up weavener\n8. Stack weavener on bagge\n9. Pick up amheight\n10. Stack amheight on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348087,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2783,
+                    "prompt_tokens": 497,
+                    "total_tokens": 3280,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.90744996070862,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack weavener from dingert\n2. Put down weavener\n3. Unstack dingert from amheight\n4. Put down dingert\n5. Pick up bagge\n6. Stack bagge on dingert\n7. Pick up weavener\n8. Stack weavener on bagge\n9. Pick up amheight\n10. Stack amheight on weavener"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dingert tackya is clear, the hand is empty, the amheight tackya is on top of the bagge tackya, the dingert tackya is on top of the weavener tackya, the weavener tackya is on top of the amheight tackya and the bagge tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the amheight tackya and the dingert tackya is on top of the weavener tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9FbyLhaJItyzWIAHx0RMduPDTYP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(dingert, weavener)\n2. PutDown(dingert)\n3. Unstack(weavener, amheight)\n4. PutDown(weavener)\n5. Unstack(amheight, bagge)\n6. PutDown(amheight)\n7. PickUp(bagge)\n8. Stack(bagge, amheight)\n9. PickUp(dingert)\n10. Stack(dingert, weavener)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348123,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2088,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2566,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.212119817733765,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(dingert, weavener)\n2. PutDown(dingert)\n3. Unstack(weavener, amheight)\n4. PutDown(weavener)\n5. Unstack(amheight, bagge)\n6. PutDown(amheight)\n7. PickUp(bagge)\n8. Stack(bagge, amheight)\n9. PickUp(dingert)\n10. Stack(dingert, weavener)"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the dingert tackya is clear, the hand is empty, the bagge tackya is on top of the weavener tackya, the dingert tackya is on top of the bagge tackya, the amheight tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the weavener tackya, the dingert tackya is on top of the amheight tackya and the weavener tackya is on top of the dingert tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9G5mkk6lajbypZVdCj7xnqjS33U",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dingert from bagge\n2. Stack dingert on amheight\n3. Unstack bagge from weavener\n4. Put down bagge\n5. Pick up weavener\n6. Stack weavener on dingert\n7. Pick up bagge\n8. Stack bagge on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348153,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1616,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2113,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.82044816017151,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dingert from bagge\n2. Stack dingert on amheight\n3. Unstack bagge from weavener\n4. Put down bagge\n5. Pick up weavener\n6. Stack weavener on dingert\n7. Pick up bagge\n8. Stack bagge on weavener"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the dingert tackya is clear, the weavener tackya is clear, the hand is empty, the dingert tackya is on top of the bagge tackya, the amheight tackya is on the table, the bagge tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the dingert tackya, the bagge tackya is on top of the amheight tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Ga41FPjvOqliltVrtn22xKyjWg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dingert from on top of bagge\n2. Put down dingert\n3. Pick up amheight\n4. Stack amheight on top of dingert\n5. Pick up bagge\n6. Stack bagge on top of amheight\n7. Pick up weavener\n8. Stack weavener on top of bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348184,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1300,
+                    "prompt_tokens": 499,
+                    "total_tokens": 1799,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.692628383636475,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dingert from on top of bagge\n2. Put down dingert\n3. Pick up amheight\n4. Stack amheight on top of dingert\n5. Pick up bagge\n6. Stack bagge on top of amheight\n7. Pick up weavener\n8. Stack weavener on top of bagge"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the dingert tackya is clear, the hand is empty, the bagge tackya is on top of the weavener tackya, the weavener tackya is on top of the amheight tackya, the amheight tackya is on the table and the dingert tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya, the bagge tackya is on top of the weavener tackya and the weavener tackya is on top of the dingert tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9GseRLdhbPng1W3IhYlO7Po1pfM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bagge from weavener\n2. Put down bagge\n3. Unstack weavener from amheight\n4. Stack weavener on top of dingert\n5. Pick up bagge\n6. Stack bagge on top of weavener\n7. Pick up amheight\n8. Stack amheight on top of bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348202,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1494,
+                    "prompt_tokens": 497,
+                    "total_tokens": 1991,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.218341827392578,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bagge from weavener\n2. Put down bagge\n3. Unstack weavener from amheight\n4. Stack weavener on top of dingert\n5. Pick up bagge\n6. Stack bagge on top of weavener\n7. Pick up amheight\n8. Stack amheight on top of bagge"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the weavener tackya is clear, the hand is empty, the bagge tackya is on top of the dingert tackya, the dingert tackya is on top of the amheight tackya, the amheight tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the weavener tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HDJhHm9o5D5H3xOjbp7ELy4ewo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bagge from dingert\n2. Put down bagge\n3. Unstack dingert from amheight\n4. Put down dingert\n5. Pick up weavener\n6. Stack weavener on amheight\n7. Pick up bagge\n8. Stack bagge on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348223,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1421,
+                    "prompt_tokens": 482,
+                    "total_tokens": 1903,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.27383279800415,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bagge from dingert\n2. Put down bagge\n3. Unstack dingert from amheight\n4. Put down dingert\n5. Pick up weavener\n6. Stack weavener on amheight\n7. Pick up bagge\n8. Stack bagge on weavener"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the bagge tackya is clear, the hand is empty, the amheight tackya is on top of the weavener tackya, the bagge tackya is on top of the dingert tackya, the dingert tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the dingert tackya, the bagge tackya is on top of the amheight tackya and the dingert tackya is on top of the weavener tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9HWxLkBNjl2n06isiFtUhMsWI4Y",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bagge from dingert\n2. Put down bagge\n3. Unstack amheight from weavener\n4. Put down amheight\n5. Pick up dingert\n6. Stack dingert on weavener\n7. Pick up amheight\n8. Stack amheight on dingert\n9. Pick up bagge\n10. Stack bagge on amheight",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348242,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2012,
+                    "prompt_tokens": 496,
+                    "total_tokens": 2508,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.40777349472046,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bagge from dingert\n2. Put down bagge\n3. Unstack amheight from weavener\n4. Put down amheight\n5. Pick up dingert\n6. Stack dingert on weavener\n7. Pick up amheight\n8. Stack amheight on dingert\n9. Pick up bagge\n10. Stack bagge on amheight"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the dingert tackya is clear, the weavener tackya is clear, the hand is empty, the dingert tackya is on top of the amheight tackya, the amheight tackya is on the table, the bagge tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya and the bagge tackya is on top of the dingert tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Hy4Y4ZCDhaJlfSpX3m13qdc49v",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dingert from on top of amheight\n2. Put down dingert\n3. Pick up bagge\n4. Stack bagge on top of dingert\n5. Pick up amheight\n6. Stack amheight on top of bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348270,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1344,
+                    "prompt_tokens": 483,
+                    "total_tokens": 1827,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.585885286331177,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dingert from on top of amheight\n2. Put down dingert\n3. Pick up bagge\n4. Stack bagge on top of dingert\n5. Pick up amheight\n6. Stack amheight on top of bagge"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the weavener tackya is clear, the hand is empty, the dingert tackya is on top of the bagge tackya, the weavener tackya is on top of the dingert tackya, the amheight tackya is on the table and the bagge tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya, the dingert tackya is on top of the weavener tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9IFrdtpuBkY7yhtQDCRyBmugaso",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack weavener from dingert\n2. Put down weavener\n3. Unstack dingert from bagge\n4. Put down dingert\n5. Pick up amheight\n6. Stack amheight on bagge\n7. Pick up weavener\n8. Stack weavener on amheight\n9. Pick up dingert\n10. Stack dingert on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348287,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2015,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2512,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.939281702041626,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack weavener from dingert\n2. Put down weavener\n3. Unstack dingert from bagge\n4. Put down dingert\n5. Pick up amheight\n6. Stack amheight on bagge\n7. Pick up weavener\n8. Stack weavener on amheight\n9. Pick up dingert\n10. Stack dingert on weavener"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the bagge tackya, the bagge tackya is on top of the dingert tackya, the dingert tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the dingert tackya is on top of the weavener tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9IjKmzfIllgijFaHVhZt7dSNPWd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack amheight from on top of bagge\n2. Put down amheight\n3. Unstack bagge from on top of dingert\n4. Put down bagge\n5. Pick up weavener\n6. Stack weavener on top of bagge\n7. Pick up dingert\n8. Stack dingert on top of weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348317,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2007,
+                    "prompt_tokens": 482,
+                    "total_tokens": 2489,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.13120365142822,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack amheight from on top of bagge\n2. Put down amheight\n3. Unstack bagge from on top of dingert\n4. Put down bagge\n5. Pick up weavener\n6. Stack weavener on top of bagge\n7. Pick up dingert\n8. Stack dingert on top of weavener"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the bagge tackya is clear, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the dingert tackya, the bagge tackya is on the table, the dingert tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the weavener tackya, the bagge tackya is on top of the dingert tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9JOc3JyttiJCVT3XGXTtVtmjyh7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack amheight from dingert\n2. Put down amheight\n3. Pick up bagge\n4. Stack bagge on dingert\n5. Pick up weavener\n6. Stack weavener on bagge\n7. Pick up amheight\n8. Stack amheight on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348358,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1420,
+                    "prompt_tokens": 500,
+                    "total_tokens": 1920,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.722622394561768,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack amheight from dingert\n2. Put down amheight\n3. Pick up bagge\n4. Stack bagge on dingert\n5. Pick up weavener\n6. Stack weavener on bagge\n7. Pick up amheight\n8. Stack amheight on weavener"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the dingert tackya is clear, the hand is empty, the amheight tackya is on top of the weavener tackya, the bagge tackya is on top of the amheight tackya, the dingert tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya and the bagge tackya is on top of the weavener tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9JnWuE96tfKk7LkeXTagRFFQzLK",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bagge from amheight\n2. Put down bagge\n3. Unstack amheight from weavener\n4. Put down amheight\n5. Pick up bagge\n6. Stack bagge on weavener\n7. Pick up amheight\n8. Stack amheight on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348383,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2316,
+                    "prompt_tokens": 481,
+                    "total_tokens": 2797,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.269603490829468,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bagge from amheight\n2. Put down bagge\n3. Unstack amheight from weavener\n4. Put down amheight\n5. Pick up bagge\n6. Stack bagge on weavener\n7. Pick up amheight\n8. Stack amheight on bagge"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the dingert tackya is clear, the weavener tackya is clear, the hand is empty, the weavener tackya is on top of the amheight tackya, the amheight tackya is on the table, the bagge tackya is on the table and the dingert tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KHiBFFQjwHOCcGZM2Sn9tULFiT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(weavener, amheight)\n2. PutDown(weavener)\n3. PickUp(amheight)\n4. Stack(amheight, bagge)\n5. PickUp(weavener)\n6. Stack(weavener, amheight)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348413,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 962,
+                    "prompt_tokens": 484,
+                    "total_tokens": 1446,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.693301916122437,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(weavener, amheight)\n2. PutDown(weavener)\n3. PickUp(amheight)\n4. Stack(amheight, bagge)\n5. PickUp(weavener)\n6. Stack(weavener, amheight)"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dingert tackya is clear, the hand is empty, the bagge tackya is on top of the amheight tackya, the dingert tackya is on top of the weavener tackya, the weavener tackya is on top of the bagge tackya and the amheight tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the weavener tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KVKNuPozTNBGnOz3HUUPCA9ycE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dingert from weavener\n2. Put down dingert\n3. Unstack weavener from bagge\n4. Put down weavener\n5. Unstack bagge from amheight\n6. Put down bagge\n7. Pick up amheight\n8. Stack amheight on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348427,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1551,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2014,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.665019989013672,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dingert from weavener\n2. Put down dingert\n3. Unstack weavener from bagge\n4. Put down weavener\n5. Unstack bagge from amheight\n6. Put down bagge\n7. Pick up amheight\n8. Stack amheight on weavener"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the bagge tackya, the dingert tackya is on top of the amheight tackya, the weavener tackya is on top of the dingert tackya and the bagge tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya and the bagge tackya is on top of the weavener tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9KredT9gZsy6qbiNyeRD594vveE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack weavener from dingert\n2. Put down weavener\n3. Unstack dingert from amheight\n4. Put down dingert\n5. Unstack amheight from bagge\n6. Put down amheight\n7. Pick up bagge\n8. Stack bagge on top of weavener\n9. Pick up amheight\n10. Stack amheight on top of bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348449,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2402,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2880,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.15651822090149,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack weavener from dingert\n2. Put down weavener\n3. Unstack dingert from amheight\n4. Put down dingert\n5. Unstack amheight from bagge\n6. Put down amheight\n7. Pick up bagge\n8. Stack bagge on top of weavener\n9. Pick up amheight\n10. Stack amheight on top of bagge"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the hand is empty, the amheight tackya is on top of the dingert tackya, the bagge tackya is on top of the weavener tackya, the weavener tackya is on top of the amheight tackya and the dingert tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the dingert tackya and the dingert tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9LRd17Ln58IbaHKvp8dRDjjLd4j",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bagge from weavener\n2. Put down bagge\n3. Unstack weavener from amheight\n4. Put down weavener\n5. Unstack amheight from dingert\n6. Put down amheight\n7. Pick up dingert\n8. Stack dingert on bagge\n9. Pick up amheight\n10. Stack amheight on dingert",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348485,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2910,
+                    "prompt_tokens": 477,
+                    "total_tokens": 3387,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.4704487323761,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bagge from weavener\n2. Put down bagge\n3. Unstack weavener from amheight\n4. Put down weavener\n5. Unstack amheight from dingert\n6. Put down amheight\n7. Pick up dingert\n8. Stack dingert on bagge\n9. Pick up amheight\n10. Stack amheight on dingert"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the weavener tackya is clear, the hand is empty, the bagge tackya is on top of the dingert tackya, the dingert tackya is on top of the amheight tackya, the weavener tackya is on top of the bagge tackya and the amheight tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the dingert tackya and the dingert tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9M2dZ5kHz6Mz9ycFq3c3HjJgItx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack weavener from bagge\n2. Put down weavener\n3. Unstack bagge from dingert\n4. Put down bagge\n5. Unstack dingert from amheight\n6. Stack dingert on bagge\n7. Pick up amheight\n8. Stack amheight on dingert",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348522,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1807,
+                    "prompt_tokens": 477,
+                    "total_tokens": 2284,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.675400972366333,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack weavener from bagge\n2. Put down weavener\n3. Unstack bagge from dingert\n4. Put down bagge\n5. Unstack dingert from amheight\n6. Stack dingert on bagge\n7. Pick up amheight\n8. Stack amheight on dingert"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dingert tackya is clear, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the bagge tackya, the dingert tackya is on top of the amheight tackya, the bagge tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the dingert tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ9MQZg55O8y80GYEAESSecl4uUFI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions \u2014 the goal is already satisfied in the initial state.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348546,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 342,
+                    "prompt_tokens": 465,
+                    "total_tokens": 807,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 320,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 5.536309003829956,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions \u2014 the goal is already satisfied in the initial state."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the weavener tackya is clear, the hand is empty, the dingert tackya is on top of the bagge tackya, the weavener tackya is on top of the dingert tackya, the amheight tackya is on the table and the bagge tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the dingert tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9MWhxCmEy46D2MxuQwIyWY8OMO8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the weavener from the dingert\n2. Stack the weavener on the amheight\n3. Unstack the dingert from the bagge\n4. Put down the dingert\n5. Pick up the bagge\n6. Stack the bagge on the dingert",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348552,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1672,
+                    "prompt_tokens": 481,
+                    "total_tokens": 2153,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.838737726211548,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the weavener from the dingert\n2. Stack the weavener on the amheight\n3. Unstack the dingert from the bagge\n4. Put down the dingert\n5. Pick up the bagge\n6. Stack the bagge on the dingert"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bagge tackya is clear, the weavener tackya is clear, the hand is empty, the amheight tackya is on top of the dingert tackya, the weavener tackya is on top of the amheight tackya, the bagge tackya is on the table and the dingert tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya and the bagge tackya is on top of the dingert tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9MxWjQ1PDytWA6EPzxw0MyIlis7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack weavener from amheight\n2. Put down weavener\n3. Unstack amheight from dingert\n4. Put down amheight\n5. Pick up bagge\n6. Stack bagge on dingert\n7. Pick up amheight\n8. Stack amheight on bagge",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348579,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1868,
+                    "prompt_tokens": 480,
+                    "total_tokens": 2348,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.058835744857788,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack weavener from amheight\n2. Put down weavener\n3. Unstack amheight from dingert\n4. Put down amheight\n5. Pick up bagge\n6. Stack bagge on dingert\n7. Pick up amheight\n8. Stack amheight on bagge"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the dingert tackya is clear, the hand is empty, the amheight tackya is on top of the bagge tackya, the bagge tackya is on top of the weavener tackya, the dingert tackya is on the table and the weavener tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the amheight tackya, the dingert tackya is on top of the weavener tackya and the weavener tackya is on top of the bagge tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9NOFckJq0AJH5EDpmLUN8NE3BGL",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack amheight from bagge\n2. Put down amheight\n3. Unstack bagge from weavener\n4. Stack bagge on amheight\n5. Pick up weavener\n6. Stack weavener on bagge\n7. Pick up dingert\n8. Stack dingert on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348606,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1488,
+                    "prompt_tokens": 497,
+                    "total_tokens": 1985,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.563038110733032,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack amheight from bagge\n2. Put down amheight\n3. Unstack bagge from weavener\n4. Stack bagge on amheight\n5. Pick up weavener\n6. Stack weavener on bagge\n7. Pick up dingert\n8. Stack dingert on weavener"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the hand is empty, the amheight tackya is on top of the dingert tackya, the dingert tackya is on top of the weavener tackya, the weavener tackya is on top of the bagge tackya and the bagge tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya, the dingert tackya is on top of the weavener tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Nj6h3yOxso1T8hJWjKICP0iO6T",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack amheight from dingert\n2. Put down amheight\n3. Unstack dingert from weavener\n4. Put down dingert\n5. Unstack weavener from bagge\n6. Put down weavener\n7. Pick up amheight\n8. Stack amheight on bagge\n9. Pick up weavener\n10. Stack weavener on amheight\n11. Pick up dingert\n12. Stack dingert on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348627,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3953,
+                    "prompt_tokens": 494,
+                    "total_tokens": 4447,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3840,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 67.57225370407104,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack amheight from dingert\n2. Put down amheight\n3. Unstack dingert from weavener\n4. Put down dingert\n5. Unstack weavener from bagge\n6. Put down weavener\n7. Pick up amheight\n8. Stack amheight on bagge\n9. Pick up weavener\n10. Stack weavener on amheight\n11. Pick up dingert\n12. Stack dingert on weavener"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the weavener tackya is clear, the hand is empty, the bagge tackya is on top of the amheight tackya, the dingert tackya is on top of the bagge tackya, the weavener tackya is on top of the dingert tackya and the amheight tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the weavener tackya and the bagge tackya is on top of the dingert tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9Ope1fSuJXyDOSGKy7Cz0abUKdZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack weavener from dingert\n2. Put down weavener\n3. Unstack dingert from bagge\n4. Put down dingert\n5. Unstack bagge from amheight\n6. Stack bagge on dingert\n7. Pick up amheight\n8. Stack amheight on weavener",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348695,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2448,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2926,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.93278479576111,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack weavener from dingert\n2. Put down weavener\n3. Unstack dingert from bagge\n4. Put down dingert\n5. Unstack bagge from amheight\n6. Stack bagge on dingert\n7. Pick up amheight\n8. Stack amheight on weavener"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the dingert tackya is clear, the hand is empty, the bagge tackya is on top of the weavener tackya, the dingert tackya is on top of the bagge tackya, the weavener tackya is on top of the amheight tackya and the amheight tackya is on the table.\nMy goal is to have that the bagge tackya is on top of the dingert tackya and the dingert tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9PQHyvH4tGFQLKizlBgkcoVayov",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack dingert from bagge\n2. Put down dingert\n3. Unstack bagge from weavener\n4. Put down bagge\n5. Unstack weavener from amheight\n6. Put down weavener\n7. Pick up dingert\n8. Stack dingert on amheight\n9. Pick up bagge\n10. Stack bagge on dingert",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348732,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1886,
+                    "prompt_tokens": 477,
+                    "total_tokens": 2363,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.876287937164307,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack dingert from bagge\n2. Put down dingert\n3. Unstack bagge from weavener\n4. Put down bagge\n5. Unstack weavener from amheight\n6. Put down weavener\n7. Pick up dingert\n8. Stack dingert on amheight\n9. Pick up bagge\n10. Stack bagge on dingert"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the dingert tackya is clear, the weavener tackya is clear, the hand is empty, the weavener tackya is on top of the bagge tackya, the amheight tackya is on the table, the bagge tackya is on the table and the dingert tackya is on the table.\nMy goal is to have that the amheight tackya is on top of the bagge tackya and the weavener tackya is on top of the amheight tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9PwDxhcU6i8z3MYyUajUpSJeOoZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the weavener tackya from on top of the bagge tackya\n2. Put down the weavener tackya\n3. Pick up the amheight tackya\n4. Stack the amheight tackya on top of the bagge tackya\n5. Pick up the weavener tackya\n6. Stack the weavener tackya on top of the amheight tackya",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348764,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1247,
+                    "prompt_tokens": 484,
+                    "total_tokens": 1731,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.267558574676514,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the weavener tackya from on top of the bagge tackya\n2. Put down the weavener tackya\n3. Pick up the amheight tackya\n4. Stack the amheight tackya on top of the bagge tackya\n5. Pick up the weavener tackya\n6. Stack the weavener tackya on top of the amheight tackya"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of tackyas where I need to arrange the tackyas into stacks. Here are the actions I can do\n\nPick up a tackya\nUnstack a tackya from on top of another tackya\nPut down a tackya\nStack a tackya on top of another tackya\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one tackya at a time.\nI can only pick up or unstack a tackya if my hand is empty.\nI can only pick up a tackya if the tackya is on the table and the tackya is clear. A tackya is clear if the tackya has no other tackyas on top of it and if the tackya is not picked up.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking was really on top of the other tackya.\nI can only unstack a tackya from on top of another tackya if the tackya I am unstacking is clear.\nOnce I pick up or unstack a tackya, I am holding the tackya.\nI can only put down a tackya that I am holding.\nI can only stack a tackya on top of another tackya if I am holding the tackya being stacked.\nI can only stack a tackya on top of another tackya if the tackya onto which I am stacking the tackya is clear.\nOnce I put down or stack a tackya, my hand becomes empty.\nOnce you stack a tackya on top of a second tackya, the second tackya is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the amheight tackya is clear, the hand is empty, the amheight tackya is on top of the weavener tackya, the bagge tackya is on top of the dingert tackya, the weavener tackya is on top of the bagge tackya and the dingert tackya is on the table.\nMy goal is to have that the weavener tackya is on top of the dingert tackya.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ9QKXhZC8EITWKEJgYXANvN4q0zG",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack amheight from weavener\n2. Put down amheight\n3. Unstack weavener from bagge\n4. Put down weavener\n5. Unstack bagge from dingert\n6. Put down bagge\n7. Pick up weavener\n8. Stack weavener on dingert",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760348788,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2128,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2591,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.46305966377258,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack amheight from weavener\n2. Put down amheight\n3. Unstack weavener from bagge\n4. Put down weavener\n5. Unstack bagge from dingert\n6. Put down bagge\n7. Pick up weavener\n8. Stack weavener on dingert"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

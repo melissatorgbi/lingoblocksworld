@@ -1,0 +1,90 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/easy/blocksworld_easy_predicates/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/easy/blocksworld_easy_predicates/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/easy/generated_domain_easy_predicates.pddl
+domain_name: blocksworld_nonce_easy_predicates_row1_160
+n_instances: 161
+start: 41
+end: 200
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do
+
+   Pick up a block
+   Unstack a block from syntwards another block
+   Put down a block
+   Stack a block syntwards another block
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one block at a time.
+   I can only pick up or unstack a block if my michime is daydendate.
+   I can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.
+   I can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.
+   I can only unstack a block from syntwards another block if the block I am unstacking is hummony.
+   Once I pick up or unstack a block, I am abathitcrying the block.
+   I can only put down a block that I am abathitcrying.
+   I can only stack a block syntwards another block if I am abathitcrying the block being stacked.
+   I can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.
+   Once I put down or stack a block, my michime becomes daydendate.
+   Once you stack a block syntwards a second block, the second block is no longer hummony.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do
+
+   Pick up a block
+   Unstack a block from syntwards another block
+   Put down a block
+   Stack a block syntwards another block
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one block at a time.
+   I can only pick up or unstack a block if my michime is daydendate.
+   I can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.
+   I can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.
+   I can only unstack a block from syntwards another block if the block I am unstacking is hummony.
+   Once I pick up or unstack a block, I am abathitcrying the block.
+   I can only put down a block that I am abathitcrying.
+   I can only stack a block syntwards another block if I am abathitcrying the block being stacked.
+   I can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.
+   Once I put down or stack a block, my michime becomes daydendate.
+   Once you stack a block syntwards a second block, the second block is no longer hummony.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} syntwards the {}",
+   unstack: "unstack the {} from syntwards the {}"}
+
+
+predicates:
+  {syntwardsfacizer: "the {} is syntwards the facizer",
+   hummony: "the {} is hummony",
+   michimedaydendate: "the michime is daydendate",
+   abathitcrying: "the michime is currently abathitcrying {}",
+   "syntwards": "the {} is syntwards the {}"}
+
+predicate_mapping:
+   {
+   "syntwardsfacizer": "syntwards the facizer",
+   "hummony": "hummony",
+   "michimedaydendate": "michime is daydendate",
+   "abathitcrying": "abathitcrying",
+   "syntwards": "syntwards"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red block", "b2": "blue block", "b3": "orange block", "b4": "yellow block",
+   "b5": "white block", "b6": "magenta block", "b7": "black block", "b8": "cyan block",
+   "b9": "green block", "b10": "violet block", "b11": "silver block", "b12": "gold block" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

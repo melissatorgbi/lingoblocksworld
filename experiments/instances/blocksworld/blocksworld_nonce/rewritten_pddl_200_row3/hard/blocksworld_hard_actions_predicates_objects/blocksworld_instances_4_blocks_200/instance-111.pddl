@@ -1,0 +1,21 @@
+
+
+(define (problem BW-rand-4)
+(:domain blocksworld-4ops)
+(:objects b1 b2 b3 b4 )
+(:init
+(nonibbdeperporal)
+(glistionsover b1 b4)
+(glistionsoversnufflown b2)
+(glistionsover b3 b2)
+(glistionsover b4 b3)
+(frinerate b1)
+)
+(:goal
+(and
+(glistionsover b2 b1)
+(glistionsover b4 b3))
+)
+)
+
+

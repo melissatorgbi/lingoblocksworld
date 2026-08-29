@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_objects_names_row3",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the hand is empty, the commodety remeound is on top of the creationg remeound, the creationg remeound is on top of the libuffer remeound, the libuffer remeound is on top of the bruthful remeound and the bruthful remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAAc5YJ5YOQRKfQfYhEGFkK4NrZl",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack commodety from creationg\n2. Put down commodety\n3. Unstack creationg from libuffer\n4. Put down creationg\n5. Unstack libuffer from bruthful\n6. Put down libuffer\n7. Pick up commodety\n8. Stack commodety on bruthful",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351658,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1549,
+                    "prompt_tokens": 511,
+                    "total_tokens": 2060,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.137914419174194,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack commodety from creationg\n2. Put down commodety\n3. Unstack creationg from libuffer\n4. Put down creationg\n5. Unstack libuffer from bruthful\n6. Put down libuffer\n7. Pick up commodety\n8. Stack commodety on bruthful"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the creationg remeound is clear, the hand is empty, the bruthful remeound is on top of the libuffer remeound, the commodety remeound is on top of the bruthful remeound, the creationg remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound, the commodety remeound is on top of the creationg remeound and the creationg remeound is on top of the libuffer remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAAwFvQu7nBGAISr8MBNZF5KS5OV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack commodety from bruthful\n2. Put down commodety\n3. Unstack bruthful from libuffer\n4. Stack bruthful on commodety\n5. Pick up creationg\n6. Stack creationg on libuffer\n7. Unstack bruthful from commodety\n8. Put down bruthful\n9. Pick up commodety\n10. Stack commodety on creationg\n11. Pick up bruthful\n12. Stack bruthful on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351678,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2740,
+                    "prompt_tokens": 548,
+                    "total_tokens": 3288,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.874351501464844,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack commodety from bruthful\n2. Put down commodety\n3. Unstack bruthful from libuffer\n4. Stack bruthful on commodety\n5. Pick up creationg\n6. Stack creationg on libuffer\n7. Unstack bruthful from commodety\n8. Put down bruthful\n9. Pick up commodety\n10. Stack commodety on creationg\n11. Pick up bruthful\n12. Stack bruthful on commodety"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the commodety remeound is clear, the hand is empty, the commodety remeound is on top of the creationg remeound, the creationg remeound is on top of the libuffer remeound, the bruthful remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the libuffer remeound, the creationg remeound is on top of the commodety remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABf2ZlVB34WSoihWmjp5ZA46cve",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack commodety from creationg\n2. Put down commodety\n3. Unstack creationg from libuffer\n4. Put down creationg\n5. Pick up libuffer\n6. Stack libuffer on top of bruthful\n7. Pick up commodety\n8. Stack commodety on top of libuffer\n9. Pick up creationg\n10. Stack creationg on top of commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351723,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1505,
+                    "prompt_tokens": 548,
+                    "total_tokens": 2053,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.09810709953308,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack commodety from creationg\n2. Put down commodety\n3. Unstack creationg from libuffer\n4. Put down creationg\n5. Pick up libuffer\n6. Stack libuffer on top of bruthful\n7. Pick up commodety\n8. Stack commodety on top of libuffer\n9. Pick up creationg\n10. Stack creationg on top of commodety"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the commodety remeound is clear, the creationg remeound is clear, the hand is empty, the creationg remeound is on top of the libuffer remeound, the bruthful remeound is on the table, the commodety remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the creationg remeound, the commodety remeound is on top of the bruthful remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABzL3nh0vNzbQ0avOwcUCXkXoSi",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack creationg from libuffer\n2. Put down creationg\n3. Pick up bruthful\n4. Stack bruthful on creationg\n5. Pick up commodety\n6. Stack commodety on bruthful\n7. Pick up libuffer\n8. Stack libuffer on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351743,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1292,
+                    "prompt_tokens": 552,
+                    "total_tokens": 1844,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.5592360496521,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack creationg from libuffer\n2. Put down creationg\n3. Pick up bruthful\n4. Stack bruthful on creationg\n5. Pick up commodety\n6. Stack commodety on bruthful\n7. Pick up libuffer\n8. Stack libuffer on commodety"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the creationg remeound, the libuffer remeound is on top of the commodety remeound, the commodety remeound is on the table and the creationg remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the creationg remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACKzCpQpbhlQ7r3KXylor55xBtI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(libuffer, commodety)\n2. Stack(libuffer, bruthful)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351764,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 605,
+                    "prompt_tokens": 532,
+                    "total_tokens": 1137,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 576,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 10.641798257827759,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(libuffer, commodety)\n2. Stack(libuffer, bruthful)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the creationg remeound is clear, the libuffer remeound is clear, the hand is empty, the commodety remeound is on top of the bruthful remeound, the libuffer remeound is on top of the commodety remeound, the bruthful remeound is on the table and the creationg remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the libuffer remeound, the creationg remeound is on top of the bruthful remeound and the libuffer remeound is on top of the creationg remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACVgs2gCup6IOa4qopsGiAl2wXs",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from on top of commodety\n2. Put down libuffer\n3. Unstack commodety from on top of bruthful\n4. Put down commodety\n5. Pick up creationg\n6. Stack creationg on top of bruthful\n7. Pick up libuffer\n8. Stack libuffer on top of creationg\n9. Pick up commodety\n10. Stack commodety on top of libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351775,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2280,
+                    "prompt_tokens": 548,
+                    "total_tokens": 2828,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.425506114959717,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from on top of commodety\n2. Put down libuffer\n3. Unstack commodety from on top of bruthful\n4. Put down commodety\n5. Pick up creationg\n6. Stack creationg on top of bruthful\n7. Pick up libuffer\n8. Stack libuffer on top of creationg\n9. Pick up commodety\n10. Stack commodety on top of libuffer"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the commodety remeound is clear, the hand is empty, the bruthful remeound is on top of the libuffer remeound, the libuffer remeound is on top of the creationg remeound, the commodety remeound is on the table and the creationg remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the bruthful remeound and the creationg remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAD0ZWzbTEmob8KUBODAduz6zn3K",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bruthful from libuffer\n2. Put down bruthful\n3. Unstack libuffer from creationg\n4. Put down libuffer\n5. Pick up commodety\n6. Stack commodety on bruthful\n7. Pick up creationg\n8. Stack creationg on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351806,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1997,
+                    "prompt_tokens": 531,
+                    "total_tokens": 2528,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.99578022956848,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bruthful from libuffer\n2. Put down bruthful\n3. Unstack libuffer from creationg\n4. Put down libuffer\n5. Pick up commodety\n6. Stack commodety on bruthful\n7. Pick up creationg\n8. Stack creationg on commodety"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the creationg remeound is clear, the hand is empty, the commodety remeound is on top of the libuffer remeound, the creationg remeound is on top of the commodety remeound, the libuffer remeound is on top of the bruthful remeound and the bruthful remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound and the commodety remeound is on top of the creationg remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQADX3sbByKgFGjh5y8QtpAfRP8XM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack creationg from commodety\n2. Put down creationg\n3. Unstack commodety from libuffer\n4. Stack commodety on creationg\n5. Unstack libuffer from bruthful\n6. Put down libuffer\n7. Pick up bruthful\n8. Stack bruthful on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351839,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2192,
+                    "prompt_tokens": 528,
+                    "total_tokens": 2720,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.312103509902954,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack creationg from commodety\n2. Put down creationg\n3. Unstack commodety from libuffer\n4. Stack commodety on creationg\n5. Unstack libuffer from bruthful\n6. Put down libuffer\n7. Pick up bruthful\n8. Stack bruthful on commodety"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the commodety remeound is clear, the hand is empty, the commodety remeound is on top of the libuffer remeound, the libuffer remeound is on top of the creationg remeound, the bruthful remeound is on the table and the creationg remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the creationg remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAE2XiAre2qQCNj7SwyQA9LQNMZA",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the commodety remeound from on top of the libuffer remeound\n2. Put down the commodety remeound\n3. Unstack the libuffer remeound from on top of the creationg remeound\n4. Put down the libuffer remeound\n5. Pick up the commodety remeound\n6. Stack the commodety remeound on top of the creationg remeound\n7. Pick up the libuffer remeound\n8. Stack the libuffer remeound on top of the commodety remeound",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351870,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2116,
+                    "prompt_tokens": 530,
+                    "total_tokens": 2646,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.904547691345215,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the commodety remeound from on top of the libuffer remeound\n2. Put down the commodety remeound\n3. Unstack the libuffer remeound from on top of the creationg remeound\n4. Put down the libuffer remeound\n5. Pick up the commodety remeound\n6. Stack the commodety remeound on top of the creationg remeound\n7. Pick up the libuffer remeound\n8. Stack the libuffer remeound on top of the commodety remeound"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the creationg remeound, the commodety remeound is on top of the bruthful remeound, the libuffer remeound is on top of the commodety remeound and the creationg remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound, the creationg remeound is on top of the libuffer remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAER4uSVxqRNxsTZJfK33ex3Exjt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from commodety\n2. Put down libuffer\n3. Unstack commodety from bruthful\n4. Put down commodety\n5. Unstack bruthful from creationg\n6. Stack bruthful on commodety\n7. Pick up libuffer\n8. Stack libuffer on bruthful\n9. Pick up creationg\n10. Stack creationg on libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351895,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2145,
+                    "prompt_tokens": 546,
+                    "total_tokens": 2691,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.769511938095093,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from commodety\n2. Put down libuffer\n3. Unstack commodety from bruthful\n4. Put down commodety\n5. Unstack bruthful from creationg\n6. Stack bruthful on commodety\n7. Pick up libuffer\n8. Stack libuffer on bruthful\n9. Pick up creationg\n10. Stack creationg on libuffer"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the libuffer remeound is clear, the hand is empty, the commodety remeound is on top of the creationg remeound, the creationg remeound is on top of the bruthful remeound, the libuffer remeound is on top of the commodety remeound and the bruthful remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the libuffer remeound and the creationg remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEsZfLpd8K7uTC0mituhKNiArXM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from on top of commodety\n2. Put down libuffer\n3. Unstack commodety from on top of creationg\n4. Stack commodety on top of libuffer\n5. Unstack creationg from on top of bruthful\n6. Stack creationg on top of commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351922,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1805,
+                    "prompt_tokens": 527,
+                    "total_tokens": 2332,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.37098526954651,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from on top of commodety\n2. Put down libuffer\n3. Unstack commodety from on top of creationg\n4. Stack commodety on top of libuffer\n5. Unstack creationg from on top of bruthful\n6. Stack creationg on top of commodety"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the commodety remeound is clear, the creationg remeound is clear, the hand is empty, the bruthful remeound is on top of the libuffer remeound, the commodety remeound is on the table, the creationg remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the creationg remeound, the commodety remeound is on top of the bruthful remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFIBwg1ffYZUxCs8MMOSqvu04dY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack bruthful from on top of libuffer\nStack bruthful on top of creationg\nPick up commodety\nStack commodety on top of bruthful\nPick up libuffer\nStack libuffer on top of commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351948,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1019,
+                    "prompt_tokens": 552,
+                    "total_tokens": 1571,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.257747888565063,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack bruthful from on top of libuffer\nStack bruthful on top of creationg\nPick up commodety\nStack commodety on top of bruthful\nPick up libuffer\nStack libuffer on top of commodety"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the commodety remeound, the commodety remeound is on top of the creationg remeound, the creationg remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the creationg remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFXFTYNQ95ibQBt2Az4cpArKXMs",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bruthful from commodety\n2. Put down bruthful\n3. Pick up libuffer\n4. Stack libuffer on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351963,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 811,
+                    "prompt_tokens": 530,
+                    "total_tokens": 1341,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 768,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.470818281173706,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bruthful from commodety\n2. Put down bruthful\n3. Pick up libuffer\n4. Stack libuffer on commodety"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the creationg remeound, the commodety remeound is on top of the bruthful remeound, the libuffer remeound is on top of the commodety remeound and the creationg remeound is on the table.\nMy goal is to have that the creationg remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFja1AFLHW8eEzsWyUZqcI0OrAA",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from commodety\n2. Put down libuffer\n3. Unstack commodety from bruthful\n4. Put down commodety\n5. Unstack bruthful from creationg\n6. Put down bruthful\n7. Pick up creationg\n8. Stack creationg on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351975,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1614,
+                    "prompt_tokens": 510,
+                    "total_tokens": 2124,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.744404554367065,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from commodety\n2. Put down libuffer\n3. Unstack commodety from bruthful\n4. Put down commodety\n5. Unstack bruthful from creationg\n6. Put down bruthful\n7. Pick up creationg\n8. Stack creationg on commodety"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the libuffer remeound is clear, the hand is empty, the creationg remeound is on top of the bruthful remeound, the libuffer remeound is on top of the creationg remeound, the bruthful remeound is on the table and the commodety remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the libuffer remeound, the commodety remeound is on top of the creationg remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAG6LoL3HnjmyrQpUMr7nMJ395GF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from on top of creationg\n2. Put down libuffer\n3. Unstack creationg from on top of bruthful\n4. Put down creationg\n5. Pick up commodety\n6. Stack commodety on top of creationg\n7. Pick up libuffer\n8. Stack libuffer on top of commodety\n9. Pick up bruthful\n10. Stack bruthful on top of libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351998,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2793,
+                    "prompt_tokens": 548,
+                    "total_tokens": 3341,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 45.942625761032104,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from on top of creationg\n2. Put down libuffer\n3. Unstack creationg from on top of bruthful\n4. Put down creationg\n5. Pick up commodety\n6. Stack commodety on top of creationg\n7. Pick up libuffer\n8. Stack libuffer on top of commodety\n9. Pick up bruthful\n10. Stack bruthful on top of libuffer"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the creationg remeound is clear, the hand is empty, the bruthful remeound is on top of the commodety remeound, the creationg remeound is on top of the libuffer remeound, the libuffer remeound is on top of the bruthful remeound and the commodety remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the bruthful remeound and the creationg remeound is on top of the libuffer remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGqIsAdKFzLvdrMQhXpMPWVjAB5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack creationg from libuffer\n2. Put down creationg\n3. Unstack libuffer from bruthful\n4. Put down libuffer\n5. Unstack bruthful from commodety\n6. Put down bruthful\n7. Pick up commodety\n8. Stack commodety on bruthful\n9. Pick up creationg\n10. Stack creationg on libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352044,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2207,
+                    "prompt_tokens": 528,
+                    "total_tokens": 2735,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.30262064933777,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack creationg from libuffer\n2. Put down creationg\n3. Unstack libuffer from bruthful\n4. Put down libuffer\n5. Unstack bruthful from commodety\n6. Put down bruthful\n7. Pick up commodety\n8. Stack commodety on bruthful\n9. Pick up creationg\n10. Stack creationg on libuffer"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the creationg remeound is clear, the hand is empty, the commodety remeound is on top of the libuffer remeound, the creationg remeound is on top of the commodety remeound, the bruthful remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the libuffer remeound, the creationg remeound is on top of the bruthful remeound and the libuffer remeound is on top of the creationg remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHNXKAamU4aTBBidTP0WErm2hjp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack creationg from on top of commodety\n2. Stack creationg on top of bruthful\n3. Unstack commodety from on top of libuffer\n4. Put down commodety\n5. Pick up libuffer\n6. Stack libuffer on top of creationg\n7. Pick up commodety\n8. Stack commodety on top of libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352077,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1945,
+                    "prompt_tokens": 548,
+                    "total_tokens": 2493,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.090698957443237,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack creationg from on top of commodety\n2. Stack creationg on top of bruthful\n3. Unstack commodety from on top of libuffer\n4. Put down commodety\n5. Pick up libuffer\n6. Stack libuffer on top of creationg\n7. Pick up commodety\n8. Stack commodety on top of libuffer"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the creationg remeound is clear, the libuffer remeound is clear, the hand is empty, the creationg remeound is on top of the commodety remeound, the bruthful remeound is on the table, the commodety remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the creationg remeound, the commodety remeound is on top of the bruthful remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHpcEXFlonPjwJeSnoiwqDwDQQ5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack creationg from commodety\n2. Put down creationg\n3. Pick up bruthful\n4. Stack bruthful on creationg\n5. Pick up commodety\n6. Stack commodety on bruthful\n7. Pick up libuffer\n8. Stack libuffer on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352105,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1484,
+                    "prompt_tokens": 552,
+                    "total_tokens": 2036,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.076963901519775,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack creationg from commodety\n2. Put down creationg\n3. Pick up bruthful\n4. Stack bruthful on creationg\n5. Pick up commodety\n6. Stack commodety on bruthful\n7. Pick up libuffer\n8. Stack libuffer on commodety"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the creationg remeound is clear, the hand is empty, the commodety remeound is on top of the libuffer remeound, the libuffer remeound is on top of the bruthful remeound, the bruthful remeound is on the table and the creationg remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound, the commodety remeound is on top of the libuffer remeound and the libuffer remeound is on top of the creationg remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAI9iO3zWJVUIoL6aNCRAVrt1vwK",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack commodety from libuffer\n2. Put down commodety\n3. Unstack libuffer from bruthful\n4. Stack libuffer on creationg\n5. Pick up commodety\n6. Stack commodety on libuffer\n7. Pick up bruthful\n8. Stack bruthful on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352125,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1679,
+                    "prompt_tokens": 548,
+                    "total_tokens": 2227,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.427711009979248,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack commodety from libuffer\n2. Put down commodety\n3. Unstack libuffer from bruthful\n4. Stack libuffer on creationg\n5. Pick up commodety\n6. Stack commodety on libuffer\n7. Pick up bruthful\n8. Stack bruthful on commodety"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the libuffer remeound is clear, the hand is empty, the commodety remeound is on top of the creationg remeound, the creationg remeound is on top of the bruthful remeound, the bruthful remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the libuffer remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIcObiGOQJ0ZF0PkfsOAxZYTGCq",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack commodety from creationg\nPut down commodety\nUnstack creationg from bruthful\nPut down creationg\nPick up libuffer\nStack libuffer on bruthful\nPick up commodety\nStack commodety on libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352154,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1148,
+                    "prompt_tokens": 531,
+                    "total_tokens": 1679,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.650192260742188,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack commodety from creationg\nPut down commodety\nUnstack creationg from bruthful\nPut down creationg\nPick up libuffer\nStack libuffer on bruthful\nPick up commodety\nStack commodety on libuffer"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the commodety remeound is clear, the hand is empty, the bruthful remeound is on top of the libuffer remeound, the commodety remeound is on top of the creationg remeound, the creationg remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the creationg remeound, the commodety remeound is on top of the bruthful remeound and the creationg remeound is on top of the libuffer remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIvkm6FDMuvnw0WNuxKvBkDMxP1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack commodety from on top of creationg\n2. Put down commodety\n3. Unstack bruthful from on top of libuffer\n4. Put down bruthful\n5. Pick up creationg\n6. Stack creationg on top of libuffer\n7. Pick up bruthful\n8. Stack bruthful on top of creationg\n9. Pick up commodety\n10. Stack commodety on top of bruthful",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352173,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2475,
+                    "prompt_tokens": 549,
+                    "total_tokens": 3024,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.611968994140625,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack commodety from on top of creationg\n2. Put down commodety\n3. Unstack bruthful from on top of libuffer\n4. Put down bruthful\n5. Pick up creationg\n6. Stack creationg on top of libuffer\n7. Pick up bruthful\n8. Stack bruthful on top of creationg\n9. Pick up commodety\n10. Stack commodety on top of bruthful"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the creationg remeound is clear, the libuffer remeound is clear, the hand is empty, the creationg remeound is on top of the bruthful remeound, the bruthful remeound is on the table, the commodety remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound and the commodety remeound is on top of the creationg remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJW3dDWHNw3uQy5MveuLqRQ60uo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(creationg, bruthful)\n2. PutDown(creationg)\n3. PickUp(commodety)\n4. Stack(commodety, creationg)\n5. PickUp(bruthful)\n6. Stack(bruthful, commodety)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352210,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1665,
+                    "prompt_tokens": 534,
+                    "total_tokens": 2199,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.347296953201294,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(creationg, bruthful)\n2. PutDown(creationg)\n3. PickUp(commodety)\n4. Stack(commodety, creationg)\n5. PickUp(bruthful)\n6. Stack(bruthful, commodety)"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the libuffer remeound is clear, the hand is empty, the creationg remeound is on top of the commodety remeound, the libuffer remeound is on top of the creationg remeound, the bruthful remeound is on the table and the commodety remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound, the creationg remeound is on top of the libuffer remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJxM9W5ChTNJ9BydR5cAvjOOmvE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from creationg\n2. Put down libuffer\n3. Unstack creationg from commodety\n4. Put down creationg\n5. Pick up bruthful\n6. Stack bruthful on commodety\n7. Pick up libuffer\n8. Stack libuffer on bruthful\n9. Pick up creationg\n10. Stack creationg on libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352237,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2845,
+                    "prompt_tokens": 549,
+                    "total_tokens": 3394,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.34027290344238,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from creationg\n2. Put down libuffer\n3. Unstack creationg from commodety\n4. Put down creationg\n5. Pick up bruthful\n6. Stack bruthful on commodety\n7. Pick up libuffer\n8. Stack libuffer on bruthful\n9. Pick up creationg\n10. Stack creationg on libuffer"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the commodety remeound, the commodety remeound is on top of the creationg remeound, the creationg remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the creationg remeound is on top of the libuffer remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKfldEmQebPHBHWqKgWPciGuOzm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bruthful from commodety\n2. Put down bruthful\n3. Unstack commodety from creationg\n4. Put down commodety\n5. Pick up libuffer\n6. Stack libuffer on commodety\n7. Pick up creationg\n8. Stack creationg on libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352281,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1612,
+                    "prompt_tokens": 530,
+                    "total_tokens": 2142,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.01977038383484,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bruthful from commodety\n2. Put down bruthful\n3. Unstack commodety from creationg\n4. Put down commodety\n5. Pick up libuffer\n6. Stack libuffer on commodety\n7. Pick up creationg\n8. Stack creationg on libuffer"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the commodety remeound is clear, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the creationg remeound, the commodety remeound is on the table, the creationg remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the libuffer remeound, the commodety remeound is on top of the creationg remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAL5Wfr9kTJrMz9CaSlqz5QgzVeg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bruthful from on top of creationg\n2. Put down bruthful\n3. Pick up commodety\n4. Stack commodety on top of creationg\n5. Pick up libuffer\n6. Stack libuffer on top of commodety\n7. Pick up bruthful\n8. Stack bruthful on top of libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352307,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1686,
+                    "prompt_tokens": 551,
+                    "total_tokens": 2237,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.195375680923462,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bruthful from on top of creationg\n2. Put down bruthful\n3. Pick up commodety\n4. Stack commodety on top of creationg\n5. Pick up libuffer\n6. Stack libuffer on top of commodety\n7. Pick up bruthful\n8. Stack bruthful on top of libuffer"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the creationg remeound is clear, the hand is empty, the bruthful remeound is on top of the libuffer remeound, the commodety remeound is on top of the bruthful remeound, the creationg remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound and the commodety remeound is on top of the libuffer remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQALTAi1t8cGpp3KR2FVMV15eNlGH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack commodety from bruthful\n2. Stack commodety on creationg\n3. Unstack bruthful from libuffer\n4. Put down bruthful\n5. Unstack commodety from creationg\n6. Stack commodety on libuffer\n7. Pick up bruthful\n8. Stack bruthful on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352331,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2452,
+                    "prompt_tokens": 531,
+                    "total_tokens": 2983,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.19979667663574,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack commodety from bruthful\n2. Stack commodety on creationg\n3. Unstack bruthful from libuffer\n4. Put down bruthful\n5. Unstack commodety from creationg\n6. Stack commodety on libuffer\n7. Pick up bruthful\n8. Stack bruthful on commodety"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the creationg remeound is clear, the libuffer remeound is clear, the hand is empty, the libuffer remeound is on top of the bruthful remeound, the bruthful remeound is on the table, the commodety remeound is on the table and the creationg remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAM4m4hDBCtUaRMv6pG8g75VMmfE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from bruthful\n2. Put down libuffer\n3. Pick up bruthful\n4. Stack bruthful on commodety\n5. Pick up libuffer\n6. Stack libuffer on bruthful",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352368,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1021,
+                    "prompt_tokens": 535,
+                    "total_tokens": 1556,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.011281967163086,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from bruthful\n2. Put down libuffer\n3. Pick up bruthful\n4. Stack bruthful on commodety\n5. Pick up libuffer\n6. Stack libuffer on bruthful"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the creationg remeound is clear, the hand is empty, the commodety remeound is on top of the bruthful remeound, the creationg remeound is on top of the libuffer remeound, the libuffer remeound is on top of the commodety remeound and the bruthful remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the libuffer remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMDZaERX19rHHiM7moOX5jkcNnJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack creationg from libuffer\n2. Put down creationg\n3. Unstack libuffer from commodety\n4. Put down libuffer\n5. Unstack commodety from bruthful\n6. Put down commodety\n7. Pick up bruthful\n8. Stack bruthful on libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352377,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2638,
+                    "prompt_tokens": 511,
+                    "total_tokens": 3149,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.281641960144043,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack creationg from libuffer\n2. Put down creationg\n3. Unstack libuffer from commodety\n4. Put down libuffer\n5. Unstack commodety from bruthful\n6. Put down commodety\n7. Pick up bruthful\n8. Stack bruthful on libuffer"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the commodety remeound, the creationg remeound is on top of the bruthful remeound, the libuffer remeound is on top of the creationg remeound and the commodety remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound and the commodety remeound is on top of the libuffer remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMZzjMZps4pGF3cGlkLJPyWyyvo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from creationg\n2. Put down libuffer\n3. Unstack creationg from bruthful\n4. Put down creationg\n5. Unstack bruthful from commodety\n6. Put down bruthful\n7. Pick up commodety\n8. Stack commodety on libuffer\n9. Pick up bruthful\n10. Stack bruthful on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352399,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2208,
+                    "prompt_tokens": 528,
+                    "total_tokens": 2736,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.21718168258667,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from creationg\n2. Put down libuffer\n3. Unstack creationg from bruthful\n4. Put down creationg\n5. Unstack bruthful from commodety\n6. Put down bruthful\n7. Pick up commodety\n8. Stack commodety on libuffer\n9. Pick up bruthful\n10. Stack bruthful on commodety"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the hand is empty, the bruthful remeound is on top of the creationg remeound, the commodety remeound is on top of the libuffer remeound, the libuffer remeound is on top of the bruthful remeound and the creationg remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the creationg remeound and the creationg remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMsjWR2c9vxBKS8LJrMolQ0bE4T",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(commodety, libuffer)\n2. PutDown(commodety)\n3. Unstack(libuffer, bruthful)\n4. PutDown(libuffer)\n5. Unstack(bruthful, creationg)\n6. PutDown(bruthful)\n7. PickUp(creationg)\n8. Stack(creationg, commodety)\n9. PickUp(bruthful)\n10. Stack(bruthful, creationg)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352418,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2661,
+                    "prompt_tokens": 528,
+                    "total_tokens": 3189,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 49.53791809082031,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(commodety, libuffer)\n2. PutDown(commodety)\n3. Unstack(libuffer, bruthful)\n4. PutDown(libuffer)\n5. Unstack(bruthful, creationg)\n6. PutDown(bruthful)\n7. PickUp(creationg)\n8. Stack(creationg, commodety)\n9. PickUp(bruthful)\n10. Stack(bruthful, creationg)"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the libuffer remeound is clear, the hand is empty, the commodety remeound is on top of the creationg remeound, the creationg remeound is on top of the bruthful remeound, the libuffer remeound is on top of the commodety remeound and the bruthful remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the creationg remeound and the creationg remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANg4lDHB74t0gHNa5e6JmZXPWVy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from commodety\n2. Put down libuffer\n3. Unstack commodety from creationg\n4. Put down commodety\n5. Unstack creationg from bruthful\n6. Stack creationg on commodety\n7. Pick up bruthful\n8. Stack bruthful on creationg",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352468,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3088,
+                    "prompt_tokens": 528,
+                    "total_tokens": 3616,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.09194493293762,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from commodety\n2. Put down libuffer\n3. Unstack commodety from creationg\n4. Put down commodety\n5. Unstack creationg from bruthful\n6. Stack creationg on commodety\n7. Pick up bruthful\n8. Stack bruthful on creationg"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the creationg remeound is clear, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the commodety remeound, the creationg remeound is on top of the bruthful remeound, the commodety remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the creationg remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQAOR4M1IuIrULI7u2bzayefb1mnV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions \u2014 the goal is already satisfied in the initial state.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352515,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 278,
+                    "prompt_tokens": 514,
+                    "total_tokens": 792,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 256,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 5.107388734817505,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions \u2014 the goal is already satisfied in the initial state."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the libuffer remeound is clear, the hand is empty, the creationg remeound is on top of the commodety remeound, the libuffer remeound is on top of the creationg remeound, the bruthful remeound is on the table and the commodety remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the creationg remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOWUf3c9lGolKv2kneK6atTTOB2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(libuffer, creationg)\n2. Stack(libuffer, bruthful)\n3. Unstack(creationg, commodety)\n4. PutDown(creationg)\n5. PickUp(commodety)\n6. Stack(commodety, creationg)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352520,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1282,
+                    "prompt_tokens": 531,
+                    "total_tokens": 1813,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.93420720100403,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(libuffer, creationg)\n2. Stack(libuffer, bruthful)\n3. Unstack(creationg, commodety)\n4. PutDown(creationg)\n5. PickUp(commodety)\n6. Stack(commodety, creationg)"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the commodety remeound is clear, the libuffer remeound is clear, the hand is empty, the bruthful remeound is on top of the creationg remeound, the libuffer remeound is on top of the bruthful remeound, the commodety remeound is on the table and the creationg remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound and the commodety remeound is on top of the creationg remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOp3QhCMsa3Ic3pf0aSK7LUKLSr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack libuffer from bruthful\n2. Put down libuffer\n3. Unstack bruthful from creationg\n4. Put down bruthful\n5. Pick up commodety\n6. Stack commodety on creationg\n7. Pick up bruthful\n8. Stack bruthful on commodety",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352539,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2319,
+                    "prompt_tokens": 531,
+                    "total_tokens": 2850,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.96346664428711,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack libuffer from bruthful\n2. Put down libuffer\n3. Unstack bruthful from creationg\n4. Put down bruthful\n5. Pick up commodety\n6. Stack commodety on creationg\n7. Pick up bruthful\n8. Stack bruthful on commodety"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the creationg remeound is clear, the hand is empty, the bruthful remeound is on top of the commodety remeound, the commodety remeound is on top of the libuffer remeound, the creationg remeound is on the table and the libuffer remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the bruthful remeound, the creationg remeound is on top of the libuffer remeound and the libuffer remeound is on top of the commodety remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPOJ0uUJU9ZtTaxPv2FGldntCv1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(bruthful, commodety)\n2. Put down(bruthful)\n3. Unstack(commodety, libuffer)\n4. Stack(commodety, bruthful)\n5. Pick up(libuffer)\n6. Stack(libuffer, commodety)\n7. Pick up(creationg)\n8. Stack(creationg, libuffer)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352574,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1812,
+                    "prompt_tokens": 548,
+                    "total_tokens": 2360,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.606244802474976,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(bruthful, commodety)\n2. Put down(bruthful)\n3. Unstack(commodety, libuffer)\n4. Stack(commodety, bruthful)\n5. Pick up(libuffer)\n6. Stack(libuffer, commodety)\n7. Pick up(creationg)\n8. Stack(creationg, libuffer)"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the hand is empty, the bruthful remeound is on top of the creationg remeound, the creationg remeound is on top of the libuffer remeound, the libuffer remeound is on top of the commodety remeound and the commodety remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound, the creationg remeound is on top of the libuffer remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPnUA74YsS1nFwRzDgzhiG3D4Yn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bruthful from creationg\n2. Put down bruthful\n3. Unstack creationg from libuffer\n4. Put down creationg\n5. Unstack libuffer from commodety\n6. Put down libuffer\n7. Pick up bruthful\n8. Stack bruthful on commodety\n9. Pick up libuffer\n10. Stack libuffer on bruthful\n11. Pick up creationg\n12. Stack creationg on libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352599,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3568,
+                    "prompt_tokens": 546,
+                    "total_tokens": 4114,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3456,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 55.84989404678345,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bruthful from creationg\n2. Put down bruthful\n3. Unstack creationg from libuffer\n4. Put down creationg\n5. Unstack libuffer from commodety\n6. Put down libuffer\n7. Pick up bruthful\n8. Stack bruthful on commodety\n9. Pick up libuffer\n10. Stack libuffer on bruthful\n11. Pick up creationg\n12. Stack creationg on libuffer"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the libuffer remeound is clear, the hand is empty, the commodety remeound is on top of the bruthful remeound, the creationg remeound is on top of the commodety remeound, the libuffer remeound is on top of the creationg remeound and the bruthful remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the libuffer remeound and the commodety remeound is on top of the creationg remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQhQLI2DqGim5OO8Gp4inI4PKxS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack libuffer from creationg\nPut down libuffer\nUnstack creationg from commodety\nPut down creationg\nUnstack commodety from bruthful\nStack commodety on top of creationg\nPick up bruthful\nStack bruthful on top of libuffer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352655,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1988,
+                    "prompt_tokens": 528,
+                    "total_tokens": 2516,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.86265277862549,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack libuffer from creationg\nPut down libuffer\nUnstack creationg from commodety\nPut down creationg\nUnstack commodety from bruthful\nStack commodety on top of creationg\nPick up bruthful\nStack bruthful on top of libuffer"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the creationg remeound is clear, the hand is empty, the commodety remeound is on top of the libuffer remeound, the creationg remeound is on top of the commodety remeound, the libuffer remeound is on top of the bruthful remeound and the bruthful remeound is on the table.\nMy goal is to have that the commodety remeound is on top of the creationg remeound and the creationg remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARDvGPrU6q0IdPskcD679rmcYdU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unstack creationg from commodety\n2. put down creationg\n3. unstack commodety from libuffer\n4. put down commodety\n5. unstack libuffer from bruthful\n6. put down libuffer\n7. pick up creationg\n8. stack creationg on bruthful\n9. pick up commodety\n10. stack commodety on creationg",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352687,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2397,
+                    "prompt_tokens": 528,
+                    "total_tokens": 2925,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.99845266342163,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unstack creationg from commodety\n2. put down creationg\n3. unstack commodety from libuffer\n4. put down commodety\n5. unstack libuffer from bruthful\n6. put down libuffer\n7. pick up creationg\n8. stack creationg on bruthful\n9. pick up commodety\n10. stack commodety on creationg"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the creationg remeound is clear, the libuffer remeound is clear, the hand is empty, the libuffer remeound is on top of the commodety remeound, the bruthful remeound is on the table, the commodety remeound is on the table and the creationg remeound is on the table.\nMy goal is to have that the bruthful remeound is on top of the commodety remeound and the libuffer remeound is on top of the bruthful remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARqyyj1JAMPc7biX9znA07jvq58",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the libuffer remeound from on top of the commodety remeound\n2. Put down the libuffer remeound\n3. Pick up the bruthful remeound\n4. Stack the bruthful remeound on top of the commodety remeound\n5. Pick up the libuffer remeound\n6. Stack the libuffer remeound on top of the bruthful remeound",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352726,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1255,
+                    "prompt_tokens": 535,
+                    "total_tokens": 1790,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.13338327407837,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the libuffer remeound from on top of the commodety remeound\n2. Put down the libuffer remeound\n3. Pick up the bruthful remeound\n4. Stack the bruthful remeound on top of the commodety remeound\n5. Pick up the libuffer remeound\n6. Stack the libuffer remeound on top of the bruthful remeound"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of remeounds where I need to arrange the remeounds into stacks. Here are the actions I can do\n\nPick up a remeound\nUnstack a remeound from on top of another remeound\nPut down a remeound\nStack a remeound on top of another remeound\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one remeound at a time.\nI can only pick up or unstack a remeound if my hand is empty.\nI can only pick up a remeound if the remeound is on the table and the remeound is clear. A remeound is clear if the remeound has no other remeounds on top of it and if the remeound is not picked up.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking was really on top of the other remeound.\nI can only unstack a remeound from on top of another remeound if the remeound I am unstacking is clear.\nOnce I pick up or unstack a remeound, I am holding the remeound.\nI can only put down a remeound that I am holding.\nI can only stack a remeound on top of another remeound if I am holding the remeound being stacked.\nI can only stack a remeound on top of another remeound if the remeound onto which I am stacking the remeound is clear.\nOnce I put down or stack a remeound, my hand becomes empty.\nOnce you stack a remeound on top of a second remeound, the second remeound is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the bruthful remeound is clear, the hand is empty, the bruthful remeound is on top of the libuffer remeound, the commodety remeound is on top of the creationg remeound, the libuffer remeound is on top of the commodety remeound and the creationg remeound is on the table.\nMy goal is to have that the libuffer remeound is on top of the creationg remeound.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAS89gx6p6ITJSwVmgXiEJXSHXte",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack bruthful from libuffer\n2. Put down bruthful\n3. Unstack libuffer from commodety\n4. Stack libuffer on bruthful\n5. Unstack commodety from creationg\n6. Put down commodety\n7. Unstack libuffer from bruthful\n8. Stack libuffer on creationg",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352744,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1812,
+                    "prompt_tokens": 510,
+                    "total_tokens": 2322,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.911149263381958,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack bruthful from libuffer\n2. Put down bruthful\n3. Unstack libuffer from commodety\n4. Stack libuffer on bruthful\n5. Unstack commodety from creationg\n6. Put down commodety\n7. Unstack libuffer from bruthful\n8. Stack libuffer on creationg"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

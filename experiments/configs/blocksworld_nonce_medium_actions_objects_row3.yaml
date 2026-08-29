@@ -1,0 +1,93 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/medium/blocksworld_medium_actions_objects/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/medium/blocksworld_medium_actions_objects/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium_row3/generated_domain_medium_actions_objects.pddl
+domain_name: blocksworld_medium_actions_objects_row3
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do
+
+   Vess a migrap
+   Unbartee a migrap from on top of another migrap
+   Suffus a migrap
+   Bartee a migrap on top of another migrap
+
+   I have the following restrictions on my actions:
+   I can only vess or unbartee one migrap at a time.
+   I can only vess or unbartee a migrap if my hand is empty.
+   I can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.
+   I can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.
+   I can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.
+   Once I vess or unbartee a migrap, I am holding the migrap.
+   I can only suffus a migrap that I am holding.
+   I can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.
+   I can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.
+   Once I suffus or bartee a migrap, my hand becomes empty.
+   Once you bartee a migrap on top of a second migrap, the second migrap is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do
+
+   Vess a migrap
+   Unbartee a migrap from on top of another migrap
+   Suffus a migrap
+   Bartee a migrap on top of another migrap
+
+   I have the following restrictions on my actions:
+   I can only vess or unbartee one migrap at a time.
+   I can only vess or unbartee a migrap if my hand is empty.
+   I can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.
+   I can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.
+   I can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.
+   Once I vess or unbartee a migrap, I am holding the migrap.
+   I can only suffus a migrap that I am holding.
+   I can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.
+   I can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.
+   Once I suffus or bartee a migrap, my hand becomes empty.
+   Once you bartee a migrap on top of a second migrap, the second migrap is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {vess: "vess the {}",
+   suffus: "suffus the {}",
+   bartee: "bartee the {} on top of the {}",
+   unbartee: "unbartee the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red migrap", "b2": "blue migrap", "b3": "orange migrap", "b4": "yellow migrap",
+   "b5": "white migrap", "b6": "magenta migrap", "b7": "black migrap", "b8": "cyan migrap",
+   "b9": "green migrap", "b10": "violet migrap", "b11": "silver migrap", "b12": "gold migrap" }
+
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

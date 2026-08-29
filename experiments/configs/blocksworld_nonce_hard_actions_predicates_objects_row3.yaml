@@ -1,0 +1,93 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/hard/blocksworld_hard_actions_predicates_objects/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/hard/blocksworld_hard_actions_predicates_objects/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/hard_row3/generated_domain_hard_actions_predicates_objects.pddl
+domain_name: blocksworld_hard_actions_predicates_objects_row3
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of specons where I need to arrange the specons into thwaves. Here are the actions I can do
+
+   Scipule a specon
+   Unthwave a specon from glistions over another specon
+   Shiven a specon
+   Thwave a specon glistions over another specon
+
+   I have the following restrictions on my actions:
+   I can only scipule or unthwave one specon at a time.
+   I can only scipule or unthwave a specon if my nonibb is deperporal.
+   I can only scipule a specon if the specon is glistions over the snufflown and the specon is frinerate. A specon is frinerate if the specon has no other specons glistions over it and if the specon is not scipuled.
+   I can only unthwave a specon from glistions over another specon if the specon I am unthwaving was really glistions over the other specon.
+   I can only unthwave a specon from glistions over another specon if the specon I am unthwaving is frinerate.
+   Once I scipule or unthwave a specon, I am symplitying the specon.
+   I can only shiven a specon that I am symplitying.
+   I can only thwave a specon glistions over another specon if I am symplitying the specon being thwaved.
+   I can only thwave a specon glistions over another specon if the specon onto which I am thwaving the specon is frinerate.
+   Once I shiven or thwave a specon, my nonibb becomes deperporal.
+   Once you thwave a specon glistions over a second specon, the second specon is no longer frinerate.
+
+domain_intro_state_tracking: |
+   I am playing with a set of specons where I need to arrange the specons into thwaves. Here are the actions I can do
+
+   Scipule a specon
+   Unthwave a specon from glistions over another specon
+   Shiven a specon
+   Thwave a specon glistions over another specon
+
+   I have the following restrictions on my actions:
+   I can only scipule or unthwave one specon at a time.
+   I can only scipule or unthwave a specon if my nonibb is deperporal.
+   I can only scipule a specon if the specon is glistions over the snufflown and the specon is frinerate. A specon is frinerate if the specon has no other specons glistions over it and if the specon is not scipuled.
+   I can only unthwave a specon from glistions over another specon if the specon I am unthwaving was really glistions over the other specon.
+   I can only unthwave a specon from glistions over another specon if the specon I am unthwaving is frinerate.
+   Once I scipule or unthwave a specon, I am symplitying the specon.
+   I can only shiven a specon that I am symplitying.
+   I can only thwave a specon glistions over another specon if I am symplitying the specon being thwaved.
+   I can only thwave a specon glistions over another specon if the specon onto which I am thwaving the specon is frinerate.
+   Once I shiven or thwave a specon, my nonibb becomes deperporal.
+   Once you thwave a specon glistions over a second specon, the second specon is no longer frinerate.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {scipule: "scipule the {}",
+   shiven: "shiven the {}",
+   thwave: "thwave the {} glistions over the {}",
+   unthwave: "unthwave the {} from glistions over the {}"}
+
+
+
+predicates:
+  {glistionsoversnufflown: "the {} is glistions over the snufflown",
+   frinerate: "the {} is frinerate",
+   nonibbdeperporal: "the nonibb is deperporal",
+   symplitying: "the nonibb is currently symplitying {}",
+   "glistionsover": "the {} is glistions over the {}"}
+
+predicate_mapping:
+   {
+   "glistionsoversnufflown": "glistions over the snufflown",
+   "frinerate": "frinerate",
+   "nonibbdeperporal": "nonibb is deperporal",
+   "symplitying": "symplitying",
+   "glistionsover": "glistions over"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red specon", "b2": "blue specon", "b3": "orange specon", "b4": "yellow specon",
+   "b5": "white specon", "b6": "magenta specon", "b7": "black specon", "b8": "cyan specon",
+   "b9": "green specon", "b10": "violet specon", "b11": "silver specon", "b12": "gold specon" }
+   
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

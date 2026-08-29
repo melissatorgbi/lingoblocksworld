@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_hard_predicates_objects_names_row3",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the ovinity arkell, the ovinity arkell is winoming onto the scopporth arkell and the scopporth arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACJImPcpbhg7n8z2EuJc6TC6Agt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack plaine from tangalian\n2. Put down plaine\n3. Unstack tangalian from ovinity\n4. Put down tangalian\n5. Unstack ovinity from scopporth\n6. Put down ovinity\n7. Pick up plaine\n8. Stack plaine onto scopporth",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351763,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2128,
+                    "prompt_tokens": 495,
+                    "total_tokens": 2623,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.39033341407776,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack plaine from tangalian\n2. Put down plaine\n3. Unstack tangalian from ovinity\n4. Put down tangalian\n5. Unstack ovinity from scopporth\n6. Put down ovinity\n7. Pick up plaine\n8. Stack plaine onto scopporth"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the tangalian arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the ovinity arkell, the plaine arkell is winoming onto the scopporth arkell, the tangalian arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell, the plaine arkell is winoming onto the tangalian arkell and the tangalian arkell is winoming onto the ovinity arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACqCma8q5CoeSd002Lm4pXt1m2z",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack plaine from scopporth\n2. Put down plaine\n3. Unstack scopporth from ovinity\n4. Put down scopporth\n5. Pick up tangalian\n6. Stack tangalian winoming onto ovinity\n7. Pick up plaine\n8. Stack plaine winoming onto tangalian\n9. Pick up scopporth\n10. Stack scopporth winoming onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351796,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3559,
+                    "prompt_tokens": 533,
+                    "total_tokens": 4092,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3456,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 49.78943943977356,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack plaine from scopporth\n2. Put down plaine\n3. Unstack scopporth from ovinity\n4. Put down scopporth\n5. Pick up tangalian\n6. Stack tangalian winoming onto ovinity\n7. Pick up plaine\n8. Stack plaine winoming onto tangalian\n9. Pick up scopporth\n10. Stack scopporth winoming onto plaine"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the plaine arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the ovinity arkell, the scopporth arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the ovinity arkell, the tangalian arkell is winoming onto the plaine arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQADeMQh8TzYFb8cp9ZjGrYwKZhVn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack plaine from tangalian\n2. Put down plaine\n3. Unstack tangalian from ovinity\n4. Put down tangalian\n5. Pick up ovinity\n6. Stack ovinity onto scopporth\n7. Pick up plaine\n8. Stack plaine onto ovinity\n9. Pick up tangalian\n10. Stack tangalian onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351846,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2143,
+                    "prompt_tokens": 534,
+                    "total_tokens": 2677,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.751515865325928,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack plaine from tangalian\n2. Put down plaine\n3. Unstack tangalian from ovinity\n4. Put down tangalian\n5. Pick up ovinity\n6. Stack ovinity onto scopporth\n7. Pick up plaine\n8. Stack plaine onto ovinity\n9. Pick up tangalian\n10. Stack tangalian onto plaine"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the plaine arkell is butony, the tangalian arkell is butony, the swartart is memberectless, the tangalian arkell is winoming onto the ovinity arkell, the scopporth arkell is winoming onto the scrunny, the plaine arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the scopporth arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAE78STWjTqIXFWEQLARxr0C4BxG",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tangalian from ovinity\n2. Put down tangalian\n3. Pick up scopporth\n4. Stack scopporth winoming onto tangalian\n5. Pick up plaine\n6. Stack plaine winoming onto scopporth\n7. Pick up ovinity\n8. Stack ovinity winoming onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351875,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2005,
+                    "prompt_tokens": 541,
+                    "total_tokens": 2546,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.75898838043213,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tangalian from ovinity\n2. Put down tangalian\n3. Pick up scopporth\n4. Stack scopporth winoming onto tangalian\n5. Pick up plaine\n6. Stack plaine winoming onto scopporth\n7. Pick up ovinity\n8. Stack ovinity winoming onto plaine"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the tangalian arkell, the ovinity arkell is winoming onto the plaine arkell, the plaine arkell is winoming onto the scrunny and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the tangalian arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEguzeX5ibmC4cMED3NTcMojtb9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from plaine\n2. Stack ovinity onto scopporth",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351910,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 734,
+                    "prompt_tokens": 519,
+                    "total_tokens": 1253,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.810953617095947,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from plaine\n2. Stack ovinity onto scopporth"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the tangalian arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the scopporth arkell, the ovinity arkell is winoming onto the plaine arkell, the scopporth arkell is winoming onto the scrunny and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the ovinity arkell, the tangalian arkell is winoming onto the scopporth arkell and the ovinity arkell is winoming onto the tangalian arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEpuwRlKLGPojqV6xxjfGtS24uk",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the ovinity arkell from winoming onto the plaine arkell\n2. Put down the ovinity arkell\n3. Unstack the plaine arkell from winoming onto the scopporth arkell\n4. Put down the plaine arkell\n5. Pick up the tangalian arkell\n6. Stack the tangalian arkell winoming onto the scopporth arkell\n7. Pick up the ovinity arkell\n8. Stack the ovinity arkell winoming onto the tangalian arkell\n9. Pick up the plaine arkell\n10. Stack the plaine arkell winoming onto the ovinity arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351919,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2970,
+                    "prompt_tokens": 534,
+                    "total_tokens": 3504,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 42.91779804229736,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the ovinity arkell from winoming onto the plaine arkell\n2. Put down the ovinity arkell\n3. Unstack the plaine arkell from winoming onto the scopporth arkell\n4. Put down the plaine arkell\n5. Pick up the tangalian arkell\n6. Stack the tangalian arkell winoming onto the scopporth arkell\n7. Pick up the ovinity arkell\n8. Stack the ovinity arkell winoming onto the tangalian arkell\n9. Pick up the plaine arkell\n10. Stack the plaine arkell winoming onto the ovinity arkell"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the plaine arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the ovinity arkell, the ovinity arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the scrunny and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the scopporth arkell and the tangalian arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFWvdolgH67vkj3hYRZl1VXX0Uo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the scopporth arkell from the ovinity arkell\n2. Put down the scopporth arkell\n3. Pick up the plaine arkell\n4. Stack the plaine arkell winoming onto the scopporth arkell\n5. Unstack the ovinity arkell from the tangalian arkell\n6. Put down the ovinity arkell\n7. Pick up the tangalian arkell\n8. Stack the tangalian arkell winoming onto the plaine arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351962,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2936,
+                    "prompt_tokens": 517,
+                    "total_tokens": 3453,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 56.6113805770874,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the scopporth arkell from the ovinity arkell\n2. Put down the scopporth arkell\n3. Pick up the plaine arkell\n4. Stack the plaine arkell winoming onto the scopporth arkell\n5. Unstack the ovinity arkell from the tangalian arkell\n6. Put down the ovinity arkell\n7. Pick up the tangalian arkell\n8. Stack the tangalian arkell winoming onto the plaine arkell"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the tangalian arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the ovinity arkell, the tangalian arkell is winoming onto the plaine arkell, the ovinity arkell is winoming onto the scopporth arkell and the scopporth arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell and the plaine arkell is winoming onto the tangalian arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGR66C5TLM59c4MHVFQYvXNBWuR",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tangalian from plaine\n2. Put down tangalian\n3. Unstack plaine from ovinity\n4. Stack plaine onto tangalian\n5. Unstack ovinity from scopporth\n6. Put down ovinity\n7. Pick up scopporth\n8. Stack scopporth onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352019,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3091,
+                    "prompt_tokens": 510,
+                    "total_tokens": 3601,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.802664279937744,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tangalian from plaine\n2. Put down tangalian\n3. Unstack plaine from ovinity\n4. Stack plaine onto tangalian\n5. Unstack ovinity from scopporth\n6. Put down ovinity\n7. Pick up scopporth\n8. Stack scopporth onto plaine"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the plaine arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the ovinity arkell, the ovinity arkell is winoming onto the tangalian arkell, the scopporth arkell is winoming onto the scrunny and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the tangalian arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAH7DL9IRyV8XRQjAN74JvnrXXck",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack plaine from ovinity\n2. Put down plaine\n3. Unstack ovinity from tangalian\n4. Stack ovinity onto scopporth\n5. Pick up plaine\n6. Stack plaine onto tangalian\n7. Unstack ovinity from scopporth\n8. Stack ovinity onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352061,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2902,
+                    "prompt_tokens": 517,
+                    "total_tokens": 3419,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2816,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 68.81414294242859,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack plaine from ovinity\n2. Put down plaine\n3. Unstack ovinity from tangalian\n4. Stack ovinity onto scopporth\n5. Pick up plaine\n6. Stack plaine onto tangalian\n7. Unstack ovinity from scopporth\n8. Stack ovinity onto plaine"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the scopporth arkell, the ovinity arkell is winoming onto the plaine arkell and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell, the tangalian arkell is winoming onto the ovinity arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIElUPgGvn27BIoEChfiPA7geMc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from plaine\n2. Put down ovinity\n3. Unstack plaine from scopporth\n4. Put down plaine\n5. Unstack scopporth from tangalian\n6. Stack scopporth winoming onto plaine\n7. Pick up ovinity\n8. Stack ovinity winoming onto scopporth\n9. Pick up tangalian\n10. Stack tangalian winoming onto ovinity",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352130,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2156,
+                    "prompt_tokens": 528,
+                    "total_tokens": 2684,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.35755205154419,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from plaine\n2. Put down ovinity\n3. Unstack plaine from scopporth\n4. Put down plaine\n5. Unstack scopporth from tangalian\n6. Stack scopporth winoming onto plaine\n7. Pick up ovinity\n8. Stack ovinity winoming onto scopporth\n9. Pick up tangalian\n10. Stack tangalian winoming onto ovinity"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the ovinity arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the scopporth arkell, the ovinity arkell is winoming onto the plaine arkell and the scopporth arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the ovinity arkell and the tangalian arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAInJOZAQ6rqNwClAvybukoIl9UE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from plaine\n2. Put down ovinity\n3. Unstack plaine from tangalian\n4. Stack plaine onto ovinity\n5. Unstack tangalian from scopporth\n6. Stack tangalian onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352165,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1988,
+                    "prompt_tokens": 510,
+                    "total_tokens": 2498,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.872039556503296,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from plaine\n2. Put down ovinity\n3. Unstack plaine from tangalian\n4. Stack plaine onto ovinity\n5. Unstack tangalian from scopporth\n6. Stack tangalian onto plaine"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the plaine arkell is butony, the tangalian arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the ovinity arkell, the plaine arkell is winoming onto the scrunny, the tangalian arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the scopporth arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJQlG3OMCoAsTJPVqIcCOc4PzoS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the scopporth arkell from winoming onto the ovinity arkell\n2. Stack the scopporth arkell winoming onto the tangalian arkell\n3. Pick up the plaine arkell\n4. Stack the plaine arkell winoming onto the scopporth arkell\n5. Pick up the ovinity arkell\n6. Stack the ovinity arkell winoming onto the plaine arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352204,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1512,
+                    "prompt_tokens": 541,
+                    "total_tokens": 2053,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.729670524597168,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the scopporth arkell from winoming onto the ovinity arkell\n2. Stack the scopporth arkell winoming onto the tangalian arkell\n3. Pick up the plaine arkell\n4. Stack the plaine arkell winoming onto the scopporth arkell\n5. Pick up the ovinity arkell\n6. Stack the ovinity arkell winoming onto the plaine arkell"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the plaine arkell, the plaine arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the tangalian arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAJpB1EftzadinzfehQNxytBDsV6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack scopporth from plaine\n2. Put down scopporth\n3. Pick up ovinity\n4. Stack ovinity onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352229,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1389,
+                    "prompt_tokens": 517,
+                    "total_tokens": 1906,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.458266019821167,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack scopporth from plaine\n2. Put down scopporth\n3. Pick up ovinity\n4. Stack ovinity onto plaine"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the scopporth arkell, the ovinity arkell is winoming onto the plaine arkell and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the tangalian arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKClXr3aiABC1x9vBrXa3tCr3un",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unstack ovinity from plaine\nPut down ovinity\nUnstack plaine from scopporth\nPut down plaine\nUnstack scopporth from tangalian\nPut down scopporth\nPick up tangalian\nStack tangalian onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352252,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1920,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2414,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.61172842979431,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unstack ovinity from plaine\nPut down ovinity\nUnstack plaine from scopporth\nPut down plaine\nUnstack scopporth from tangalian\nPut down scopporth\nPick up tangalian\nStack tangalian onto plaine"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the tangalian arkell is winoming onto the scopporth arkell, the ovinity arkell is winoming onto the tangalian arkell, the scopporth arkell is winoming onto the scrunny and the plaine arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the ovinity arkell, the plaine arkell is winoming onto the tangalian arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKiiiqtnrX0WSxOczxx00sVM6Yo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from winoming onto tangalian\n2. Put down ovinity\n3. Unstack tangalian from winoming onto scopporth\n4. Put down tangalian\n5. Pick up plaine\n6. Stack plaine winoming onto tangalian\n7. Pick up ovinity\n8. Stack ovinity winoming onto plaine\n9. Pick up scopporth\n10. Stack scopporth winoming onto ovinity",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352284,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3246,
+                    "prompt_tokens": 534,
+                    "total_tokens": 3780,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 53.45130276679993,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from winoming onto tangalian\n2. Put down ovinity\n3. Unstack tangalian from winoming onto scopporth\n4. Put down tangalian\n5. Pick up plaine\n6. Stack plaine winoming onto tangalian\n7. Pick up ovinity\n8. Stack ovinity winoming onto plaine\n9. Pick up scopporth\n10. Stack scopporth winoming onto ovinity"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the tangalian arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the plaine arkell, the tangalian arkell is winoming onto the ovinity arkell, the ovinity arkell is winoming onto the scopporth arkell and the plaine arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the scopporth arkell and the tangalian arkell is winoming onto the ovinity arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQALZfguXPbMOo40YLtVTnYMoYPFO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the tangalian arkell from the ovinity arkell\n2. Put down the tangalian arkell\n3. Unstack the ovinity arkell from the scopporth arkell\n4. Put down the ovinity arkell\n5. Unstack the scopporth arkell from the plaine arkell\n6. Put down the scopporth arkell\n7. Pick up the plaine arkell\n8. Stack the plaine arkell onto the scopporth arkell\n9. Pick up the tangalian arkell\n10. Stack the tangalian arkell onto the ovinity arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352337,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2768,
+                    "prompt_tokens": 511,
+                    "total_tokens": 3279,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 42.73198390007019,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the tangalian arkell from the ovinity arkell\n2. Put down the tangalian arkell\n3. Unstack the ovinity arkell from the scopporth arkell\n4. Put down the ovinity arkell\n5. Unstack the scopporth arkell from the plaine arkell\n6. Put down the scopporth arkell\n7. Pick up the plaine arkell\n8. Stack the plaine arkell onto the scopporth arkell\n9. Pick up the tangalian arkell\n10. Stack the tangalian arkell onto the ovinity arkell"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the tangalian arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the ovinity arkell, the tangalian arkell is winoming onto the plaine arkell, the scopporth arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the ovinity arkell, the tangalian arkell is winoming onto the scopporth arkell and the ovinity arkell is winoming onto the tangalian arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMGFpUUxG5xLkQyafkjk5HIBPkL",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tangalian from plaine\n2. Stack tangalian winoming onto scopporth\n3. Unstack plaine from ovinity\n4. Put down plaine\n5. Pick up ovinity\n6. Stack ovinity winoming onto tangalian\n7. Pick up plaine\n8. Stack plaine winoming onto ovinity",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352380,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2839,
+                    "prompt_tokens": 534,
+                    "total_tokens": 3373,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.00884532928467,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tangalian from plaine\n2. Stack tangalian winoming onto scopporth\n3. Unstack plaine from ovinity\n4. Put down plaine\n5. Pick up ovinity\n6. Stack ovinity winoming onto tangalian\n7. Pick up plaine\n8. Stack plaine winoming onto ovinity"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the tangalian arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the tangalian arkell is winoming onto the plaine arkell, the scopporth arkell is winoming onto the scrunny, the plaine arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the scopporth arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAN1Vl0UO0zoZtPK9ty0IFq9sNUS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tangalian from plaine\n2. Put down tangalian\n3. Pick up scopporth\n4. Stack scopporth onto tangalian\n5. Pick up plaine\n6. Stack plaine onto scopporth\n7. Pick up ovinity\n8. Stack ovinity onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352427,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1742,
+                    "prompt_tokens": 541,
+                    "total_tokens": 2283,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.69759964942932,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tangalian from plaine\n2. Put down tangalian\n3. Pick up scopporth\n4. Stack scopporth onto tangalian\n5. Pick up plaine\n6. Stack plaine onto scopporth\n7. Pick up ovinity\n8. Stack ovinity onto plaine"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the tangalian arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the ovinity arkell, the ovinity arkell is winoming onto the scopporth arkell, the scopporth arkell is winoming onto the scrunny and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell, the plaine arkell is winoming onto the ovinity arkell and the ovinity arkell is winoming onto the tangalian arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANdMLMY4RsazknVzpnEOP9FZPZc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the plaine arkell from winoming onto the ovinity arkell\n2. Put down the plaine arkell\n3. Unstack the ovinity arkell from winoming onto the scopporth arkell\n4. Stack the ovinity arkell winoming onto the tangalian arkell\n5. Pick up the plaine arkell\n6. Stack the plaine arkell winoming onto the ovinity arkell\n7. Pick up the scopporth arkell\n8. Stack the scopporth arkell winoming onto the plaine arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352465,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2182,
+                    "prompt_tokens": 534,
+                    "total_tokens": 2716,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.74726867675781,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the plaine arkell from winoming onto the ovinity arkell\n2. Put down the plaine arkell\n3. Unstack the ovinity arkell from winoming onto the scopporth arkell\n4. Stack the ovinity arkell winoming onto the tangalian arkell\n5. Pick up the plaine arkell\n6. Stack the plaine arkell winoming onto the ovinity arkell\n7. Pick up the scopporth arkell\n8. Stack the scopporth arkell winoming onto the plaine arkell"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the scopporth arkell, the scopporth arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the ovinity arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOCyEiTCdypjNJkmxJj19KmZllz",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the plaine arkell from winoming onto the tangalian arkell\n2. Put down the plaine arkell\n3. Unstack the tangalian arkell from winoming onto the scopporth arkell\n4. Put down the tangalian arkell\n5. Pick up the ovinity arkell\n6. Stack the ovinity arkell winoming onto the scopporth arkell\n7. Pick up the plaine arkell\n8. Stack the plaine arkell winoming onto the ovinity arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352500,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3069,
+                    "prompt_tokens": 519,
+                    "total_tokens": 3588,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2944,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 56.86871790885925,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the plaine arkell from winoming onto the tangalian arkell\n2. Put down the plaine arkell\n3. Unstack the tangalian arkell from winoming onto the scopporth arkell\n4. Put down the tangalian arkell\n5. Pick up the ovinity arkell\n6. Stack the ovinity arkell winoming onto the scopporth arkell\n7. Pick up the plaine arkell\n8. Stack the plaine arkell winoming onto the ovinity arkell"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the plaine arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the ovinity arkell, the plaine arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the scopporth arkell and the tangalian arkell is winoming onto the ovinity arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAP7TELFQhYP1aD9xzTnHBQStymo",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack plaine from tangalian\n2. Put down plaine\n3. Unstack scopporth from ovinity\n4. Put down scopporth\n5. Pick up tangalian\n6. Stack tangalian onto ovinity\n7. Pick up scopporth\n8. Stack scopporth onto tangalian\n9. Pick up plaine\n10. Stack plaine onto scopporth",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352557,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2081,
+                    "prompt_tokens": 534,
+                    "total_tokens": 2615,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.816214561462402,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack plaine from tangalian\n2. Put down plaine\n3. Unstack scopporth from ovinity\n4. Put down scopporth\n5. Pick up tangalian\n6. Stack tangalian onto ovinity\n7. Pick up scopporth\n8. Stack scopporth onto tangalian\n9. Pick up plaine\n10. Stack plaine onto scopporth"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the tangalian arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the tangalian arkell is winoming onto the scopporth arkell, the scopporth arkell is winoming onto the scrunny, the plaine arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell and the plaine arkell is winoming onto the tangalian arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPd5AClKmhXTW4TyxgVOKKlw8hI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tangalian from scopporth\n2. Put down tangalian\n3. Pick up plaine\n4. Stack plaine onto tangalian\n5. Pick up scopporth\n6. Stack scopporth onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352589,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1724,
+                    "prompt_tokens": 524,
+                    "total_tokens": 2248,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.790011405944824,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tangalian from scopporth\n2. Put down tangalian\n3. Pick up plaine\n4. Stack plaine onto tangalian\n5. Pick up scopporth\n6. Stack scopporth onto plaine"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the tangalian arkell is winoming onto the plaine arkell, the ovinity arkell is winoming onto the tangalian arkell, the scopporth arkell is winoming onto the scrunny and the plaine arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell, the tangalian arkell is winoming onto the ovinity arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQ8vPfszKFSUQipaSbcRPU3pzun",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from tangalian\n2. Put down ovinity\n3. Unstack tangalian from plaine\n4. Put down tangalian\n5. Pick up scopporth\n6. Stack scopporth onto plaine\n7. Pick up ovinity\n8. Stack ovinity onto scopporth\n9. Pick up tangalian\n10. Stack tangalian onto ovinity",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352620,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3746,
+                    "prompt_tokens": 535,
+                    "total_tokens": 4281,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3648,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 81.39642214775085,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from tangalian\n2. Put down ovinity\n3. Unstack tangalian from plaine\n4. Put down tangalian\n5. Pick up scopporth\n6. Stack scopporth onto plaine\n7. Pick up ovinity\n8. Stack ovinity onto scopporth\n9. Pick up tangalian\n10. Stack tangalian onto ovinity"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the plaine arkell, the plaine arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the tangalian arkell is winoming onto the ovinity arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARRb1sKaXSfxB8vA4RbxmGHxYvn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack scopporth from winoming onto plaine\n2. Put down scopporth\n3. Unstack plaine from winoming onto tangalian\n4. Put down plaine\n5. Pick up ovinity\n6. Stack ovinity winoming onto plaine\n7. Pick up tangalian\n8. Stack tangalian winoming onto ovinity",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352701,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2393,
+                    "prompt_tokens": 518,
+                    "total_tokens": 2911,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.932666540145874,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack scopporth from winoming onto plaine\n2. Put down scopporth\n3. Unstack plaine from winoming onto tangalian\n4. Put down plaine\n5. Pick up ovinity\n6. Stack ovinity winoming onto plaine\n7. Pick up tangalian\n8. Stack tangalian winoming onto ovinity"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the plaine arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the scrunny, the tangalian arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the ovinity arkell, the plaine arkell is winoming onto the tangalian arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAS39HXZkcDd8HoPJ2c3rHVr11be",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack scopporth from tangalian\n2. Put down scopporth\n3. Pick up plaine\n4. Stack plaine onto tangalian\n5. Pick up ovinity\n6. Stack ovinity onto plaine\n7. Pick up scopporth\n8. Stack scopporth onto ovinity",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352739,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2064,
+                    "prompt_tokens": 541,
+                    "total_tokens": 2605,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.247156381607056,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack scopporth from tangalian\n2. Put down scopporth\n3. Pick up plaine\n4. Stack plaine onto tangalian\n5. Pick up ovinity\n6. Stack ovinity onto plaine\n7. Pick up scopporth\n8. Stack scopporth onto ovinity"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the tangalian arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the ovinity arkell, the plaine arkell is winoming onto the scopporth arkell, the tangalian arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell and the plaine arkell is winoming onto the ovinity arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQASdjx89Tpzou357Pc7lgFAsFEma",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack plaine from scopporth\n2. Put down plaine\n3. Unstack scopporth from ovinity\n4. Put down scopporth\n5. Pick up plaine\n6. Stack plaine onto ovinity\n7. Pick up scopporth\n8. Stack scopporth onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352775,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3089,
+                    "prompt_tokens": 518,
+                    "total_tokens": 3607,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.853527784347534,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack plaine from scopporth\n2. Put down plaine\n3. Unstack scopporth from ovinity\n4. Put down scopporth\n5. Pick up plaine\n6. Stack plaine onto ovinity\n7. Pick up scopporth\n8. Stack scopporth onto plaine"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the tangalian arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the ovinity arkell is winoming onto the scopporth arkell, the scopporth arkell is winoming onto the scrunny, the plaine arkell is winoming onto the scrunny and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQATJRxRmcMONJwOtq1ukdU6iJ3fP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from winoming onto scopporth\n2. Stack ovinity winoming onto tangalian\n3. Pick up scopporth\n4. Stack scopporth winoming onto plaine\n5. Unstack ovinity from winoming onto tangalian\n6. Stack ovinity winoming onto scopporth",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352817,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1618,
+                    "prompt_tokens": 526,
+                    "total_tokens": 2144,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.674258708953857,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from winoming onto scopporth\n2. Stack ovinity winoming onto tangalian\n3. Pick up scopporth\n4. Stack scopporth winoming onto plaine\n5. Unstack ovinity from winoming onto tangalian\n6. Stack ovinity winoming onto scopporth"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the tangalian arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the scopporth arkell, the tangalian arkell is winoming onto the ovinity arkell, the ovinity arkell is winoming onto the plaine arkell and the scopporth arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the ovinity arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQATnISI3aGfFn22LHj5UzmMHdT3C",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the tangalian arkell from the ovinity arkell\n2. Put down the tangalian arkell\n3. Unstack the ovinity arkell from the plaine arkell\n4. Put down the ovinity arkell\n5. Unstack the plaine arkell from the scopporth arkell\n6. Put down the plaine arkell\n7. Pick up the scopporth arkell\n8. Stack the scopporth arkell winoming onto the ovinity arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352847,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3448,
+                    "prompt_tokens": 496,
+                    "total_tokens": 3944,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3328,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 53.982808351516724,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the tangalian arkell from the ovinity arkell\n2. Put down the tangalian arkell\n3. Unstack the ovinity arkell from the plaine arkell\n4. Put down the ovinity arkell\n5. Unstack the plaine arkell from the scopporth arkell\n6. Put down the plaine arkell\n7. Pick up the scopporth arkell\n8. Stack the scopporth arkell winoming onto the ovinity arkell"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the plaine arkell, the tangalian arkell is winoming onto the scopporth arkell, the ovinity arkell is winoming onto the tangalian arkell and the plaine arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell and the plaine arkell is winoming onto the ovinity arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAUfvRn4G1JrxfNKQzr7tKMEjzCW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from tangalian\n2. Put down ovinity\n3. Unstack tangalian from scopporth\n4. Put down tangalian\n5. Unstack scopporth from plaine\n6. Put down scopporth\n7. Pick up plaine\n8. Stack plaine onto ovinity\n9. Pick up scopporth\n10. Stack scopporth onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352901,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3299,
+                    "prompt_tokens": 511,
+                    "total_tokens": 3810,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3200,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 62.13892197608948,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from tangalian\n2. Put down ovinity\n3. Unstack tangalian from scopporth\n4. Put down tangalian\n5. Unstack scopporth from plaine\n6. Put down scopporth\n7. Pick up plaine\n8. Stack plaine onto ovinity\n9. Pick up scopporth\n10. Stack scopporth onto plaine"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the tangalian arkell, the plaine arkell is winoming onto the ovinity arkell, the ovinity arkell is winoming onto the scopporth arkell and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the tangalian arkell and the tangalian arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAVfz4VP8iHiZHgUDZiIhdVNPDDi",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack plaine from ovinity\n2. Put down plaine\n3. Unstack ovinity from scopporth\n4. Put down ovinity\n5. Unstack scopporth from tangalian\n6. Put down scopporth\n7. Pick up tangalian\n8. Stack tangalian winoming onto plaine\n9. Pick up scopporth\n10. Stack scopporth winoming onto tangalian",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352963,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2279,
+                    "prompt_tokens": 510,
+                    "total_tokens": 2789,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.01727271080017,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack plaine from ovinity\n2. Put down plaine\n3. Unstack ovinity from scopporth\n4. Put down ovinity\n5. Unstack scopporth from tangalian\n6. Put down scopporth\n7. Pick up tangalian\n8. Stack tangalian winoming onto plaine\n9. Pick up scopporth\n10. Stack scopporth winoming onto tangalian"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the ovinity arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the scopporth arkell, the ovinity arkell is winoming onto the plaine arkell and the scopporth arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the tangalian arkell and the tangalian arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAWGDcCWxgMij6MtbyYzMgvCn8Dj",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from plaine\n2. Put down ovinity\n3. Unstack plaine from tangalian\n4. Put down plaine\n5. Unstack tangalian from scopporth\n6. Stack tangalian onto plaine\n7. Pick up scopporth\n8. Stack scopporth onto tangalian",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353000,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3538,
+                    "prompt_tokens": 510,
+                    "total_tokens": 4048,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3456,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 63.74252986907959,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from plaine\n2. Put down ovinity\n3. Unstack plaine from tangalian\n4. Put down plaine\n5. Unstack tangalian from scopporth\n6. Stack tangalian onto plaine\n7. Pick up scopporth\n8. Stack scopporth onto tangalian"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the tangalian arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the plaine arkell, the tangalian arkell is winoming onto the scopporth arkell, the plaine arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the tangalian arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQAXI8nlMPQZsCRopLxEIeZXYoXcS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions \u2014 the goal is already satisfied in the initial state.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353064,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 726,
+                    "prompt_tokens": 502,
+                    "total_tokens": 1228,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.63509726524353,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions \u2014 the goal is already satisfied in the initial state."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the tangalian arkell is winoming onto the plaine arkell, the ovinity arkell is winoming onto the tangalian arkell, the scopporth arkell is winoming onto the scrunny and the plaine arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the tangalian arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAXTyc8aMcTrjFzWvyzurnFsuAZ0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from tangalian\n2. Stack ovinity winoming onto scopporth\n3. Unstack tangalian from plaine\n4. Put down tangalian\n5. Pick up plaine\n6. Stack plaine winoming onto tangalian",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353075,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1987,
+                    "prompt_tokens": 518,
+                    "total_tokens": 2505,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.39148497581482,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from tangalian\n2. Stack ovinity winoming onto scopporth\n3. Unstack tangalian from plaine\n4. Put down tangalian\n5. Pick up plaine\n6. Stack plaine winoming onto tangalian"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the plaine arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the tangalian arkell, the ovinity arkell is winoming onto the scopporth arkell, the plaine arkell is winoming onto the scrunny and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell and the plaine arkell is winoming onto the tangalian arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAXxdKBVYj49AYovOSGB2LEAT3sq",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from scopporth\n2. Put down ovinity\n3. Unstack scopporth from tangalian\n4. Put down scopporth\n5. Pick up plaine\n6. Stack plaine onto tangalian\n7. Pick up scopporth\n8. Stack scopporth onto plaine",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353105,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3153,
+                    "prompt_tokens": 517,
+                    "total_tokens": 3670,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3072,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 40.4012234210968,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from scopporth\n2. Put down ovinity\n3. Unstack scopporth from tangalian\n4. Put down scopporth\n5. Pick up plaine\n6. Stack plaine onto tangalian\n7. Pick up scopporth\n8. Stack scopporth onto plaine"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the tangalian arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the plaine arkell, the plaine arkell is winoming onto the ovinity arkell, the tangalian arkell is winoming onto the scrunny and the ovinity arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the scopporth arkell, the tangalian arkell is winoming onto the ovinity arkell and the ovinity arkell is winoming onto the plaine arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAYbujlZpqRzp5oxjgHTwSFb5X7n",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack scopporth from plaine\n2. Put down scopporth\n3. Unstack plaine from ovinity\n4. Stack plaine onto scopporth\n5. Pick up ovinity\n6. Stack ovinity onto plaine\n7. Pick up tangalian\n8. Stack tangalian onto ovinity",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353145,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2451,
+                    "prompt_tokens": 534,
+                    "total_tokens": 2985,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.499085664749146,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack scopporth from plaine\n2. Put down scopporth\n3. Unstack plaine from ovinity\n4. Stack plaine onto scopporth\n5. Pick up ovinity\n6. Stack ovinity onto plaine\n7. Pick up tangalian\n8. Stack tangalian onto ovinity"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the tangalian arkell, the tangalian arkell is winoming onto the ovinity arkell, the ovinity arkell is winoming onto the plaine arkell and the plaine arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell, the tangalian arkell is winoming onto the ovinity arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAZ8ngcwQwVa262SrXPMmeZtlhWS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the scopporth arkell from winoming onto the tangalian arkell\n2. Put down the scopporth arkell\n3. Unstack the tangalian arkell from winoming onto the ovinity arkell\n4. Put down the tangalian arkell\n5. Unstack the ovinity arkell from winoming onto the plaine arkell\n6. Put down the ovinity arkell\n7. Pick up the scopporth arkell\n8. Stack the scopporth arkell winoming onto the plaine arkell\n9. Pick up the ovinity arkell\n10. Stack the ovinity arkell winoming onto the scopporth arkell\n11. Pick up the tangalian arkell\n12. Stack the tangalian arkell winoming onto the ovinity arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353178,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4155,
+                    "prompt_tokens": 528,
+                    "total_tokens": 4683,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3968,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.222246408462524,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the scopporth arkell from winoming onto the tangalian arkell\n2. Put down the scopporth arkell\n3. Unstack the tangalian arkell from winoming onto the ovinity arkell\n4. Put down the tangalian arkell\n5. Unstack the ovinity arkell from winoming onto the plaine arkell\n6. Put down the ovinity arkell\n7. Pick up the scopporth arkell\n8. Stack the scopporth arkell winoming onto the plaine arkell\n9. Pick up the ovinity arkell\n10. Stack the ovinity arkell winoming onto the scopporth arkell\n11. Pick up the tangalian arkell\n12. Stack the tangalian arkell winoming onto the ovinity arkell"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the ovinity arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the scopporth arkell, the tangalian arkell is winoming onto the plaine arkell, the ovinity arkell is winoming onto the tangalian arkell and the scopporth arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the ovinity arkell and the plaine arkell is winoming onto the tangalian arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAZpnwQm39finNMin3fVJ492bV8H",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from tangalian\n2. Put down ovinity\n3. Unstack tangalian from plaine\n4. Put down tangalian\n5. Unstack plaine from scopporth\n6. Stack plaine onto tangalian\n7. Pick up scopporth\n8. Stack scopporth onto ovinity",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353221,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2579,
+                    "prompt_tokens": 511,
+                    "total_tokens": 3090,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.81106758117676,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from tangalian\n2. Put down ovinity\n3. Unstack tangalian from plaine\n4. Put down tangalian\n5. Unstack plaine from scopporth\n6. Stack plaine onto tangalian\n7. Pick up scopporth\n8. Stack scopporth onto ovinity"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the tangalian arkell is butony, the swartart is memberectless, the plaine arkell is winoming onto the ovinity arkell, the tangalian arkell is winoming onto the plaine arkell, the ovinity arkell is winoming onto the scopporth arkell and the scopporth arkell is winoming onto the scrunny.\nMy goal is to have that the plaine arkell is winoming onto the tangalian arkell and the tangalian arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAaR8A2JftqISMPLD7y7S83m5MaI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack tangalian from plaine\n2. Put down tangalian\n3. Unstack plaine from ovinity\n4. Put down plaine\n5. Unstack ovinity from scopporth\n6. Put down ovinity\n7. Pick up tangalian\n8. Stack tangalian onto scopporth\n9. Pick up plaine\n10. Stack plaine onto tangalian",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353259,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3872,
+                    "prompt_tokens": 510,
+                    "total_tokens": 4382,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3776,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 50.0760760307312,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack tangalian from plaine\n2. Put down tangalian\n3. Unstack plaine from ovinity\n4. Put down plaine\n5. Unstack ovinity from scopporth\n6. Put down ovinity\n7. Pick up tangalian\n8. Stack tangalian onto scopporth\n9. Pick up plaine\n10. Stack plaine onto tangalian"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the tangalian arkell is butony, the ovinity arkell is butony, the swartart is memberectless, the ovinity arkell is winoming onto the plaine arkell, the scopporth arkell is winoming onto the scrunny, the plaine arkell is winoming onto the scrunny and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the scopporth arkell is winoming onto the plaine arkell and the ovinity arkell is winoming onto the scopporth arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAbFPJhQV8yZjqewRMwKUHdVd4Ne",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack ovinity from plaine\n2. Put down ovinity\n3. Pick up scopporth\n4. Stack scopporth onto plaine\n5. Pick up ovinity\n6. Stack ovinity onto scopporth",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353309,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2112,
+                    "prompt_tokens": 526,
+                    "total_tokens": 2638,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.57322382926941,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack ovinity from plaine\n2. Put down ovinity\n3. Pick up scopporth\n4. Stack scopporth onto plaine\n5. Pick up ovinity\n6. Stack ovinity onto scopporth"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of arkells where I need to arrange the arkells into stacks. Here are the actions I can do\n\nPick up a arkell\nUnstack a arkell from winoming onto another arkell\nPut down a arkell\nStack a arkell winoming onto another arkell\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one arkell at a time.\nI can only pick up or unstack a arkell if my swartart is memberectless.\nI can only pick up a arkell if the arkell is winoming onto the scrunny and the arkell is butony. A arkell is butony if the arkell has no other arkells winoming onto it and if the arkell is not picked up.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking was really winoming onto the other arkell.\nI can only unstack a arkell from winoming onto another arkell if the arkell I am unstacking is butony.\nOnce I pick up or unstack a arkell, I am aptalling the arkell.\nI can only put down a arkell that I am aptalling.\nI can only stack a arkell winoming onto another arkell if I am aptalling the arkell being stacked.\nI can only stack a arkell winoming onto another arkell if the arkell onto which I am stacking the arkell is butony.\nOnce I put down or stack a arkell, my swartart becomes memberectless.\nOnce you stack a arkell winoming onto a second arkell, the second arkell is no longer butony.\n\n[STATEMENT]\nAs initial conditions I have that, the scopporth arkell is butony, the swartart is memberectless, the scopporth arkell is winoming onto the ovinity arkell, the plaine arkell is winoming onto the tangalian arkell, the ovinity arkell is winoming onto the plaine arkell and the tangalian arkell is winoming onto the scrunny.\nMy goal is to have that the ovinity arkell is winoming onto the tangalian arkell.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAbhnWRcpmG22rIcHoougoZcmyKf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the scopporth arkell from the ovinity arkell\n2. Put down the scopporth arkell\n3. Unstack the ovinity arkell from the plaine arkell\n4. Put down the ovinity arkell\n5. Unstack the plaine arkell from the tangalian arkell\n6. Put down the plaine arkell\n7. Pick up the ovinity arkell\n8. Stack the ovinity arkell onto the tangalian arkell",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353337,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3446,
+                    "prompt_tokens": 495,
+                    "total_tokens": 3941,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3328,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.21480345726013,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the scopporth arkell from the ovinity arkell\n2. Put down the scopporth arkell\n3. Unstack the ovinity arkell from the plaine arkell\n4. Put down the ovinity arkell\n5. Unstack the plaine arkell from the tangalian arkell\n6. Put down the plaine arkell\n7. Pick up the ovinity arkell\n8. Stack the ovinity arkell onto the tangalian arkell"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

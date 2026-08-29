@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_actions_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the yellow block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the blue block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b3)\n(braine b2)\n(uncorninte b3 b4)\n(braine b3)\n(uncorninte b4 b1)\n(braine b4)\n(laral b2)\n(corninte b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0oUDc5BYj03kobTcEqK9TQbTJV7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the blue block from on top of the orange block\n2. Braine the blue block\n3. Uncorninte the orange block from on top of the yellow block\n4. Braine the orange block\n5. Uncorninte the yellow block from on top of the red block\n6. Braine the yellow block\n7. Laral the blue block\n8. Corninte the blue block on top of the red block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315690,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1958,
+                    "prompt_tokens": 419,
+                    "total_tokens": 2377,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.115612745285034,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the blue block from on top of the orange block\n2. Braine the blue block\n3. Uncorninte the orange block from on top of the yellow block\n4. Braine the orange block\n5. Uncorninte the yellow block from on top of the red block\n6. Braine the yellow block\n7. Laral the blue block\n8. Corninte the blue block on top of the red block"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the red block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block, the blue block is on top of the orange block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b1)\n(braine b2)\n(uncorninte b1 b4)\n(braine b1)\n(laral b3)\n(corninte b3 b4)\n(laral b2)\n(corninte b2 b3)\n(laral b1)\n(corninte b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0pCwhApkOxJs5AhOEYyAZ32wJ1K",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte blue from on top of red\n2. Braine blue\n3. Uncorninte red from on top of yellow\n4. Braine red\n5. Laral orange\n6. Corninte orange on top of yellow\n7. Laral blue\n8. Corninte blue on top of orange\n9. Laral red\n10. Corninte red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315734,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2716,
+                    "prompt_tokens": 444,
+                    "total_tokens": 3160,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.28548550605774,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte blue from on top of red\n2. Braine blue\n3. Uncorninte red from on top of yellow\n4. Braine red\n5. Laral orange\n6. Corninte orange on top of yellow\n7. Laral blue\n8. Corninte blue on top of orange\n9. Laral red\n10. Corninte red on top of blue"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the yellow block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b3)\n(braine b2)\n(uncorninte b3 b4)\n(braine b3)\n(laral b4)\n(corninte b4 b1)\n(laral b2)\n(corninte b2 b4)\n(laral b3)\n(corninte b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0piJiDm4Bi405LE0lwvXdWrLBmQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte blue from on top of orange\n2. Braine blue\n3. Uncorninte orange from on top of yellow\n4. Braine orange\n5. Laral blue\n6. Corninte blue on top of yellow\n7. Laral orange\n8. Corninte orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315766,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2124,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2568,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.5060760974884,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte blue from on top of orange\n2. Braine blue\n3. Uncorninte orange from on top of yellow\n4. Braine orange\n5. Laral blue\n6. Corninte blue on top of yellow\n7. Laral orange\n8. Corninte orange on top of blue"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the orange block is clear, the hand is empty, the orange block is on top of the yellow block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b3 b4)\n(braine b3)\n(laral b1)\n(corninte b1 b3)\n(laral b2)\n(corninte b2 b1)\n(laral b4)\n(corninte b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0qJo0Lsc077uXQpCV8YVoc0A22w",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Uncorninte(orange, yellow)\nBraine(orange)\nLaral(red)\nCorninte(red, orange)\nLaral(blue)\nCorninte(blue, red)\nLaral(yellow)\nCorninte(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315803,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1656,
+                    "prompt_tokens": 447,
+                    "total_tokens": 2103,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.54170870780945,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Uncorninte(orange, yellow)\nBraine(orange)\nLaral(red)\nCorninte(red, orange)\nLaral(blue)\nCorninte(blue, red)\nLaral(yellow)\nCorninte(yellow, blue)"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the yellow block is on top of the blue block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the orange block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b2)\n(corninte b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0qn46sCe4SAIUJH9lnMPElihGH5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte(yellow, blue)\n2. Corninte(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315833,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 796,
+                    "prompt_tokens": 433,
+                    "total_tokens": 1229,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 768,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.463807821273804,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte(yellow, blue)\n2. Corninte(yellow, red)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the yellow block is clear, the hand is empty, the blue block is on top of the red block, the yellow block is on top of the blue block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the red block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b2)\n(braine b4)\n(uncorninte b2 b1)\n(braine b2)\n(laral b3)\n(corninte b3 b1)\n(laral b4)\n(corninte b4 b3)\n(laral b2)\n(corninte b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0r4vtRKrAjgab892AvHsSGdY9l8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the yellow block from on top of the blue block\n2. Corninte the yellow block on top of the orange block\n3. Uncorninte the blue block from on top of the red block\n4. Corninte the blue block on top of the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315850,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1284,
+                    "prompt_tokens": 444,
+                    "total_tokens": 1728,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.42313814163208,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the yellow block from on top of the blue block\n2. Corninte the yellow block on top of the orange block\n3. Uncorninte the blue block from on top of the red block\n4. Corninte the blue block on top of the yellow block"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the red block is on top of the yellow block, the yellow block is on top of the orange block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the red block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b1 b4)\n(braine b1)\n(laral b2)\n(corninte b2 b1)\n(uncorninte b4 b3)\n(braine b4)\n(laral b3)\n(corninte b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0rJi3GLnjV3MRQ0YrOolxetkz1v",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte red from on top of yellow\n2. Braine red\n3. Laral blue\n4. Corninte blue on top of red\n5. Uncorninte yellow from on top of orange\n6. Braine yellow\n7. Laral orange\n8. Corninte orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315865,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1932,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2365,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.29868960380554,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte red from on top of yellow\n2. Braine red\n3. Laral blue\n4. Corninte blue on top of red\n5. Uncorninte yellow from on top of orange\n6. Braine yellow\n7. Laral orange\n8. Corninte orange on top of blue"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b3 b2)\n(braine b3)\n(uncorninte b2 b4)\n(corninte b2 b3)\n(uncorninte b4 b1)\n(braine b4)\n(laral b1)\n(corninte b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0ryEhsuq3DT7TI68c2ILleeHUyB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte orange from on top of blue\n2. Braine orange\n3. Uncorninte blue from on top of yellow\n4. Corninte blue on top of orange\n5. Uncorninte yellow from on top of red\n6. Braine yellow\n7. Laral red\n8. Corninte red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315906,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1938,
+                    "prompt_tokens": 430,
+                    "total_tokens": 2368,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.317633628845215,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte orange from on top of blue\n2. Braine orange\n3. Uncorninte blue from on top of yellow\n4. Corninte blue on top of orange\n5. Uncorninte yellow from on top of red\n6. Braine yellow\n7. Laral red\n8. Corninte red on top of blue"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the blue block is on top of the yellow block, the yellow block is on top of the orange block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b4)\n(corninte b2 b1)\n(uncorninte b4 b3)\n(braine b4)\n(uncorninte b2 b1)\n(corninte b2 b3)\n(laral b4)\n(corninte b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0sWQ9pxDd5BbIYO3ZCPYbNYLN5A",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the blue block from on top of the yellow block\n2. Braine the blue block\n3. Uncorninte the yellow block from on top of the orange block\n4. Braine the yellow block\n5. Laral the blue block\n6. Corninte the blue block on top of the orange block\n7. Laral the yellow block\n8. Corninte the yellow block on top of the blue block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315940,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2276,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2709,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.87704014778137,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the blue block from on top of the yellow block\n2. Braine the blue block\n3. Uncorninte the yellow block from on top of the orange block\n4. Braine the yellow block\n5. Laral the blue block\n6. Corninte the blue block on top of the orange block\n7. Laral the yellow block\n8. Corninte the yellow block on top of the blue block"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the red block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b2)\n(braine b4)\n(uncorninte b2 b1)\n(braine b2)\n(uncorninte b1 b3)\n(corninte b1 b2)\n(laral b4)\n(corninte b4 b1)\n(laral b3)\n(corninte b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0t69EO7esUt1hcO0GvG0PifM2jQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the yellow block from on top of the blue block\n2. Braine the yellow block\n3. Uncorninte the blue block from on top of the red block\n4. Braine the blue block\n5. Uncorninte the red block from on top of the orange block\n6. Corninte the red block on top of the blue block\n7. Laral the yellow block\n8. Corninte the yellow block on top of the red block\n9. Laral the orange block\n10. Corninte the orange block on top of the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760315976,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2242,
+                    "prompt_tokens": 441,
+                    "total_tokens": 2683,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.654547452926636,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the yellow block from on top of the blue block\n2. Braine the yellow block\n3. Uncorninte the blue block from on top of the red block\n4. Braine the blue block\n5. Uncorninte the red block from on top of the orange block\n6. Corninte the red block on top of the blue block\n7. Laral the yellow block\n8. Corninte the yellow block on top of the red block\n9. Laral the orange block\n10. Corninte the orange block on top of the yellow block"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the blue block is on top of the yellow block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b2)\n(braine b4)\n(uncorninte b2 b3)\n(corninte b2 b4)\n(uncorninte b3 b1)\n(corninte b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0tgi1zuAteKhbKZnEqVfk2m3uBc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte yellow from blue\n2. Braine yellow\n3. Uncorninte blue from orange\n4. Corninte blue on top of yellow\n5. Uncorninte orange from red\n6. Corninte orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316012,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1917,
+                    "prompt_tokens": 430,
+                    "total_tokens": 2347,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.870017290115356,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte yellow from blue\n2. Braine yellow\n3. Uncorninte blue from orange\n4. Corninte blue on top of yellow\n5. Uncorninte orange from red\n6. Corninte orange on top of blue"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on the table, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b1 b4)\n(corninte b1 b3)\n(laral b2)\n(corninte b2 b1)\n(laral b4)\n(corninte b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0u0YwnkR39FVxDjvhcrRc8XMDxf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte(red, yellow)\n2. Corninte(red, orange)\n3. Laral(blue)\n4. Corninte(blue, red)\n5. Laral(yellow)\n6. Corninte(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316032,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1338,
+                    "prompt_tokens": 447,
+                    "total_tokens": 1785,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.504366636276245,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte(red, yellow)\n2. Corninte(red, orange)\n3. Laral(blue)\n4. Corninte(blue, red)\n5. Laral(yellow)\n6. Corninte(yellow, blue)"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b1 b2)\n(braine b1)\n(laral b4)\n(corninte b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0uHzwk2GwJJUAEMkObdezGsSvFF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte(red, blue)\n2. Braine(red)\n3. Laral(yellow)\n4. Corninte(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316049,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 936,
+                    "prompt_tokens": 433,
+                    "total_tokens": 1369,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.087205648422241,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte(red, blue)\n2. Braine(red)\n3. Laral(yellow)\n4. Corninte(yellow, blue)"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the red block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b2)\n(braine b4)\n(uncorninte b2 b1)\n(braine b2)\n(uncorninte b1 b3)\n(braine b1)\n(laral b3)\n(corninte b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0uVeMuEgKSVuZLVnrk47pXumQoT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte yellow from on top of blue\n2. Braine yellow\n3. Uncorninte blue from on top of red\n4. Braine blue\n5. Uncorninte red from on top of orange\n6. Braine red\n7. Laral orange\n8. Corninte orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316063,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2190,
+                    "prompt_tokens": 419,
+                    "total_tokens": 2609,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.69670605659485,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte yellow from on top of blue\n2. Braine yellow\n3. Uncorninte blue from on top of red\n4. Braine blue\n5. Uncorninte red from on top of orange\n6. Braine red\n7. Laral orange\n8. Corninte orange on top of blue"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the red block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the red block is on top of the yellow block, the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b3)\n(braine b4)\n(uncorninte b3 b1)\n(braine b3)\n(laral b2)\n(corninte b2 b3)\n(laral b4)\n(corninte b4 b2)\n(laral b1)\n(corninte b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0v0t6lYDAuaNjGkGGSzZc7xzQhU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte yellow from on top of orange\n2. Braine yellow\n3. Uncorninte orange from on top of red\n4. Braine orange\n5. Laral blue\n6. Corninte blue on top of orange\n7. Laral yellow\n8. Corninte yellow on top of blue\n9. Laral red\n10. Corninte red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316094,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2716,
+                    "prompt_tokens": 444,
+                    "total_tokens": 3160,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.25510311126709,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte yellow from on top of orange\n2. Braine yellow\n3. Uncorninte orange from on top of red\n4. Braine orange\n5. Laral blue\n6. Corninte blue on top of orange\n7. Laral yellow\n8. Corninte yellow on top of blue\n9. Laral red\n10. Corninte red on top of yellow"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the yellow block, the yellow block is on top of the red block and the blue block is on the table.\nMy goal is to have that the blue block is on top of the red block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b3 b4)\n(braine b3)\n(uncorninte b4 b1)\n(braine b4)\n(laral b3)\n(corninte b3 b4)\n(uncorninte b1 b2)\n(braine b1)\n(laral b2)\n(corninte b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0vbtQHReKqw8aaqTTZoBJBb4L4m",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte orange from on top of yellow\n2. Braine orange\n3. Uncorninte yellow from on top of red\n4. Braine yellow\n5. Uncorninte red from on top of blue\n6. Braine red\n7. Laral blue\n8. Corninte blue on top of red\n9. Laral orange\n10. Corninte orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316131,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2142,
+                    "prompt_tokens": 430,
+                    "total_tokens": 2572,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.9734206199646,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte orange from on top of yellow\n2. Braine orange\n3. Uncorninte yellow from on top of red\n4. Braine yellow\n5. Uncorninte red from on top of blue\n6. Braine red\n7. Laral blue\n8. Corninte blue on top of red\n9. Laral orange\n10. Corninte orange on top of yellow"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block, the orange block is on top of the red block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b3 b2)\n(corninte b3 b1)\n(uncorninte b2 b4)\n(braine b2)\n(laral b4)\n(corninte b4 b3)\n(laral b2)\n(corninte b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0wAusu6h1Ei1GaaL6gvSiSxckJS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte orange from on top of blue\n2. Corninte orange on top of red\n3. Uncorninte blue from on top of yellow\n4. Braine blue\n5. Laral yellow\n6. Corninte yellow on top of orange\n7. Laral blue\n8. Corninte blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316166,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2000,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2444,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.30418634414673,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte orange from on top of blue\n2. Corninte orange on top of red\n3. Uncorninte blue from on top of yellow\n4. Braine blue\n5. Laral yellow\n6. Corninte yellow on top of orange\n7. Laral blue\n8. Corninte blue on top of yellow"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b3 b2)\n(braine b3)\n(laral b1)\n(corninte b1 b3)\n(laral b2)\n(corninte b2 b1)\n(laral b4)\n(corninte b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0wdCe0dWm59I5wPDUoAkaIiDHAA",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the orange block from on top of the blue block\n2. Braine the orange block\n3. Laral the red block\n4. Corninte the red block on top of the orange block\n5. Laral the blue block\n6. Corninte the blue block on top of the red block\n7. Laral the yellow block\n8. Corninte the yellow block on top of the blue block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316195,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1954,
+                    "prompt_tokens": 447,
+                    "total_tokens": 2401,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.27431631088257,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the orange block from on top of the blue block\n2. Braine the orange block\n3. Laral the red block\n4. Corninte the red block on top of the orange block\n5. Laral the blue block\n6. Corninte the blue block on top of the red block\n7. Laral the yellow block\n8. Corninte the yellow block on top of the blue block"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the yellow block is on top of the red block, the red block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block, the blue block is on top of the yellow block and the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b4)\n(braine b2)\n(uncorninte b4 b1)\n(corninte b4 b3)\n(laral b2)\n(corninte b2 b4)\n(laral b1)\n(corninte b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0xAiquFAwmp6B6lt7T1ZBFfTGEV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the blue block from on top of the yellow block\n2. Braine the blue block\n3. Uncorninte the yellow block from on top of the red block\n4. Corninte the yellow block on top of the orange block\n5. Laral the blue block\n6. Corninte the blue block on top of the yellow block\n7. Laral the red block\n8. Corninte the red block on top of the blue block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316228,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2154,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2598,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.68240404129028,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the blue block from on top of the yellow block\n2. Braine the blue block\n3. Uncorninte the yellow block from on top of the red block\n4. Corninte the yellow block on top of the orange block\n5. Laral the blue block\n6. Corninte the blue block on top of the yellow block\n7. Laral the red block\n8. Corninte the red block on top of the blue block"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the red block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b3)\n(braine b2)\n(uncorninte b3 b1)\n(braine b3)\n(laral b4)\n(corninte b4 b1)\n(laral b2)\n(corninte b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0xiVEKzQy6RxN2bfkrZ8U3A72vw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Uncorninte blue from on top of orange\nBraine blue\nUncorninte orange from on top of red\nBraine orange\nLaral yellow\nCorninte yellow on top of red\nLaral blue\nCorninte blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316262,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1916,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2349,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.160175800323486,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Uncorninte blue from on top of orange\nBraine blue\nUncorninte orange from on top of red\nBraine orange\nLaral yellow\nCorninte yellow on top of red\nLaral blue\nCorninte blue on top of yellow"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the orange block, the blue block is on top of the red block and the orange block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b3)\n(braine b2)\n(uncorninte b1 b4)\n(corninte b1 b2)\n(laral b3)\n(corninte b3 b4)\n(uncorninte b1 b2)\n(corninte b1 b3)\n(laral b2)\n(corninte b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0yBhY4pMBT7H63RtRgDqNkeSKEZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte red from on top of yellow\n2. Braine red\n3. Uncorninte blue from on top of orange\n4. Braine blue\n5. Laral orange\n6. Corninte orange on top of yellow\n7. Laral red\n8. Corninte red on top of orange\n9. Laral blue\n10. Corninte blue on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316291,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3036,
+                    "prompt_tokens": 444,
+                    "total_tokens": 3480,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2944,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 48.873024463653564,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte red from on top of yellow\n2. Braine red\n3. Uncorninte blue from on top of orange\n4. Braine blue\n5. Laral orange\n6. Corninte orange on top of yellow\n7. Laral red\n8. Corninte red on top of orange\n9. Laral blue\n10. Corninte blue on top of red"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the red block, the red block is on the table, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b3 b1)\n(braine b3)\n(laral b2)\n(corninte b2 b3)\n(laral b1)\n(corninte b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0yyggN0yVLFMocm9yorQNnlQhUY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte orange from on top of red\n2. Braine orange\n3. Laral blue\n4. Corninte blue on top of orange\n5. Laral red\n6. Corninte red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316340,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1338,
+                    "prompt_tokens": 436,
+                    "total_tokens": 1774,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.598308801651,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte orange from on top of red\n2. Braine orange\n3. Laral blue\n4. Corninte blue on top of orange\n5. Laral red\n6. Corninte red on top of blue"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b3)\n(braine b4)\n(uncorninte b3 b2)\n(braine b3)\n(laral b1)\n(corninte b1 b2)\n(laral b4)\n(corninte b4 b1)\n(laral b3)\n(corninte b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0zHrWoFzVFYu7EK48XtiJ6dY1qG",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte(yellow, orange)\n2. Braine(yellow)\n3. Uncorninte(orange, blue)\n4. Braine(orange)\n5. Laral(red)\n6. Corninte(red, blue)\n7. Laral(yellow)\n8. Corninte(yellow, red)\n9. Laral(orange)\n10. Corninte(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316359,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1689,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2133,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.10700249671936,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte(yellow, orange)\n2. Braine(yellow)\n3. Uncorninte(orange, blue)\n4. Braine(orange)\n5. Laral(red)\n6. Corninte(red, blue)\n7. Laral(yellow)\n8. Corninte(yellow, red)\n9. Laral(orange)\n10. Corninte(orange, yellow)"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the orange block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the orange block is on top of the yellow block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b1 b2)\n(braine b1)\n(uncorninte b2 b3)\n(braine b2)\n(laral b4)\n(corninte b4 b2)\n(laral b3)\n(corninte b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ0zepHgN7Kov4VREdpCHc1p83QRj",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Uncorninte red from on top of blue\nBraine red\nUncorninte blue from on top of orange\nBraine blue\nLaral yellow\nCorninte yellow on top of blue\nLaral orange\nCorninte orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316382,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2300,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2733,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.60738658905029,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Uncorninte red from on top of blue\nBraine red\nUncorninte blue from on top of orange\nBraine blue\nLaral yellow\nCorninte yellow on top of blue\nLaral orange\nCorninte orange on top of yellow"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the blue block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on the table, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the yellow block, the blue block is on top of the orange block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b1 b3)\n(braine b1)\n(laral b2)\n(corninte b2 b3)\n(laral b4)\n(corninte b4 b2)\n(laral b1)\n(corninte b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ10Bk6Zev4N2k7JNSJQsPFApdDrA",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte red from on top of orange\n2. Braine red\n3. Laral blue\n4. Corninte blue on top of orange\n5. Laral yellow\n6. Corninte yellow on top of blue\n7. Laral red\n8. Corninte red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316415,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1482,
+                    "prompt_tokens": 447,
+                    "total_tokens": 1929,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 47.90205645561218,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte red from on top of orange\n2. Braine red\n3. Laral blue\n4. Corninte blue on top of orange\n5. Laral yellow\n6. Corninte yellow on top of blue\n7. Laral red\n8. Corninte red on top of yellow"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the red block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b1)\n(corninte b2 b3)\n(uncorninte b1 b4)\n(braine b1)\n(uncorninte b2 b3)\n(corninte b2 b4)\n(laral b1)\n(corninte b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ10xaJSaE5EnsgTvPrySUhAoq6NP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte blue from red\n2. Braine blue\n3. Uncorninte red from yellow\n4. Corninte red on orange\n5. Laral blue\n6. Corninte blue on yellow\n7. Uncorninte red from orange\n8. Corninte red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316463,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3527,
+                    "prompt_tokens": 433,
+                    "total_tokens": 3960,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3456,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 52.81542754173279,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte blue from red\n2. Braine blue\n3. Uncorninte red from yellow\n4. Corninte red on orange\n5. Laral blue\n6. Corninte blue on yellow\n7. Uncorninte red from orange\n8. Corninte red on blue"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the yellow block is on top of the red block, the red block is on the table, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b1)\n(corninte b4 b3)\n(laral b1)\n(corninte b1 b2)\n(uncorninte b4 b3)\n(corninte b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ11op0lBDyGFTvPwuBPhj9iHei6y",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte(yellow, red)\n2. Braine(yellow)\n3. Laral(red)\n4. Corninte(red, blue)\n5. Laral(yellow)\n6. Corninte(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316516,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1464,
+                    "prompt_tokens": 436,
+                    "total_tokens": 1900,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.46436381340027,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte(yellow, red)\n2. Braine(yellow)\n3. Laral(red)\n4. Corninte(red, blue)\n5. Laral(yellow)\n6. Corninte(yellow, red)"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the red block, the orange block is on top of the yellow block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the red block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b3 b4)\n(braine b3)\n(uncorninte b4 b2)\n(braine b4)\n(uncorninte b2 b1)\n(braine b2)\n(laral b1)\n(corninte b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ129zGXejV2ltzNpq87UbolwzF9F",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte orange from on top of yellow\n2. Braine orange\n3. Uncorninte yellow from on top of blue\n4. Braine yellow\n5. Uncorninte blue from on top of red\n6. Braine blue\n7. Laral red\n8. Corninte red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316537,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2126,
+                    "prompt_tokens": 419,
+                    "total_tokens": 2545,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.90449047088623,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte orange from on top of yellow\n2. Braine orange\n3. Uncorninte yellow from on top of blue\n4. Braine yellow\n5. Uncorninte blue from on top of red\n6. Braine blue\n7. Laral red\n8. Corninte red on top of yellow"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the red block, the yellow block is on top of the orange block and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b3)\n(braine b4)\n(uncorninte b3 b1)\n(braine b3)\n(uncorninte b1 b2)\n(corninte b1 b3)\n(laral b2)\n(corninte b2 b4)\n(uncorninte b1 b3)\n(corninte b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ12loFJWIkQvduA8dxzXxj7CPU5F",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte yellow from on top of orange\n2. Braine yellow\n3. Uncorninte orange from on top of red\n4. Braine orange\n5. Uncorninte red from on top of blue\n6. Braine red\n7. Laral blue from table\n8. Corninte blue on top of yellow\n9. Laral red from table\n10. Corninte red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316575,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2210,
+                    "prompt_tokens": 430,
+                    "total_tokens": 2640,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 45.830270528793335,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte yellow from on top of orange\n2. Braine yellow\n3. Uncorninte orange from on top of red\n4. Braine orange\n5. Uncorninte red from on top of blue\n6. Braine red\n7. Laral blue from table\n8. Corninte blue on top of yellow\n9. Laral red from table\n10. Corninte red on top of blue"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the hand is empty, the red block is on top of the orange block, the blue block is on top of the yellow block, the yellow block is on top of the red block and the orange block is on the table.\nMy goal is to have that the red block is on top of the orange block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b2 b4)\n(braine b2)\n(uncorninte b4 b1)\n(braine b4)\n(uncorninte b1 b3)\n(corninte b1 b4)\n(laral b3)\n(corninte b3 b2)\n(uncorninte b1 b4)\n(corninte b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ13VQCQrNnjCnzF9NGofOxueh0RZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte blue from on top of yellow\n2. Braine blue\n3. Uncorninte yellow from on top of red\n4. Braine yellow\n5. Uncorninte red from on top of orange\n6. Braine red\n7. Laral orange\n8. Corninte orange on top of blue\n9. Laral red\n10. Corninte red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316621,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2334,
+                    "prompt_tokens": 430,
+                    "total_tokens": 2764,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.99604654312134,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte blue from on top of yellow\n2. Braine blue\n3. Uncorninte yellow from on top of red\n4. Braine yellow\n5. Uncorninte red from on top of orange\n6. Braine red\n7. Laral orange\n8. Corninte orange on top of blue\n9. Laral red\n10. Corninte red on top of orange"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the orange block, the orange block is on top of the red block, the yellow block is on top of the blue block and the red block is on the table.\nMy goal is to have that the red block is on top of the orange block and the orange block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b2)\n(braine b4)\n(uncorninte b2 b3)\n(braine b2)\n(uncorninte b3 b1)\n(corninte b3 b2)\n(laral b1)\n(corninte b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ14EfbsxJGIx06DR9anvf0sTo7rj",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Uncorninte yellow from on top of blue\nBraine yellow\nUncorninte blue from on top of orange\nBraine blue\nUncorninte orange from on top of red\nCorninte orange on top of blue\nLaral red\nCorninte red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316666,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1858,
+                    "prompt_tokens": 430,
+                    "total_tokens": 2288,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.98492908477783,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Uncorninte yellow from on top of blue\nBraine yellow\nUncorninte blue from on top of orange\nBraine blue\nUncorninte orange from on top of red\nCorninte orange on top of blue\nLaral red\nCorninte red on top of orange"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the yellow block is clear, the hand is empty, the red block is on top of the blue block, the orange block is on top of the red block, the blue block is on the table and the yellow block is on the table.\nMy goal is to have that the orange block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ14lxLyC1r5TkzOqI7C1WcElULLh",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions \u2014 the goal is already satisfied (empty plan).",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316699,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 469,
+                    "prompt_tokens": 422,
+                    "total_tokens": 891,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 448,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 7.830057144165039,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions \u2014 the goal is already satisfied (empty plan)."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the yellow block is clear, the hand is empty, the orange block is on top of the blue block, the yellow block is on top of the orange block, the red block is on the table and the blue block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b3)\n(corninte b4 b1)\n(uncorninte b3 b2)\n(braine b3)\n(laral b2)\n(corninte b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ14t1iFy9pKua6hcYaN6vubg7rFc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the yellow block from on top of the orange block\n2. Corninte the yellow block on top of the red block\n3. Uncorninte the orange block from on top of the blue block\n4. Braine the orange block (put it on the table)\n5. Laral the blue block (pick it up from the table)\n6. Corninte the blue block on top of the orange block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316707,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1633,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2066,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.678220748901367,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the yellow block from on top of the orange block\n2. Corninte the yellow block on top of the red block\n3. Uncorninte the orange block from on top of the blue block\n4. Braine the orange block (put it on the table)\n5. Laral the blue block (pick it up from the table)\n6. Corninte the blue block on top of the orange block"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is clear, the yellow block is clear, the hand is empty, the red block is on top of the orange block, the yellow block is on top of the red block, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b1)\n(braine b4)\n(uncorninte b1 b3)\n(corninte b1 b4)\n(laral b2)\n(corninte b2 b3)\n(uncorninte b1 b4)\n(corninte b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ15HL0QoWgodsUGen8K1D0ifS1J0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte yellow from on top of red\n2. Braine yellow\n3. Uncorninte red from on top of orange\n4. Braine red\n5. Laral blue\n6. Corninte blue on top of orange\n7. Laral red\n8. Corninte red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316731,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1932,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2365,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.75972580909729,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte yellow from on top of red\n2. Braine yellow\n3. Uncorninte red from on top of orange\n4. Braine red\n5. Laral blue\n6. Corninte blue on top of orange\n7. Laral red\n8. Corninte red on top of blue"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the hand is empty, the red block is on top of the blue block, the blue block is on top of the yellow block, the orange block is on the table and the yellow block is on the table.\nMy goal is to have that the blue block is on top of the red block, the orange block is on top of the yellow block and the yellow block is on top of the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b1 b2)\n(braine b1)\n(uncorninte b2 b4)\n(corninte b2 b1)\n(laral b4)\n(corninte b4 b2)\n(laral b3)\n(corninte b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ15jQeIuqTRxh4f86PJGK6UX5LE5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte red from on top of blue\n2. Braine red\n3. Uncorninte blue from on top of yellow\n4. Corninte blue on top of red\n5. Laral yellow\n6. Corninte yellow on top of blue\n7. Laral orange\n8. Corninte orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316759,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1552,
+                    "prompt_tokens": 444,
+                    "total_tokens": 1996,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.562308311462402,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte red from on top of blue\n2. Braine red\n3. Uncorninte blue from on top of yellow\n4. Corninte blue on top of red\n5. Laral yellow\n6. Corninte yellow on top of blue\n7. Laral orange\n8. Corninte orange on top of yellow"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the hand is empty, the red block is on top of the orange block, the orange block is on top of the yellow block, the yellow block is on top of the blue block and the blue block is on the table.\nMy goal is to have that the red block is on top of the blue block, the orange block is on top of the yellow block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b1 b3)\n(braine b1)\n(uncorninte b3 b4)\n(braine b3)\n(uncorninte b4 b2)\n(corninte b4 b3)\n(laral b1)\n(corninte b1 b2)\n(uncorninte b4 b3)\n(corninte b4 b1)\n(laral b3)\n(corninte b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ167tIVP10biivAVzy8GhzL0u6nt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the red block from on top of the orange block\n2. Braine the red block\n3. Uncorninte the orange block from on top of the yellow block\n4. Braine the orange block\n5. Uncorninte the yellow block from on top of the blue block\n6. Braine the yellow block\n7. Laral the red block\n8. Corninte the red block on top of the blue block\n9. Laral the yellow block\n10. Corninte the yellow block on top of the red block\n11. Laral the orange block\n12. Corninte the orange block on top of the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316783,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2898,
+                    "prompt_tokens": 441,
+                    "total_tokens": 3339,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 57.63612914085388,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the red block from on top of the orange block\n2. Braine the red block\n3. Uncorninte the orange block from on top of the yellow block\n4. Braine the orange block\n5. Uncorninte the yellow block from on top of the blue block\n6. Braine the yellow block\n7. Laral the red block\n8. Corninte the red block on top of the blue block\n9. Laral the yellow block\n10. Corninte the yellow block on top of the red block\n11. Laral the orange block\n12. Corninte the orange block on top of the yellow block"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is clear, the hand is empty, the blue block is on top of the red block, the orange block is on top of the blue block, the yellow block is on top of the orange block and the red block is on the table.\nMy goal is to have that the red block is on top of the yellow block and the blue block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b3)\n(braine b4)\n(uncorninte b3 b2)\n(braine b3)\n(uncorninte b2 b1)\n(corninte b2 b3)\n(laral b1)\n(corninte b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ172KLvJ6bXEFvnGkMsyZv9cmgot",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the yellow block from on top of the orange block\n2. Braine the yellow block\n3. Uncorninte the orange block from on top of the blue block\n4. Braine the orange block\n5. Uncorninte the blue block from on top of the red block\n6. Corninte the blue block on top of the orange block\n7. Laral the red block\n8. Corninte the red block on top of the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316840,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1644,
+                    "prompt_tokens": 430,
+                    "total_tokens": 2074,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.57752203941345,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the yellow block from on top of the orange block\n2. Braine the yellow block\n3. Uncorninte the orange block from on top of the blue block\n4. Braine the orange block\n5. Uncorninte the blue block from on top of the red block\n6. Corninte the blue block on top of the orange block\n7. Laral the red block\n8. Corninte the red block on top of the yellow block"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is clear, the hand is empty, the blue block is on top of the yellow block, the orange block is on top of the blue block, the yellow block is on top of the red block and the red block is on the table.\nMy goal is to have that the blue block is on top of the orange block and the orange block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b3 b2)\n(braine b3)\n(uncorninte b2 b4)\n(braine b2)\n(uncorninte b4 b1)\n(braine b4)\n(laral b3)\n(corninte b3 b1)\n(laral b2)\n(corninte b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ17g8EyX1GCKAtl4SEOkajRME7xQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte orange from on top of blue\n2. Braine orange\n3. Uncorninte blue from on top of yellow\n4. Braine blue\n5. Uncorninte yellow from on top of red\n6. Braine yellow\n7. Laral orange\n8. Corninte orange on top of red\n9. Laral blue\n10. Corninte blue on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316880,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2974,
+                    "prompt_tokens": 430,
+                    "total_tokens": 3404,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 88.87517619132996,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte orange from on top of blue\n2. Braine orange\n3. Uncorninte blue from on top of yellow\n4. Braine blue\n5. Uncorninte yellow from on top of red\n6. Braine yellow\n7. Laral orange\n8. Corninte orange on top of red\n9. Laral blue\n10. Corninte blue on top of orange"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the orange block is clear, the yellow block is clear, the hand is empty, the yellow block is on top of the blue block, the red block is on the table, the blue block is on the table and the orange block is on the table.\nMy goal is to have that the red block is on top of the blue block and the yellow block is on top of the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b4 b2)\n(corninte b4 b3)\n(laral b1)\n(corninte b1 b2)\n(uncorninte b4 b3)\n(corninte b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ197XlzJ4jwUt2bOzKWrcgDTpaPE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Uncorninte yellow from on top of blue\nBraine yellow\nLaral red\nCorninte red on top of blue\nLaral yellow\nCorninte yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316969,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1134,
+                    "prompt_tokens": 436,
+                    "total_tokens": 1570,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.277318477630615,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Uncorninte yellow from on top of blue\nBraine yellow\nLaral red\nCorninte red on top of blue\nLaral yellow\nCorninte yellow on top of red"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do\n\nLaral a block\nUncorninte a block from on top of another block\nBraine a block\nCorninte a block on top of another block\n\nI have the following restrictions on my actions:\nI can only laral or uncorninte one block at a time.\nI can only laral or uncorninte a block if my hand is empty.\nI can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.\nI can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.\nI can only uncorninte a block from on top of another block if the block I am uncorninting is clear.\nOnce I laral or uncorninte a block, I am holding the block.\nI can only braine a block that I am holding.\nI can only corninte a block on top of another block if I am holding the block being corninted.\nI can only corninte a block on top of another block if the block onto which I am corninting the block is clear.\nOnce I braine or corninte a block, my hand becomes empty.\nOnce you corninte a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is clear, the hand is empty, the red block is on top of the yellow block, the blue block is on top of the orange block, the yellow block is on top of the blue block and the orange block is on the table.\nMy goal is to have that the yellow block is on top of the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncorninte b1 b4)\n(braine b1)\n(uncorninte b4 b2)\n(corninte b4 b1)\n(uncorninte b2 b3)\n(braine b2)\n(uncorninte b4 b1)\n(corninte b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ19RMjByZfuer5H5nBqmL6YTCjKa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncorninte the red block from on top of the yellow block\n2. Braine the red block\n3. Uncorninte the yellow block from on top of the blue block\n4. Braine the yellow block\n5. Uncorninte the blue block from on top of the orange block\n6. Corninte the blue block on top of the red block\n7. Laral the yellow block\n8. Corninte the yellow block on top of the orange block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760316989,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1900,
+                    "prompt_tokens": 419,
+                    "total_tokens": 2319,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 77.78847098350525,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncorninte the red block from on top of the yellow block\n2. Braine the red block\n3. Uncorninte the yellow block from on top of the blue block\n4. Braine the yellow block\n5. Uncorninte the blue block from on top of the orange block\n6. Corninte the blue block on top of the red block\n7. Laral the yellow block\n8. Corninte the yellow block on top of the orange block"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

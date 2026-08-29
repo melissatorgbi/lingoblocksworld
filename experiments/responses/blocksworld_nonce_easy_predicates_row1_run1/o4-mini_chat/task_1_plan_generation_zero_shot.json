@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_nonce_easy_predicates_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the michime is daydendate, the blue block is syntwards the orange block, the orange block is syntwards the yellow block, the yellow block is syntwards the red block and the red block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ26XkmnWsYiEM30OGUIaI2mh1eRY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one (minimal) solution:  \n1. Unstack(blue, orange)  \n2. PutDown(blue)  \n3. Unstack(orange, yellow)  \n4. PutDown(orange)  \n5. Unstack(yellow, red)  \n6. PutDown(yellow)  \n7. PickUp(blue)  \n8. Stack(blue, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320653,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1249,
+                    "prompt_tokens": 423,
+                    "total_tokens": 1672,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.239755630493164,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one (minimal) solution:  \n1. Unstack(blue, orange)  \n2. PutDown(blue)  \n3. Unstack(orange, yellow)  \n4. PutDown(orange)  \n5. Unstack(yellow, red)  \n6. PutDown(yellow)  \n7. PickUp(blue)  \n8. Stack(blue, red)"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the orange block is hummony, the michime is daydendate, the red block is syntwards the yellow block, the blue block is syntwards the red block, the orange block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block, the blue block is syntwards the orange block and the orange block is syntwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(put-down b2)\n(unstack b1 b4)\n(put-down b1)\n(pick-up b3)\n(stack b3 b4)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ26jiXIGjkVsOoZvBAuJ1WTc4Ewm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence of actions (using your terminology \u201cUnstack \u2026 from \u2026\u201d, \u201cPut down \u2026\u201d, \u201cPick up \u2026\u201d, \u201cStack \u2026 syntwards \u2026\u201d):\n\n1. Unstack blue from red  \n2. Put down blue  \n3. Unstack red from yellow  \n4. Put down red  \n5. Pick up orange  \n6. Stack orange syntwards yellow  \n7. Pick up blue  \n8. Stack blue syntwards orange  \n9. Pick up red  \n10. Stack red syntwards blue  \n\nAfter step 10 you have red on blue, blue on orange and orange on yellow, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320665,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2194,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2644,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.170031309127808,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence of actions (using your terminology \u201cUnstack \u2026 from \u2026\u201d, \u201cPut down \u2026\u201d, \u201cPick up \u2026\u201d, \u201cStack \u2026 syntwards \u2026\u201d):\n\n1. Unstack blue from red  \n2. Put down blue  \n3. Unstack red from yellow  \n4. Put down red  \n5. Pick up orange  \n6. Stack orange syntwards yellow  \n7. Pick up blue  \n8. Stack blue syntwards orange  \n9. Pick up red  \n10. Stack red syntwards blue  \n\nAfter step 10 you have red on blue, blue on orange and orange on yellow, as required."
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the blue block is hummony, the michime is daydendate, the blue block is syntwards the orange block, the orange block is syntwards the yellow block, the red block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the yellow block, the orange block is syntwards the blue block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b4)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ274jaKpuXPv5KLKrDo1BwwV8A3N",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest\u2010sequence plan (all preconditions are satisfied at each step):  \n1. Unstack blue from orange  \n2. Put down blue  \n3. Unstack orange from yellow  \n4. Put down orange  \n5. Pick up yellow  \n6. Stack yellow syntwards red  \n7. Pick up blue  \n8. Stack blue syntwards yellow  \n9. Pick up orange  \n10. Stack orange syntwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320686,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2537,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2987,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.05041265487671,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest\u2010sequence plan (all preconditions are satisfied at each step):  \n1. Unstack blue from orange  \n2. Put down blue  \n3. Unstack orange from yellow  \n4. Put down orange  \n5. Pick up yellow  \n6. Stack yellow syntwards red  \n7. Pick up blue  \n8. Stack blue syntwards yellow  \n9. Pick up orange  \n10. Stack orange syntwards blue"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the blue block is hummony, the orange block is hummony, the michime is daydendate, the orange block is syntwards the yellow block, the red block is syntwards the facizer, the blue block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the orange block, the blue block is syntwards the red block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ27QBxqPJas9BBQ4u2HsUWrjakay",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from yellow  \n2. Put down orange  \n3. Pick up red  \n4. Stack red syntwards orange  \n5. Pick up blue  \n6. Stack blue syntwards red  \n7. Pick up yellow  \n8. Stack yellow syntwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320708,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1033,
+                    "prompt_tokens": 457,
+                    "total_tokens": 1490,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.124349117279053,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from yellow  \n2. Put down orange  \n3. Pick up red  \n4. Stack red syntwards orange  \n5. Pick up blue  \n6. Stack blue syntwards red  \n7. Pick up yellow  \n8. Stack yellow syntwards blue"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the yellow block is hummony, the michime is daydendate, the red block is syntwards the orange block, the yellow block is syntwards the blue block, the blue block is syntwards the facizer and the orange block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the orange block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ27ZAgqJzmfSDDqtm7xdATqYJ4ZN",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a minimal plan (hand starts empty = daydendate):\n\n1. UNSTACK(yellow, blue)  \n2. STACK(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320717,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 947,
+                    "prompt_tokens": 440,
+                    "total_tokens": 1387,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 7.701357841491699,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a minimal plan (hand starts empty = daydendate):\n\n1. UNSTACK(yellow, blue)  \n2. STACK(yellow, red)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is hummony, the yellow block is hummony, the michime is daydendate, the blue block is syntwards the red block, the yellow block is syntwards the blue block, the red block is syntwards the facizer and the orange block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the yellow block, the orange block is syntwards the red block and the yellow block is syntwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ27hNEvyFFRZ3718ty6DGUmGY97o",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (all pre\u2010 and post\u2010conditions check out):\n\n1. Unstack the yellow block from syntwards the blue block  \n2. Put down the yellow block  \n3. Unstack the blue block from syntwards the red block  \n4. Put down the blue block  \n5. Pick up the orange block  \n6. Stack the orange block syntwards the red block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the orange block  \n9. Pick up the blue block  \n10. Stack the blue block syntwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320725,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2061,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2511,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.38407301902771,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (all pre\u2010 and post\u2010conditions check out):\n\n1. Unstack the yellow block from syntwards the blue block  \n2. Put down the yellow block  \n3. Unstack the blue block from syntwards the red block  \n4. Put down the blue block  \n5. Pick up the orange block  \n6. Stack the orange block syntwards the red block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the orange block  \n9. Pick up the blue block  \n10. Stack the blue block syntwards the yellow block"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the blue block is hummony, the michime is daydendate, the red block is syntwards the yellow block, the yellow block is syntwards the orange block, the blue block is syntwards the facizer and the orange block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the red block and the orange block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ27yDyx3n0957spLYUehohImYWwc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one shortest valid sequence of actions (in your terminology):\n\n1. Unstack red from yellow  \n2. Put down red  \n3. Unstack yellow from orange  \n4. Put down yellow  \n5. Pick up blue  \n6. Stack blue syntwards red  \n7. Pick up orange  \n8. Stack orange syntwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320742,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2070,
+                    "prompt_tokens": 440,
+                    "total_tokens": 2510,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.648258209228516,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one shortest valid sequence of actions (in your terminology):\n\n1. Unstack red from yellow  \n2. Put down red  \n3. Unstack yellow from orange  \n4. Put down yellow  \n5. Pick up blue  \n6. Stack blue syntwards red  \n7. Pick up orange  \n8. Stack orange syntwards blue"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is hummony, the michime is daydendate, the blue block is syntwards the yellow block, the orange block is syntwards the blue block, the yellow block is syntwards the red block and the red block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block and the blue block is syntwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(stack b2 b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28I0RMls904aNy3wmuAIWf8mgSz",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal 8\u2010step solution (you end up with red on blue on orange; yellow sits by itself on the table):\n\n1. Unstack orange from blue  \n2. Put down orange  \n3. Unstack blue from yellow  \n4. Stack blue syntwards orange  \n5. Unstack yellow from red  \n6. Put down yellow  \n7. Pick up red  \n8. Stack red syntwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320762,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2151,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2584,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.485151767730713,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal 8\u2010step solution (you end up with red on blue on orange; yellow sits by itself on the table):\n\n1. Unstack orange from blue  \n2. Put down orange  \n3. Unstack blue from yellow  \n4. Stack blue syntwards orange  \n5. Unstack yellow from red  \n6. Put down yellow  \n7. Pick up red  \n8. Stack red syntwards blue"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the blue block is hummony, the michime is daydendate, the blue block is syntwards the yellow block, the yellow block is syntwards the orange block, the red block is syntwards the facizer and the orange block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the orange block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(stack b2 b1)\n(unstack b4 b3)\n(put-down b4)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28bBZ594RyWXmaBqDaY4gX4OZJU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal sequence of legal moves (in the form ACTION(arg[, target])) that achieves\n\n    blue on orange\n    yellow on blue\n\nstarting from  \nblue\u2014yellow\u2014orange and red on the table:\n\n1. UNSTACK(blue, yellow)  \n2. PUTDOWN(blue)  \n3. UNSTACK(yellow, orange)  \n4. PUTDOWN(yellow)  \n5. PICKUP(blue)  \n6. STACK(blue, orange)  \n7. PICKUP(yellow)  \n8. STACK(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320781,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3143,
+                    "prompt_tokens": 440,
+                    "total_tokens": 3583,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.720953464508057,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal sequence of legal moves (in the form ACTION(arg[, target])) that achieves\n\n    blue on orange\n    yellow on blue\n\nstarting from  \nblue\u2014yellow\u2014orange and red on the table:\n\n1. UNSTACK(blue, yellow)  \n2. PUTDOWN(blue)  \n3. UNSTACK(yellow, orange)  \n4. PUTDOWN(yellow)  \n5. PICKUP(blue)  \n6. STACK(blue, orange)  \n7. PICKUP(yellow)  \n8. STACK(yellow, blue)"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is hummony, the michime is daydendate, the red block is syntwards the orange block, the blue block is syntwards the red block, the yellow block is syntwards the blue block and the orange block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block, the orange block is syntwards the yellow block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ294U06NBDt3wEvPlcSkrUn22hY3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a shortest 10\u2010step solution (using your terminology \u201cUnstack X from Y\u201d, \u201cPick up X\u201d, \u201cPut down X\u201d, \u201cStack X syntwards Y\u201d):\n\n1. Unstack the yellow block from the blue block  \n2. Put down the yellow block  \n3. Unstack the blue block from the red block  \n4. Put down the blue block  \n5. Unstack the red block from the orange block  \n6. Stack the red block syntwards the blue block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the red block  \n9. Pick up the orange block  \n10. Stack the orange block syntwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320810,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1759,
+                    "prompt_tokens": 443,
+                    "total_tokens": 2202,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.78207302093506,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a shortest 10\u2010step solution (using your terminology \u201cUnstack X from Y\u201d, \u201cPick up X\u201d, \u201cPut down X\u201d, \u201cStack X syntwards Y\u201d):\n\n1. Unstack the yellow block from the blue block  \n2. Put down the yellow block  \n3. Unstack the blue block from the red block  \n4. Put down the blue block  \n5. Unstack the red block from the orange block  \n6. Stack the red block syntwards the blue block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the red block  \n9. Pick up the orange block  \n10. Stack the orange block syntwards the yellow block"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is hummony, the michime is daydendate, the blue block is syntwards the orange block, the orange block is syntwards the red block, the yellow block is syntwards the blue block and the red block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the yellow block and the orange block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(stack b2 b4)\n(unstack b3 b1)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29L2oE43bvUXHfl6U1ENW3UqIEl",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence (using your action\u2010names) that achieves  \n\u201cblue on yellow\u201d and \u201corange on blue\u201d:\n\n1. UNSTACK(yellow, blue)  \n2. PUT_DOWN(yellow)  \n3. UNSTACK(blue, orange)  \n4. STACK(blue, yellow)  \n5. UNSTACK(orange, red)  \n6. STACK(orange, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320827,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1514,
+                    "prompt_tokens": 433,
+                    "total_tokens": 1947,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.873039484024048,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence (using your action\u2010names) that achieves  \n\u201cblue on yellow\u201d and \u201corange on blue\u201d:\n\n1. UNSTACK(yellow, blue)  \n2. PUT_DOWN(yellow)  \n3. UNSTACK(blue, orange)  \n4. STACK(blue, yellow)  \n5. UNSTACK(orange, red)  \n6. STACK(orange, blue)"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the blue block is hummony, the orange block is hummony, the michime is daydendate, the red block is syntwards the yellow block, the blue block is syntwards the facizer, the orange block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the orange block, the blue block is syntwards the red block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29cmxpLAYzVyH6CMvjOvziwLEtW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a minimal 6\u2010step plan (all preconditions are met in sequence):\n\n1. UNSTACK(red, yellow)  \n2. STACK(red, orange)  \n3. PICKUP(blue)  \n4. STACK(blue, red)  \n5. PICKUP(yellow)  \n6. STACK(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320844,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1302,
+                    "prompt_tokens": 457,
+                    "total_tokens": 1759,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.685787439346313,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a minimal 6\u2010step plan (all preconditions are met in sequence):\n\n1. UNSTACK(red, yellow)  \n2. STACK(red, orange)  \n3. PICKUP(blue)  \n4. STACK(blue, red)  \n5. PICKUP(yellow)  \n6. STACK(yellow, blue)"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the yellow block is hummony, the michime is daydendate, the red block is syntwards the blue block, the blue block is syntwards the orange block, the orange block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the orange block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29pH4pyyjvlX0XP4cMAys6GqAJB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal plan (assuming \u201csyntwards\u201d = \u201con\u201d and \u201cfacizer\u201d = table):\n\n1. Unstack red from blue  \n2. Put down red  \n3. Pick up yellow  \n4. Stack yellow on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320857,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1027,
+                    "prompt_tokens": 440,
+                    "total_tokens": 1467,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.494264602661133,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal plan (assuming \u201csyntwards\u201d = \u201con\u201d and \u201cfacizer\u201d = table):\n\n1. Unstack red from blue  \n2. Put down red  \n3. Pick up yellow  \n4. Stack yellow on blue"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is hummony, the michime is daydendate, the red block is syntwards the orange block, the blue block is syntwards the red block, the yellow block is syntwards the blue block and the orange block is syntwards the facizer.\nMy goal is to have that the orange block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(unstack b1 b3)\n(put-down b1)\n(pick-up b3)\n(stack b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2A0TWuByxJ6xOSk1ldSUmfsd97j",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack(yellow, blue)  \n2. PutDown(yellow)  \n3. Unstack(blue, red)  \n4. PutDown(blue)  \n5. Unstack(red, orange)  \n6. PutDown(red)  \n7. PickUp(orange)  \n8. Stack(orange, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320868,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1430,
+                    "prompt_tokens": 423,
+                    "total_tokens": 1853,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.598006010055542,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack(yellow, blue)  \n2. PutDown(yellow)  \n3. Unstack(blue, red)  \n4. PutDown(blue)  \n5. Unstack(red, orange)  \n6. PutDown(red)  \n7. PickUp(orange)  \n8. Stack(orange, blue)"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the yellow block is hummony, the michime is daydendate, the orange block is syntwards the red block, the yellow block is syntwards the orange block, the red block is syntwards the facizer and the blue block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the yellow block, the blue block is syntwards the orange block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2AJHaqqNThptNGJh3t7MGTfsiVe",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the yellow block from the orange block  \n2. Put down the yellow block  \n3. Unstack the orange block from the red block  \n4. Put down the orange block  \n5. Pick up the blue block  \n6. Stack the blue block syntwards the orange block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the blue block  \n9. Pick up the red block  \n10. Stack the red block syntwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320887,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1653,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2103,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.625198602676392,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the yellow block from the orange block  \n2. Put down the yellow block  \n3. Unstack the orange block from the red block  \n4. Put down the orange block  \n5. Pick up the blue block  \n6. Stack the blue block syntwards the orange block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the blue block  \n9. Pick up the red block  \n10. Stack the red block syntwards the yellow block"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is hummony, the michime is daydendate, the red block is syntwards the blue block, the orange block is syntwards the yellow block, the yellow block is syntwards the red block and the blue block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the red block and the orange block is syntwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(put-down b1)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2AWAqptV6StROaTbdC8BXMDmFpf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (all preconditions are satisfied at each step and you end up with blue on red and orange on yellow):\n\n1. Unstack orange from syntwards yellow  \n2. Put down orange  \n3. Unstack yellow from syntwards red  \n4. Put down yellow  \n5. Unstack red from syntwards blue  \n6. Put down red  \n7. Pick up blue  \n8. Stack blue syntwards red  \n9. Pick up orange  \n10. Stack orange syntwards yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320900,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1916,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2349,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.09998869895935,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (all preconditions are satisfied at each step and you end up with blue on red and orange on yellow):\n\n1. Unstack orange from syntwards yellow  \n2. Put down orange  \n3. Unstack yellow from syntwards red  \n4. Put down yellow  \n5. Unstack red from syntwards blue  \n6. Put down red  \n7. Pick up blue  \n8. Stack blue syntwards red  \n9. Pick up orange  \n10. Stack orange syntwards yellow"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the orange block is hummony, the michime is daydendate, the blue block is syntwards the yellow block, the orange block is syntwards the blue block, the red block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the yellow block, the orange block is syntwards the red block and the yellow block is syntwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(stack b3 b1)\n(unstack b2 b4)\n(put-down b2)\n(pick-up b4)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Apzv0zFElI54PjQCYuQSZ1BFUa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal valid sequence (hand always starts empty = daydendate, and \u201chummony\u201d = clear):\n\n1. Unstack orange from blue  \n2. Stack orange on red  \n3. Unstack blue from yellow  \n4. Put down blue  \n5. Pick up yellow  \n6. Stack yellow on orange  \n7. Pick up blue  \n8. Stack blue on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320919,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1570,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2020,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.25428318977356,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal valid sequence (hand always starts empty = daydendate, and \u201chummony\u201d = clear):\n\n1. Unstack orange from blue  \n2. Stack orange on red  \n3. Unstack blue from yellow  \n4. Put down blue  \n5. Pick up yellow  \n6. Stack yellow on orange  \n7. Pick up blue  \n8. Stack blue on yellow"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the orange block is hummony, the yellow block is hummony, the michime is daydendate, the orange block is syntwards the blue block, the red block is syntwards the facizer, the blue block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the orange block, the blue block is syntwards the red block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2B5H30CtNeJYfJYDTesZgAO5wbe",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal sequence of legal actions (in PDDL-style notation) that achieves the goal stack orange\u2013red\u2013blue\u2013yellow:\n\n1. UNSTACK(orange, blue)  \n2. PUTDOWN(orange)  \n3. PICKUP(red)  \n4. STACK(red, orange)  \n5. PICKUP(blue)  \n6. STACK(blue, red)  \n7. PICKUP(yellow)  \n8. STACK(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320935,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1521,
+                    "prompt_tokens": 457,
+                    "total_tokens": 1978,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.175975561141968,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal sequence of legal actions (in PDDL-style notation) that achieves the goal stack orange\u2013red\u2013blue\u2013yellow:\n\n1. UNSTACK(orange, blue)  \n2. PUTDOWN(orange)  \n3. PICKUP(red)  \n4. STACK(red, orange)  \n5. PICKUP(blue)  \n6. STACK(blue, red)  \n7. PICKUP(yellow)  \n8. STACK(yellow, blue)"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the orange block is hummony, the michime is daydendate, the blue block is syntwards the yellow block, the yellow block is syntwards the red block, the red block is syntwards the facizer and the orange block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block, the blue block is syntwards the yellow block and the yellow block is syntwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n(pick-up b2)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2BMW308A9rvb8kGEtHdDIOJcKQS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence of actions (using your terminology) to get red on blue on yellow on orange:\n\n1. Unstack(blue, yellow)  \n2. Put-down(blue)  \n3. Unstack(yellow, red)  \n4. Stack(yellow, orange)  \n5. Pick-up(blue)  \n6. Stack(blue, yellow)  \n7. Pick-up(red)  \n8. Stack(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320952,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1328,
+                    "prompt_tokens": 450,
+                    "total_tokens": 1778,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.593290567398071,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence of actions (using your terminology) to get red on blue on yellow on orange:\n\n1. Unstack(blue, yellow)  \n2. Put-down(blue)  \n3. Unstack(yellow, red)  \n4. Stack(yellow, orange)  \n5. Pick-up(blue)  \n6. Stack(blue, yellow)  \n7. Pick-up(red)  \n8. Stack(red, blue)"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the yellow block is hummony, the michime is daydendate, the blue block is syntwards the orange block, the orange block is syntwards the red block, the red block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the yellow block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(put-down b3)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b2)\n(stack b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2BZeVZz90WzTobUsvbeW2kQs9EV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest 7\u2010step plan (hand empty at start, all preconditions satisfied at each step):\n\n1. Unstack Blue from Orange  \n2. Put down Blue  \n3. Unstack Orange from Red  \n4. Put down Orange  \n5. Stack Yellow onto Red  \n6. Pick up Blue  \n7. Stack Blue onto Yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320965,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1432,
+                    "prompt_tokens": 440,
+                    "total_tokens": 1872,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.024666547775269,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest 7\u2010step plan (hand empty at start, all preconditions satisfied at each step):\n\n1. Unstack Blue from Orange  \n2. Put down Blue  \n3. Unstack Orange from Red  \n4. Put down Orange  \n5. Stack Yellow onto Red  \n6. Pick up Blue  \n7. Stack Blue onto Yellow"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the blue block is hummony, the michime is daydendate, the red block is syntwards the yellow block, the blue block is syntwards the orange block, the orange block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the orange block, the blue block is syntwards the red block and the orange block is syntwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b3)\n(put-down b2)\n(unstack b1 b4)\n(stack b1 b2)\n(pick-up b3)\n(stack b3 b4)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Bm2ka8UcrXoiJ86EpvuNbRypy1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a 10\u2010step plan (using your action names):\n\n1. Unstack the red block from syntwards the yellow block  \n2. Put down the red block  \n3. Unstack the blue block from syntwards the orange block  \n4. Put down the blue block  \n5. Pick up the orange block  \n6. Stack the orange block syntwards the yellow block  \n7. Pick up the red block  \n8. Stack the red block syntwards the orange block  \n9. Pick up the blue block  \n10. Stack the blue block syntwards the red block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320978,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1927,
+                    "prompt_tokens": 450,
+                    "total_tokens": 2377,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.685506582260132,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a 10\u2010step plan (using your action names):\n\n1. Unstack the red block from syntwards the yellow block  \n2. Put down the red block  \n3. Unstack the blue block from syntwards the orange block  \n4. Put down the blue block  \n5. Pick up the orange block  \n6. Stack the orange block syntwards the yellow block  \n7. Pick up the red block  \n8. Stack the red block syntwards the orange block  \n9. Pick up the blue block  \n10. Stack the blue block syntwards the red block"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the orange block is hummony, the yellow block is hummony, the michime is daydendate, the orange block is syntwards the red block, the red block is syntwards the facizer, the blue block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block and the blue block is syntwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b1)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2C7ku4Bty0haQ0Bn8nQJIlgU3Ln",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (using your action names):  \n1. Unstack orange from red  \n2. Put down orange  \n3. Pick up red  \n4. Stack red syntwards blue  \n5. Unstack red from blue  \n6. Put down red  \n7. Pick up blue  \n8. Stack blue syntwards orange  \n9. Pick up red  \n10. Stack red syntwards blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320999,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3495,
+                    "prompt_tokens": 447,
+                    "total_tokens": 3942,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3392,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.9718222618103,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (using your action names):  \n1. Unstack orange from red  \n2. Put down orange  \n3. Pick up red  \n4. Stack red syntwards blue  \n5. Unstack red from blue  \n6. Put down red  \n7. Pick up blue  \n8. Stack blue syntwards orange  \n9. Pick up red  \n10. Stack red syntwards blue"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the yellow block is hummony, the michime is daydendate, the orange block is syntwards the blue block, the yellow block is syntwards the orange block, the red block is syntwards the facizer and the blue block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block, the orange block is syntwards the yellow block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b1)\n(stack b1 b2)\n(pick-up b4)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2CfAk7j1O60D1iEwym2Q2fn9d82",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest plan (10 steps) that achieves  \nred\u2013on\u2013blue, yellow\u2013on\u2013red, orange\u2013on\u2013yellow:\n\n1. UNSTACK(yellow, orange)  \n2. PUTDOWN(yellow)  \n3. UNSTACK(orange, blue)  \n4. PUTDOWN(orange)  \n5. PICKUP(red)  \n6. STACK(red, blue)  \n7. PICKUP(yellow)  \n8. STACK(yellow, red)  \n9. PICKUP(orange)  \n10. STACK(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321033,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3268,
+                    "prompt_tokens": 450,
+                    "total_tokens": 3718,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.64020037651062,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest plan (10 steps) that achieves  \nred\u2013on\u2013blue, yellow\u2013on\u2013red, orange\u2013on\u2013yellow:\n\n1. UNSTACK(yellow, orange)  \n2. PUTDOWN(yellow)  \n3. UNSTACK(orange, blue)  \n4. PUTDOWN(orange)  \n5. PICKUP(red)  \n6. STACK(red, blue)  \n7. PICKUP(yellow)  \n8. STACK(yellow, red)  \n9. PICKUP(orange)  \n10. STACK(orange, yellow)"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the yellow block is hummony, the michime is daydendate, the red block is syntwards the blue block, the blue block is syntwards the orange block, the orange block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the orange block is syntwards the yellow block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b3)\n(put-down b2)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DD4N1pQGsnLayIyf3s1B7N9PcQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal sequence of actions (in your vocabulary) that achieves \u201corange on yellow\u201d and \u201cyellow on blue\u201d from the given start:\n\n1. Unstack the red block from the blue block  \n2. Put down the red block  \n3. Unstack the blue block from the orange block  \n4. Put down the blue block  \n5. Pick up the yellow block  \n6. Stack the yellow block syntwards the blue block  \n7. Pick up the orange block  \n8. Stack the orange block syntwards the yellow block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321067,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1599,
+                    "prompt_tokens": 440,
+                    "total_tokens": 2039,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.655965566635132,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal sequence of actions (in your vocabulary) that achieves \u201corange on yellow\u201d and \u201cyellow on blue\u201d from the given start:\n\n1. Unstack the red block from the blue block  \n2. Put down the red block  \n3. Unstack the blue block from the orange block  \n4. Put down the blue block  \n5. Pick up the yellow block  \n6. Stack the yellow block syntwards the blue block  \n7. Pick up the orange block  \n8. Stack the orange block syntwards the yellow block"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the blue block is hummony, the yellow block is hummony, the michime is daydendate, the red block is syntwards the orange block, the blue block is syntwards the facizer, the orange block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the yellow block, the blue block is syntwards the orange block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(pick-up b2)\n(stack b2 b3)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DSqdcOB0CrUmQZX9VdsIL7LK10",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a shortest 8\u2010step plan (in blocks\u2010world notation) that achieves\n\n   red on yellow,  \n   yellow on blue,  \n   blue on orange  \n\nfrom your initial state:\n\n1. UNSTACK(red, orange)  \n2. PUTDOWN(red)  \n3. PICKUP(blue)  \n4. STACK(blue, orange)  \n5. PICKUP(yellow)  \n6. STACK(yellow, blue)  \n7. PICKUP(red)  \n8. STACK(red, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321082,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1403,
+                    "prompt_tokens": 457,
+                    "total_tokens": 1860,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.36078143119812,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a shortest 8\u2010step plan (in blocks\u2010world notation) that achieves\n\n   red on yellow,  \n   yellow on blue,  \n   blue on orange  \n\nfrom your initial state:\n\n1. UNSTACK(red, orange)  \n2. PUTDOWN(red)  \n3. PICKUP(blue)  \n4. STACK(blue, orange)  \n5. PICKUP(yellow)  \n6. STACK(yellow, blue)  \n7. PICKUP(red)  \n8. STACK(red, yellow)"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the orange block is hummony, the michime is daydendate, the red block is syntwards the yellow block, the blue block is syntwards the red block, the orange block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block and the blue block is syntwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b1)\n(stack b2 b3)\n(unstack b1 b4)\n(put-down b1)\n(unstack b2 b3)\n(stack b2 b4)\n(pick-up b1)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DiZ1mS6SfNCLxXlzwrvAX7L2jX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s an 8\u2010step solution (hand starts empty, all preconditions are met at each step):\n\n1. Unstack the blue block from the red block  \n2. Put down the blue block  \n3. Unstack the red block from the yellow block  \n4. Put down the red block  \n5. Pick up the blue block  \n6. Stack the blue block syntwards the yellow block  \n7. Pick up the red block  \n8. Stack the red block syntwards the blue block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321098,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1591,
+                    "prompt_tokens": 440,
+                    "total_tokens": 2031,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.101816654205322,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s an 8\u2010step solution (hand starts empty, all preconditions are met at each step):\n\n1. Unstack the blue block from the red block  \n2. Put down the blue block  \n3. Unstack the red block from the yellow block  \n4. Put down the red block  \n5. Pick up the blue block  \n6. Stack the blue block syntwards the yellow block  \n7. Pick up the red block  \n8. Stack the red block syntwards the blue block"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the orange block is hummony, the yellow block is hummony, the michime is daydendate, the yellow block is syntwards the red block, the red block is syntwards the facizer, the blue block is syntwards the facizer and the orange block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DwccETz1NUd5zc0LpwIO53yZrp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal sequence of actions that achieves the goal (red on blue, yellow on red):\n\n1. Unstack(yellow, red)  \n2. PutDown(yellow)  \n3. PickUp(red)  \n4. Stack(red, blue)  \n5. PickUp(yellow)  \n6. Stack(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321112,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1367,
+                    "prompt_tokens": 447,
+                    "total_tokens": 1814,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.422808408737183,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal sequence of actions that achieves the goal (red on blue, yellow on red):\n\n1. Unstack(yellow, red)  \n2. PutDown(yellow)  \n3. PickUp(red)  \n4. Stack(red, blue)  \n5. PickUp(yellow)  \n6. Stack(yellow, red)"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is hummony, the michime is daydendate, the blue block is syntwards the red block, the orange block is syntwards the yellow block, the yellow block is syntwards the blue block and the red block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(put-down b4)\n(unstack b2 b1)\n(put-down b2)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2E9osOScgGbmL3Evlpx5JR7cj8Q",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a straight\u2010line plan (using your action names) that achieves on(red, yellow):\n\n1. Unstack(orange, yellow)  \n2. Put\u2010down(orange)  \n3. Unstack(yellow, blue)  \n4. Put\u2010down(yellow)  \n5. Unstack(blue, red)  \n6. Put\u2010down(blue)  \n7. Pick\u2010up(red)  \n8. Stack(red, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321125,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2227,
+                    "prompt_tokens": 423,
+                    "total_tokens": 2650,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 27.157463312149048,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a straight\u2010line plan (using your action names) that achieves on(red, yellow):\n\n1. Unstack(orange, yellow)  \n2. Put\u2010down(orange)  \n3. Unstack(yellow, blue)  \n4. Put\u2010down(yellow)  \n5. Unstack(blue, red)  \n6. Put\u2010down(blue)  \n7. Pick\u2010up(red)  \n8. Stack(red, yellow)"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is hummony, the michime is daydendate, the red block is syntwards the blue block, the orange block is syntwards the red block, the yellow block is syntwards the orange block and the blue block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block and the blue block is syntwards the yellow block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b1)\n(put-down b3)\n(unstack b1 b2)\n(stack b1 b3)\n(pick-up b2)\n(stack b2 b4)\n(unstack b1 b3)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Ea2A9WIRGby9Z6ORTCHCXrGXLu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal 10\u2010step plan (using your action names) that achieves  \nOn(red, blue) \u2227 On(blue, yellow):\n\n1. Unstack(yellow, orange)  \n2. PutDown(yellow)  \n3. Unstack(orange, red)  \n4. PutDown(orange)  \n5. Unstack(red, blue)  \n6. PutDown(red)  \n7. PickUp(blue)  \n8. Stack(blue, yellow)  \n9. PickUp(red)  \n10. Stack(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321152,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1995,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2428,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.59503436088562,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal 10\u2010step plan (using your action names) that achieves  \nOn(red, blue) \u2227 On(blue, yellow):\n\n1. Unstack(yellow, orange)  \n2. PutDown(yellow)  \n3. Unstack(orange, red)  \n4. PutDown(orange)  \n5. Unstack(red, blue)  \n6. PutDown(red)  \n7. PickUp(blue)  \n8. Stack(blue, yellow)  \n9. PickUp(red)  \n10. Stack(red, blue)"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the michime is daydendate, the red block is syntwards the orange block, the blue block is syntwards the yellow block, the yellow block is syntwards the red block and the orange block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the orange block and the orange block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b3)\n(stack b3 b2)\n(unstack b1 b4)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Ev1I2yPaTCF64crFYydvnn8y3f",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal 10\u2010step plan (using your action\u2010names):\n\n1. Unstack(blue, yellow)  \n2. Put_down(blue)  \n3. Unstack(yellow, red)  \n4. Put_down(yellow)  \n5. Unstack(red, orange)  \n6. Put_down(red)  \n7. Pick_up(orange)  \n8. Stack(orange, blue)  \n9. Pick_up(red)  \n10. Stack(red, orange)  \n\nAfter these ten moves you will have red on orange and orange on blue, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321173,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3080,
+                    "prompt_tokens": 433,
+                    "total_tokens": 3513,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2944,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.172549724578857,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal 10\u2010step plan (using your action\u2010names):\n\n1. Unstack(blue, yellow)  \n2. Put_down(blue)  \n3. Unstack(yellow, red)  \n4. Put_down(yellow)  \n5. Unstack(red, orange)  \n6. Put_down(red)  \n7. Pick_up(orange)  \n8. Stack(orange, blue)  \n9. Pick_up(red)  \n10. Stack(red, orange)  \n\nAfter these ten moves you will have red on orange and orange on blue, as required."
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is hummony, the michime is daydendate, the blue block is syntwards the orange block, the orange block is syntwards the red block, the yellow block is syntwards the blue block and the red block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the orange block and the orange block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(put-down b4)\n(unstack b2 b3)\n(put-down b2)\n(unstack b3 b1)\n(stack b3 b2)\n(pick-up b1)\n(stack b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2FNnXaA66ps6gY963ioQPlZI3ur",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence of moves (in your vocabulary) that achieves  \n\u201cred syntwards orange\u201d and \u201corange syntwards blue\u201d from  \nthe given start:\n\n1. Unstack the yellow block from the blue block  \n2. Put down the yellow block  \n3. Unstack the blue block from the orange block  \n4. Put down the blue block  \n5. Unstack the orange block from the red block  \n6. Stack the orange block syntwards the blue block  \n7. Pick up the red block  \n8. Stack the red block syntwards the orange block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321201,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1672,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2105,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.048607110977173,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence of moves (in your vocabulary) that achieves  \n\u201cred syntwards orange\u201d and \u201corange syntwards blue\u201d from  \nthe given start:\n\n1. Unstack the yellow block from the blue block  \n2. Put down the yellow block  \n3. Unstack the blue block from the orange block  \n4. Put down the blue block  \n5. Unstack the orange block from the red block  \n6. Stack the orange block syntwards the blue block  \n7. Pick up the red block  \n8. Stack the red block syntwards the orange block"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is hummony, the yellow block is hummony, the michime is daydendate, the red block is syntwards the blue block, the orange block is syntwards the red block, the blue block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the orange block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ2Fcjt84xFP3PmcsmweDiYYkxmln",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack orange from red  \n2. Stack orange syntwards red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321216,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1255,
+                    "prompt_tokens": 430,
+                    "total_tokens": 1685,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.597501039505005,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack orange from red  \n2. Stack orange syntwards red"
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the yellow block is hummony, the michime is daydendate, the orange block is syntwards the blue block, the yellow block is syntwards the orange block, the red block is syntwards the facizer and the blue block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the orange block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(stack b4 b1)\n(unstack b3 b2)\n(put-down b3)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2FofAdK7E33g79c0c6bGmvRkmS9",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a minimal valid sequence (using your terminology) that achieves\n\n    blue syntwards orange\n    yellow syntwards red\n\n1. Unstack the yellow block from syntwards the orange block  \n2. Put down the yellow block  \n3. Unstack the orange block from syntwards the blue block  \n4. Put down the orange block  \n5. Pick up the blue block  \n6. Stack the blue block syntwards the orange block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the red block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321228,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1215,
+                    "prompt_tokens": 440,
+                    "total_tokens": 1655,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.722262859344482,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a minimal valid sequence (using your terminology) that achieves\n\n    blue syntwards orange\n    yellow syntwards red\n\n1. Unstack the yellow block from syntwards the orange block  \n2. Put down the yellow block  \n3. Unstack the orange block from syntwards the blue block  \n4. Put down the orange block  \n5. Pick up the blue block  \n6. Stack the blue block syntwards the orange block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the red block"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the blue block is hummony, the yellow block is hummony, the michime is daydendate, the red block is syntwards the orange block, the yellow block is syntwards the red block, the blue block is syntwards the facizer and the orange block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block and the blue block is syntwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b1)\n(put-down b4)\n(unstack b1 b3)\n(stack b1 b4)\n(pick-up b2)\n(stack b2 b3)\n(unstack b1 b4)\n(stack b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2G1h1j4uGlM8seuPbeiWUHeNVld",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal sequence (all pre\u2010 and post\u2010conditions check out):\n\n1. Unstack yellow from red  \n2. Put down yellow  \n3. Unstack red from orange  \n4. Put down red  \n5. Pick up blue  \n6. Stack blue onto orange  \n7. Pick up red  \n8. Stack red onto blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321241,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1687,
+                    "prompt_tokens": 440,
+                    "total_tokens": 2127,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.11992383003235,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal sequence (all pre\u2010 and post\u2010conditions check out):\n\n1. Unstack yellow from red  \n2. Put down yellow  \n3. Unstack red from orange  \n4. Put down red  \n5. Pick up blue  \n6. Stack blue onto orange  \n7. Pick up red  \n8. Stack red onto blue"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the orange block is hummony, the michime is daydendate, the red block is syntwards the blue block, the blue block is syntwards the yellow block, the orange block is syntwards the facizer and the yellow block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the red block, the orange block is syntwards the yellow block and the yellow block is syntwards the blue block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b2)\n(put-down b1)\n(unstack b2 b4)\n(stack b2 b1)\n(pick-up b4)\n(stack b4 b2)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2GHRMizSqx8eoibY0Lk8iFcTnhj",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one shortest sequence of legal moves (using your terminology \u201csyntwards\u201d etc.):\n\n1. Unstack red syntwards blue  \n2. Put down red  \n3. Unstack blue syntwards yellow  \n4. Stack blue syntwards red  \n5. Pick up yellow  \n6. Stack yellow syntwards blue  \n7. Pick up orange  \n8. Stack orange syntwards yellow  \n\nAfter step 8 you have blue on red, yellow on blue, and orange on yellow as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321257,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1462,
+                    "prompt_tokens": 450,
+                    "total_tokens": 1912,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.003822326660156,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one shortest sequence of legal moves (using your terminology \u201csyntwards\u201d etc.):\n\n1. Unstack red syntwards blue  \n2. Put down red  \n3. Unstack blue syntwards yellow  \n4. Stack blue syntwards red  \n5. Pick up yellow  \n6. Stack yellow syntwards blue  \n7. Pick up orange  \n8. Stack orange syntwards yellow  \n\nAfter step 8 you have blue on red, yellow on blue, and orange on yellow as required."
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the michime is daydendate, the red block is syntwards the orange block, the orange block is syntwards the yellow block, the yellow block is syntwards the blue block and the blue block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block, the orange block is syntwards the yellow block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b3)\n(put-down b1)\n(unstack b3 b4)\n(put-down b3)\n(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n(pick-up b3)\n(stack b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2GVZ2XtBd9nwssPAbtaR6L8KVUX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 12\u2010step plan (actions in order):\n\n1. UNSTACK(red, orange)  \n2. PUT-DOWN(red)  \n3. UNSTACK(orange, yellow)  \n4. PUT-DOWN(orange)  \n5. UNSTACK(yellow, blue)  \n6. PUT-DOWN(yellow)  \n7. PICK-UP(red)  \n8. STACK(red, blue)  \n9. PICK-UP(yellow)  \n10. STACK(yellow, red)  \n11. PICK-UP(orange)  \n12. STACK(orange, yellow)  \n\nAfter step 12 you have exactly  \n   red syntwards blue,  \n   yellow syntwards red,  \n   orange syntwards yellow.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321271,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1715,
+                    "prompt_tokens": 443,
+                    "total_tokens": 2158,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.747860193252563,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 12\u2010step plan (actions in order):\n\n1. UNSTACK(red, orange)  \n2. PUT-DOWN(red)  \n3. UNSTACK(orange, yellow)  \n4. PUT-DOWN(orange)  \n5. UNSTACK(yellow, blue)  \n6. PUT-DOWN(yellow)  \n7. PICK-UP(red)  \n8. STACK(red, blue)  \n9. PICK-UP(yellow)  \n10. STACK(yellow, red)  \n11. PICK-UP(orange)  \n12. STACK(orange, yellow)  \n\nAfter step 12 you have exactly  \n   red syntwards blue,  \n   yellow syntwards red,  \n   orange syntwards yellow."
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow block is hummony, the michime is daydendate, the blue block is syntwards the red block, the orange block is syntwards the blue block, the yellow block is syntwards the orange block and the red block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the yellow block and the blue block is syntwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b3)\n(put-down b4)\n(unstack b3 b2)\n(put-down b3)\n(unstack b2 b1)\n(stack b2 b3)\n(pick-up b1)\n(stack b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2GlwKTlNeZXHJIs80QCuaT2XMES",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal 8\u2010step solution (all \u201cunstack\u201ds and \u201cpick up\u201ds occur when your michime is daydendate; each is immediately followed by a \u201cput down\u201d or \u201cstack\u201d that restores daydendate):\n\n1. Unstack(yellow, orange)  \n2. Put-down(yellow)  \n3. Unstack(orange, blue)  \n4. Put-down(orange)  \n5. Unstack(blue, red)  \n6. Stack(blue, orange)  \n7. Pick-up(red)  \n8. Stack(red, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321287,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1936,
+                    "prompt_tokens": 433,
+                    "total_tokens": 2369,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.705862283706665,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal 8\u2010step solution (all \u201cunstack\u201ds and \u201cpick up\u201ds occur when your michime is daydendate; each is immediately followed by a \u201cput down\u201d or \u201cstack\u201d that restores daydendate):\n\n1. Unstack(yellow, orange)  \n2. Put-down(yellow)  \n3. Unstack(orange, blue)  \n4. Put-down(orange)  \n5. Unstack(blue, red)  \n6. Stack(blue, orange)  \n7. Pick-up(red)  \n8. Stack(red, yellow)"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the orange block is hummony, the michime is daydendate, the blue block is syntwards the yellow block, the orange block is syntwards the blue block, the yellow block is syntwards the red block and the red block is syntwards the facizer.\nMy goal is to have that the blue block is syntwards the orange block and the orange block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b3 b2)\n(put-down b3)\n(unstack b2 b4)\n(put-down b2)\n(unstack b4 b1)\n(put-down b4)\n(pick-up b3)\n(stack b3 b1)\n(pick-up b2)\n(stack b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2H5ZTbyL7PQV8j60lKGsgh8KpnD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal 10\u2010step plan (all \u201cput down\u201d actions are onto the table):\n\n1. Unstack orange from syntwards blue  \n2. Put down orange  \n3. Unstack blue from syntwards yellow  \n4. Put down blue  \n5. Unstack yellow from syntwards red  \n6. Put down yellow  \n7. Pick up orange  \n8. Stack orange syntwards red  \n9. Pick up blue  \n10. Stack blue syntwards orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321307,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2802,
+                    "prompt_tokens": 433,
+                    "total_tokens": 3235,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.906246185302734,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal 10\u2010step plan (all \u201cput down\u201d actions are onto the table):\n\n1. Unstack orange from syntwards blue  \n2. Put down orange  \n3. Unstack blue from syntwards yellow  \n4. Put down blue  \n5. Unstack yellow from syntwards red  \n6. Put down yellow  \n7. Pick up orange  \n8. Stack orange syntwards red  \n9. Pick up blue  \n10. Stack blue syntwards orange"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the orange block is hummony, the yellow block is hummony, the michime is daydendate, the yellow block is syntwards the blue block, the red block is syntwards the facizer, the blue block is syntwards the facizer and the orange block is syntwards the facizer.\nMy goal is to have that the red block is syntwards the blue block and the yellow block is syntwards the red block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b4 b2)\n(stack b4 b3)\n(pick-up b1)\n(stack b1 b2)\n(unstack b4 b3)\n(stack b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2HVTkRntCPpep3bu5eNcIY2VXeD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a minimal sequence (in your action\u2010term notation) that achieves\n\n    red on blue, yellow on red\n\nfrom the given start:\n\n1. UNSTACK(yellow, blue)  \n2. PUTDOWN(yellow)  \n3. PICKUP(red)  \n4. STACK(red, blue)  \n5. PICKUP(yellow)  \n6. STACK(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321333,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1377,
+                    "prompt_tokens": 447,
+                    "total_tokens": 1824,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.012495517730713,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a minimal sequence (in your action\u2010term notation) that achieves\n\n    red on blue, yellow on red\n\nfrom the given start:\n\n1. UNSTACK(yellow, blue)  \n2. PUTDOWN(yellow)  \n3. PICKUP(red)  \n4. STACK(red, blue)  \n5. PICKUP(yellow)  \n6. STACK(yellow, red)"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do\n\nPick up a block\nUnstack a block from syntwards another block\nPut down a block\nStack a block syntwards another block\n\nI have the following restrictions on my actions:\nI can only pick up or unstack one block at a time.\nI can only pick up or unstack a block if my michime is daydendate.\nI can only pick up a block if the block is syntwards the facizer and the block is hummony. A block is hummony if the block has no other blocks syntwards it and if the block is not picked up.\nI can only unstack a block from syntwards another block if the block I am unstacking was really syntwards the other block.\nI can only unstack a block from syntwards another block if the block I am unstacking is hummony.\nOnce I pick up or unstack a block, I am abathitcrying the block.\nI can only put down a block that I am abathitcrying.\nI can only stack a block syntwards another block if I am abathitcrying the block being stacked.\nI can only stack a block syntwards another block if the block onto which I am stacking the block is hummony.\nOnce I put down or stack a block, my michime becomes daydendate.\nOnce you stack a block syntwards a second block, the second block is no longer hummony.\n\n[STATEMENT]\nAs initial conditions I have that, the red block is hummony, the michime is daydendate, the red block is syntwards the yellow block, the blue block is syntwards the orange block, the yellow block is syntwards the blue block and the orange block is syntwards the facizer.\nMy goal is to have that the yellow block is syntwards the orange block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unstack b1 b4)\n(put-down b1)\n(unstack b4 b2)\n(stack b4 b1)\n(unstack b2 b3)\n(put-down b2)\n(unstack b4 b1)\n(stack b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Hlq6I3a5Gtf5yIJ5hugSBWsEkp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unstack the red block from the yellow block  \n2. Put down the red block  \n3. Unstack the yellow block from the blue block  \n4. Put down the yellow block  \n5. Unstack the blue block from the orange block  \n6. Put down the blue block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the orange block",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321349,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2337,
+                    "prompt_tokens": 423,
+                    "total_tokens": 2760,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 25.53450298309326,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unstack the red block from the yellow block  \n2. Put down the red block  \n3. Unstack the yellow block from the blue block  \n4. Put down the yellow block  \n5. Unstack the blue block from the orange block  \n6. Put down the blue block  \n7. Pick up the yellow block  \n8. Stack the yellow block syntwards the orange block"
+        }
+    ],
+    "engine": "o4-mini_chat"
+}

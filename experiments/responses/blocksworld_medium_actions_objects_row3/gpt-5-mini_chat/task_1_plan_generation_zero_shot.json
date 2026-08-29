@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_actions_objects_row3",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the hand is empty, the blue migrap is on top of the orange migrap, the orange migrap is on top of the yellow migrap, the yellow migrap is on top of the red migrap and the red migrap is on the table.\nMy goal is to have that the blue migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b3)\n(suffus b2)\n(unbartee b3 b4)\n(suffus b3)\n(unbartee b4 b1)\n(suffus b4)\n(vess b2)\n(bartee b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAA86Sx7wtNWg0sntLg5cZos1kHw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the blue migrap from on top of the orange migrap\n2. Suffus the blue migrap\n3. Unbartee the orange migrap from on top of the yellow migrap\n4. Suffus the orange migrap\n5. Unbartee the yellow migrap from on top of the red migrap\n6. Suffus the yellow migrap\n7. Vess the blue migrap\n8. Bartee the blue migrap on top of the red migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351628,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2162,
+                    "prompt_tokens": 468,
+                    "total_tokens": 2630,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2048,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.54204082489014,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the blue migrap from on top of the orange migrap\n2. Suffus the blue migrap\n3. Unbartee the orange migrap from on top of the yellow migrap\n4. Suffus the orange migrap\n5. Unbartee the yellow migrap from on top of the red migrap\n6. Suffus the yellow migrap\n7. Vess the blue migrap\n8. Bartee the blue migrap on top of the red migrap"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the orange migrap is clear, the hand is empty, the red migrap is on top of the yellow migrap, the blue migrap is on top of the red migrap, the orange migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap, the blue migrap is on top of the orange migrap and the orange migrap is on top of the yellow migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b1)\n(suffus b2)\n(unbartee b1 b4)\n(suffus b1)\n(vess b3)\n(bartee b3 b4)\n(vess b2)\n(bartee b2 b3)\n(vess b1)\n(bartee b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAAekO2RZH0darP0QLwG2gc2Nxv3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee blue from on top of red\n2. Bartee blue on top of orange\n3. Unbartee red from on top of yellow\n4. Bartee red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351660,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1268,
+                    "prompt_tokens": 497,
+                    "total_tokens": 1765,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 45.273937702178955,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee blue from on top of red\n2. Bartee blue on top of orange\n3. Unbartee red from on top of yellow\n4. Bartee red on top of blue"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the blue migrap is clear, the hand is empty, the blue migrap is on top of the orange migrap, the orange migrap is on top of the yellow migrap, the red migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the blue migrap is on top of the yellow migrap, the orange migrap is on top of the blue migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b3)\n(suffus b2)\n(unbartee b3 b4)\n(suffus b3)\n(vess b4)\n(bartee b4 b1)\n(vess b2)\n(bartee b2 b4)\n(vess b3)\n(bartee b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQABNFNUiddczt7A2052N3xvIZn23",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unbartee the blue migrap from on top of the orange migrap\nSuffus the blue migrap\nUnbartee the orange migrap from on top of the yellow migrap\nSuffus the orange migrap\nVess the yellow migrap\nBartee the yellow migrap on top of the red migrap\nVess the blue migrap\nBartee the blue migrap on top of the yellow migrap\nVess the orange migrap\nBartee the orange migrap on top of the blue migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351705,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2679,
+                    "prompt_tokens": 497,
+                    "total_tokens": 3176,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2560,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.82007145881653,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unbartee the blue migrap from on top of the orange migrap\nSuffus the blue migrap\nUnbartee the orange migrap from on top of the yellow migrap\nSuffus the orange migrap\nVess the yellow migrap\nBartee the yellow migrap on top of the red migrap\nVess the blue migrap\nBartee the blue migrap on top of the yellow migrap\nVess the orange migrap\nBartee the orange migrap on top of the blue migrap"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the blue migrap is clear, the orange migrap is clear, the hand is empty, the orange migrap is on top of the yellow migrap, the red migrap is on the table, the blue migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the red migrap is on top of the orange migrap, the blue migrap is on top of the red migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b3 b4)\n(suffus b3)\n(vess b1)\n(bartee b1 b3)\n(vess b2)\n(bartee b2 b1)\n(vess b4)\n(bartee b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAC37fOSiiSI370mqdWAK0MwYNkc",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the orange migrap from on top of the yellow migrap\n2. Suffus the orange migrap\n3. Vess the red migrap\n4. Bartee the red migrap on top of the orange migrap\n5. Vess the blue migrap\n6. Bartee the blue migrap on top of the red migrap\n7. Vess the yellow migrap\n8. Bartee the yellow migrap on top of the blue migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351747,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1966,
+                    "prompt_tokens": 500,
+                    "total_tokens": 2466,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.2120680809021,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the orange migrap from on top of the yellow migrap\n2. Suffus the orange migrap\n3. Vess the red migrap\n4. Bartee the red migrap on top of the orange migrap\n5. Vess the blue migrap\n6. Bartee the blue migrap on top of the red migrap\n7. Vess the yellow migrap\n8. Bartee the yellow migrap on top of the blue migrap"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the yellow migrap is clear, the hand is empty, the red migrap is on top of the orange migrap, the yellow migrap is on top of the blue migrap, the blue migrap is on the table and the orange migrap is on the table.\nMy goal is to have that the red migrap is on top of the orange migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b2)\n(bartee b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQACYft4r6I1SkvTmL3mJJWI8FQKh",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee(yellow, blue)\n2. Bartee(yellow, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351778,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 540,
+                    "prompt_tokens": 484,
+                    "total_tokens": 1024,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 512,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 8.240756750106812,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee(yellow, blue)\n2. Bartee(yellow, red)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange migrap is clear, the yellow migrap is clear, the hand is empty, the blue migrap is on top of the red migrap, the yellow migrap is on top of the blue migrap, the red migrap is on the table and the orange migrap is on the table.\nMy goal is to have that the blue migrap is on top of the yellow migrap, the orange migrap is on top of the red migrap and the yellow migrap is on top of the orange migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b2)\n(suffus b4)\n(unbartee b2 b1)\n(suffus b2)\n(vess b3)\n(bartee b3 b1)\n(vess b4)\n(bartee b4 b3)\n(vess b2)\n(bartee b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAChNmwz0bcn2d2S1DdvSXsVLgv7",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee Yellow from Blue\n2. Suffus Yellow\n3. Unbartee Blue from Red\n4. Suffus Blue\n5. Vess Orange\n6. Bartee Orange on Red\n7. Vess Yellow\n8. Bartee Yellow on Orange\n9. Vess Blue\n10. Bartee Blue on Yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351787,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2960,
+                    "prompt_tokens": 497,
+                    "total_tokens": 3457,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.30981373786926,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee Yellow from Blue\n2. Suffus Yellow\n3. Unbartee Blue from Red\n4. Suffus Blue\n5. Vess Orange\n6. Bartee Orange on Red\n7. Vess Yellow\n8. Bartee Yellow on Orange\n9. Vess Blue\n10. Bartee Blue on Yellow"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the blue migrap is clear, the hand is empty, the red migrap is on top of the yellow migrap, the yellow migrap is on top of the orange migrap, the blue migrap is on the table and the orange migrap is on the table.\nMy goal is to have that the blue migrap is on top of the red migrap and the orange migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b1 b4)\n(suffus b1)\n(vess b2)\n(bartee b2 b1)\n(unbartee b4 b3)\n(suffus b4)\n(vess b3)\n(bartee b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQADK7ccSSVLc9h4dEQpChQfQDWwt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee red from on top of yellow\n2. Suffus red\n3. Vess blue\n4. Bartee blue on top of red\n5. Unbartee yellow from on top of orange\n6. Suffus yellow\n7. Vess orange\n8. Bartee orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351826,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2316,
+                    "prompt_tokens": 484,
+                    "total_tokens": 2800,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 44.87793946266174,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee red from on top of yellow\n2. Suffus red\n3. Vess blue\n4. Bartee blue on top of red\n5. Unbartee yellow from on top of orange\n6. Suffus yellow\n7. Vess orange\n8. Bartee orange on top of blue"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange migrap is clear, the hand is empty, the blue migrap is on top of the yellow migrap, the orange migrap is on top of the blue migrap, the yellow migrap is on top of the red migrap and the red migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap and the blue migrap is on top of the orange migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b3 b2)\n(suffus b3)\n(unbartee b2 b4)\n(bartee b2 b3)\n(unbartee b4 b1)\n(suffus b4)\n(vess b1)\n(bartee b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAE3KR24o87NJaZG4dCy8OSNPjMy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the orange migrap from on top of the blue migrap\n2. Suffus the orange migrap\n3. Unbartee the blue migrap from on top of the yellow migrap\n4. Bartee the blue migrap on top of the orange migrap\n5. Unbartee the yellow migrap from on top of the red migrap\n6. Suffus the yellow migrap\n7. Vess the red migrap\n8. Bartee the red migrap on top of the blue migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351871,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2297,
+                    "prompt_tokens": 481,
+                    "total_tokens": 2778,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 37.059332609176636,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the orange migrap from on top of the blue migrap\n2. Suffus the orange migrap\n3. Unbartee the blue migrap from on top of the yellow migrap\n4. Bartee the blue migrap on top of the orange migrap\n5. Unbartee the yellow migrap from on top of the red migrap\n6. Suffus the yellow migrap\n7. Vess the red migrap\n8. Bartee the red migrap on top of the blue migrap"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the blue migrap is clear, the hand is empty, the blue migrap is on top of the yellow migrap, the yellow migrap is on top of the orange migrap, the red migrap is on the table and the orange migrap is on the table.\nMy goal is to have that the blue migrap is on top of the orange migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b4)\n(bartee b2 b1)\n(unbartee b4 b3)\n(suffus b4)\n(unbartee b2 b1)\n(bartee b2 b3)\n(vess b4)\n(bartee b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAEe1AkC5LnYMV2xkGyUhXTlmbCB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the blue migrap from on top of the yellow migrap\n2. Bartee the blue migrap on top of the red migrap\n3. Unbartee the yellow migrap from on top of the orange migrap\n4. Bartee the yellow migrap on top of the blue migrap\n5. Unbartee the yellow migrap from on top of the blue migrap\n6. Suffus the yellow migrap\n7. Unbartee the blue migrap from on top of the red migrap\n8. Bartee the blue migrap on top of the orange migrap\n9. Vess the yellow migrap\n10. Bartee the yellow migrap on top of the blue migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351908,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2466,
+                    "prompt_tokens": 484,
+                    "total_tokens": 2950,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 63.55557465553284,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the blue migrap from on top of the yellow migrap\n2. Bartee the blue migrap on top of the red migrap\n3. Unbartee the yellow migrap from on top of the orange migrap\n4. Bartee the yellow migrap on top of the blue migrap\n5. Unbartee the yellow migrap from on top of the blue migrap\n6. Suffus the yellow migrap\n7. Unbartee the blue migrap from on top of the red migrap\n8. Bartee the blue migrap on top of the orange migrap\n9. Vess the yellow migrap\n10. Bartee the yellow migrap on top of the blue migrap"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow migrap is clear, the hand is empty, the red migrap is on top of the orange migrap, the blue migrap is on top of the red migrap, the yellow migrap is on top of the blue migrap and the orange migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap, the orange migrap is on top of the yellow migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b2)\n(suffus b4)\n(unbartee b2 b1)\n(suffus b2)\n(unbartee b1 b3)\n(bartee b1 b2)\n(vess b4)\n(bartee b4 b1)\n(vess b3)\n(bartee b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAFfEqJBIU8tlophwbPxFx9abkkT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the yellow migrap from on top of the blue migrap\n2. Suffus the yellow migrap\n3. Unbartee the blue migrap from on top of the red migrap\n4. Suffus the blue migrap\n5. Unbartee the red migrap from on top of the orange migrap\n6. Bartee the red migrap on top of the blue migrap\n7. Vess the yellow migrap\n8. Bartee the yellow migrap on top of the red migrap\n9. Vess the orange migrap\n10. Bartee the orange migrap on top of the yellow migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760351971,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2642,
+                    "prompt_tokens": 494,
+                    "total_tokens": 3136,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.28530025482178,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the yellow migrap from on top of the blue migrap\n2. Suffus the yellow migrap\n3. Unbartee the blue migrap from on top of the red migrap\n4. Suffus the blue migrap\n5. Unbartee the red migrap from on top of the orange migrap\n6. Bartee the red migrap on top of the blue migrap\n7. Vess the yellow migrap\n8. Bartee the yellow migrap on top of the red migrap\n9. Vess the orange migrap\n10. Bartee the orange migrap on top of the yellow migrap"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow migrap is clear, the hand is empty, the blue migrap is on top of the orange migrap, the orange migrap is on top of the red migrap, the yellow migrap is on top of the blue migrap and the red migrap is on the table.\nMy goal is to have that the blue migrap is on top of the yellow migrap and the orange migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b2)\n(suffus b4)\n(unbartee b2 b3)\n(bartee b2 b4)\n(unbartee b3 b1)\n(bartee b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAGJKEeZdjGA87m5jBJUkRLBekZM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the yellow migrap from on top of the blue migrap\n2. Suffus the yellow migrap\n3. Unbartee the blue migrap from on top of the orange migrap\n4. Bartee the blue migrap on top of the yellow migrap\n5. Unbartee the orange migrap from on top of the red migrap\n6. Bartee the orange migrap on top of the blue migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352011,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2599,
+                    "prompt_tokens": 481,
+                    "total_tokens": 3080,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 50.11468720436096,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the yellow migrap from on top of the blue migrap\n2. Suffus the yellow migrap\n3. Unbartee the blue migrap from on top of the orange migrap\n4. Bartee the blue migrap on top of the yellow migrap\n5. Unbartee the orange migrap from on top of the red migrap\n6. Bartee the orange migrap on top of the blue migrap"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the blue migrap is clear, the orange migrap is clear, the hand is empty, the red migrap is on top of the yellow migrap, the blue migrap is on the table, the orange migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the red migrap is on top of the orange migrap, the blue migrap is on top of the red migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b1 b4)\n(bartee b1 b3)\n(vess b2)\n(bartee b2 b1)\n(vess b4)\n(bartee b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAH7lzE2HhMI19Racj9mL0RYqHvI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the red migrap from on top of the yellow migrap\n2. Bartee the red migrap on top of the orange migrap\n3. Vess the blue migrap\n4. Bartee the blue migrap on top of the red migrap\n5. Vess the yellow migrap\n6. Bartee the yellow migrap on top of the blue migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352061,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1500,
+                    "prompt_tokens": 500,
+                    "total_tokens": 2000,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.13190269470215,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the red migrap from on top of the yellow migrap\n2. Bartee the red migrap on top of the orange migrap\n3. Vess the blue migrap\n4. Bartee the blue migrap on top of the red migrap\n5. Vess the yellow migrap\n6. Bartee the yellow migrap on top of the blue migrap"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the yellow migrap is clear, the hand is empty, the red migrap is on top of the blue migrap, the blue migrap is on top of the orange migrap, the orange migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the blue migrap is on top of the orange migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b1 b2)\n(suffus b1)\n(vess b4)\n(bartee b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHUyCsxhUExygE3BykFHnFFLXqa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the red migrap from on top of the blue migrap\n2. Suffus the red migrap\n3. Vess the yellow migrap\n4. Bartee the yellow migrap on top of the blue migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352084,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1084,
+                    "prompt_tokens": 484,
+                    "total_tokens": 1568,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.2603702545166,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the red migrap from on top of the blue migrap\n2. Suffus the red migrap\n3. Vess the yellow migrap\n4. Bartee the yellow migrap on top of the blue migrap"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow migrap is clear, the hand is empty, the red migrap is on top of the orange migrap, the blue migrap is on top of the red migrap, the yellow migrap is on top of the blue migrap and the orange migrap is on the table.\nMy goal is to have that the orange migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b2)\n(suffus b4)\n(unbartee b2 b1)\n(suffus b2)\n(unbartee b1 b3)\n(suffus b1)\n(vess b3)\n(bartee b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAHlxkebhjOKXCypUvFZeLoFteQy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the yellow migrap from on top of the blue migrap\n2. Suffus the yellow migrap\n3. Unbartee the blue migrap from on top of the red migrap\n4. Bartee the blue migrap on top of the yellow migrap\n5. Unbartee the red migrap from on top of the orange migrap\n6. Suffus the red migrap\n7. Vess the orange migrap\n8. Bartee the orange migrap on top of the blue migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352101,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2873,
+                    "prompt_tokens": 468,
+                    "total_tokens": 3341,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2752,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 41.86541748046875,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the yellow migrap from on top of the blue migrap\n2. Suffus the yellow migrap\n3. Unbartee the blue migrap from on top of the red migrap\n4. Bartee the blue migrap on top of the yellow migrap\n5. Unbartee the red migrap from on top of the orange migrap\n6. Suffus the red migrap\n7. Vess the orange migrap\n8. Bartee the orange migrap on top of the blue migrap"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the yellow migrap is clear, the hand is empty, the orange migrap is on top of the red migrap, the yellow migrap is on top of the orange migrap, the red migrap is on the table and the blue migrap is on the table.\nMy goal is to have that the red migrap is on top of the yellow migrap, the blue migrap is on top of the orange migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b3)\n(suffus b4)\n(unbartee b3 b1)\n(suffus b3)\n(vess b2)\n(bartee b2 b3)\n(vess b4)\n(bartee b4 b2)\n(vess b1)\n(bartee b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAIRPsuuayBHBTIYE9cla3d7MJfH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the yellow migrap from the orange migrap\n2. Bartee the yellow migrap on top of the blue migrap\n3. Unbartee the yellow migrap from the blue migrap\n4. Suffus the yellow migrap\n5. Vess the blue migrap\n6. Bartee the blue migrap on top of the orange migrap\n7. Vess the yellow migrap\n8. Bartee the yellow migrap on top of the blue migrap\n9. Unbartee the yellow migrap from the blue migrap\n10. Suffus the yellow migrap\n11. Unbartee the blue migrap from the orange migrap\n12. Suffus the blue migrap\n13. Unbartee the orange migrap from the red migrap\n14. Suffus the orange migrap\n15. Vess the blue migrap\n16. Bartee the blue migrap on top of the orange migrap\n17. Vess the yellow migrap\n18. Bartee the yellow migrap on top of the blue migrap\n19. Vess the red migrap\n20. Bartee the red migrap on top of the yellow migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352143,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 5188,
+                    "prompt_tokens": 497,
+                    "total_tokens": 5685,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4928,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 104.02380275726318,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the yellow migrap from the orange migrap\n2. Bartee the yellow migrap on top of the blue migrap\n3. Unbartee the yellow migrap from the blue migrap\n4. Suffus the yellow migrap\n5. Vess the blue migrap\n6. Bartee the blue migrap on top of the orange migrap\n7. Vess the yellow migrap\n8. Bartee the yellow migrap on top of the blue migrap\n9. Unbartee the yellow migrap from the blue migrap\n10. Suffus the yellow migrap\n11. Unbartee the blue migrap from the orange migrap\n12. Suffus the blue migrap\n13. Unbartee the orange migrap from the red migrap\n14. Suffus the orange migrap\n15. Vess the blue migrap\n16. Bartee the blue migrap on top of the orange migrap\n17. Vess the yellow migrap\n18. Bartee the yellow migrap on top of the blue migrap\n19. Vess the red migrap\n20. Bartee the red migrap on top of the yellow migrap"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange migrap is clear, the hand is empty, the red migrap is on top of the blue migrap, the orange migrap is on top of the yellow migrap, the yellow migrap is on top of the red migrap and the blue migrap is on the table.\nMy goal is to have that the blue migrap is on top of the red migrap and the orange migrap is on top of the yellow migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b3 b4)\n(suffus b3)\n(unbartee b4 b1)\n(suffus b4)\n(vess b3)\n(bartee b3 b4)\n(unbartee b1 b2)\n(suffus b1)\n(vess b2)\n(bartee b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAK7CDBgS6um2EHupaYqC4BUNkeg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee orange from on top of yellow\n2. Suffus orange\n3. Unbartee yellow from on top of red\n4. Suffus yellow\n5. Unbartee red from on top of blue\n6. Suffus red\n7. Vess blue\n8. Bartee blue on top of red\n9. Vess orange\n10. Bartee orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352247,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2590,
+                    "prompt_tokens": 481,
+                    "total_tokens": 3071,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 38.2890100479126,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee orange from on top of yellow\n2. Suffus orange\n3. Unbartee yellow from on top of red\n4. Suffus yellow\n5. Unbartee red from on top of blue\n6. Suffus red\n7. Vess blue\n8. Bartee blue on top of red\n9. Vess orange\n10. Bartee orange on top of yellow"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the orange migrap is clear, the hand is empty, the blue migrap is on top of the yellow migrap, the orange migrap is on top of the blue migrap, the red migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the blue migrap is on top of the yellow migrap, the orange migrap is on top of the red migrap and the yellow migrap is on top of the orange migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b3 b2)\n(bartee b3 b1)\n(unbartee b2 b4)\n(suffus b2)\n(vess b4)\n(bartee b4 b3)\n(vess b2)\n(bartee b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAKjcA31F07Pao7elPYyzz0jmGJD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unbartee orange from on top of blue\nBartee orange on top of red\nUnbartee blue from on top of yellow\nSuffus blue\nVess yellow\nBartee yellow on top of orange\nVess blue\nBartee blue on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352285,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2433,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2930,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2368,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.994999408721924,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unbartee orange from on top of blue\nBartee orange on top of red\nUnbartee blue from on top of yellow\nSuffus blue\nVess yellow\nBartee yellow on top of orange\nVess blue\nBartee blue on top of yellow"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the orange migrap is clear, the yellow migrap is clear, the hand is empty, the orange migrap is on top of the blue migrap, the red migrap is on the table, the blue migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the red migrap is on top of the orange migrap, the blue migrap is on top of the red migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b3 b2)\n(suffus b3)\n(vess b1)\n(bartee b1 b3)\n(vess b2)\n(bartee b2 b1)\n(vess b4)\n(bartee b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQALKQylJmU97Gq0bvupmbmLJD8xE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee orange from on top of blue\n2. Suffus orange\n3. Vess red\n4. Bartee red on top of orange\n5. Vess blue\n6. Bartee blue on top of red\n7. Vess yellow\n8. Bartee yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352322,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1738,
+                    "prompt_tokens": 500,
+                    "total_tokens": 2238,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.5827317237854,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee orange from on top of blue\n2. Suffus orange\n3. Vess red\n4. Bartee red on top of orange\n5. Vess blue\n6. Bartee blue on top of red\n7. Vess yellow\n8. Bartee yellow on top of blue"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the orange migrap is clear, the hand is empty, the blue migrap is on top of the yellow migrap, the yellow migrap is on top of the red migrap, the red migrap is on the table and the orange migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap, the blue migrap is on top of the yellow migrap and the yellow migrap is on top of the orange migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b4)\n(suffus b2)\n(unbartee b4 b1)\n(bartee b4 b3)\n(vess b2)\n(bartee b2 b4)\n(vess b1)\n(bartee b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQALk6qgxBra8LSiu60Uc9rsd2ILr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee(blue, yellow)\n2. Suffus(blue)\n3. Unbartee(yellow, red)\n4. Bartee(yellow, orange)\n5. Vess(blue)\n6. Bartee(blue, yellow)\n7. Vess(red)\n8. Bartee(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352348,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2379,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2876,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2304,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.794947624206543,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee(blue, yellow)\n2. Suffus(blue)\n3. Unbartee(yellow, red)\n4. Bartee(yellow, orange)\n5. Vess(blue)\n6. Bartee(blue, yellow)\n7. Vess(red)\n8. Bartee(red, blue)"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the yellow migrap is clear, the hand is empty, the blue migrap is on top of the orange migrap, the orange migrap is on top of the red migrap, the red migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the blue migrap is on top of the yellow migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b3)\n(suffus b2)\n(unbartee b3 b1)\n(suffus b3)\n(vess b4)\n(bartee b4 b1)\n(vess b2)\n(bartee b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMGCqNBja9H7EOsgRVxrney2QdL",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the blue migrap from on top of the orange migrap\n2. Suffus the blue migrap\n3. Unbartee the orange migrap from on top of the red migrap\n4. Suffus the orange migrap\n5. Vess the yellow migrap\n6. Bartee the yellow migrap on top of the red migrap\n7. Vess the blue migrap\n8. Bartee the blue migrap on top of the yellow migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352380,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1520,
+                    "prompt_tokens": 484,
+                    "total_tokens": 2004,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.33020782470703,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the blue migrap from on top of the orange migrap\n2. Suffus the blue migrap\n3. Unbartee the orange migrap from on top of the red migrap\n4. Suffus the orange migrap\n5. Vess the yellow migrap\n6. Bartee the yellow migrap on top of the red migrap\n7. Vess the blue migrap\n8. Bartee the blue migrap on top of the yellow migrap"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the blue migrap is clear, the hand is empty, the red migrap is on top of the yellow migrap, the blue migrap is on top of the orange migrap, the orange migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the red migrap is on top of the orange migrap, the blue migrap is on top of the red migrap and the orange migrap is on top of the yellow migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b3)\n(suffus b2)\n(unbartee b1 b4)\n(bartee b1 b2)\n(vess b3)\n(bartee b3 b4)\n(unbartee b1 b2)\n(bartee b1 b3)\n(vess b2)\n(bartee b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAMidP6BQOUXlum9cxb3ZQgAevgP",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee blue from on top of orange\n2. Suffus blue\n3. Unbartee red from on top of yellow\n4. Bartee red on top of orange\n5. Vess blue\n6. Bartee blue on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352408,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1792,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2289,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.45922255516052,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee blue from on top of orange\n2. Suffus blue\n3. Unbartee red from on top of yellow\n4. Bartee red on top of orange\n5. Vess blue\n6. Bartee blue on top of red"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the orange migrap is clear, the yellow migrap is clear, the hand is empty, the orange migrap is on top of the red migrap, the red migrap is on the table, the blue migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap and the blue migrap is on top of the orange migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b3 b1)\n(suffus b3)\n(vess b2)\n(bartee b2 b3)\n(vess b1)\n(bartee b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANHOzpU5wJHxtEl1sPnGmtCocnb",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee orange from on top of red\n2. Suffus orange\n3. Vess blue\n4. Bartee blue on top of orange\n5. Vess red\n6. Bartee red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352443,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1402,
+                    "prompt_tokens": 487,
+                    "total_tokens": 1889,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 22.144104957580566,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee orange from on top of red\n2. Suffus orange\n3. Vess blue\n4. Bartee blue on top of orange\n5. Vess red\n6. Bartee red on top of blue"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the yellow migrap is clear, the hand is empty, the orange migrap is on top of the blue migrap, the yellow migrap is on top of the orange migrap, the red migrap is on the table and the blue migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap, the orange migrap is on top of the yellow migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b3)\n(suffus b4)\n(unbartee b3 b2)\n(suffus b3)\n(vess b1)\n(bartee b1 b2)\n(vess b4)\n(bartee b4 b1)\n(vess b3)\n(bartee b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQANd9EqAaQWzCzOrktRURZpKcQ7D",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the yellow migrap from on top of the orange migrap\n2. Suffus the yellow migrap\n3. Unbartee the orange migrap from on top of the blue migrap\n4. Suffus the orange migrap\n5. Vess the red migrap\n6. Bartee the red migrap on top of the blue migrap\n7. Vess the yellow migrap\n8. Bartee the yellow migrap on top of the red migrap\n9. Vess the orange migrap\n10. Bartee the orange migrap on top of the yellow migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352465,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2633,
+                    "prompt_tokens": 497,
+                    "total_tokens": 3130,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 39.56002640724182,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the yellow migrap from on top of the orange migrap\n2. Suffus the yellow migrap\n3. Unbartee the orange migrap from on top of the blue migrap\n4. Suffus the orange migrap\n5. Vess the red migrap\n6. Bartee the red migrap on top of the blue migrap\n7. Vess the yellow migrap\n8. Bartee the yellow migrap on top of the red migrap\n9. Vess the orange migrap\n10. Bartee the orange migrap on top of the yellow migrap"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the yellow migrap is clear, the hand is empty, the red migrap is on top of the blue migrap, the blue migrap is on top of the orange migrap, the orange migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the orange migrap is on top of the yellow migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b1 b2)\n(suffus b1)\n(unbartee b2 b3)\n(suffus b2)\n(vess b4)\n(bartee b4 b2)\n(vess b3)\n(bartee b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOGBUK3gFJXDgCgZkV85OR2ytzX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee red from on top of blue\n2. Suffus red\n3. Unbartee blue from on top of orange\n4. Suffus blue\n5. Vess yellow\n6. Bartee yellow on top of blue\n7. Vess orange\n8. Bartee orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352504,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1996,
+                    "prompt_tokens": 484,
+                    "total_tokens": 2480,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.197155475616455,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee red from on top of blue\n2. Suffus red\n3. Unbartee blue from on top of orange\n4. Suffus blue\n5. Vess yellow\n6. Bartee yellow on top of blue\n7. Vess orange\n8. Bartee orange on top of yellow"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the blue migrap is clear, the yellow migrap is clear, the hand is empty, the red migrap is on top of the orange migrap, the blue migrap is on the table, the orange migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the red migrap is on top of the yellow migrap, the blue migrap is on top of the orange migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b1 b3)\n(suffus b1)\n(vess b2)\n(bartee b2 b3)\n(vess b4)\n(bartee b4 b2)\n(vess b1)\n(bartee b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAOl4UxdsDzPgeUWkvrzD5Olbeev",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unbartee red from orange\nSuffus red\nVess blue\nBartee blue on orange\nVess yellow\nBartee yellow on blue\nVess red\nBartee red on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352535,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1586,
+                    "prompt_tokens": 500,
+                    "total_tokens": 2086,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.729601860046387,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unbartee red from orange\nSuffus red\nVess blue\nBartee blue on orange\nVess yellow\nBartee yellow on blue\nVess red\nBartee red on yellow"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the orange migrap is clear, the hand is empty, the red migrap is on top of the yellow migrap, the blue migrap is on top of the red migrap, the orange migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap and the blue migrap is on top of the yellow migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b1)\n(bartee b2 b3)\n(unbartee b1 b4)\n(suffus b1)\n(unbartee b2 b3)\n(bartee b2 b4)\n(vess b1)\n(bartee b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAP9bemugJw5huVmwhpiozo2tXbZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee blue from on top of red\n2. Bartee blue on top of orange\n3. Unbartee red from on top of yellow\n4. Bartee red on top of blue\n5. Unbartee red from on top of blue\n6. Suffus red\n7. Unbartee blue from on top of orange\n8. Bartee blue on top of yellow\n9. Vess red\n10. Bartee red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352559,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3117,
+                    "prompt_tokens": 484,
+                    "total_tokens": 3601,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3008,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 50.45306038856506,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee blue from on top of red\n2. Bartee blue on top of orange\n3. Unbartee red from on top of yellow\n4. Bartee red on top of blue\n5. Unbartee red from on top of blue\n6. Suffus red\n7. Unbartee blue from on top of orange\n8. Bartee blue on top of yellow\n9. Vess red\n10. Bartee red on top of blue"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the orange migrap is clear, the yellow migrap is clear, the hand is empty, the yellow migrap is on top of the red migrap, the red migrap is on the table, the blue migrap is on the table and the orange migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b1)\n(bartee b4 b3)\n(vess b1)\n(bartee b1 b2)\n(unbartee b4 b3)\n(bartee b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAPyGcis3pc1l99lwS8hdD6NzBf3",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee yellow from red\n2. Suffus yellow\n3. Vess red\n4. Bartee red on top of blue\n5. Vess yellow\n6. Bartee yellow on top of red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352610,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1591,
+                    "prompt_tokens": 487,
+                    "total_tokens": 2078,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 28.073401927947998,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee yellow from red\n2. Suffus yellow\n3. Vess red\n4. Bartee red on top of blue\n5. Vess yellow\n6. Bartee yellow on top of red"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange migrap is clear, the hand is empty, the blue migrap is on top of the red migrap, the orange migrap is on top of the yellow migrap, the yellow migrap is on top of the blue migrap and the red migrap is on the table.\nMy goal is to have that the red migrap is on top of the yellow migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b3 b4)\n(suffus b3)\n(unbartee b4 b2)\n(suffus b4)\n(unbartee b2 b1)\n(suffus b2)\n(vess b1)\n(bartee b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAQQz30gK3G20CeXCe0UCZPZWRRO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee orange from on top of yellow\n2. Suffus orange\n3. Unbartee yellow from on top of blue\n4. Suffus yellow\n5. Unbartee blue from on top of red\n6. Suffus blue\n7. Vess red\n8. Bartee red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352638,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2254,
+                    "prompt_tokens": 468,
+                    "total_tokens": 2722,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 56.21704292297363,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee orange from on top of yellow\n2. Suffus orange\n3. Unbartee yellow from on top of blue\n4. Suffus yellow\n5. Unbartee blue from on top of red\n6. Suffus blue\n7. Vess red\n8. Bartee red on top of yellow"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow migrap is clear, the hand is empty, the red migrap is on top of the blue migrap, the orange migrap is on top of the red migrap, the yellow migrap is on top of the orange migrap and the blue migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap and the blue migrap is on top of the yellow migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b3)\n(suffus b4)\n(unbartee b3 b1)\n(suffus b3)\n(unbartee b1 b2)\n(bartee b1 b3)\n(vess b2)\n(bartee b2 b4)\n(unbartee b1 b3)\n(bartee b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQARKnEEFBPnrbYBDfgcxjxeASLeK",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee yellow from on top of orange\n2. Suffus yellow\n3. Unbartee orange from on top of red\n4. Suffus orange\n5. Unbartee red from on top of blue\n6. Suffus red\n7. Vess blue\n8. Bartee blue on top of yellow\n9. Vess red\n10. Bartee red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352694,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2526,
+                    "prompt_tokens": 481,
+                    "total_tokens": 3007,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2432,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.97634410858154,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee yellow from on top of orange\n2. Suffus yellow\n3. Unbartee orange from on top of red\n4. Suffus orange\n5. Unbartee red from on top of blue\n6. Suffus red\n7. Vess blue\n8. Bartee blue on top of yellow\n9. Vess red\n10. Bartee red on top of blue"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the hand is empty, the red migrap is on top of the orange migrap, the blue migrap is on top of the yellow migrap, the yellow migrap is on top of the red migrap and the orange migrap is on the table.\nMy goal is to have that the red migrap is on top of the orange migrap and the orange migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b2 b4)\n(suffus b2)\n(unbartee b4 b1)\n(suffus b4)\n(unbartee b1 b3)\n(bartee b1 b4)\n(vess b3)\n(bartee b3 b2)\n(unbartee b1 b4)\n(bartee b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAS2DlsxnkrRQgHw6xiIRHWbfFQ5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee blue from on top of yellow\n2. Suffus blue\n3. Unbartee yellow from on top of red\n4. Suffus yellow\n5. Unbartee red from on top of orange\n6. Suffus red\n7. Vess orange\n8. Bartee orange on top of blue\n9. Vess red\n10. Bartee red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352738,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3230,
+                    "prompt_tokens": 481,
+                    "total_tokens": 3711,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3136,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 51.51280999183655,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee blue from on top of yellow\n2. Suffus blue\n3. Unbartee yellow from on top of red\n4. Suffus yellow\n5. Unbartee red from on top of orange\n6. Suffus red\n7. Vess orange\n8. Bartee orange on top of blue\n9. Vess red\n10. Bartee red on top of orange"
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow migrap is clear, the hand is empty, the blue migrap is on top of the orange migrap, the orange migrap is on top of the red migrap, the yellow migrap is on top of the blue migrap and the red migrap is on the table.\nMy goal is to have that the red migrap is on top of the orange migrap and the orange migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b2)\n(suffus b4)\n(unbartee b2 b3)\n(suffus b2)\n(unbartee b3 b1)\n(bartee b3 b2)\n(vess b1)\n(bartee b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQASsuOcznWINUYXuuKnnJVNs3Bj1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Unbartee yellow from on top of blue\nSuffus yellow\nUnbartee blue from on top of orange\nSuffus blue\nUnbartee orange from on top of red\nBartee orange on top of blue\nVess red\nBartee red on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352790,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2308,
+                    "prompt_tokens": 481,
+                    "total_tokens": 2789,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 36.33966040611267,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Unbartee yellow from on top of blue\nSuffus yellow\nUnbartee blue from on top of orange\nSuffus blue\nUnbartee orange from on top of red\nBartee orange on top of blue\nVess red\nBartee red on top of orange"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange migrap is clear, the yellow migrap is clear, the hand is empty, the red migrap is on top of the blue migrap, the orange migrap is on top of the red migrap, the blue migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the orange migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQATSKhVdySaKWrOYa2yGkdTCpk7G",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "No actions \u2014 the goal is already satisfied in the initial state.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352826,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 534,
+                    "prompt_tokens": 471,
+                    "total_tokens": 1005,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 512,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.296277284622192,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "No actions \u2014 the goal is already satisfied in the initial state."
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the yellow migrap is clear, the hand is empty, the orange migrap is on top of the blue migrap, the yellow migrap is on top of the orange migrap, the red migrap is on the table and the blue migrap is on the table.\nMy goal is to have that the blue migrap is on top of the orange migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b3)\n(bartee b4 b1)\n(unbartee b3 b2)\n(suffus b3)\n(vess b2)\n(bartee b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQATbcJ4SwvxmVeHoF7vvH4hooEsI",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee yellow from on top of orange\n2. Bartee yellow on top of red\n3. Unbartee orange from on top of blue\n4. Suffus orange\n5. Vess blue\n6. Bartee blue on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352835,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1536,
+                    "prompt_tokens": 484,
+                    "total_tokens": 2020,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.384560108184814,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee yellow from on top of orange\n2. Bartee yellow on top of red\n3. Unbartee orange from on top of blue\n4. Suffus orange\n5. Vess blue\n6. Bartee blue on top of orange"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue migrap is clear, the yellow migrap is clear, the hand is empty, the red migrap is on top of the orange migrap, the yellow migrap is on top of the red migrap, the blue migrap is on the table and the orange migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap and the blue migrap is on top of the orange migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b1)\n(suffus b4)\n(unbartee b1 b3)\n(bartee b1 b4)\n(vess b2)\n(bartee b2 b3)\n(unbartee b1 b4)\n(bartee b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQATwcEuaDzf7osZSZS3muekBWHw8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee yellow from on top of red\n2. Suffus yellow\n3. Unbartee red from on top of orange\n4. Suffus red\n5. Vess blue\n6. Bartee blue on top of orange\n7. Vess red\n8. Bartee red on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352856,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2188,
+                    "prompt_tokens": 484,
+                    "total_tokens": 2672,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 33.97545862197876,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee yellow from on top of red\n2. Suffus yellow\n3. Unbartee red from on top of orange\n4. Suffus red\n5. Vess blue\n6. Bartee blue on top of orange\n7. Vess red\n8. Bartee red on top of blue"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the orange migrap is clear, the hand is empty, the red migrap is on top of the blue migrap, the blue migrap is on top of the yellow migrap, the orange migrap is on the table and the yellow migrap is on the table.\nMy goal is to have that the blue migrap is on top of the red migrap, the orange migrap is on top of the yellow migrap and the yellow migrap is on top of the blue migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b1 b2)\n(suffus b1)\n(unbartee b2 b4)\n(bartee b2 b1)\n(vess b4)\n(bartee b4 b2)\n(vess b3)\n(bartee b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAUUDFmvRhnAXJDkNNgsfjeONl82",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee red from on top of blue\n2. Suffus red\n3. Unbartee blue from on top of yellow\n4. Bartee blue on top of red\n5. Vess yellow\n6. Bartee yellow on top of blue\n7. Vess orange\n8. Bartee orange on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352890,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1744,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2241,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.41266441345215,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee red from on top of blue\n2. Suffus red\n3. Unbartee blue from on top of yellow\n4. Bartee blue on top of red\n5. Vess yellow\n6. Bartee yellow on top of blue\n7. Vess orange\n8. Bartee orange on top of yellow"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the hand is empty, the red migrap is on top of the orange migrap, the orange migrap is on top of the yellow migrap, the yellow migrap is on top of the blue migrap and the blue migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap, the orange migrap is on top of the yellow migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b1 b3)\n(suffus b1)\n(unbartee b3 b4)\n(suffus b3)\n(unbartee b4 b2)\n(bartee b4 b3)\n(vess b1)\n(bartee b1 b2)\n(unbartee b4 b3)\n(bartee b4 b1)\n(vess b3)\n(bartee b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAUsawYa3aZt4z2fbdBP7A1tT8m2",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the red migrap from on top of the orange migrap\n2. Suffus the red migrap\n3. Unbartee the orange migrap from on top of the yellow migrap\n4. Suffus the orange migrap\n5. Unbartee the yellow migrap from on top of the blue migrap\n6. Suffus the yellow migrap\n7. Vess the red migrap\n8. Bartee the red migrap on top of the blue migrap\n9. Vess the yellow migrap\n10. Bartee the yellow migrap on top of the red migrap\n11. Vess the orange migrap\n12. Bartee the orange migrap on top of the yellow migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352914,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4005,
+                    "prompt_tokens": 494,
+                    "total_tokens": 4499,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3840,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 53.04937195777893,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the red migrap from on top of the orange migrap\n2. Suffus the red migrap\n3. Unbartee the orange migrap from on top of the yellow migrap\n4. Suffus the orange migrap\n5. Unbartee the yellow migrap from on top of the blue migrap\n6. Suffus the yellow migrap\n7. Vess the red migrap\n8. Bartee the red migrap on top of the blue migrap\n9. Vess the yellow migrap\n10. Bartee the yellow migrap on top of the red migrap\n11. Vess the orange migrap\n12. Bartee the orange migrap on top of the yellow migrap"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow migrap is clear, the hand is empty, the blue migrap is on top of the red migrap, the orange migrap is on top of the blue migrap, the yellow migrap is on top of the orange migrap and the red migrap is on the table.\nMy goal is to have that the red migrap is on top of the yellow migrap and the blue migrap is on top of the orange migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b3)\n(suffus b4)\n(unbartee b3 b2)\n(suffus b3)\n(unbartee b2 b1)\n(bartee b2 b3)\n(vess b1)\n(bartee b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAVjBTytMV1olfM2MjMzQLSzHPaE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee yellow from on top of orange\n2. Suffus yellow\n3. Unbartee orange from on top of blue\n4. Suffus orange\n5. Unbartee blue from on top of red\n6. Bartee blue on top of orange\n7. Vess red\n8. Bartee red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352967,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1938,
+                    "prompt_tokens": 481,
+                    "total_tokens": 2419,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 29.616474866867065,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee yellow from on top of orange\n2. Suffus yellow\n3. Unbartee orange from on top of blue\n4. Suffus orange\n5. Unbartee blue from on top of red\n6. Bartee blue on top of orange\n7. Vess red\n8. Bartee red on top of yellow"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange migrap is clear, the hand is empty, the blue migrap is on top of the yellow migrap, the orange migrap is on top of the blue migrap, the yellow migrap is on top of the red migrap and the red migrap is on the table.\nMy goal is to have that the blue migrap is on top of the orange migrap and the orange migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b3 b2)\n(suffus b3)\n(unbartee b2 b4)\n(suffus b2)\n(unbartee b4 b1)\n(suffus b4)\n(vess b3)\n(bartee b3 b1)\n(vess b2)\n(bartee b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAWDsoaxAkHwmh6sbvyNAQz0qb2f",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee orange from on top of blue\n2. Suffus orange\n3. Unbartee blue from on top of yellow\n4. Suffus blue\n5. Unbartee yellow from on top of red\n6. Suffus yellow\n7. Vess orange\n8. Bartee orange on top of red\n9. Vess blue\n10. Bartee blue on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760352997,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2590,
+                    "prompt_tokens": 481,
+                    "total_tokens": 3071,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2496,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.695240259170532,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee orange from on top of blue\n2. Suffus orange\n3. Unbartee blue from on top of yellow\n4. Suffus blue\n5. Unbartee yellow from on top of red\n6. Suffus yellow\n7. Vess orange\n8. Bartee orange on top of red\n9. Vess blue\n10. Bartee blue on top of orange"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the orange migrap is clear, the yellow migrap is clear, the hand is empty, the yellow migrap is on top of the blue migrap, the red migrap is on the table, the blue migrap is on the table and the orange migrap is on the table.\nMy goal is to have that the red migrap is on top of the blue migrap and the yellow migrap is on top of the red migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b4 b2)\n(bartee b4 b3)\n(vess b1)\n(bartee b1 b2)\n(unbartee b4 b3)\n(bartee b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAWh22JdVMzMaNVK1mUK5SdVSggm",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee the yellow migrap from on top of the blue migrap\n2. Suffus the yellow migrap\n3. Vess the red migrap\n4. Bartee the red migrap on top of the blue migrap\n5. Vess the yellow migrap\n6. Bartee the yellow migrap on top of the red migrap",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353027,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1365,
+                    "prompt_tokens": 487,
+                    "total_tokens": 1852,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 21.990521907806396,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee the yellow migrap from on top of the blue migrap\n2. Suffus the yellow migrap\n3. Vess the red migrap\n4. Bartee the red migrap on top of the blue migrap\n5. Vess the yellow migrap\n6. Bartee the yellow migrap on top of the red migrap"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of migraps where I need to arrange the migraps into bartees. Here are the actions I can do\n\nVess a migrap\nUnbartee a migrap from on top of another migrap\nSuffus a migrap\nBartee a migrap on top of another migrap\n\nI have the following restrictions on my actions:\nI can only vess or unbartee one migrap at a time.\nI can only vess or unbartee a migrap if my hand is empty.\nI can only vess a migrap if the migrap is on the table and the migrap is clear. A migrap is clear if the migrap has no other migraps on top of it and if the migrap is not vessed.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing was really on top of the other migrap.\nI can only unbartee a migrap from on top of another migrap if the migrap I am unbarteeing is clear.\nOnce I vess or unbartee a migrap, I am holding the migrap.\nI can only suffus a migrap that I am holding.\nI can only bartee a migrap on top of another migrap if I am holding the migrap being barteed.\nI can only bartee a migrap on top of another migrap if the migrap onto which I am barteeing the migrap is clear.\nOnce I suffus or bartee a migrap, my hand becomes empty.\nOnce you bartee a migrap on top of a second migrap, the second migrap is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red migrap is clear, the hand is empty, the red migrap is on top of the yellow migrap, the blue migrap is on top of the orange migrap, the yellow migrap is on top of the blue migrap and the orange migrap is on the table.\nMy goal is to have that the yellow migrap is on top of the orange migrap.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unbartee b1 b4)\n(suffus b1)\n(unbartee b4 b2)\n(bartee b4 b1)\n(unbartee b2 b3)\n(suffus b2)\n(unbartee b4 b1)\n(bartee b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQAX3YvyxYEZTvorQpH5i1ZxudVBy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unbartee red from yellow\n2. Suffus red\n3. Unbartee yellow from blue\n4. Suffus yellow\n5. Unbartee blue from orange\n6. Suffus blue\n7. Vess yellow\n8. Bartee yellow on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760353049,
+                "model": "gpt-5-mini-2025-08-07",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2757,
+                    "prompt_tokens": 468,
+                    "total_tokens": 3225,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2688,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.92841839790344,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unbartee red from yellow\n2. Suffus red\n3. Unbartee yellow from blue\n4. Suffus yellow\n5. Unbartee blue from orange\n6. Suffus blue\n7. Vess yellow\n8. Bartee yellow on top of orange"
+        }
+    ],
+    "engine": "gpt-5-mini_chat"
+}

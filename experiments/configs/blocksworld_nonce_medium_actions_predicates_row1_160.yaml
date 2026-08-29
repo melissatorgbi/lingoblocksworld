@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/medium/blocksworld_medium_actions_predicates/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/medium/blocksworld_medium_actions_predicates/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium/generated_domain_medium_actions_predicates.pddl
+domain_name: blocksworld_medium_actions_predicates_row1_160
+n_instances: 161
+start: 41
+end: 200
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do
+
+   Abathitcry a block
+   Unimpred a block from waldsmwards another block
+   Woolod a block
+   Impred a block waldsmwards another block
+
+   I have the following restrictions on my actions:
+   I can only abathitcry or unimpred one block at a time.
+   I can only abathitcry or unimpred a block if my michime is circonsy.
+   I can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.
+   I can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.
+   I can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.
+   Once I abathitcry or unimpred a block, I am croblifilting the block.
+   I can only woolod a block that I am croblifilting.
+   I can only impred a block waldsmwards another block if I am croblifilting the block being impredded.
+   I can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.
+   Once I woolod or impred a block, my michime becomes circonsy.
+   Once you impred a block waldsmwards a second block, the second block is no longer bountingless.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into impreds. Here are the actions I can do
+
+   Abathitcry a block
+   Unimpred a block from waldsmwards another block
+   Woolod a block
+   Impred a block waldsmwards another block
+
+   I have the following restrictions on my actions:
+   I can only abathitcry or unimpred one block at a time.
+   I can only abathitcry or unimpred a block if my michime is circonsy.
+   I can only abathitcry a block if the block is waldsmwards the facizer and the block is bountingless. A block is bountingless if the block has no other blocks waldsmwards it and if the block is not abathitcried.
+   I can only unimpred a block from waldsmwards another block if the block I am unimpredding was really waldsmwards the other block.
+   I can only unimpred a block from waldsmwards another block if the block I am unimpredding is bountingless.
+   Once I abathitcry or unimpred a block, I am croblifilting the block.
+   I can only woolod a block that I am croblifilting.
+   I can only impred a block waldsmwards another block if I am croblifilting the block being impredded.
+   I can only impred a block waldsmwards another block if the block onto which I am impredding the block is bountingless.
+   Once I woolod or impred a block, my michime becomes circonsy.
+   Once you impred a block waldsmwards a second block, the second block is no longer bountingless.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {abathitcry: "abathitcry the {}",
+   woolod: "woolod the {}",
+   impred: "impred the {} waldsmwards the {}",
+   unimpred: "unimpred the {} from waldsmwards the {}"}
+
+
+
+predicates:
+  {waldsmwardsfacizer: "the {} is waldsmwards the facizer",
+   bountingless: "the {} is bountingless",
+   michimecirconsy: "the michime is circonsy",
+   croblifilting: "the michime is currently croblifilting {}",
+   "waldsmwards": "the {} is waldsmwards the {}"}
+
+predicate_mapping:
+   {
+   "waldsmwardsfacizer": "waldsmwards the facizer",
+   "bountingless": "bountingless",
+   "michimecirconsy": "michime is circonsy",
+   "croblifilting": "croblifilting",
+   "waldsmwards": "waldsmwards"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red block", "b2": "blue block", "b3": "orange block", "b4": "yellow block",
+   "b5": "white block", "b6": "magenta block", "b7": "black block", "b8": "cyan block",
+   "b9": "green block", "b10": "violet block", "b11": "silver block", "b12": "gold block" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

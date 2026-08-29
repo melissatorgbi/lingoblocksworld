@@ -1,0 +1,22 @@
+
+
+(define (problem BW-rand-4)
+(:domain blocksworld-4ops)
+(:objects b1 b2 b3 b4 )
+(:init
+(swartartbravent)
+(chamessupon b1 b2)
+(chamessupon b2 b3)
+(chamessupon b3 b4)
+(chamessuponfiletter b4)
+(circonsy b1)
+)
+(:goal
+(and
+(chamessupon b1 b4)
+(chamessupon b2 b3)
+(chamessupon b4 b2))
+)
+)
+
+

@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_actions_names_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b3)\n(grafor b2)\n(uncabudge b3 b4)\n(grafor b3)\n(uncabudge b4 b1)\n(grafor b4)\n(mentan b2)\n(cabudge b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ27pVjeA2lKau8UtQZdFiaRQTADt",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal sequence that achieves \u201cmichime on facizer\u201d (other blocks end up on the table in any order):\n\n1. UNCABUDGE michime from tegust  \n2. GRAFOR michime  \n3. UNCABUDGE tegust from westoor  \n4. GRAFOR tegust  \n5. UNCABUDGE westoor from facizer  \n6. GRAFOR westoor  \n7. MENTAN michime  \n8. CABUDGE michime on facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320733,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1549,
+                    "prompt_tokens": 431,
+                    "total_tokens": 1980,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.796737670898438,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal sequence that achieves \u201cmichime on facizer\u201d (other blocks end up on the table in any order):\n\n1. UNCABUDGE michime from tegust  \n2. GRAFOR michime  \n3. UNCABUDGE tegust from westoor  \n4. GRAFOR tegust  \n5. UNCABUDGE westoor from facizer  \n6. GRAFOR westoor  \n7. MENTAN michime  \n8. CABUDGE michime on facizer"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the tegust block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b1)\n(grafor b2)\n(uncabudge b1 b4)\n(grafor b1)\n(mentan b3)\n(cabudge b3 b4)\n(mentan b2)\n(cabudge b2 b3)\n(mentan b1)\n(cabudge b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2841DOT8PKFkmnDLia2JVw8bS59",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal 10\u2010step plan (hand starts empty and ends empty):\n\n1. UNCABUDGE michime facizer  \n2. GRAFOR michime  \n3. UNCABUDGE facizer westoor  \n4. GRAFOR facizer  \n5. MENTAN tegust  \n6. CABUDGE tegust westoor  \n7. MENTAN michime  \n8. CABUDGE michime tegust  \n9. MENTAN facizer  \n10. CABUDGE facizer michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320748,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1677,
+                    "prompt_tokens": 460,
+                    "total_tokens": 2137,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.388429164886475,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal 10\u2010step plan (hand starts empty and ends empty):\n\n1. UNCABUDGE michime facizer  \n2. GRAFOR michime  \n3. UNCABUDGE facizer westoor  \n4. GRAFOR facizer  \n5. MENTAN tegust  \n6. CABUDGE tegust westoor  \n7. MENTAN michime  \n8. CABUDGE michime tegust  \n9. MENTAN facizer  \n10. CABUDGE facizer michime"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the westoor block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b3)\n(grafor b2)\n(uncabudge b3 b4)\n(grafor b3)\n(mentan b4)\n(cabudge b4 b1)\n(mentan b2)\n(cabudge b2 b4)\n(mentan b3)\n(cabudge b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28KmO6j3kmpUNI132lN88ty3bhY",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one shortest sequence (10 steps) that achieves the goal:\n\n1. uncabudge(michime, tegust)  \n2. grafor(michime)  \n3. uncabudge(tegust, westoor)  \n4. grafor(tegust)  \n5. mentan(westoor)  \n6. cabudge(westoor, facizer)  \n7. mentan(michime)  \n8. cabudge(michime, westoor)  \n9. mentan(tegust)  \n10. cabudge(tegust, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320764,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1358,
+                    "prompt_tokens": 460,
+                    "total_tokens": 1818,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.463042736053467,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one shortest sequence (10 steps) that achieves the goal:\n\n1. uncabudge(michime, tegust)  \n2. grafor(michime)  \n3. uncabudge(tegust, westoor)  \n4. grafor(tegust)  \n5. mentan(westoor)  \n6. cabudge(westoor, facizer)  \n7. mentan(michime)  \n8. cabudge(michime, westoor)  \n9. mentan(tegust)  \n10. cabudge(tegust, michime)"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the tegust block is on top of the westoor block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b3 b4)\n(grafor b3)\n(mentan b1)\n(cabudge b1 b3)\n(mentan b2)\n(cabudge b2 b1)\n(mentan b4)\n(cabudge b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28XV40ekaM3q3eZtACd3dzixkSQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one shortest sequence of actions that achieves the goal:\n\n1. Uncabudge tegust westoor  \n2. Grafor tegust  \n3. Mentan facizer  \n4. Cabudge facizer tegust  \n5. Mentan michime  \n6. Cabudge michime facizer  \n7. Mentan westoor  \n8. Cabudge westoor michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320777,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1329,
+                    "prompt_tokens": 463,
+                    "total_tokens": 1792,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 10.994872808456421,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one shortest sequence of actions that achieves the goal:\n\n1. Uncabudge tegust westoor  \n2. Grafor tegust  \n3. Mentan facizer  \n4. Cabudge facizer tegust  \n5. Mentan michime  \n6. Cabudge michime facizer  \n7. Mentan westoor  \n8. Cabudge westoor michime"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the michime block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b2)\n(cabudge b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28iGc5kG7S68oxNUjMdHTyiyWqv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s the minimal plan (assuming all preconditions hold as stated):\n\n1. Uncabudge(westoor, michime)  \n2. Cabudge(westoor, facizer)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320788,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 763,
+                    "prompt_tokens": 447,
+                    "total_tokens": 1210,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 8.051202774047852,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s the minimal plan (assuming all preconditions hold as stated):\n\n1. Uncabudge(westoor, michime)  \n2. Cabudge(westoor, facizer)"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the westoor block is on top of the michime block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b2)\n(grafor b4)\n(uncabudge b2 b1)\n(grafor b2)\n(mentan b3)\n(cabudge b3 b1)\n(mentan b4)\n(cabudge b4 b3)\n(mentan b2)\n(cabudge b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28q2OMW79rrGXKOsHNcPuWeXpaD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest 10\u2010step plan (using your action names) that achieves\n\n  michime on westoor, tegust on facizer, and westoor on tegust:\n\n1. uncabudge(westoor, michime)  \n2. grafor(westoor)  \n3. uncabudge(michime, facizer)  \n4. grafor(michime)  \n5. mentan(tegust)  \n6. cabudge(tegust, facizer)  \n7. mentan(westoor)  \n8. cabudge(westoor, tegust)  \n9. mentan(michime)  \n10. cabudge(michime, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320796,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2105,
+                    "prompt_tokens": 460,
+                    "total_tokens": 2565,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.73571753501892,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest 10\u2010step plan (using your action names) that achieves\n\n  michime on westoor, tegust on facizer, and westoor on tegust:\n\n1. uncabudge(westoor, michime)  \n2. grafor(westoor)  \n3. uncabudge(michime, facizer)  \n4. grafor(michime)  \n5. mentan(tegust)  \n6. cabudge(tegust, facizer)  \n7. mentan(westoor)  \n8. cabudge(westoor, tegust)  \n9. mentan(michime)  \n10. cabudge(michime, westoor)"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the westoor block is on top of the tegust block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b1 b4)\n(grafor b1)\n(mentan b2)\n(cabudge b2 b1)\n(uncabudge b4 b3)\n(grafor b4)\n(mentan b3)\n(cabudge b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29AOZ920IqKht0tdvz21INz4CsO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 8\u2010step plan (all preconditions are met at each step):\n\n1. uncabudge facizer westoor  \n2. grafor    facizer  \n3. mentan    michime  \n4. cabudge   michime facizer  \n5. uncabudge westoor tegust  \n6. grafor    westoor  \n7. mentan    tegust  \n8. cabudge   tegust michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320816,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2028,
+                    "prompt_tokens": 447,
+                    "total_tokens": 2475,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1920,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.88737654685974,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 8\u2010step plan (all preconditions are met at each step):\n\n1. uncabudge facizer westoor  \n2. grafor    facizer  \n3. mentan    michime  \n4. cabudge   michime facizer  \n5. uncabudge westoor tegust  \n6. grafor    westoor  \n7. mentan    tegust  \n8. cabudge   tegust michime"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b3 b2)\n(grafor b3)\n(uncabudge b2 b4)\n(cabudge b2 b3)\n(uncabudge b4 b1)\n(grafor b4)\n(mentan b1)\n(cabudge b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29USwCLoYaYI4Fy5irpxYlhvb2S",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one valid 8\u2010step plan (hand starts empty):\n\n1. Uncabudge(tegust, michime)  \n2. Grafor(tegust)  \n3. Uncabudge(michime, westoor)  \n4. Cabudge(michime, tegust)  \n5. Uncabudge(westoor, facizer)  \n6. Grafor(westoor)  \n7. Mentan(facizer)  \n8. Cabudge(facizer, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320836,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1796,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2240,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.25697612762451,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one valid 8\u2010step plan (hand starts empty):\n\n1. Uncabudge(tegust, michime)  \n2. Grafor(tegust)  \n3. Uncabudge(michime, westoor)  \n4. Cabudge(michime, tegust)  \n5. Uncabudge(westoor, facizer)  \n6. Grafor(westoor)  \n7. Mentan(facizer)  \n8. Cabudge(facizer, michime)"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the tegust block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b4)\n(cabudge b2 b1)\n(uncabudge b4 b3)\n(grafor b4)\n(uncabudge b2 b1)\n(cabudge b2 b3)\n(mentan b4)\n(cabudge b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29oDZHpF5PXgJO1I4l4sfuWdTRQ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal 8\u2010step solution (hand starts empty, facizer just stays on the table):\n\n1. Uncabudge(michime, westoor)  \n2. Grafor(michime)  \n3. Uncabudge(westoor, tegust)  \n4. Grafor(westoor)  \n5. Mentan(michime)  \n6. Cabudge(michime, tegust)  \n7. Mentan(westoor)  \n8. Cabudge(westoor, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320856,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1666,
+                    "prompt_tokens": 447,
+                    "total_tokens": 2113,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.578858613967896,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal 8\u2010step solution (hand starts empty, facizer just stays on the table):\n\n1. Uncabudge(michime, westoor)  \n2. Grafor(michime)  \n3. Uncabudge(westoor, tegust)  \n4. Grafor(westoor)  \n5. Mentan(michime)  \n6. Cabudge(michime, tegust)  \n7. Mentan(westoor)  \n8. Cabudge(westoor, michime)"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b2)\n(grafor b4)\n(uncabudge b2 b1)\n(grafor b2)\n(uncabudge b1 b3)\n(cabudge b1 b2)\n(mentan b4)\n(cabudge b4 b1)\n(mentan b3)\n(cabudge b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2A5NTTRIazR5Pul4QRP6LeiAj92",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (all preconditions are satisfied at each step):\n\n1. Uncabudge(westoor, michime)  \n2. Grafor(westoor)  \n3. Uncabudge(michime, facizer)  \n4. Grafor(michime)  \n5. Uncabudge(facizer, tegust)  \n6. Cabudge(facizer, michime)  \n7. Mentan(westoor)  \n8. Cabudge(westoor, facizer)  \n9. Mentan(tegust)  \n10. Cabudge(tegust, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320873,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1941,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2398,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.707580089569092,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (all preconditions are satisfied at each step):\n\n1. Uncabudge(westoor, michime)  \n2. Grafor(westoor)  \n3. Uncabudge(michime, facizer)  \n4. Grafor(michime)  \n5. Uncabudge(facizer, tegust)  \n6. Cabudge(facizer, michime)  \n7. Mentan(westoor)  \n8. Cabudge(westoor, facizer)  \n9. Mentan(tegust)  \n10. Cabudge(tegust, westoor)"
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b2)\n(grafor b4)\n(uncabudge b2 b3)\n(cabudge b2 b4)\n(uncabudge b3 b1)\n(cabudge b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2APQN0CLSN1ykGZNnMvN41KCvjd",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence of actions (in your 4\u2010operator vocabulary) that achieves\n\n   on(michime, westoor) \u2227 on(tegust, michime)\n\nfrom the given start:\n\n1. Uncabudge(westoor, michime)  \n2. Grafor(westoor)  \n3. Uncabudge(michime, tegust)  \n4. Cabudge(michime, westoor)  \n5. Uncabudge(tegust, facizer)  \n6. Cabudge(tegust, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320893,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2395,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2839,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 24.203731060028076,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence of actions (in your 4\u2010operator vocabulary) that achieves\n\n   on(michime, westoor) \u2227 on(tegust, michime)\n\nfrom the given start:\n\n1. Uncabudge(westoor, michime)  \n2. Grafor(westoor)  \n3. Uncabudge(michime, tegust)  \n4. Cabudge(michime, westoor)  \n5. Uncabudge(tegust, facizer)  \n6. Cabudge(tegust, michime)"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b1 b4)\n(cabudge b1 b3)\n(mentan b2)\n(cabudge b2 b1)\n(mentan b4)\n(cabudge b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2AnuQV0ckMWvVk71jKWkFg6h7R8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest 6\u2010step plan (hand always empty when required):\n\n1. uncabudge facizer westoor  \n2. cabudge   facizer tegust  \n3. mentan    michime  \n4. cabudge   michime  facizer  \n5. mentan    westoor  \n6. cabudge   westoor michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320917,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1050,
+                    "prompt_tokens": 463,
+                    "total_tokens": 1513,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.639611959457397,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest 6\u2010step plan (hand always empty when required):\n\n1. uncabudge facizer westoor  \n2. cabudge   facizer tegust  \n3. mentan    michime  \n4. cabudge   michime  facizer  \n5. mentan    westoor  \n6. cabudge   westoor michime"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b1 b2)\n(grafor b1)\n(mentan b4)\n(cabudge b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2B07r400pWVLfHphghDfjExGaHu",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid plan (actions in order):\n\n1. Uncabudge facizer from on top of michime  \n2. Grafor facizer  \n3. Mentan westoor  \n4. Cabudge westoor on top of michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320930,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 900,
+                    "prompt_tokens": 447,
+                    "total_tokens": 1347,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 832,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.957949161529541,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid plan (actions in order):\n\n1. Uncabudge facizer from on top of michime  \n2. Grafor facizer  \n3. Mentan westoor  \n4. Cabudge westoor on top of michime"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the facizer block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b2)\n(grafor b4)\n(uncabudge b2 b1)\n(grafor b2)\n(uncabudge b1 b3)\n(grafor b1)\n(mentan b3)\n(cabudge b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2BBZZdQl2lEkTMUXaouXpcF6o8q",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. UNCABUDGE(westoor, michime)  \n2. GRAFOR(westoor)  \n3. UNCABUDGE(michime, facizer)  \n4. GRAFOR(michime)  \n5. UNCABUDGE(facizer, tegust)  \n6. GRAFOR(facizer)  \n7. MENTAN(tegust)  \n8. CABUDGE(tegust, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320941,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1398,
+                    "prompt_tokens": 431,
+                    "total_tokens": 1829,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.084867715835571,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. UNCABUDGE(westoor, michime)  \n2. GRAFOR(westoor)  \n3. UNCABUDGE(michime, facizer)  \n4. GRAFOR(michime)  \n5. UNCABUDGE(facizer, tegust)  \n6. GRAFOR(facizer)  \n7. MENTAN(tegust)  \n8. CABUDGE(tegust, michime)"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b3)\n(grafor b4)\n(uncabudge b3 b1)\n(grafor b3)\n(mentan b2)\n(cabudge b2 b3)\n(mentan b4)\n(cabudge b4 b2)\n(mentan b1)\n(cabudge b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2BPNJjYN8pand2StMEufZD2DC6B",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one correct 10\u2010step plan (all preconditions are met at each step):\n\n1. uncabudge(westoor, tegust)  \n2. grafor(westoor)  \n3. uncabudge(tegust, facizer)  \n4. grafor(tegust)  \n5. mentan(michime)  \n6. cabudge(michime, tegust)  \n7. mentan(westoor)  \n8. cabudge(westoor, michime)  \n9. mentan(facizer)  \n10. cabudge(facizer, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320955,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3866,
+                    "prompt_tokens": 460,
+                    "total_tokens": 4326,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3712,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 35.54083967208862,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one correct 10\u2010step plan (all preconditions are met at each step):\n\n1. uncabudge(westoor, tegust)  \n2. grafor(westoor)  \n3. uncabudge(tegust, facizer)  \n4. grafor(tegust)  \n5. mentan(michime)  \n6. cabudge(michime, tegust)  \n7. mentan(westoor)  \n8. cabudge(westoor, michime)  \n9. mentan(facizer)  \n10. cabudge(facizer, westoor)"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the westoor block, the westoor block is on top of the facizer block and the michime block is on the table.\nMy goal is to have that the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b3 b4)\n(grafor b3)\n(uncabudge b4 b1)\n(grafor b4)\n(mentan b3)\n(cabudge b3 b4)\n(uncabudge b1 b2)\n(grafor b1)\n(mentan b2)\n(cabudge b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2BykT171egiU6I6eMjo4PuivL6n",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one correct minimal plan (in order), where I use the four verbs exactly as defined:\n\n1. Uncabudge tegust westoor  \n2. Grafor tegust  \n3. Uncabudge westoor facizer  \n4. Grafor westoor  \n5. Uncabudge facizer michime  \n6. Grafor facizer  \n7. Mentan michime  \n8. Cabudge michime facizer  \n9. Mentan tegust  \n10. Cabudge tegust westoor\n\nAfter these ten steps you end up with  \n\u2022 michime on top of facizer  \n\u2022 tegust on top of westoor  \nas required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320990,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1687,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2131,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.826026201248169,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one correct minimal plan (in order), where I use the four verbs exactly as defined:\n\n1. Uncabudge tegust westoor  \n2. Grafor tegust  \n3. Uncabudge westoor facizer  \n4. Grafor westoor  \n5. Uncabudge facizer michime  \n6. Grafor facizer  \n7. Mentan michime  \n8. Cabudge michime facizer  \n9. Mentan tegust  \n10. Cabudge tegust westoor\n\nAfter these ten steps you end up with  \n\u2022 michime on top of facizer  \n\u2022 tegust on top of westoor  \nas required."
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block, the tegust block is on top of the facizer block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b3 b2)\n(cabudge b3 b1)\n(uncabudge b2 b4)\n(grafor b2)\n(mentan b4)\n(cabudge b4 b3)\n(mentan b2)\n(cabudge b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2CDHYUDgmJ0S0v08l3FyBCDKZhs",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one valid 8\u2010step plan (using your verb/block names):  \n1. uncabudge tegust from michime  \n2. cabudge tegust on facizer  \n3. uncabudge michime from westoor  \n4. grafor michime  \n5. mentan westoor  \n6. cabudge westoor on tegust  \n7. mentan michime  \n8. cabudge michime on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321005,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2347,
+                    "prompt_tokens": 460,
+                    "total_tokens": 2807,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2240,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 20.539592027664185,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one valid 8\u2010step plan (using your verb/block names):  \n1. uncabudge tegust from michime  \n2. cabudge tegust on facizer  \n3. uncabudge michime from westoor  \n4. grafor michime  \n5. mentan westoor  \n6. cabudge westoor on tegust  \n7. mentan michime  \n8. cabudge michime on westoor"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b3 b2)\n(grafor b3)\n(mentan b1)\n(cabudge b1 b3)\n(mentan b2)\n(cabudge b2 b1)\n(mentan b4)\n(cabudge b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2CYFMlj3rmD0epRDUaw92w38vzT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal 8\u2010step plan (using the given action names):\n\n1. Uncabudge tegust from michime  \n2. Grafor tegust  \n3. Mentan facizer  \n4. Cabudge facizer on tegust  \n5. Mentan michime  \n6. Cabudge michime on facizer  \n7. Mentan westoor  \n8. Cabudge westoor on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321026,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1193,
+                    "prompt_tokens": 463,
+                    "total_tokens": 1656,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.283418416976929,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal 8\u2010step plan (using the given action names):\n\n1. Uncabudge tegust from michime  \n2. Grafor tegust  \n3. Mentan facizer  \n4. Cabudge facizer on tegust  \n5. Mentan michime  \n6. Cabudge michime on facizer  \n7. Mentan westoor  \n8. Cabudge westoor on michime"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the westoor block is on top of the facizer block, the facizer block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the michime block is on top of the westoor block and the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b4)\n(grafor b2)\n(uncabudge b4 b1)\n(cabudge b4 b3)\n(mentan b2)\n(cabudge b2 b4)\n(mentan b1)\n(cabudge b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Cjp21kkPiRDnHqK7sqImCbrt6p",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal valid plan (each step legal under the given rules):\n\n1. uncabudge(michime, westoor)  \n2. grafor(michime)  \n3. uncabudge(westoor, facizer)  \n4. cabudge(westoor, tegust)  \n5. mentan(michime)  \n6. cabudge(michime, westoor)  \n7. mentan(facizer)  \n8. cabudge(facizer, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321037,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1785,
+                    "prompt_tokens": 460,
+                    "total_tokens": 2245,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.749903202056885,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal valid plan (each step legal under the given rules):\n\n1. uncabudge(michime, westoor)  \n2. grafor(michime)  \n3. uncabudge(westoor, facizer)  \n4. cabudge(westoor, tegust)  \n5. mentan(michime)  \n6. cabudge(michime, westoor)  \n7. mentan(facizer)  \n8. cabudge(facizer, michime)"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the facizer block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b3)\n(grafor b2)\n(uncabudge b3 b1)\n(grafor b3)\n(mentan b4)\n(cabudge b4 b1)\n(mentan b2)\n(cabudge b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2D2tXR4LNGmr7sqlcLLpoC0uj4B",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal 8\u2010step plan (hand always empty at steps boundaries):\n\n1. UNCABUDGE(michime, tegust)  \n2. GRAFOR(michime)  \n3. UNCABUDGE(tegust, facizer)  \n4. GRAFOR(tegust)  \n5. MENTAN(westoor)  \n6. CABUDGE(westoor, facizer)  \n7. MENTAN(michime)  \n8. CABUDGE(michime, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321056,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1350,
+                    "prompt_tokens": 447,
+                    "total_tokens": 1797,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.53635859489441,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal 8\u2010step plan (hand always empty at steps boundaries):\n\n1. UNCABUDGE(michime, tegust)  \n2. GRAFOR(michime)  \n3. UNCABUDGE(tegust, facizer)  \n4. GRAFOR(tegust)  \n5. MENTAN(westoor)  \n6. CABUDGE(westoor, facizer)  \n7. MENTAN(michime)  \n8. CABUDGE(michime, westoor)"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block, the michime block is on top of the facizer block and the tegust block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b3)\n(grafor b2)\n(uncabudge b1 b4)\n(cabudge b1 b2)\n(mentan b3)\n(cabudge b3 b4)\n(uncabudge b1 b2)\n(cabudge b1 b3)\n(mentan b2)\n(cabudge b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DGHDyVu9Cd0hHsY1NKJJAnZmfK",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (hand always obeys the preconditions given):\n\n1. uncabudge michime from tegust  \n2. grafor michime  \n3. uncabudge facizer from westoor  \n4. grafor facizer  \n5. mentan tegust  \n6. cabudge tegust on westoor  \n7. mentan facizer  \n8. cabudge facizer on tegust  \n9. mentan michime  \n10. cabudge michime on facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321070,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3451,
+                    "prompt_tokens": 460,
+                    "total_tokens": 3911,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3328,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 31.347415685653687,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (hand always obeys the preconditions given):\n\n1. uncabudge michime from tegust  \n2. grafor michime  \n3. uncabudge facizer from westoor  \n4. grafor facizer  \n5. mentan tegust  \n6. cabudge tegust on westoor  \n7. mentan facizer  \n8. cabudge facizer on tegust  \n9. mentan michime  \n10. cabudge michime on facizer"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b3 b1)\n(grafor b3)\n(mentan b2)\n(cabudge b2 b3)\n(mentan b1)\n(cabudge b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DmovRmpJChg8pAaNQcgDXBE0qO",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal six\u2010step plan (hand always empty at start and end):\n\n1. uncabudge(tegust, facizer)  \n2. grafor(tegust)         \u2013 put tegust down on the table  \n3. mentan(michime)        \u2013 pick up michime from the table  \n4. cabudge(michime, tegust)  \n5. mentan(facizer)        \u2013 pick up facizer from the table  \n6. cabudge(facizer, michime)  \n\nResult: facizer on michime on tegust.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321102,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1235,
+                    "prompt_tokens": 450,
+                    "total_tokens": 1685,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.155277252197266,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal six\u2010step plan (hand always empty at start and end):\n\n1. uncabudge(tegust, facizer)  \n2. grafor(tegust)         \u2013 put tegust down on the table  \n3. mentan(michime)        \u2013 pick up michime from the table  \n4. cabudge(michime, tegust)  \n5. mentan(facizer)        \u2013 pick up facizer from the table  \n6. cabudge(facizer, michime)  \n\nResult: facizer on michime on tegust."
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b3)\n(grafor b4)\n(uncabudge b3 b2)\n(grafor b3)\n(mentan b1)\n(cabudge b1 b2)\n(mentan b4)\n(cabudge b4 b1)\n(mentan b3)\n(cabudge b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DybWOykHoZLuYaPgqQGZ85guLz",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan ( hand always ends empty ):\n\n1. UNCABUDGE(westoor, tegust)  \n2. GRAFOR(westoor)  \n3. UNCABUDGE(tegust, michime)  \n4. GRAFOR(tegust)  \n5. MENTAN(facizer)  \n6. CABUDGE(facizer, michime)  \n7. MENTAN(westoor)  \n8. CABUDGE(westoor, facizer)  \n9. MENTAN(tegust)  \n10. CABUDGE(tegust, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321114,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3406,
+                    "prompt_tokens": 460,
+                    "total_tokens": 3866,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 3264,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 34.06230616569519,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan ( hand always ends empty ):\n\n1. UNCABUDGE(westoor, tegust)  \n2. GRAFOR(westoor)  \n3. UNCABUDGE(tegust, michime)  \n4. GRAFOR(tegust)  \n5. MENTAN(facizer)  \n6. CABUDGE(facizer, michime)  \n7. MENTAN(westoor)  \n8. CABUDGE(westoor, facizer)  \n9. MENTAN(tegust)  \n10. CABUDGE(tegust, westoor)"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the tegust block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b1 b2)\n(grafor b1)\n(uncabudge b2 b3)\n(grafor b2)\n(mentan b4)\n(cabudge b4 b2)\n(mentan b3)\n(cabudge b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2EW16yMfuQp7EP8sEOjjXDn68DF",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Uncabudge facizer from on top of michime  \n2. Grafor facizer  \n3. Uncabudge michime from on top of tegust  \n4. Grafor michime  \n5. Mentan westoor  \n6. Cabudge westoor on top of michime  \n7. Mentan tegust  \n8. Cabudge tegust on top of westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321148,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1633,
+                    "prompt_tokens": 447,
+                    "total_tokens": 2080,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.303293228149414,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Uncabudge facizer from on top of michime  \n2. Grafor facizer  \n3. Uncabudge michime from on top of tegust  \n4. Grafor michime  \n5. Mentan westoor  \n6. Cabudge westoor on top of michime  \n7. Mentan tegust  \n8. Cabudge tegust on top of westoor"
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on the table, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block, the michime block is on top of the tegust block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b1 b3)\n(grafor b1)\n(mentan b2)\n(cabudge b2 b3)\n(mentan b4)\n(cabudge b4 b2)\n(mentan b1)\n(cabudge b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2EmeCVrCUgGekk6KkgGhvTG7wDv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal 8\u2010step plan (all preconditions and effects satisfied):\n\n1. UNCABUDGE facizer tegust  \n2. GRAFOR facizer  \n3. MENTAN michime  \n4. CABUDGE michime tegust  \n5. MENTAN westoor  \n6. CABUDGE westoor michime  \n7. MENTAN facizer  \n8. CABUDGE facizer westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321164,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1767,
+                    "prompt_tokens": 463,
+                    "total_tokens": 2230,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.88190269470215,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal 8\u2010step plan (all preconditions and effects satisfied):\n\n1. UNCABUDGE facizer tegust  \n2. GRAFOR facizer  \n3. MENTAN michime  \n4. CABUDGE michime tegust  \n5. MENTAN westoor  \n6. CABUDGE westoor michime  \n7. MENTAN facizer  \n8. CABUDGE facizer westoor"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the facizer block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b1)\n(cabudge b2 b3)\n(uncabudge b1 b4)\n(grafor b1)\n(uncabudge b2 b3)\n(cabudge b2 b4)\n(mentan b1)\n(cabudge b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2F4ba370Q903anfOwlsZ02UUYMJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (hand starts empty):\n\n1. uncabudge(michime, facizer)  \n2. grafor(michime)  \n3. uncabudge(facizer, westoor)  \n4. cabudge(facizer, michime)  \n5. uncabudge(facizer, michime)  \n6. grafor(facizer)  \n7. mentan(michime)  \n8. cabudge(michime, westoor)  \n9. mentan(facizer)  \n10. cabudge(facizer, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321182,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2327,
+                    "prompt_tokens": 447,
+                    "total_tokens": 2774,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2176,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.356264352798462,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (hand starts empty):\n\n1. uncabudge(michime, facizer)  \n2. grafor(michime)  \n3. uncabudge(facizer, westoor)  \n4. cabudge(facizer, michime)  \n5. uncabudge(facizer, michime)  \n6. grafor(facizer)  \n7. mentan(michime)  \n8. cabudge(michime, westoor)  \n9. mentan(facizer)  \n10. cabudge(facizer, michime)"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the facizer block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b1)\n(cabudge b4 b3)\n(mentan b1)\n(cabudge b1 b2)\n(uncabudge b4 b3)\n(cabudge b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2FOwRuK74CGmmcIALZmV1Ek9vvn",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal sequence of actions that achieves  \nfacizer on michime and westoor on facizer:\n\n1. Uncabudge westoor from facizer  \n2. Grafor westoor  \n3. Mentan facizer  \n4. Cabudge facizer on top of michime  \n5. Mentan westoor  \n6. Cabudge westoor on top of facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321202,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 799,
+                    "prompt_tokens": 450,
+                    "total_tokens": 1249,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.778709650039673,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal sequence of actions that achieves  \nfacizer on michime and westoor on facizer:\n\n1. Uncabudge westoor from facizer  \n2. Grafor westoor  \n3. Mentan facizer  \n4. Cabudge facizer on top of michime  \n5. Mentan westoor  \n6. Cabudge westoor on top of facizer"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b3 b4)\n(grafor b3)\n(uncabudge b4 b2)\n(grafor b4)\n(uncabudge b2 b1)\n(grafor b2)\n(mentan b1)\n(cabudge b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2FXAIC8hWW95rdREkznlBDoywMs",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal plan (hand always empty before a pick, blocks always clear before a pick or place):\n\n1. Uncabudge(tegust, westoor)  \n2. Grafor(tegust)  \n3. Uncabudge(westoor, michime)  \n4. Grafor(westoor)  \n5. Uncabudge(michime, facizer)  \n6. Grafor(michime)  \n7. Mentan(facizer)  \n8. Cabudge(facizer, westoor)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321211,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2256,
+                    "prompt_tokens": 431,
+                    "total_tokens": 2687,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2112,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 26.489479064941406,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal plan (hand always empty before a pick, blocks always clear before a pick or place):\n\n1. Uncabudge(tegust, westoor)  \n2. Grafor(tegust)  \n3. Uncabudge(westoor, michime)  \n4. Grafor(westoor)  \n5. Uncabudge(michime, facizer)  \n6. Grafor(michime)  \n7. Mentan(facizer)  \n8. Cabudge(facizer, westoor)"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the westoor block is on top of the tegust block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the westoor block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b3)\n(grafor b4)\n(uncabudge b3 b1)\n(grafor b3)\n(uncabudge b1 b2)\n(cabudge b1 b3)\n(mentan b2)\n(cabudge b2 b4)\n(uncabudge b1 b3)\n(cabudge b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Fyo2pBlL0MqE9MGaejoL3wCp56",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid minimal plan (hand is empty at start and end):\n\n1. Uncabudge westoor from tegust  \n2. Grafor westoor  \n3. Uncabudge tegust from facizer  \n4. Grafor tegust  \n5. Uncabudge facizer from michime  \n6. Grafor facizer  \n7. Mentan michime  \n8. Cabudge michime on westoor  \n9. Mentan facizer  \n10. Cabudge facizer on michime",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321238,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1978,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2422,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1856,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 18.009171724319458,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid minimal plan (hand is empty at start and end):\n\n1. Uncabudge westoor from tegust  \n2. Grafor westoor  \n3. Uncabudge tegust from facizer  \n4. Grafor tegust  \n5. Uncabudge facizer from michime  \n6. Grafor facizer  \n7. Mentan michime  \n8. Cabudge michime on westoor  \n9. Mentan facizer  \n10. Cabudge facizer on michime"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the hand is empty, the facizer block is on top of the tegust block, the michime block is on top of the westoor block, the westoor block is on top of the facizer block and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b2 b4)\n(grafor b2)\n(uncabudge b4 b1)\n(grafor b4)\n(uncabudge b1 b3)\n(cabudge b1 b4)\n(mentan b3)\n(cabudge b3 b2)\n(uncabudge b1 b4)\n(cabudge b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2GGaYPH6nTEDy06MCfpzsqteWwr",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one correct sequence of actions (blocks in parentheses are: action (block [, second\u2010block])):\n\n1. Uncabudge(michime, westoor)  \n2. Grafor(michime)  \n3. Uncabudge(westoor, facizer)  \n4. Grafor(westoor)  \n5. Uncabudge(facizer, tegust)  \n6. Grafor(facizer)  \n7. Mentan(tegust)  \n8. Cabudge(tegust, michime)  \n9. Mentan(facizer)  \n10. Cabudge(facizer, tegust)  \n\nAfter step 10 you have the tower   \n\u2003table \u2192 michime \u2192 tegust \u2192 facizer   \nas required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321256,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 3062,
+                    "prompt_tokens": 444,
+                    "total_tokens": 3506,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2880,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 32.118351221084595,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one correct sequence of actions (blocks in parentheses are: action (block [, second\u2010block])):\n\n1. Uncabudge(michime, westoor)  \n2. Grafor(michime)  \n3. Uncabudge(westoor, facizer)  \n4. Grafor(westoor)  \n5. Uncabudge(facizer, tegust)  \n6. Grafor(facizer)  \n7. Mentan(tegust)  \n8. Cabudge(tegust, michime)  \n9. Mentan(facizer)  \n10. Cabudge(facizer, tegust)  \n\nAfter step 10 you have the tower   \n\u2003table \u2192 michime \u2192 tegust \u2192 facizer   \nas required."
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the tegust block, the tegust block is on top of the facizer block, the westoor block is on top of the michime block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the tegust block and the tegust block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b2)\n(grafor b4)\n(uncabudge b2 b3)\n(grafor b2)\n(uncabudge b3 b1)\n(cabudge b3 b2)\n(mentan b1)\n(cabudge b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Gmfi4qPIl1AYBh22QJ3dQcSNJJ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (using your original names):\n\n1. Uncabudge(westoor, michime)  \n2. Grafor(westoor)  \n3. Uncabudge(michime, tegust)  \n4. Grafor(michime)  \n5. Uncabudge(tegust, facizer)  \n6. Grafor(tegust)  \n7. Mentan(tegust)  \n8. Cabudge(tegust, michime)  \n9. Mentan(facizer)  \n10. Cabudge(facizer, tegust)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321288,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1940,
+                    "prompt_tokens": 444,
+                    "total_tokens": 2384,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.504252672195435,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (using your original names):\n\n1. Uncabudge(westoor, michime)  \n2. Grafor(westoor)  \n3. Uncabudge(michime, tegust)  \n4. Grafor(michime)  \n5. Uncabudge(tegust, facizer)  \n6. Grafor(tegust)  \n7. Mentan(tegust)  \n8. Cabudge(tegust, michime)  \n9. Mentan(facizer)  \n10. Cabudge(facizer, tegust)"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the michime block, the tegust block is on top of the facizer block, the michime block is on the table and the westoor block is on the table.\nMy goal is to have that the tegust block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ2H5q1R9kpQcy1GCM9r09815k9aU",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "The goal is already satisfied in the initial state (tegust is on facizer), so no actions are required. The plan is simply:  \n\u3008empty\u3009",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321307,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 370,
+                    "prompt_tokens": 434,
+                    "total_tokens": 804,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 320,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 5.244772672653198,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "The goal is already satisfied in the initial state (tegust is on facizer), so no actions are required. The plan is simply:  \n\u3008empty\u3009"
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the westoor block is clear, the hand is empty, the tegust block is on top of the michime block, the westoor block is on top of the tegust block, the facizer block is on the table and the michime block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b3)\n(cabudge b4 b1)\n(uncabudge b3 b2)\n(grafor b3)\n(mentan b2)\n(cabudge b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2HBdKIbVpNhEtg2quO06BcAKuNZ",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence:\n\n1. Uncabudge westoor from tegust  \n2. Cabudge westoor on facizer  \n3. Uncabudge tegust from michime  \n4. Grafor tegust  \n5. Mentan michime  \n6. Cabudge michime on tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321313,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1827,
+                    "prompt_tokens": 447,
+                    "total_tokens": 2274,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.744277954101562,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence:\n\n1. Uncabudge westoor from tegust  \n2. Cabudge westoor on facizer  \n3. Uncabudge tegust from michime  \n4. Grafor tegust  \n5. Mentan michime  \n6. Cabudge michime on tegust"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the michime block is clear, the westoor block is clear, the hand is empty, the facizer block is on top of the tegust block, the westoor block is on top of the facizer block, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b1)\n(grafor b4)\n(uncabudge b1 b3)\n(cabudge b1 b4)\n(mentan b2)\n(cabudge b2 b3)\n(uncabudge b1 b4)\n(cabudge b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2HR1l3L8rzVw96wDTJipZHXkatw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one shortest feasible sequence (8 steps) to reach on(facizer,michime) and on(michime,tegust):\n\n1. Uncabudge(westoor, facizer)  \n2. Grafor(westoor)  \n3. Uncabudge(facizer, tegust)  \n4. Grafor(facizer)  \n5. Mentan(michime)  \n6. Cabudge(michime, tegust)  \n7. Mentan(facizer)  \n8. Cabudge(facizer, michime)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321329,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2117,
+                    "prompt_tokens": 447,
+                    "total_tokens": 2564,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1984,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 23.840482234954834,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one shortest feasible sequence (8 steps) to reach on(facizer,michime) and on(michime,tegust):\n\n1. Uncabudge(westoor, facizer)  \n2. Grafor(westoor)  \n3. Uncabudge(facizer, tegust)  \n4. Grafor(facizer)  \n5. Mentan(michime)  \n6. Cabudge(michime, tegust)  \n7. Mentan(facizer)  \n8. Cabudge(facizer, michime)"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the hand is empty, the facizer block is on top of the michime block, the michime block is on top of the westoor block, the tegust block is on the table and the westoor block is on the table.\nMy goal is to have that the michime block is on top of the facizer block, the tegust block is on top of the westoor block and the westoor block is on top of the michime block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b1 b2)\n(grafor b1)\n(uncabudge b2 b4)\n(cabudge b2 b1)\n(mentan b4)\n(cabudge b4 b2)\n(mentan b3)\n(cabudge b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2HpSo4BVfsh8Saj7a0qYhLf8d4K",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 8\u2010step plan (all \u201chand empty\u201d and \u201cclear\u201d preconditions are met at each step):\n\n1. Uncabudge facizer from on top of michime  \n2. Grafor facizer  \n3. Uncabudge michime from on top of westoor  \n4. Cabudge michime on top of facizer  \n5. Mentan westoor  \n6. Cabudge westoor on top of michime  \n7. Mentan tegust  \n8. Cabudge tegust on top of westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321353,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1537,
+                    "prompt_tokens": 460,
+                    "total_tokens": 1997,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.936476945877075,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 8\u2010step plan (all \u201chand empty\u201d and \u201cclear\u201d preconditions are met at each step):\n\n1. Uncabudge facizer from on top of michime  \n2. Grafor facizer  \n3. Uncabudge michime from on top of westoor  \n4. Cabudge michime on top of facizer  \n5. Mentan westoor  \n6. Cabudge westoor on top of michime  \n7. Mentan tegust  \n8. Cabudge tegust on top of westoor"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the tegust block, the tegust block is on top of the westoor block, the westoor block is on top of the michime block and the michime block is on the table.\nMy goal is to have that the facizer block is on top of the michime block, the tegust block is on top of the westoor block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b1 b3)\n(grafor b1)\n(uncabudge b3 b4)\n(grafor b3)\n(uncabudge b4 b2)\n(cabudge b4 b3)\n(mentan b1)\n(cabudge b1 b2)\n(uncabudge b4 b3)\n(cabudge b4 b1)\n(mentan b3)\n(cabudge b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2I6KgmnQ05wPAdDpFqiSOcwfeKv",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 12\u2010step plan.  \u201cUncabudge X from Y\u201d always leaves you holding X; \u201cGrafor X\u201d puts X down on the table (hand\u2192empty); \u201cMentan X\u201d picks X up from the table; \u201cCabudge X on Y\u201d puts X onto Y (hand\u2192empty).\n\n1. Uncabudge facizer from tegust  \n2. Grafor facizer  \n3. Uncabudge tegust from westoor  \n4. Grafor tegust  \n5. Uncabudge westoor from michime  \n6. Grafor westoor  \n7. Mentan facizer  \n8. Cabudge facizer on michime  \n9. Mentan westoor  \n10. Cabudge westoor on facizer  \n11. Mentan tegust  \n12. Cabudge tegust on westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321370,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1791,
+                    "prompt_tokens": 457,
+                    "total_tokens": 2248,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.603872537612915,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 12\u2010step plan.  \u201cUncabudge X from Y\u201d always leaves you holding X; \u201cGrafor X\u201d puts X down on the table (hand\u2192empty); \u201cMentan X\u201d picks X up from the table; \u201cCabudge X on Y\u201d puts X onto Y (hand\u2192empty).\n\n1. Uncabudge facizer from tegust  \n2. Grafor facizer  \n3. Uncabudge tegust from westoor  \n4. Grafor tegust  \n5. Uncabudge westoor from michime  \n6. Grafor westoor  \n7. Mentan facizer  \n8. Cabudge facizer on michime  \n9. Mentan westoor  \n10. Cabudge westoor on facizer  \n11. Mentan tegust  \n12. Cabudge tegust on westoor"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the westoor block is clear, the hand is empty, the michime block is on top of the facizer block, the tegust block is on top of the michime block, the westoor block is on top of the tegust block and the facizer block is on the table.\nMy goal is to have that the facizer block is on top of the westoor block and the michime block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b3)\n(grafor b4)\n(uncabudge b3 b2)\n(grafor b3)\n(uncabudge b2 b1)\n(cabudge b2 b3)\n(mentan b1)\n(cabudge b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2IOtJES2tsudz8Qv2DPE0h24zGW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal 8\u2010step plan (using your action names \u201cUncabudge,\u201d \u201cMentan,\u201d \u201cCabudge,\u201d and \u201cGrafor\u201d):\n\n1. Uncabudge westoor from tegust  \n2. Grafor westoor  \n3. Uncabudge tegust from michime  \n4. Grafor tegust  \n5. Uncabudge michime from facizer  \n6. Cabudge michime on top of tegust  \n7. Mentan facizer  \n8. Cabudge facizer on top of westoor",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321388,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1536,
+                    "prompt_tokens": 444,
+                    "total_tokens": 1980,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.723835706710815,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal 8\u2010step plan (using your action names \u201cUncabudge,\u201d \u201cMentan,\u201d \u201cCabudge,\u201d and \u201cGrafor\u201d):\n\n1. Uncabudge westoor from tegust  \n2. Grafor westoor  \n3. Uncabudge tegust from michime  \n4. Grafor tegust  \n5. Uncabudge michime from facizer  \n6. Cabudge michime on top of tegust  \n7. Mentan facizer  \n8. Cabudge facizer on top of westoor"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the tegust block is clear, the hand is empty, the michime block is on top of the westoor block, the tegust block is on top of the michime block, the westoor block is on top of the facizer block and the facizer block is on the table.\nMy goal is to have that the michime block is on top of the tegust block and the tegust block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b3 b2)\n(grafor b3)\n(uncabudge b2 b4)\n(grafor b2)\n(uncabudge b4 b1)\n(grafor b4)\n(mentan b3)\n(cabudge b3 b1)\n(mentan b2)\n(cabudge b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2IeMpRaKQvQK97YMrCzKTbay0vg",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (blocks in parentheses are arguments: \u201cuncabudge (X,Y)\u201d means remove X from on top of Y, etc.):\n\n1. uncabudge(tegust, michime)  \n2. grafor(tegust)  \n3. uncabudge(michime, westoor)  \n4. grafor(michime)  \n5. uncabudge(westoor, facizer)  \n6. grafor(westoor)  \n7. mentan(tegust)  \n8. cabudge(tegust, facizer)  \n9. mentan(michime)  \n10. cabudge(michime, tegust)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321404,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 2801,
+                    "prompt_tokens": 444,
+                    "total_tokens": 3245,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 2624,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 30.146172046661377,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (blocks in parentheses are arguments: \u201cuncabudge (X,Y)\u201d means remove X from on top of Y, etc.):\n\n1. uncabudge(tegust, michime)  \n2. grafor(tegust)  \n3. uncabudge(michime, westoor)  \n4. grafor(michime)  \n5. uncabudge(westoor, facizer)  \n6. grafor(westoor)  \n7. mentan(tegust)  \n8. cabudge(tegust, facizer)  \n9. mentan(michime)  \n10. cabudge(michime, tegust)"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the tegust block is clear, the westoor block is clear, the hand is empty, the westoor block is on top of the michime block, the facizer block is on the table, the michime block is on the table and the tegust block is on the table.\nMy goal is to have that the facizer block is on top of the michime block and the westoor block is on top of the facizer block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b4 b2)\n(cabudge b4 b3)\n(mentan b1)\n(cabudge b1 b2)\n(uncabudge b4 b3)\n(cabudge b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2J84pD0awSUd0JTfeTlieZzwYFV",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one valid 6\u2010step plan (all pre\u2013 and post\u2013conditions are met):\n\n1. Uncabudge westoor from michime  \n2. Grafor westoor  \n3. Mentan facizer  \n4. Cabudge facizer on michime  \n5. Mentan westoor  \n6. Cabudge westoor on facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321434,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1241,
+                    "prompt_tokens": 450,
+                    "total_tokens": 1691,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1152,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.563222885131836,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one valid 6\u2010step plan (all pre\u2013 and post\u2013conditions are met):\n\n1. Uncabudge westoor from michime  \n2. Grafor westoor  \n3. Mentan facizer  \n4. Cabudge facizer on michime  \n5. Mentan westoor  \n6. Cabudge westoor on facizer"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of blocks where I need to arrange the blocks into cabudges. Here are the actions I can do\n\nMentan a block\nUncabudge a block from on top of another block\nGrafor a block\nCabudge a block on top of another block\n\nI have the following restrictions on my actions:\nI can only mentan or uncabudge one block at a time.\nI can only mentan or uncabudge a block if my hand is empty.\nI can only mentan a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not mentanned.\nI can only uncabudge a block from on top of another block if the block I am uncabudging was really on top of the other block.\nI can only uncabudge a block from on top of another block if the block I am uncabudging is clear.\nOnce I mentan or uncabudge a block, I am holding the block.\nI can only grafor a block that I am holding.\nI can only cabudge a block on top of another block if I am holding the block being cabudged.\nI can only cabudge a block on top of another block if the block onto which I am cabudging the block is clear.\nOnce I grafor or cabudge a block, my hand becomes empty.\nOnce you cabudge a block on top of a second block, the second block is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the facizer block is clear, the hand is empty, the facizer block is on top of the westoor block, the michime block is on top of the tegust block, the westoor block is on top of the michime block and the tegust block is on the table.\nMy goal is to have that the westoor block is on top of the tegust block.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(uncabudge b1 b4)\n(grafor b1)\n(uncabudge b4 b2)\n(cabudge b4 b1)\n(uncabudge b2 b3)\n(grafor b2)\n(uncabudge b4 b1)\n(cabudge b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2JMHBt49LE7AASiGdUAnw4UVLMD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 8\u2010step plan (each step is atomic and respects your preconditions):\n\n1. Uncabudge facizer from westoor  \n2. Grafor facizer  \n3. Uncabudge westoor from michime  \n4. Grafor westoor  \n5. Uncabudge michime from tegust  \n6. Grafor michime  \n7. Mentan westoor  \n8. Cabudge westoor on top of tegust",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321448,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 4142,
+                    "prompt_tokens": 431,
+                    "total_tokens": 4573,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 4032,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 43.096020460128784,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 8\u2010step plan (each step is atomic and respects your preconditions):\n\n1. Uncabudge facizer from westoor  \n2. Grafor facizer  \n3. Uncabudge westoor from michime  \n4. Grafor westoor  \n5. Uncabudge michime from tegust  \n6. Grafor michime  \n7. Mentan westoor  \n8. Cabudge westoor on top of tegust"
+        }
+    ],
+    "engine": "o4-mini_chat"
+}

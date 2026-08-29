@@ -1,0 +1,91 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/easy/blocksworld_easy_actions/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/easy/blocksworld_easy_actions/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/easy/generated_domain_easy_actions.pddl
+domain_name: blocksworld_nonce_easy_actions_row1
+n_instances: 81
+start: 1
+end: 80
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do
+
+   Laral a block
+   Uncorninte a block from on top of another block
+   Braine a block
+   Corninte a block on top of another block
+
+   I have the following restrictions on my actions:
+   I can only laral or uncorninte one block at a time.
+   I can only laral or uncorninte a block if my hand is empty.
+   I can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.
+   I can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.
+   I can only uncorninte a block from on top of another block if the block I am uncorninting is clear.
+   Once I laral or uncorninte a block, I am holding the block.
+   I can only braine a block that I am holding.
+   I can only corninte a block on top of another block if I am holding the block being corninted.
+   I can only corninte a block on top of another block if the block onto which I am corninting the block is clear.
+   Once I braine or corninte a block, my hand becomes empty.
+   Once you corninte a block on top of a second block, the second block is no longer clear.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into cornintes. Here are the actions I can do
+
+   Laral a block
+   Uncorninte a block from on top of another block
+   Braine a block
+   Corninte a block on top of another block
+
+   I have the following restrictions on my actions:
+   I can only laral or uncorninte one block at a time.
+   I can only laral or uncorninte a block if my hand is empty.
+   I can only laral a block if the block is on the table and the block is clear. A block is clear if the block has no other blocks on top of it and if the block is not laralled.
+   I can only uncorninte a block from on top of another block if the block I am uncorninting was really on top of the other block.
+   I can only uncorninte a block from on top of another block if the block I am uncorninting is clear.
+   Once I laral or uncorninte a block, I am holding the block.
+   I can only braine a block that I am holding.
+   I can only corninte a block on top of another block if I am holding the block being corninted.
+   I can only corninte a block on top of another block if the block onto which I am corninting the block is clear.
+   Once I braine or corninte a block, my hand becomes empty.
+   Once you corninte a block on top of a second block, the second block is no longer clear.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {laral: "laral the {}",
+   braine: "braine the {}",
+   corninte: "corninte the {} on top of the {}",
+   uncorninte: "uncorninte the {} from on top of the {}"}
+
+
+predicates:
+  {on-table: "the {} is on the table",
+   clear: "the {} is clear",
+   handempty: "the hand is empty",
+   holding: "the hand is currently holding {}",
+   "on": "the {} is on top of the {}"}
+
+predicate_mapping:
+   {
+   "on-table": "on the table",
+   "clear": "clear",
+   "handempty": "hand is empty",
+   "holding": "holding",
+   "on": "on top of"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "red block", "b2": "blue block", "b3": "orange block", "b4": "yellow block",
+   "b5": "white block", "b6": "magenta block", "b7": "black block", "b8": "cyan block",
+   "b9": "green block", "b10": "violet block", "b11": "silver block", "b12": "gold block" }
+encoded_objects_compact:
+  {"b1": "red", "b2": "blue", "b3": "orange", "b4": "yellow",
+   "b5": "white", "b6": "magenta", "b7": "black", "b8": "cyan",
+   "b9": "green", "b10": "violet", "b11": "silver", "b12": "gold" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

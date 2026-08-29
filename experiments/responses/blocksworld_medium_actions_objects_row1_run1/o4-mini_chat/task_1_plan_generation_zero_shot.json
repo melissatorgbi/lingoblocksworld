@@ -1,0 +1,2048 @@
+{
+    "task": "task_1_plan_generation_zero_shot",
+    "prompt_type": "zeroshot",
+    "domain": "blocksworld_medium_actions_objects_row1",
+    "instances": [
+        {
+            "instance_id": 1,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b3)\n(pareave b2)\n(unequele b3 b4)\n(pareave b3)\n(unequele b4 b1)\n(pareave b4)\n(nuatess b2)\n(equele b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28D0IeUJTX6UA1bjoRsfprKzCav",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal solution (all pre\u2010 and post\u2010conditions are satisfied at each step):\n\n1. unequele(blue, orange)  \n2. pareave(blue)  \n3. unequele(orange, yellow)  \n4. pareave(orange)  \n5. unequele(yellow, red)  \n6. pareave(yellow)  \n7. nuatess(blue)  \n8. equele(blue, red)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320757,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1069,
+                    "prompt_tokens": 465,
+                    "total_tokens": 1534,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 10.068233728408813,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal solution (all pre\u2010 and post\u2010conditions are satisfied at each step):\n\n1. unequele(blue, orange)  \n2. pareave(blue)  \n3. unequele(orange, yellow)  \n4. pareave(orange)  \n5. unequele(yellow, red)  \n6. pareave(yellow)  \n7. nuatess(blue)  \n8. equele(blue, red)"
+        },
+        {
+            "instance_id": 2,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the red facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer and the orange facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b1)\n(pareave b2)\n(unequele b1 b4)\n(pareave b1)\n(nuatess b3)\n(equele b3 b4)\n(nuatess b2)\n(equele b2 b3)\n(nuatess b1)\n(equele b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28N24I3cW7Xi2hUW5D7Bcly90vH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a shortest 6\u2010step plan (bottom\u2013up) to get Yellow\u2013Orange\u2013Blue\u2013Red:\n\n1. nuatess(orange)  \n2. equele(orange, yellow)  \n3. unequele(blue, red)  \n4. equele(blue, orange)  \n5. unequele(red, yellow)  \n6. equele(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320767,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1575,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2069,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.66240382194519,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a shortest 6\u2010step plan (bottom\u2013up) to get Yellow\u2013Orange\u2013Blue\u2013Red:\n\n1. nuatess(orange)  \n2. equele(orange, yellow)  \n3. unequele(blue, red)  \n4. equele(blue, orange)  \n5. unequele(red, yellow)  \n6. equele(red, blue)"
+        },
+        {
+            "instance_id": 3,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b3)\n(pareave b2)\n(unequele b3 b4)\n(pareave b3)\n(nuatess b4)\n(equele b4 b1)\n(nuatess b2)\n(equele b2 b4)\n(nuatess b3)\n(equele b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28afocZa31yW2WRV3p88O9Z4k2v",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal sequence of actions (using your primitive names) that achieves the goal \u201cred on table; yellow on red; blue on yellow; orange on blue.\u201d  \n\n1. unequele(blue, orange)  \n2. pareave(blue)  \n3. unequele(orange, yellow)  \n4. pareave(orange)  \n5. nuatess(yellow)  \n6. equele(yellow, red)  \n7. nuatess(blue)  \n8. equele(blue, yellow)  \n9. nuatess(orange)  \n10. equele(orange, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320780,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1046,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1540,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 896,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.062757730484009,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal sequence of actions (using your primitive names) that achieves the goal \u201cred on table; yellow on red; blue on yellow; orange on blue.\u201d  \n\n1. unequele(blue, orange)  \n2. pareave(blue)  \n3. unequele(orange, yellow)  \n4. pareave(orange)  \n5. nuatess(yellow)  \n6. equele(yellow, red)  \n7. nuatess(blue)  \n8. equele(blue, yellow)  \n9. nuatess(orange)  \n10. equele(orange, blue)"
+        },
+        {
+            "instance_id": 4,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the orange facizer is clear, the hand is empty, the orange facizer is on top of the yellow facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b3 b4)\n(pareave b3)\n(nuatess b1)\n(equele b1 b3)\n(nuatess b2)\n(equele b2 b1)\n(nuatess b4)\n(equele b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ28jyxzRUaa2pgKXnlaQnp7ejfk5",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a shortest valid sequence (using your action\u2010names):\n\n1. UNEQUELE(orange, yellow)  \n2. PAREAVE(orange)  \n3. NUATESS(red)  \n4. EQUELE(red, orange)  \n5. NUATESS(blue)  \n6. EQUELE(blue, red)  \n7. NUATESS(yellow)  \n8. EQUELE(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320789,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1836,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2333,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1728,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.26166343688965,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a shortest valid sequence (using your action\u2010names):\n\n1. UNEQUELE(orange, yellow)  \n2. PAREAVE(orange)  \n3. NUATESS(red)  \n4. EQUELE(red, orange)  \n5. NUATESS(blue)  \n6. EQUELE(blue, red)  \n7. NUATESS(yellow)  \n8. EQUELE(yellow, blue)"
+        },
+        {
+            "instance_id": 5,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the yellow facizer is on top of the blue facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b2)\n(equele b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ290pT70AgL5Hm8iZA6OFAPc7Z9u",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. Unequele the yellow facizer from on top of the blue facizer  \n2. Equele the yellow facizer on top of the red facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320806,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 562,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1043,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 512,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 6.025970697402954,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. Unequele the yellow facizer from on top of the blue facizer  \n2. Equele the yellow facizer on top of the red facizer"
+        },
+        {
+            "instance_id": 6,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the red facizer and the yellow facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b2)\n(pareave b4)\n(unequele b2 b1)\n(pareave b2)\n(nuatess b3)\n(equele b3 b1)\n(nuatess b4)\n(equele b4 b3)\n(nuatess b2)\n(equele b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ296F9dRA8di7XMkvGMWairvHwbB",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest\u2010possible plan (10 steps) that achieves \nred\u2013orange\u2013yellow\u2013blue in one tower:\n\n1. Unequele(yellow, blue)  \n2. Pareave(yellow)  \n3. Unequele(blue, red)  \n4. Pareave(blue)  \n5. Nuatess(orange)  \n6. Equele(orange, red)  \n7. Nuatess(yellow)  \n8. Equele(yellow, orange)  \n9. Nuatess(blue)  \n10. Equele(blue, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320812,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1228,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1722,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.394642353057861,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest\u2010possible plan (10 steps) that achieves \nred\u2013orange\u2013yellow\u2013blue in one tower:\n\n1. Unequele(yellow, blue)  \n2. Pareave(yellow)  \n3. Unequele(blue, red)  \n4. Pareave(blue)  \n5. Nuatess(orange)  \n6. Equele(orange, red)  \n7. Nuatess(yellow)  \n8. Equele(yellow, orange)  \n9. Nuatess(blue)  \n10. Equele(blue, yellow)"
+        },
+        {
+            "instance_id": 7,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the yellow facizer is on top of the orange facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer and the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b1 b4)\n(pareave b1)\n(nuatess b2)\n(equele b2 b1)\n(unequele b4 b3)\n(pareave b4)\n(nuatess b3)\n(equele b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29JXBxm5Qmrgg0G93NBsVtxAdz0",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest\u2010sequence plan (8 steps) that achieves\n\n  blue on top of red  \n  orange on top of blue  \n\n(leaving yellow on the table):\n\n1. unequele(red, yellow)  \n2. pareave(red)  \n3. unequele(yellow, orange)  \n4. pareave(yellow)  \n5. nuatess(blue)  \n6. equele(blue, red)  \n7. nuatess(orange)  \n8. equele(orange, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320825,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1472,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1953,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.79654812812805,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest\u2010sequence plan (8 steps) that achieves\n\n  blue on top of red  \n  orange on top of blue  \n\n(leaving yellow on the table):\n\n1. unequele(red, yellow)  \n2. pareave(red)  \n3. unequele(yellow, orange)  \n4. pareave(yellow)  \n5. nuatess(blue)  \n6. equele(blue, red)  \n7. nuatess(orange)  \n8. equele(orange, blue)"
+        },
+        {
+            "instance_id": 8,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b3 b2)\n(pareave b3)\n(unequele b2 b4)\n(equele b2 b3)\n(unequele b4 b1)\n(pareave b4)\n(nuatess b1)\n(equele b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29atHVYtiIL5oyYcrbx34HRbVD6",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal 8\u2010step plan (hand starts empty, goal: red on blue on orange on table, yellow anywhere):\n\n1. unequele orange blue  \n2. pareave orange  \n3. unequele blue yellow  \n4. equele blue orange  \n5. unequele yellow red  \n6. pareave yellow  \n7. nuatess red  \n8. equele red blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320842,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1122,
+                    "prompt_tokens": 478,
+                    "total_tokens": 1600,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.864840507507324,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal 8\u2010step plan (hand starts empty, goal: red on blue on orange on table, yellow anywhere):\n\n1. unequele orange blue  \n2. pareave orange  \n3. unequele blue yellow  \n4. equele blue orange  \n5. unequele yellow red  \n6. pareave yellow  \n7. nuatess red  \n8. equele red blue"
+        },
+        {
+            "instance_id": 9,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b4)\n(equele b2 b1)\n(unequele b4 b3)\n(pareave b4)\n(unequele b2 b1)\n(equele b2 b3)\n(nuatess b4)\n(equele b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ29mgSy93puCPqsNcdIRbGII8YCS",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence (block names in lowercase):\n\n1. unequele(blue, yellow)  \n2. pareave(blue)  \n3. unequele(yellow, orange)  \n4. pareave(yellow)  \n5. nuatess(blue)  \n6. equele(blue, orange)  \n7. nuatess(yellow)  \n8. equele(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320854,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1447,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1928,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.595426082611084,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence (block names in lowercase):\n\n1. unequele(blue, yellow)  \n2. pareave(blue)  \n3. unequele(yellow, orange)  \n4. pareave(yellow)  \n5. nuatess(blue)  \n6. equele(blue, orange)  \n7. nuatess(yellow)  \n8. equele(yellow, blue)"
+        },
+        {
+            "instance_id": 10,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b2)\n(pareave b4)\n(unequele b2 b1)\n(pareave b2)\n(unequele b1 b3)\n(equele b1 b2)\n(nuatess b4)\n(equele b4 b1)\n(nuatess b3)\n(equele b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2A1LgxATb5F05iur6d36EgjQShs",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a shortest correct sequence (12 steps) using exactly the four action\u2010names you gave:\n\n1. Unequele yellow from on top of blue  \n2. Pareave yellow  \n3. Unequele blue from on top of red  \n4. Pareave blue  \n5. Unequele red from on top of orange  \n6. Pareave red  \n7. Nuatess red  \n8. Equele red on top of blue  \n9. Nuatess yellow  \n10. Equele yellow on top of red  \n11. Nuatess orange  \n12. Equele orange on top of yellow  \n\nAfter step 12 you have  \n  \u2022 red on blue  \n  \u2022 yellow on red  \n  \u2022 orange on yellow.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320869,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1704,
+                    "prompt_tokens": 491,
+                    "total_tokens": 2195,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.959861755371094,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a shortest correct sequence (12 steps) using exactly the four action\u2010names you gave:\n\n1. Unequele yellow from on top of blue  \n2. Pareave yellow  \n3. Unequele blue from on top of red  \n4. Pareave blue  \n5. Unequele red from on top of orange  \n6. Pareave red  \n7. Nuatess red  \n8. Equele red on top of blue  \n9. Nuatess yellow  \n10. Equele yellow on top of red  \n11. Nuatess orange  \n12. Equele orange on top of yellow  \n\nAfter step 12 you have  \n  \u2022 red on blue  \n  \u2022 yellow on red  \n  \u2022 orange on yellow."
+        },
+        {
+            "instance_id": 11,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer and the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b2)\n(pareave b4)\n(unequele b2 b3)\n(equele b2 b4)\n(unequele b3 b1)\n(equele b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2AIp1W3IDaOVwDDWLMDMQYIaneT",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid plan (all pre\u2010 and post\u2010conditions are satisfied at each step):\n\n1. Unequele(yellow, blue)  \n2. Pareave(yellow)  \n3. Unequele(blue, orange)  \n4. Equele(blue, yellow)  \n5. Unequele(orange, red)  \n6. Equele(orange, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320886,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1183,
+                    "prompt_tokens": 478,
+                    "total_tokens": 1661,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1088,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.492500066757202,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid plan (all pre\u2010 and post\u2010conditions are satisfied at each step):\n\n1. Unequele(yellow, blue)  \n2. Pareave(yellow)  \n3. Unequele(blue, orange)  \n4. Equele(blue, yellow)  \n5. Unequele(orange, red)  \n6. Equele(orange, blue)"
+        },
+        {
+            "instance_id": 12,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on the table, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b1 b4)\n(equele b1 b3)\n(nuatess b2)\n(equele b2 b1)\n(nuatess b4)\n(equele b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2AVU3tCGhWyQC0lkIdCc4YonGAf",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence of actions (your hand is empty at start and end):\n\n1. Unequele(red, yellow)  \n2. Equele(red, orange)  \n3. Nuatess(blue)  \n4. Equele(blue, red)  \n5. Nuatess(yellow)  \n6. Equele(yellow, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320899,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1051,
+                    "prompt_tokens": 497,
+                    "total_tokens": 1548,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 960,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.091281652450562,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence of actions (your hand is empty at start and end):\n\n1. Unequele(red, yellow)  \n2. Equele(red, orange)  \n3. Nuatess(blue)  \n4. Equele(blue, red)  \n5. Nuatess(yellow)  \n6. Equele(yellow, blue)"
+        },
+        {
+            "instance_id": 13,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b1 b2)\n(pareave b1)\n(nuatess b4)\n(equele b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Ai6jWGKEny5EInumowPv25Hn1W",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal 4\u2010step plan (hand empty initially, goal = blue on orange \u2227 yellow on blue):\n\n1. Unequele(red, from blue)  \n2. Pareave(red)  \n3. Nuatess(yellow)  \n4. Equele(yellow, on blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320912,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 784,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1265,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 8.48595404624939,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal 4\u2010step plan (hand empty initially, goal = blue on orange \u2227 yellow on blue):\n\n1. Unequele(red, from blue)  \n2. Pareave(red)  \n3. Nuatess(yellow)  \n4. Equele(yellow, on blue)"
+        },
+        {
+            "instance_id": 14,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b2)\n(pareave b4)\n(unequele b2 b1)\n(pareave b2)\n(unequele b1 b3)\n(pareave b1)\n(nuatess b3)\n(equele b3 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2AqzUQG6HuS5nYX2DAJ5uLAju6d",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal sequence that achieves \u201corange on top of blue\u201d (all preconditions are met at each step):\n\n1. Unequele yellow from on top of blue  \n2. Pareave yellow  \n3. Unequele blue from on top of red  \n4. Pareave blue  \n5. Unequele red from on top of orange  \n6. Pareave red  \n7. Nuatess orange  \n8. Equele orange on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320920,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 877,
+                    "prompt_tokens": 465,
+                    "total_tokens": 1342,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 768,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.516982078552246,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal sequence that achieves \u201corange on top of blue\u201d (all preconditions are met at each step):\n\n1. Unequele yellow from on top of blue  \n2. Pareave yellow  \n3. Unequele blue from on top of red  \n4. Pareave blue  \n5. Unequele red from on top of orange  \n6. Pareave red  \n7. Nuatess orange  \n8. Equele orange on top of blue"
+        },
+        {
+            "instance_id": 15,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the red facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b3)\n(pareave b4)\n(unequele b3 b1)\n(pareave b3)\n(nuatess b2)\n(equele b2 b3)\n(nuatess b4)\n(equele b4 b2)\n(nuatess b1)\n(equele b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2B3BHAqqFAzAE1ljl055ME8QHnD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest 10\u2010step plan (in your primitive names) that achieves the desired stack orange\u2013blue\u2013yellow\u2013red:\n\n1. Unequele yellow orange  \n2. Pareave yellow  \n3. Unequele orange red  \n4. Pareave orange  \n5. Nuatess blue  \n6. Equele blue orange  \n7. Nuatess yellow  \n8. Equele yellow blue  \n9. Nuatess red  \n10. Equele red yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320933,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1905,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2399,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.835996627807617,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest 10\u2010step plan (in your primitive names) that achieves the desired stack orange\u2013blue\u2013yellow\u2013red:\n\n1. Unequele yellow orange  \n2. Pareave yellow  \n3. Unequele orange red  \n4. Pareave orange  \n5. Nuatess blue  \n6. Equele blue orange  \n7. Nuatess yellow  \n8. Equele yellow blue  \n9. Nuatess red  \n10. Equele red yellow"
+        },
+        {
+            "instance_id": 16,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the blue facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer and the orange facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b3 b4)\n(pareave b3)\n(unequele b4 b1)\n(pareave b4)\n(nuatess b3)\n(equele b3 b4)\n(unequele b1 b2)\n(pareave b1)\n(nuatess b2)\n(equele b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2BLgvN2EdXW48ss5A53zIbQ2yyp",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal plan (using your action names and arguments \u201cfacizer\u201d/\u201cfrom\u201d or \u201con\u201d):\n\n1. unequele(orange, yellow)  \n2. pareave(orange)  \n3. unequele(yellow, red)  \n4. pareave(yellow)  \n5. unequele(red, blue)  \n6. pareave(red)  \n7. nuatess(blue)  \n8. equele(blue, red)  \n9. nuatess(orange)  \n10. equele(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320951,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1796,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2274,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.45452070236206,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal plan (using your action names and arguments \u201cfacizer\u201d/\u201cfrom\u201d or \u201con\u201d):\n\n1. unequele(orange, yellow)  \n2. pareave(orange)  \n3. unequele(yellow, red)  \n4. pareave(yellow)  \n5. unequele(red, blue)  \n6. pareave(red)  \n7. nuatess(blue)  \n8. equele(blue, red)  \n9. nuatess(orange)  \n10. equele(orange, yellow)"
+        },
+        {
+            "instance_id": 17,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer, the orange facizer is on top of the red facizer and the yellow facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b3 b2)\n(equele b3 b1)\n(unequele b2 b4)\n(pareave b2)\n(nuatess b4)\n(equele b4 b3)\n(nuatess b2)\n(equele b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Be1p3Nst6ZnvwVJaEv94g0JKj8",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal eight\u2010step solution (all preconditions are met in turn):\n\n1. Unequele orange from blue  \n2. Equele orange on red  \n3. Unequele blue from yellow  \n4. Pareave blue  \n5. Nuatess yellow  \n6. Equele yellow on orange  \n7. Nuatess blue  \n8. Equele blue on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320970,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1310,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1804,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1216,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.365904092788696,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal eight\u2010step solution (all preconditions are met in turn):\n\n1. Unequele orange from blue  \n2. Equele orange on red  \n3. Unequele blue from yellow  \n4. Pareave blue  \n5. Nuatess yellow  \n6. Equele yellow on orange  \n7. Nuatess blue  \n8. Equele blue on yellow"
+        },
+        {
+            "instance_id": 18,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b3 b2)\n(pareave b3)\n(nuatess b1)\n(equele b1 b3)\n(nuatess b2)\n(equele b2 b1)\n(nuatess b4)\n(equele b4 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2BrNPNS9XT7flLoiu0tKZ8gNw7V",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid sequence (hand always ends up empty when required and all pre\u2010conditions are met):\n\n1. unequele orange from blue  \n2. pareave orange  \n3. nuatess red  \n4. equele red on top of orange  \n5. nuatess blue  \n6. equele blue on top of red  \n7. nuatess yellow  \n8. equele yellow on top of blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320983,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1128,
+                    "prompt_tokens": 497,
+                    "total_tokens": 1625,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.93083119392395,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid sequence (hand always ends up empty when required and all pre\u2010conditions are met):\n\n1. unequele orange from blue  \n2. pareave orange  \n3. nuatess red  \n4. equele red on top of orange  \n5. nuatess blue  \n6. equele blue on top of red  \n7. nuatess yellow  \n8. equele yellow on top of blue"
+        },
+        {
+            "instance_id": 19,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer, the red facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer and the yellow facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b4)\n(pareave b2)\n(unequele b4 b1)\n(equele b4 b3)\n(nuatess b2)\n(equele b2 b4)\n(nuatess b1)\n(equele b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2C1zA2trDlcrbwbHfAhdx1APFZE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 8\u2010step plan (using your action names in parentheses as (block[, support])):\n\n1. Unequele(blue, yellow)  \n2. Pareave(blue)  \n3. Unequele(yellow, red)  \n4. Equele(yellow, orange)  \n5. Nuatess(blue)  \n6. Equele(blue, yellow)  \n7. Nuatess(red)  \n8. Equele(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760320993,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1458,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1952,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.285947799682617,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 8\u2010step plan (using your action names in parentheses as (block[, support])):\n\n1. Unequele(blue, yellow)  \n2. Pareave(blue)  \n3. Unequele(yellow, red)  \n4. Equele(yellow, orange)  \n5. Nuatess(blue)  \n6. Equele(blue, yellow)  \n7. Nuatess(red)  \n8. Equele(red, blue)"
+        },
+        {
+            "instance_id": 20,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the red facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b3)\n(pareave b2)\n(unequele b3 b1)\n(pareave b3)\n(nuatess b4)\n(equele b4 b1)\n(nuatess b2)\n(equele b2 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2CGd7mh21uyuKja8IqNgz32CxM1",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal 8\u2010step solution (using your action names & the facizer initials B=blue, O=orange, R=red, Y=yellow):\n\n1. Unequele B from on top of O  \n2. Pareave B  \n3. Unequele O from on top of R  \n4. Pareave O  \n5. Nuatess Y  \n6. Equele Y on top of R  \n7. Nuatess B  \n8. Equele B on top of Y",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321008,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 761,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1242,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 640,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 7.895852088928223,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal 8\u2010step solution (using your action names & the facizer initials B=blue, O=orange, R=red, Y=yellow):\n\n1. Unequele B from on top of O  \n2. Pareave B  \n3. Unequele O from on top of R  \n4. Pareave O  \n5. Nuatess Y  \n6. Equele Y on top of R  \n7. Nuatess B  \n8. Equele B on top of Y"
+        },
+        {
+            "instance_id": 21,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer, the blue facizer is on top of the red facizer and the orange facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b3)\n(pareave b2)\n(unequele b1 b4)\n(equele b1 b2)\n(nuatess b3)\n(equele b3 b4)\n(unequele b1 b2)\n(equele b1 b3)\n(nuatess b2)\n(equele b2 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2COzAaLKsrepcpuh6lPoMOicdYy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (all preconditions met at each step):\n\n1. Unequele blue from orange  \n2. Pareave blue  \n3. Unequele red from yellow  \n4. Pareave red  \n5. Nuatess orange  \n6. Equele orange on yellow  \n7. Nuatess red  \n8. Equele red on orange  \n9. Nuatess blue  \n10. Equele blue on red",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321016,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1516,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2010,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 13.935884714126587,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (all preconditions met at each step):\n\n1. Unequele blue from orange  \n2. Pareave blue  \n3. Unequele red from yellow  \n4. Pareave red  \n5. Nuatess orange  \n6. Equele orange on yellow  \n7. Nuatess red  \n8. Equele red on orange  \n9. Nuatess blue  \n10. Equele blue on red"
+        },
+        {
+            "instance_id": 22,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the red facizer, the red facizer is on the table, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b3 b1)\n(pareave b3)\n(nuatess b2)\n(equele b2 b3)\n(nuatess b1)\n(equele b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2CcHTqsrVIk1xCsVwRJrv1ocBE4",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one shortest 6\u2010step plan (using your verbs):  \n1. unequele orange from red  \n2. pareave orange  \n3. nuatess blue  \n4. equele blue on orange  \n5. nuatess red  \n6. equele red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321030,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1100,
+                    "prompt_tokens": 484,
+                    "total_tokens": 1584,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.61405897140503,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one shortest 6\u2010step plan (using your verbs):  \n1. unequele orange from red  \n2. pareave orange  \n3. nuatess blue  \n4. equele blue on orange  \n5. nuatess red  \n6. equele red on blue"
+        },
+        {
+            "instance_id": 23,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b3)\n(pareave b4)\n(unequele b3 b2)\n(pareave b3)\n(nuatess b1)\n(equele b1 b2)\n(nuatess b4)\n(equele b4 b1)\n(nuatess b3)\n(equele b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Clu1IPWXpXtMr6GpYUOuzssthy",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal 10\u2010step solution (using exactly the verbs you gave):\n\n1. Unequele(yellow, orange)  \n2. Pareave(yellow)  \n3. Unequele(orange, blue)  \n4. Pareave(orange)  \n5. Nuatess(red)  \n6. Equele(red, blue)  \n7. Nuatess(yellow)  \n8. Equele(yellow, red)  \n9. Nuatess(orange)  \n10. Equele(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321039,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1474,
+                    "prompt_tokens": 494,
+                    "total_tokens": 1968,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1344,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.628815650939941,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal 10\u2010step solution (using exactly the verbs you gave):\n\n1. Unequele(yellow, orange)  \n2. Pareave(yellow)  \n3. Unequele(orange, blue)  \n4. Pareave(orange)  \n5. Nuatess(red)  \n6. Equele(red, blue)  \n7. Nuatess(yellow)  \n8. Equele(yellow, red)  \n9. Nuatess(orange)  \n10. Equele(orange, yellow)"
+        },
+        {
+            "instance_id": 24,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the orange facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b1 b2)\n(pareave b1)\n(unequele b2 b3)\n(pareave b2)\n(nuatess b4)\n(equele b4 b2)\n(nuatess b3)\n(equele b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2D1hmxSHHXQ0fS8aQyb4SCEBwaR",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal 8\u2010step solution (I use the given action names; \u201cX on Y\u201d in unequele/equele means \u201cremove X from on top of Y\u201d or \u201cput X on top of Y\u201d):\n\n1. unequele red from on top of blue  \n2. pareave red  \n3. unequele blue from on top of orange  \n4. pareave blue  \n5. nuatess yellow  \n6. equele yellow on top of blue  \n7. nuatess orange  \n8. equele orange on top of yellow  \n\nAfter step 8 you have orange on yellow on blue, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321055,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1428,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1909,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1280,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.5851149559021,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal 8\u2010step solution (I use the given action names; \u201cX on Y\u201d in unequele/equele means \u201cremove X from on top of Y\u201d or \u201cput X on top of Y\u201d):\n\n1. unequele red from on top of blue  \n2. pareave red  \n3. unequele blue from on top of orange  \n4. pareave blue  \n5. nuatess yellow  \n6. equele yellow on top of blue  \n7. nuatess orange  \n8. equele orange on top of yellow  \n\nAfter step 8 you have orange on yellow on blue, as required."
+        },
+        {
+            "instance_id": 25,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on the table, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b1 b3)\n(pareave b1)\n(nuatess b2)\n(equele b2 b3)\n(nuatess b4)\n(equele b4 b2)\n(nuatess b1)\n(equele b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DHjblL3nuyv4RiNnSwn9MnYifa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal sequence (all pre\u2010 and post\u2010conditions hold at each step):\n\n1. Unequele red from on top of orange  \n2. Pareave red  \n3. Nuatess blue  \n4. Equele blue on top of orange  \n5. Nuatess yellow  \n6. Equele yellow on top of blue  \n7. Nuatess red  \n8. Equele red on top of yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321071,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1767,
+                    "prompt_tokens": 497,
+                    "total_tokens": 2264,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.309322357177734,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal sequence (all pre\u2010 and post\u2010conditions hold at each step):\n\n1. Unequele red from on top of orange  \n2. Pareave red  \n3. Nuatess blue  \n4. Equele blue on top of orange  \n5. Nuatess yellow  \n6. Equele yellow on top of blue  \n7. Nuatess red  \n8. Equele red on top of yellow"
+        },
+        {
+            "instance_id": 26,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the red facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b1)\n(equele b2 b3)\n(unequele b1 b4)\n(pareave b1)\n(unequele b2 b3)\n(equele b2 b4)\n(nuatess b1)\n(equele b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DWQSQSXJmJ5OmUAZxqT7xAOpnX",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a minimal 8\u2010step plan (all preconditions are satisfied at each step):\n\n1. Unequele blue from red  \n2. Pareave blue  \n3. Unequele red from yellow  \n4. Pareave red  \n5. Nuatess blue  \n6. Equele blue on yellow  \n7. Nuatess red  \n8. Equele red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321086,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1502,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1983,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.062446117401123,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a minimal 8\u2010step plan (all preconditions are satisfied at each step):\n\n1. Unequele blue from red  \n2. Pareave blue  \n3. Unequele red from yellow  \n4. Pareave red  \n5. Nuatess blue  \n6. Equele blue on yellow  \n7. Nuatess red  \n8. Equele red on blue"
+        },
+        {
+            "instance_id": 27,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the yellow facizer is on top of the red facizer, the red facizer is on the table, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b1)\n(equele b4 b3)\n(nuatess b1)\n(equele b1 b2)\n(unequele b4 b3)\n(equele b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2DkMFK1ZlyHctORxoeKBkg2VnYe",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a 6\u2010step plan (with your verb names) that achieves the goal:\n\n1. Unequele the yellow facizer from on top of the red facizer  \n2. Pareave the yellow facizer  \n3. Nuatess the red facizer  \n4. Equele the red facizer on top of the blue facizer  \n5. Nuatess the yellow facizer  \n6. Equele the yellow facizer on top of the red facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321100,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 818,
+                    "prompt_tokens": 484,
+                    "total_tokens": 1302,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 704,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 8.082180976867676,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a 6\u2010step plan (with your verb names) that achieves the goal:\n\n1. Unequele the yellow facizer from on top of the red facizer  \n2. Pareave the yellow facizer  \n3. Nuatess the red facizer  \n4. Equele the red facizer on top of the blue facizer  \n5. Nuatess the yellow facizer  \n6. Equele the yellow facizer on top of the red facizer"
+        },
+        {
+            "instance_id": 28,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b3 b4)\n(pareave b3)\n(unequele b4 b2)\n(pareave b4)\n(unequele b2 b1)\n(pareave b2)\n(nuatess b1)\n(equele b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Ds2wUmNc9bwX2EabCyZq0LpHZD",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one minimal 8\u2010step plan (all preconditions are met at each step and the only required final condition\u2014red on yellow\u2014is achieved):\n\n1. UNEQUELE orange from yellow  \n2. PAREAVE orange  \n3. UNEQUELE yellow from blue  \n4. PAREAVE yellow  \n5. UNEQUELE blue from red  \n6. PAREAVE blue  \n7. NUATESS red  \n8. EQUELE red on yellow",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321108,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1520,
+                    "prompt_tokens": 465,
+                    "total_tokens": 1985,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 14.838422298431396,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one minimal 8\u2010step plan (all preconditions are met at each step and the only required final condition\u2014red on yellow\u2014is achieved):\n\n1. UNEQUELE orange from yellow  \n2. PAREAVE orange  \n3. UNEQUELE yellow from blue  \n4. PAREAVE yellow  \n5. UNEQUELE blue from red  \n6. PAREAVE blue  \n7. NUATESS red  \n8. EQUELE red on yellow"
+        },
+        {
+            "instance_id": 29,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the orange facizer and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the yellow facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b3)\n(pareave b4)\n(unequele b3 b1)\n(pareave b3)\n(unequele b1 b2)\n(equele b1 b3)\n(nuatess b2)\n(equele b2 b4)\n(unequele b1 b3)\n(equele b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2E7mN2esoNXwmcXAvsZNgkbTGWM",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one correct 10-step plan (hand empty at start and end):\n\n1. unequele(yellow, orange)  \n2. pareave(yellow)  \n3. unequele(orange, red)  \n4. pareave(orange)  \n5. unequele(red, blue)  \n6. pareave(red)  \n7. nuatess(blue)  \n8. equele(blue, yellow)  \n9. nuatess(red)  \n10. equele(red, blue)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321123,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1723,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2201,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1600,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.667076587677002,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one correct 10-step plan (hand empty at start and end):\n\n1. unequele(yellow, orange)  \n2. pareave(yellow)  \n3. unequele(orange, red)  \n4. pareave(orange)  \n5. unequele(red, blue)  \n6. pareave(red)  \n7. nuatess(blue)  \n8. equele(blue, yellow)  \n9. nuatess(red)  \n10. equele(red, blue)"
+        },
+        {
+            "instance_id": 30,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the blue facizer is on top of the yellow facizer, the yellow facizer is on top of the red facizer and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b2 b4)\n(pareave b2)\n(unequele b4 b1)\n(pareave b4)\n(unequele b1 b3)\n(equele b1 b4)\n(nuatess b3)\n(equele b3 b2)\n(unequele b1 b4)\n(equele b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2EOnJ1kmpHmDD7n1XG4RXZ1bnzH",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 10\u2010step plan (using your action names; arguments are \u201cblock\u201d or \u201cblock,block\u201d in the order you gave):\n\n1. unequele(B, Y)  \n2. pareave(B)  \n3. unequele(Y, R)  \n4. pareave(Y)  \n5. unequele(R, O)  \n6. pareave(R)  \n7. nuatess(O)  \n8. equele(O, B)  \n9. nuatess(R)  \n10. equele(R, O)  \n\nAfter step 10 you have R on O and O on B, as required.",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321140,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1690,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2168,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.47195076942444,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 10\u2010step plan (using your action names; arguments are \u201cblock\u201d or \u201cblock,block\u201d in the order you gave):\n\n1. unequele(B, Y)  \n2. pareave(B)  \n3. unequele(Y, R)  \n4. pareave(Y)  \n5. unequele(R, O)  \n6. pareave(R)  \n7. nuatess(O)  \n8. equele(O, B)  \n9. nuatess(R)  \n10. equele(R, O)  \n\nAfter step 10 you have R on O and O on B, as required."
+        },
+        {
+            "instance_id": 31,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the orange facizer, the orange facizer is on top of the red facizer, the yellow facizer is on top of the blue facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the orange facizer and the orange facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b2)\n(pareave b4)\n(unequele b2 b3)\n(pareave b2)\n(unequele b3 b1)\n(equele b3 b2)\n(nuatess b1)\n(equele b1 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2EerVIB1Ck8qvJ6Icm2yggGvEOx",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one minimal 8\u2010step plan (using your action names):\n\n1. unequele(yellow, blue)  \n2. pareave(yellow)  \n3. unequele(blue, orange)  \n4. pareave(blue)  \n5. unequele(orange, red)  \n6. equele(orange, blue)  \n7. nuatess(red)  \n8. equele(red, orange)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321156,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1577,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2055,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1472,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 15.943565845489502,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one minimal 8\u2010step plan (using your action names):\n\n1. unequele(yellow, blue)  \n2. pareave(yellow)  \n3. unequele(blue, orange)  \n4. pareave(blue)  \n5. unequele(orange, red)  \n6. equele(orange, blue)  \n7. nuatess(red)  \n8. equele(red, orange)"
+        },
+        {
+            "instance_id": 32,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the orange facizer is on top of the red facizer, the blue facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the orange facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "",
+            "response_object": {
+                "id": "chatcmpl-CQ2EuEuE7vQX4BIMrknbFZ3gA9Q6d",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "The goal \u201corange on red\u201d already holds in the initial state, so no moves are needed. The (empty) plan is:   (no actions)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321172,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 242,
+                    "prompt_tokens": 468,
+                    "total_tokens": 710,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 192,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 3.6684391498565674,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "The goal \u201corange on red\u201d already holds in the initial state, so no moves are needed. The (empty) plan is:   (no actions)"
+        },
+        {
+            "instance_id": 33,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the yellow facizer is clear, the hand is empty, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer, the red facizer is on the table and the blue facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b3)\n(equele b4 b1)\n(unequele b3 b2)\n(pareave b3)\n(nuatess b2)\n(equele b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2EyP3c6Ks67J5vn7YfPCiKJmMuj",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s a minimal 6\u2010step plan (I write actions as action(block[,support])):\n\n1. unequele(yellow, orange)  \n2. equele(yellow, red)  \n3. unequele(orange, blue)  \n4. pareave(orange)  \n5. nuatess(blue)  \n6. equele(blue, orange)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321176,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1507,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1988,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 12.639342546463013,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s a minimal 6\u2010step plan (I write actions as action(block[,support])):\n\n1. unequele(yellow, orange)  \n2. equele(yellow, red)  \n3. unequele(orange, blue)  \n4. pareave(orange)  \n5. nuatess(blue)  \n6. equele(blue, orange)"
+        },
+        {
+            "instance_id": 34,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the blue facizer is clear, the yellow facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the yellow facizer is on top of the red facizer, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the blue facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b1)\n(pareave b4)\n(unequele b1 b3)\n(equele b1 b4)\n(nuatess b2)\n(equele b2 b3)\n(unequele b1 b4)\n(equele b1 b2)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2FA025S7YPrQ7wyyM8RwDs0l5Lj",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is a shortest valid plan (8 actions):\n\n1. Unequele yellow from red  \n2. Pareave yellow  \n3. Unequele red from orange  \n4. Pareave red  \n5. Nuatess blue  \n6. Equele blue on orange  \n7. Nuatess red  \n8. Equele red on blue",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321188,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1109,
+                    "prompt_tokens": 481,
+                    "total_tokens": 1590,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1024,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 11.713797092437744,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is a shortest valid plan (8 actions):\n\n1. Unequele yellow from red  \n2. Pareave yellow  \n3. Unequele red from orange  \n4. Pareave red  \n5. Nuatess blue  \n6. Equele blue on orange  \n7. Nuatess red  \n8. Equele red on blue"
+        },
+        {
+            "instance_id": 35,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the hand is empty, the red facizer is on top of the blue facizer, the blue facizer is on top of the yellow facizer, the orange facizer is on the table and the yellow facizer is on the table.\nMy goal is to have that the blue facizer is on top of the red facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the blue facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b1 b2)\n(pareave b1)\n(unequele b2 b4)\n(equele b2 b1)\n(nuatess b4)\n(equele b4 b2)\n(nuatess b3)\n(equele b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2FMAwcmM6bTaL8M81RXn4U644lW",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one shortest valid sequence (8 steps):  \n1. Unequele the red facizer from on top of the blue facizer  \n2. Pareave the red facizer  \n3. Unequele the blue facizer from on top of the yellow facizer  \n4. Equele the blue facizer on top of the red facizer  \n5. Nuatess the yellow facizer  \n6. Equele the yellow facizer on top of the blue facizer  \n7. Nuatess the orange facizer  \n8. Equele the orange facizer on top of the yellow facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321200,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1803,
+                    "prompt_tokens": 494,
+                    "total_tokens": 2297,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.262910842895508,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one shortest valid sequence (8 steps):  \n1. Unequele the red facizer from on top of the blue facizer  \n2. Pareave the red facizer  \n3. Unequele the blue facizer from on top of the yellow facizer  \n4. Equele the blue facizer on top of the red facizer  \n5. Nuatess the yellow facizer  \n6. Equele the yellow facizer on top of the blue facizer  \n7. Nuatess the orange facizer  \n8. Equele the orange facizer on top of the yellow facizer"
+        },
+        {
+            "instance_id": 36,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the hand is empty, the red facizer is on top of the orange facizer, the orange facizer is on top of the yellow facizer, the yellow facizer is on top of the blue facizer and the blue facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer, the orange facizer is on top of the yellow facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b1 b3)\n(pareave b1)\n(unequele b3 b4)\n(pareave b3)\n(unequele b4 b2)\n(equele b4 b3)\n(nuatess b1)\n(equele b1 b2)\n(unequele b4 b3)\n(equele b4 b1)\n(nuatess b3)\n(equele b3 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2FcA3w5bUAs4kZqfX1kjNtGINWw",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one shortest 12\u2010step solution (using your action names):\n\n1. unequele(red, orange)  \n2. pareave(red)  \n3. unequele(orange, yellow)  \n4. pareave(orange)  \n5. unequele(yellow, blue)  \n6. pareave(yellow)  \n7. nuatess(red)  \n8. equele(red, blue)  \n9. nuatess(yellow)  \n10. equele(yellow, red)  \n11. nuatess(orange)  \n12. equele(orange, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321216,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1931,
+                    "prompt_tokens": 491,
+                    "total_tokens": 2422,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1792,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.95591425895691,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one shortest 12\u2010step solution (using your action names):\n\n1. unequele(red, orange)  \n2. pareave(red)  \n3. unequele(orange, yellow)  \n4. pareave(orange)  \n5. unequele(yellow, blue)  \n6. pareave(yellow)  \n7. nuatess(red)  \n8. equele(red, blue)  \n9. nuatess(yellow)  \n10. equele(yellow, red)  \n11. nuatess(orange)  \n12. equele(orange, yellow)"
+        },
+        {
+            "instance_id": 37,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the yellow facizer is clear, the hand is empty, the blue facizer is on top of the red facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the orange facizer and the red facizer is on the table.\nMy goal is to have that the red facizer is on top of the yellow facizer and the blue facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b3)\n(pareave b4)\n(unequele b3 b2)\n(pareave b3)\n(unequele b2 b1)\n(equele b2 b3)\n(nuatess b1)\n(equele b1 b4)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2Ftw1gqHi5reHJXwld3VzBWnxcE",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here\u2019s one correct 8\u2010step plan (hand starts empty, all preconditions are met at each step):\n\n1. Unequele(yellow, orange)  \n2. Pareave(yellow)  \n3. Unequele(orange, blue)  \n4. Pareave(orange)  \n5. Unequele(blue, red)  \n6. Equele(blue, orange)  \n7. Nuatess(red)  \n8. Equele(red, yellow)",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321233,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1521,
+                    "prompt_tokens": 478,
+                    "total_tokens": 1999,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1408,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 16.08184242248535,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here\u2019s one correct 8\u2010step plan (hand starts empty, all preconditions are met at each step):\n\n1. Unequele(yellow, orange)  \n2. Pareave(yellow)  \n3. Unequele(orange, blue)  \n4. Pareave(orange)  \n5. Unequele(blue, red)  \n6. Equele(blue, orange)  \n7. Nuatess(red)  \n8. Equele(red, yellow)"
+        },
+        {
+            "instance_id": 38,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the orange facizer is clear, the hand is empty, the blue facizer is on top of the yellow facizer, the orange facizer is on top of the blue facizer, the yellow facizer is on top of the red facizer and the red facizer is on the table.\nMy goal is to have that the blue facizer is on top of the orange facizer and the orange facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b3 b2)\n(pareave b3)\n(unequele b2 b4)\n(pareave b2)\n(unequele b4 b1)\n(pareave b4)\n(nuatess b3)\n(equele b3 b1)\n(nuatess b2)\n(equele b2 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2G9pMlco4pjbonPYUmghkYR2sFl",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one correct 10\u2010step plan (using your action names exactly).  In the end you get red\u2013orange\u2013blue stacked, with yellow left on the table:\n\n1. Unequele orange from blue  \n2. Pareave orange  \n3. Unequele blue from yellow  \n4. Pareave blue  \n5. Unequele yellow from red  \n6. Pareave yellow  \n7. Nuatess orange  \n8. Equele orange on top of red  \n9. Nuatess blue  \n10. Equele blue on top of orange",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321249,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1793,
+                    "prompt_tokens": 478,
+                    "total_tokens": 2271,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1664,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 19.084592580795288,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one correct 10\u2010step plan (using your action names exactly).  In the end you get red\u2013orange\u2013blue stacked, with yellow left on the table:\n\n1. Unequele orange from blue  \n2. Pareave orange  \n3. Unequele blue from yellow  \n4. Pareave blue  \n5. Unequele yellow from red  \n6. Pareave yellow  \n7. Nuatess orange  \n8. Equele orange on top of red  \n9. Nuatess blue  \n10. Equele blue on top of orange"
+        },
+        {
+            "instance_id": 39,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the orange facizer is clear, the yellow facizer is clear, the hand is empty, the yellow facizer is on top of the blue facizer, the red facizer is on the table, the blue facizer is on the table and the orange facizer is on the table.\nMy goal is to have that the red facizer is on top of the blue facizer and the yellow facizer is on top of the red facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b4 b2)\n(equele b4 b3)\n(nuatess b1)\n(equele b1 b2)\n(unequele b4 b3)\n(equele b4 b1)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2GSLRkYnYKyRMGWvKFCJa6lHeaa",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "1. unequele the yellow facizer from on top of the blue facizer  \n2. pareave the yellow facizer  \n3. nuatess the red facizer  \n4. equele the red facizer on top of the blue facizer  \n5. nuatess the yellow facizer  \n6. equele the yellow facizer on top of the red facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321268,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 735,
+                    "prompt_tokens": 484,
+                    "total_tokens": 1219,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 640,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 9.080530166625977,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "1. unequele the yellow facizer from on top of the blue facizer  \n2. pareave the yellow facizer  \n3. nuatess the red facizer  \n4. equele the red facizer on top of the blue facizer  \n5. nuatess the yellow facizer  \n6. equele the yellow facizer on top of the red facizer"
+        },
+        {
+            "instance_id": 40,
+            "query": "I am playing with a set of facizers where I need to arrange the facizers into equeles. Here are the actions I can do\n\nNuatess a facizer\nUnequele a facizer from on top of another facizer\nPareave a facizer\nEquele a facizer on top of another facizer\n\nI have the following restrictions on my actions:\nI can only nuatess or unequele one facizer at a time.\nI can only nuatess or unequele a facizer if my hand is empty.\nI can only nuatess a facizer if the facizer is on the table and the facizer is clear. A facizer is clear if the facizer has no other facizers on top of it and if the facizer is not nuatessed.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling was really on top of the other facizer.\nI can only unequele a facizer from on top of another facizer if the facizer I am unequeling is clear.\nOnce I nuatess or unequele a facizer, I am holding the facizer.\nI can only pareave a facizer that I am holding.\nI can only equele a facizer on top of another facizer if I am holding the facizer being equeled.\nI can only equele a facizer on top of another facizer if the facizer onto which I am equeling the facizer is clear.\nOnce I pareave or equele a facizer, my hand becomes empty.\nOnce you equele a facizer on top of a second facizer, the second facizer is no longer clear.\n\n[STATEMENT]\nAs initial conditions I have that, the red facizer is clear, the hand is empty, the red facizer is on top of the yellow facizer, the blue facizer is on top of the orange facizer, the yellow facizer is on top of the blue facizer and the orange facizer is on the table.\nMy goal is to have that the yellow facizer is on top of the orange facizer.\n\nWhat is the plan to achieve my goal? Just give the actions in the plan.",
+            "ground_truth_plan": "(unequele b1 b4)\n(pareave b1)\n(unequele b4 b2)\n(equele b4 b1)\n(unequele b2 b3)\n(pareave b2)\n(unequele b4 b1)\n(equele b4 b3)\n",
+            "response_object": {
+                "id": "chatcmpl-CQ2GcTyZ4JVUwGucAwfp9z4kBS56S",
+                "choices": [
+                    {
+                        "finish_reason": "stop",
+                        "index": 0,
+                        "logprobs": null,
+                        "message": {
+                            "content": "Here is one valid 8\u2010step plan (in your action\u2010name vocabulary) that achieves \u201cyellow on top of orange\u201d:\n\n1. Unequele the red facizer from on top of the yellow facizer  \n2. Pareave the red facizer  \n3. Unequele the yellow facizer from on top of the blue facizer  \n4. Pareave the yellow facizer  \n5. Unequele the blue facizer from on top of the orange facizer  \n6. Pareave the blue facizer  \n7. Nuatess the yellow facizer  \n8. Equele the yellow facizer on top of the orange facizer",
+                            "refusal": null,
+                            "role": "assistant",
+                            "annotations": [],
+                            "audio": null,
+                            "function_call": null,
+                            "tool_calls": null
+                        }
+                    }
+                ],
+                "created": 1760321278,
+                "model": "o4-mini-2025-04-16",
+                "object": "chat.completion",
+                "service_tier": "default",
+                "system_fingerprint": null,
+                "usage": {
+                    "completion_tokens": 1684,
+                    "prompt_tokens": 465,
+                    "total_tokens": 2149,
+                    "completion_tokens_details": {
+                        "accepted_prediction_tokens": 0,
+                        "audio_tokens": 0,
+                        "reasoning_tokens": 1536,
+                        "rejected_prediction_tokens": 0
+                    },
+                    "prompt_tokens_details": {
+                        "audio_tokens": 0,
+                        "cached_tokens": 0
+                    }
+                },
+                "time_taken": 17.96488308906555,
+                "costs": {
+                    "input": 0,
+                    "output": 0,
+                    "total": 0
+                }
+            },
+            "llm_raw_response": "Here is one valid 8\u2010step plan (in your action\u2010name vocabulary) that achieves \u201cyellow on top of orange\u201d:\n\n1. Unequele the red facizer from on top of the yellow facizer  \n2. Pareave the red facizer  \n3. Unequele the yellow facizer from on top of the blue facizer  \n4. Pareave the yellow facizer  \n5. Unequele the blue facizer from on top of the orange facizer  \n6. Pareave the blue facizer  \n7. Nuatess the yellow facizer  \n8. Equele the yellow facizer on top of the orange facizer"
+        }
+    ],
+    "engine": "o4-mini_chat"
+}

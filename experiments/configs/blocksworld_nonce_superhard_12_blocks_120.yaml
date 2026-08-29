@@ -1,0 +1,93 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_80/superhard/superhard/blocksworld_instances_12_blocks_120
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_80/superhard/superhard/blocksworld_instances_12_blocks_120
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl_80/superhard/generated_domain_superhard.pddl
+domain_name: blocksworld_nonce_superhard_12_blocks_120
+n_instances: 121
+start: 81
+end: 200
+
+instances_template: instance-{}.pddl
+
+domain_intro: |
+   I am playing with a set of tegusts where I need to arrange the tegusts into chrits. Here are the actions I can do
+
+   Astley a tegust
+   Unchrit a tegust from aneouswards another tegust
+   Limigrow a tegust
+   Chrit a tegust aneouswards another tegust
+
+   I have the following restrictions on my actions:
+   I can only astley or unchrit one tegust at a time.
+   I can only astley or unchrit a tegust if my michime is hardery.
+   I can only astley a tegust if the tegust is aneouswards the facizer and the tegust is expokerory. A tegust is expokerory if the tegust has no other tegusts aneouswards it and if the tegust is not astleyed.
+   I can only unchrit a tegust from aneouswards another tegust if the tegust I am unchritting was really aneouswards the other tegust.
+   I can only unchrit a tegust from aneouswards another tegust if the tegust I am unchritting is expokerory.
+   Once I astley or unchrit a tegust, I am balacing the tegust.
+   I can only limigrow a tegust that I am balacing.
+   I can only chrit a tegust aneouswards another tegust if I am balacing the tegust being chritted.
+   I can only chrit a tegust aneouswards another tegust if the tegust onto which I am chritting the tegust is expokerory.
+   Once I limigrow or chrit a tegust, my michime becomes hardery.
+   Once you chrit a tegust aneouswards a second tegust, the second tegust is no longer expokerory.
+
+domain_intro_state_tracking: |
+   I am playing with a set of tegusts where I need to arrange the tegusts into chrits. Here are the actions I can do
+
+   Astley a tegust
+   Unchrit a tegust from aneouswards another tegust
+   Limigrow a tegust
+   Chrit a tegust aneouswards another tegust
+
+   I have the following restrictions on my actions:
+   I can only astley or unchrit one tegust at a time.
+   I can only astley or unchrit a tegust if my michime is hardery.
+   I can only astley a tegust if the tegust is aneouswards the facizer and the tegust is expokerory. A tegust is expokerory if the tegust has no other tegusts aneouswards it and if the tegust is not astleyed.
+   I can only unchrit a tegust from aneouswards another tegust if the tegust I am unchritting was really aneouswards the other tegust.
+   I can only unchrit a tegust from aneouswards another tegust if the tegust I am unchritting is expokerory.
+   Once I astley or unchrit a tegust, I am balacing the tegust.
+   I can only limigrow a tegust that I am balacing.
+   I can only chrit a tegust aneouswards another tegust if I am balacing the tegust being chritted.
+   I can only chrit a tegust aneouswards another tegust if the tegust onto which I am chritting the tegust is expokerory.
+   Once I limigrow or chrit a tegust, my michime becomes hardery.
+   Once you chrit a tegust aneouswards a second tegust, the second tegust is no longer expokerory.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {astley: "astley the {}",
+   limigrow: "limigrow the {}",
+   chrit: "chrit the {} aneouswards the {}",
+   unchrit: "unchrit the {} from aneouswards the {}"}
+
+
+
+predicates:
+  {aneouswardsfacizer: "the {} is aneouswards the facizer",
+   expokerory: "the {} is expokerory",
+   michimehardery: "the michime is hardery",
+   balacing: "the michime is currently balacing {}",
+   "aneouswards": "the {} is aneouswards the {}"}
+
+predicate_mapping:
+   {
+   "aneouswardsfacizer": "aneouswards the facizer",
+   "expokerory": "expokerory",
+   "michimehardery": "michime is hardery",
+   "balacing": "balacing",
+   "aneouswards": "aneouswards"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "westoor tegust", "b2": "wilchip tegust", "b3": "corpastion tegust", "b4": "consvia tegust",
+   "b5": "insurge tegust", "b6": "serichee tegust", "b7": "boyhoon tegust", "b8": "pauplen tegust",
+   "b9": "bruthful tegust", "b10": "flawry tegust", "b11": "movelibey tegust", "b12": "dustrylind tegust" }
+encoded_objects_compact:
+  {"b1": "westoor", "b2": "wilchip", "b3": "corpastion", "b4": "consvia",
+   "b5": "insurge", "b6": "serichee", "b7": "boyhoon", "b8": "pauplen",
+   "b9": "bruthful", "b10": "flawry", "b11": "movelibey", "b12": "dustrylind" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

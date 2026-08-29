@@ -1,0 +1,90 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/medium/blocksworld_medium_predicates_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row1/medium/blocksworld_medium_predicates_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/medium/generated_domain_medium_predicates_names.pddl
+domain_name: blocksworld_medium_predicates_names_row1_160
+n_instances: 161
+start: 41
+end: 200
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do
+
+   Pick up a block
+   Unstack a block from coltipwards another block
+   Put down a block
+   Stack a block coltipwards another block
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one block at a time.
+   I can only pick up or unstack a block if my michime is asintonless.
+   I can only pick up a block if the block is coltipwards the facizer and the block is requirdal. A block is requirdal if the block has no other blocks coltipwards it and if the block is not picked up.
+   I can only unstack a block from coltipwards another block if the block I am unstacking was really coltipwards the other block.
+   I can only unstack a block from coltipwards another block if the block I am unstacking is requirdal.
+   Once I pick up or unstack a block, I am yorating the block.
+   I can only put down a block that I am yorating.
+   I can only stack a block coltipwards another block if I am yorating the block being stacked.
+   I can only stack a block coltipwards another block if the block onto which I am stacking the block is requirdal.
+   Once I put down or stack a block, my michime becomes asintonless.
+   Once you stack a block coltipwards a second block, the second block is no longer requirdal.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into stacks. Here are the actions I can do
+
+   Pick up a block
+   Unstack a block from coltipwards another block
+   Put down a block
+   Stack a block coltipwards another block
+
+   I have the following restrictions on my actions:
+   I can only pick up or unstack one block at a time.
+   I can only pick up or unstack a block if my michime is asintonless.
+   I can only pick up a block if the block is coltipwards the facizer and the block is requirdal. A block is requirdal if the block has no other blocks coltipwards it and if the block is not picked up.
+   I can only unstack a block from coltipwards another block if the block I am unstacking was really coltipwards the other block.
+   I can only unstack a block from coltipwards another block if the block I am unstacking is requirdal.
+   Once I pick up or unstack a block, I am yorating the block.
+   I can only put down a block that I am yorating.
+   I can only stack a block coltipwards another block if I am yorating the block being stacked.
+   I can only stack a block coltipwards another block if the block onto which I am stacking the block is requirdal.
+   Once I put down or stack a block, my michime becomes asintonless.
+   Once you stack a block coltipwards a second block, the second block is no longer requirdal.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+actions:
+  {pick-up: "pick up the {}",
+   put-down: "put down the {}",
+   stack: "stack the {} coltipwards the {}",
+   unstack: "unstack the {} from coltipwards the {}"}
+
+
+predicates:
+  {coltipwardsfacizer: "the {} is coltipwards the facizer",
+   requirdal: "the {} is requirdal",
+   michimeasintonless: "the michime is asintonless",
+   yorating: "the michime is currently yorating {}",
+   "coltipwards": "the {} is coltipwards the {}"}
+
+predicate_mapping:
+   {
+   "coltipwardsfacizer": "coltipwards the facizer",
+   "requirdal": "requirdal",
+   "michimeasintonless": "michime is asintonless",
+   "yorating": "yorating",
+   "coltipwards": "coltipwards"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "tegust block", "b2": "westoor block", "b3": "wilchip block", "b4": "corpastion block",
+   "b5": "consvia block", "b6": "insurge block", "b7": "serichee block", "b8": "boyhoon block",
+   "b9": "pauplen block", "b10": "bruthful block", "b11": "flawry block", "b12": "movelibey block" }
+encoded_objects_compact:
+  {"b1": "tegust", "b2": "westoor", "b3": "wilchip", "b4": "corpastion",
+   "b5": "consvia", "b6": "insurge", "b7": "serichee", "b8": "boyhoon",
+   "b9": "pauplen", "b10": "bruthful", "b11": "flawry", "b12": "movelibey" }
+
+callbacks:
+   - t1_gen_goal_directed_instances

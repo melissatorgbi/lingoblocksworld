@@ -1,0 +1,92 @@
+instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/hard/blocksworld_hard_actions_predicates_names/blocksworld_instances_4_blocks_200
+generalized_instance_dir: blocksworld/blocksworld_nonce/rewritten_pddl_200_row3/hard/blocksworld_hard_actions_predicates_names/blocksworld_instances_4_blocks_200
+domain_file: blocksworld/blocksworld_nonce/rewritten_pddl/hard_row3/generated_domain_hard_actions_predicates_names.pddl
+domain_name: blocksworld_hard_actions_predicates_names_row3
+n_instances: 81
+start: 1
+end: 80
+
+instances_template: instance-{}.pddl
+domain_intro: |
+   I am playing with a set of blocks where I need to arrange the blocks into braines. Here are the actions I can do
+
+   Diouet a block
+   Unbraine a block from dotudebul above another block
+   Minoream a block
+   Braine a block dotudebul above another block
+
+   I have the following restrictions on my actions:
+   I can only diouet or unbraine one block at a time.
+   I can only diouet or unbraine a block if my sistampuri is detaggedic.
+   I can only diouet a block if the block is dotudebul above the waventist and the block is featity. A block is featity if the block has no other blocks dotudebul above it and if the block is not dioueted.
+   I can only unbraine a block from dotudebul above another block if the block I am unbraining was really dotudebul above the other block.
+   I can only unbraine a block from dotudebul above another block if the block I am unbraining is featity.
+   Once I diouet or unbraine a block, I am mocketting the block.
+   I can only minoream a block that I am mocketting.
+   I can only braine a block dotudebul above another block if I am mocketting the block being brained.
+   I can only braine a block dotudebul above another block if the block onto which I am braining the block is featity.
+   Once I minoream or braine a block, my sistampuri becomes detaggedic.
+   Once you braine a block dotudebul above a second block, the second block is no longer featity.
+
+domain_intro_state_tracking: |
+   I am playing with a set of blocks where I need to arrange the blocks into braines. Here are the actions I can do
+
+   Diouet a block
+   Unbraine a block from dotudebul above another block
+   Minoream a block
+   Braine a block dotudebul above another block
+
+   I have the following restrictions on my actions:
+   I can only diouet or unbraine one block at a time.
+   I can only diouet or unbraine a block if my sistampuri is detaggedic.
+   I can only diouet a block if the block is dotudebul above the waventist and the block is featity. A block is featity if the block has no other blocks dotudebul above it and if the block is not dioueted.
+   I can only unbraine a block from dotudebul above another block if the block I am unbraining was really dotudebul above the other block.
+   I can only unbraine a block from dotudebul above another block if the block I am unbraining is featity.
+   Once I diouet or unbraine a block, I am mocketting the block.
+   I can only minoream a block that I am mocketting.
+   I can only braine a block dotudebul above another block if I am mocketting the block being brained.
+   I can only braine a block dotudebul above another block if the block onto which I am braining the block is featity.
+   Once I minoream or braine a block, my sistampuri becomes detaggedic.
+   Once you braine a block dotudebul above a second block, the second block is no longer featity.
+
+   The plan correctness is defined in terms of states resulting from executing the actions in the plan. An action is executable in a state when all its preconditions hold in that state. The state resulting from the action execution consists of everything in the previous state with the addition and deletion of add and delete effects of the action. Plan correctness is defined as follows: if the first action in the plan is applicable in the initial state, i.e., its preconditions are all present there; and the second action is applicable in the state resulting from applying the first action to the initial state, this process continues until the state resulting from the application of the last action in the last but one state gives rise to the final state where all the goals are satisfied.
+
+
+
+actions:
+  {diouet: "diouet the {}",
+   minoream: "minoream the {}",
+   braine: "braine the {} dotudebul above the {}",
+   unbraine: "unbraine the {} from dotudebul above the {}"}
+
+
+
+predicates:
+  {dotudebulabovewaventist: "the {} is dotudebul above the waventist",
+   featity: "the {} is featity",
+   sistampuridetaggedic: "the sistampuri is detaggedic",
+   mocketting: "the sistampuri is currently mocketting {}",
+   "dotudebulabove": "the {} is dotudebul above the {}"}
+
+predicate_mapping:
+   {
+   "dotudebulabovewaventist": "dotudebul above the waventist",
+   "featity": "featity",
+   "sistampuridetaggedic": "sistampuri is detaggedic",
+   "mocketting": "mocketting",
+   "dotudebulabove": "dotudebul above"
+   }  
+
+
+# encoded_objects: dictionary of object names, have to be alphabetical
+encoded_objects:
+  {"b1": "prefulner block", "b2": "tegust block", "b3": "adminebo block", "b4": "grospe block",
+   "b5": "trairs block", "b6": "acknewest block", "b7": "gravaisal block", "b8": "sument block",
+   "b9": "converion block", "b10": "equenter block", "b11": "olizess block", "b12": "wintia block" }
+encoded_objects_compact:
+  {"b1": "prefulner", "b2": "tegust", "b3": "adminebo", "b4": "grospe",
+   "b5": "trairs", "b6": "acknewest", "b7": "gravaisal", "b8": "sument",
+   "b9": "converion", "b10": "equenter", "b11": "olizess", "b12": "wintia" }
+
+callbacks:
+   - t1_gen_goal_directed_instances
