@@ -19,7 +19,7 @@ This repository is organised into two sections:
 
 ## Acknowledgements
 
-The evaluation framework and baseline experimental setups in `experiments/` build on the work of [Valmeekam et al. (2023b)](https://arxiv.org/abs/2305.15771) and their [LLMs-Planning repository](https://github.com/karthikv792/LLMs-Planning/tree/main/llm_planning_analysis).
+The evaluation framework and baseline experimental setups in `experiments/` builds on the work of [Valmeekam et al. (2023b)](https://arxiv.org/abs/2305.15771) and their [LLMs-Planning repository](https://github.com/karthikv792/LLMs-Planning/tree/main/llm_planning_analysis).
 
 ### References
 Valmeekam, K., Marquez, M., Sreedharan, S., & Kambhampati, S. (2023). On the planning abilities of large language models—a critical investigation. *arXiv preprint arXiv:2305.15771*.
