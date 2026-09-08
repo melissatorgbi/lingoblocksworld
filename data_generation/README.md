@@ -15,8 +15,10 @@ This directory contains the pipeline and assets used to procedurally generate th
   * Names (Adjectives/Colors)
     
 **`grammar.py`**: Ensures that when nonce words are injected into the prompts, they obey basic English inflectional rules (e.g., pluralisation, progressive tense marking like *zorp* -> *zorping*, and correct capitalisation).
-* **`fill_prompts.ipynb`**: Use this to execute the substitution pipeline. It maps the items in `word_lists/` to the placeholders in `prompts/` according to the specified difficulty setting (Easy, Medium, Hard, Super-hard).
-* **`triple_fill.ipynb`**: Handles multi-category linguistic substitutions and generates the corresponding paired PDDL files.
+
+**`fill_prompts.ipynb`**: Use this to execute the substitution pipeline. It maps the items in `word_lists/` to the placeholders in `prompts/` according to the specified difficulty setting (Easy, Medium, Hard, Super-hard).
+
+**`triple_fill.ipynb`**: Handles multi-category linguistic substitutions and generates the corresponding paired PDDL files.
 
 ## Usage
 
