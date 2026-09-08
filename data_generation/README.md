@@ -24,5 +24,3 @@ This directory contains the pipeline and assets used to procedurally generate th
 
 To generate a new batch of data or reproduce the original dataset, run the provided Jupyter notebooks. 
 
-```bash
-jupyter notebook fill_prompts.ipynb
